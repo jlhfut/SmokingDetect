@@ -1,0 +1,315 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using wayeal.os.exhaust.ViewModel;
+using Wayee.Services;
+using Newtonsoft.Json.Linq;
+using System.Threading;
+using wayeal.os.exhaust.Services;
+using System.Runtime.InteropServices;
+using DevExpress.Utils.MVVM;
+using System.IO;
+using DevExpress.XtraBars.Ribbon;
+using DevExpress.Mvvm;
+
+namespace wayeal.os.exhaust.UserControls
+{
+    public partial class ucMonitoringVedio : ucBase
+    {
+        string CameraName = "LicenseRecog";
+        string TIPS_QueryConfigParam = "正在查询配置参数...";
+        string TIPS_DeviceListIsNull= "加载失败，设备列表为空";
+        string TIPS_CommInfoIsNull = "加载失败，未配置通讯端口";
+        string TIPS_Error = "加载失败";
+        string TIPS_InitSDKErr = "初始化SDK失败";
+        string TIPS_LoginErr = "登录失败，错误代码：";
+        string TIPS_OpenRealDataErr = "打开预览失败, 错误代码：";
+
+        private GalleryItemGroup _GalleryItemGroup = new GalleryItemGroup();
+        private GalleryItem _nearPicture = new GalleryItem(null, "near", "");
+
+
+        string UserName, PassWord, IpAddress;
+        int Port, userID, preHandle;
+        public ucMonitoringVedio()
+        {
+            InitializeComponent();
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+        #region Preview
+
+        protected override void InitializeBindings()
+        {
+            ResultDataViewModel.VM.ModelChanged += (sender, arg) =>
+            {
+                if (arg.ModelName == "CloseAPP") StopRealView();
+            };
+            base.InitializeBindings();
+        }
+
+        private void ucMonitoringVedio_Load(object sender, EventArgs e)
+        {
+            Thread LoadCameraThread = new Thread(AsyncLoading);
+            LoadCameraThread.Start();
+        }
+        private void AsyncLoading()
+        {
+            Action loadRealDataDele = new Action(LoadRealData);
+            this.BeginInvoke(loadRealDataDele);
+        }
+        /// <summary>
+        /// 加载实时数据
+        /// 1、查询相机的ip，端口号，用户名和密码
+        /// 2、相机SDK初始化、登录
+        /// 3、开启预览
+        /// </summary>
+        private void LoadRealData()
+        {
+           
+         //   lcVedioTips.Text = TIPS_QueryConfigParam;
+            if (LoadCameraParam())
+            {
+                InitCameraSDK();
+            }
+        }
+
+        /// <summary>
+        /// 初始化相机SDK
+        /// </summary>
+        private void InitCameraSDK()
+        {
+            //初始化SDK
+            if (!CHCNetSDK.NET_DVR_Init())
+            {
+          //      lcVedioTips.Text = TIPS_InitSDKErr;
+            }
+            CHCNetSDK.NET_DVR_DEVICEINFO_V30 DeviceInfo = new CHCNetSDK.NET_DVR_DEVICEINFO_V30();
+
+            //登录设备 Login the device
+            userID = CHCNetSDK.NET_DVR_Login_V30(IpAddress, Port, UserName, PassWord, ref DeviceInfo);
+            if (userID < 0)
+            {
+                uint iLastErr = CHCNetSDK.NET_DVR_GetLastError();
+          //      lcVedioTips.Text = TIPS_LoginErr + iLastErr; //登录失败，输出错误号
+                return;
+            }
+            else
+            {
+         //       lcVedioTips.Visible = false;
+            }
+            //准备预览参数
+            CHCNetSDK.NET_DVR_PREVIEWINFO lpPreviewInfo = new CHCNetSDK.NET_DVR_PREVIEWINFO();
+            lpPreviewInfo.hPlayWnd = pbVedio.Handle;//预览窗口
+            lpPreviewInfo.lChannel = 1;//预览的设备通道
+            lpPreviewInfo.dwStreamType = 0;//码流类型：0-主码流，1-子码流，2-码流3，3-码流4，以此类推
+            lpPreviewInfo.dwLinkMode = 0;//连接方式：0- TCP方式，1- UDP方式，2- 多播方式，3- RTP方式，4-RTP/RTSP，5-RSTP/HTTP 
+            lpPreviewInfo.bBlocked = true; //0- 非阻塞取流，1- 阻塞取流
+            lpPreviewInfo.byProtoType = 0;
+            lpPreviewInfo.byPreviewMode = 0;
+           
+
+            IntPtr pUser = new IntPtr();//用户数据
+
+            //打开预览 Start live view 
+            preHandle = CHCNetSDK.NET_DVR_RealPlay_V40(userID, ref lpPreviewInfo, null/*RealData*/, pUser);
+            if (preHandle < 0)
+            {
+                uint iLastErr = CHCNetSDK.NET_DVR_GetLastError();
+            //    lcVedioTips.Text = TIPS_OpenRealDataErr + iLastErr; //预览失败，输出错误号
+                return;
+            }
+        }
+        
+        /// <summary>
+        /// 查询相机 ip，用户名，密码，端口号
+        /// </summary>
+        /// <returns></returns>
+        private bool LoadCameraParam()
+        {
+            List<object> lsDevice = ResultDataViewModel.VM.Devices;
+            if (lsDevice == null || lsDevice.Count < 1)
+            {
+            //    lcVedioTips.Text = TIPS_DeviceListIsNull;
+                return false;
+            }
+            for (int i = 0; i < lsDevice.Count; i++)
+            {
+                if (lsDevice[i] is DTDeviceInfo)
+                {
+                    try
+                    {
+                        DTDeviceInfo dt = lsDevice[i] as DTDeviceInfo;
+                        if (dt.Name.Value.ToString().Trim() == CameraName)
+                        {
+                            string param = dt.Param.Value.ToString();
+                            JObject dp = JsonNewtonsoft.FromJSON(param) as JObject;
+                            JToken jt;
+                            dp.TryGetValue("userName", out jt);
+                            UserName = jt.ToString();
+                            dp.TryGetValue("Password", out jt);
+                            PassWord = jt.ToString();
+                            string CommInfo = dt.Commuunication.Value.ToString();
+                            if (String.IsNullOrEmpty(CommInfo))
+                            {
+                        //        lcVedioTips.Text = TIPS_CommInfoIsNull;
+                                return false;
+                            }
+                            ResultDataViewModel.VM.Execute(new List<object> {
+                                ResultDataViewModel.ExecuteCommand.ec_QueryCommunicationInfo,
+                                CommInfo
+                            });
+                            if (ResultDataViewModel.VM.QueryComSingleEntities == null || ResultDataViewModel.VM.QueryComSingleEntities.Count < 1)
+                            {
+                      //          lcVedioTips.Text = TIPS_CommInfoIsNull;
+                                return false;
+                            }
+                            DTCommunicationInfo dtCom = ResultDataViewModel.VM.QueryComSingleEntities[0] as DTCommunicationInfo;
+                            IpAddress = dtCom.IP.Value.ToString().Trim();
+                            Port = Convert.ToInt32(dtCom.PortNumberTCP.Value.ToString());
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ErrorLog.Error(ex.ToString());
+                  //      lcVedioTips.Text = TIPS_Error;
+                        return false;
+                    }
+                }
+                
+            }
+            return true;
+        }
+        #endregion
+        //protected override void InitializeBindings()
+        //{
+        //    //_GalleryItemGroup.Items.Add(_nearPicture);
+        //    //gcPicture.Gallery.Groups.Add(_GalleryItemGroup);
+
+        //    mvvmContext1.SetViewModel(typeof(RealtimeMonitorViewModel), RealtimeMonitorViewModel.VM);
+        //    fluent = mvvmContext1.OfType<RealtimeMonitorViewModel>();
+        //    AddBinding(fluent.SetBinding(this, t => t.NearPicturePath, x => x.Entities, m =>
+        //    {
+        //        try
+        //        {
+        //            if (m == null || m.Count == 0) return null;
+        //            return ((m[0] as JObject)["PicNearPath"]) == null ? null : ((m[0] as JObject)["PicNearPath"]).ToString();
+        //        }
+        //        catch (Exception ex) { ErrorLog.Error(ex.ToString()); return null; }
+        //    }));
+        //    Messenger.Default.Register<string>(this, typeof(RealtimeMonitorViewModel).Name, action);
+
+        //    RealtimeMonitorViewModel.VM.ModelChanged += (sender, arg) => {
+        //        if (arg.ModelName == typeof(RealtimeMonitorViewModel.MonitoringResultModel).Name)
+        //        {
+        //            if (RealtimeMonitorViewModel.VM.Entities.Count == 0) return;
+        //            base.action();
+        //        }
+        //    };
+        //    base.InitializeBindings();
+        //}
+
+        //private string _NearPicturePath = "";
+        private MVVMContextFluentAPI<RealtimeMonitorViewModel> fluent;
+        //delegate void NearPicUpdataDele(string value);
+
+
+        ///// <summary>
+        ///// 车辆近景照片
+        ///// </summary>
+        //public string NearPicturePath
+        //{
+        //    get { return _NearPicturePath; }
+        //    set
+        //    {
+        //        _NearPicturePath = value;
+        //        if (File.Exists(value))
+        //        {
+        //            try
+        //            {
+        //                if (_nearPicture.Caption == value) return;
+        //                _nearPicture.Caption = value;
+        //                if (_nearPicture.ImageOptions.Image != null) _nearPicture.ImageOptions.Image.Dispose();
+        //                _nearPicture.ImageOptions.Image = Image.FromFile(value);
+        //            }
+        //            catch(Exception ex) { ErrorLog.Error(ex.ToString()); }
+        //        }
+        //        else
+        //        {
+        //            _nearPicture.Caption = "";
+        //            if (_nearPicture.ImageOptions.Image != null) _nearPicture.ImageOptions.Image.Dispose();
+        //            _nearPicture.ImageOptions.Image = null;
+        //        }
+        //    }
+        //}
+        ///// <summary>
+        ///// 车辆近景照片
+        ///// </summary>
+        //public string NearPicturePath
+        //{
+        //    get { return _NearPicturePath; }
+        //    set
+        //    {
+        //        lock (o)
+        //        {
+        //            //while (!this.IsHandleCreated)
+        //            //{
+        //            //    ;
+        //            //}
+        //            if (this.InvokeRequired)
+        //            {
+        //                _NearPicturePath = value;
+        //                NearPicUpdataDele dele = new NearPicUpdataDele(UpdataPicBox);
+        //                this.BeginInvoke(dele,value);
+        //            }
+        //        }
+        //    }
+        //}
+        //private void UpdataPicBox(string value)
+        //{
+        //    if (File.Exists(value))
+        //    {
+        //        try
+        //        {
+        //            if (this.pbLicensePicture.Tag.ToString() == value) return;
+        //            this.pbLicensePicture.Tag = value;
+        //            if (this.pbLicensePicture.Image != null) this.pbLicensePicture.Image.Dispose();
+        //            this.pbLicensePicture.Image =Utils.FileToBitmap(value);
+        //        }
+        //        catch(Exception ex)
+        //        {
+        //            ErrorLog.Error(ex.ToString());
+        //        }
+        //    }
+        //    else
+        //    {
+        //        this.pbLicensePicture.Tag = "";
+        //        if (this.pbLicensePicture.Image != null) this.pbLicensePicture.Image.Dispose();
+        //        ErrorLog.Error("该文件不存在："+value);
+        //    }
+        //}
+        public void StopRealView()
+        {
+            //停止预览
+            if (preHandle >= 0)
+            {
+                CHCNetSDK.NET_DVR_StopRealPlay(preHandle);
+                preHandle = -1;
+            }
+
+            //注销登录
+            if (userID >= 0)
+            {
+                CHCNetSDK.NET_DVR_Logout(userID);
+                userID = -1;
+            }
+
+            CHCNetSDK.NET_DVR_Cleanup();
+        }
+    }
+}

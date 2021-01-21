@@ -1,0 +1,686 @@
+﻿using DevExpress.Utils.MVVM;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraNavBar;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using wayeal.os.exhaust.ViewModel;
+using Microsoft.Office.Interop.Excel;
+using System.Reflection;
+using DevExpress.XtraSplashScreen;
+using wayeal.os.exhaust.Modules;
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using Application = System.Windows.Forms.Application;
+using NPOI.SS.Util;
+using System.Diagnostics;
+using wayeal.os.exhaust.UserControls;
+
+namespace wayeal.os.exhaust.Forms
+{
+    public partial class wfDataAnalysis : wfBase
+    {
+        int index = 0;
+        ModulesNavigator viewNavigator = null;
+        private MVVMContextFluentAPI<ResultDataViewModel> fluent;
+        private string _defaultFileName = "WYExhaust_PT_";
+        string[] _UVTitle = { "紫外背景光谱", "遥测光谱", "NO吸光度", "HC吸光度", "遥测吸光度" };
+        string[] _TDTitle = { "红外背景光谱", "CO谐波", "CO2谐波", "红外背景谐波", "遥测谐波" };
+        public wfDataAnalysis()
+        {
+            InitializeComponent();
+            //InitData();
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+        //[Conditional("VerticalDistribution")]
+        //private void InitData()
+        //{
+        //    pcData.Controls.Clear();
+        //    ucDataAnalysisData ucData = new ucDataAnalysisData();
+        //    pcData.Controls.Add(ucData);
+        //}
+
+        public wfDataAnalysis(int iIndex)
+        {
+            InitializeComponent();
+            index = iIndex;
+            viewNavigator = new ModulesNavigator(Program.frmMain.Ribbon, pcChart);
+            InitializeUI();
+            InitBarItemLinks();
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+        protected override void InitializeBindings()
+        {
+            try
+            {
+          //      RefreshChartInfo(index);
+                mvvmContext1.SetViewModel(typeof(ResultDataViewModel), ResultDataViewModel.VM);
+                fluent = mvvmContext1.OfType<ResultDataViewModel>();
+                #region AddBinding
+                AddBinding(fluent.SetBinding(lcNODCvalue, lc => lc.Text, x => x.ExhaustDetailData, m =>
+                {
+                    if (m == null) return "0";
+                    return m.OriginalNO.ToString("f2");
+                }));
+                AddBinding(fluent.SetBinding(lcHCDCvalue, lc => lc.Text, x => x.ExhaustDetailData, m =>
+                {
+                    if (m == null) return "0";
+                    return m.OriginalHC.ToString("f2");
+                }));
+                AddBinding(fluent.SetBinding(lcCODCvalue, lc => lc.Text, x => x.ExhaustDetailData, m =>
+                {
+                    if (m == null) return "0";
+                    return m.OriginalCO.ToString("f2");
+                }));
+                AddBinding(fluent.SetBinding(lcCO2DCvalue, lc => lc.Text, x => x.ExhaustDetailData, m =>
+                {
+                    if (m == null) return "0";
+                    return m.OriginalCO2.ToString("f2");
+                }));
+
+
+                AddBinding(fluent.SetBinding(lcT1Value, lc => lc.Text, x => x.ExhaustDetailData, m =>
+                {
+                    if (m == null) return "0";
+                    return m.T12.ToString();
+                }));
+                AddBinding(fluent.SetBinding(lcT2value, lc => lc.Text, x => x.ExhaustDetailData, m =>
+                {
+                    if (m == null) return "0";
+                    return m.T13.ToString();
+                }));
+                AddBinding(fluent.SetBinding(lcLightIntensityValue, lc => lc.Text, x => x.ExhaustDetailData, m =>
+                {
+                    if (m == null) return "0";
+                    return m.RealIntensity.ToString();
+                }));
+
+                AddBinding(fluent.SetBinding(lcCOValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return "0";
+                        object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                        if (o is JObject)
+                        {
+                            JObject jo = (o as JObject);
+                            string value = jo["CO"].ToString();
+                            if (!string.IsNullOrEmpty(value)) return Convert.ToDouble(value).ToString("f2");
+                        }
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcNOValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return "0";
+                        object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                        if (o is JObject)
+                        {
+                            JObject jo = (o as JObject);
+                            string value = jo["NO"].ToString();
+                            if (!string.IsNullOrEmpty(value)) return Convert.ToDouble(value).ToString("f2");
+                        }
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); }
+
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcHCValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return "0";
+                        object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                        if (o is JObject)
+                        {
+                            JObject jo = (o as JObject);
+                            string value = jo["HC"].ToString();
+                            if (!string.IsNullOrEmpty(value)) return Convert.ToDouble(value).ToString("f2");
+                        }
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); }
+
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcCO2Value, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return "0";
+                        object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                        if (o is JObject)
+                        {
+                            JObject jo = (o as JObject);
+                            string value = jo["CO2"].ToString();
+                            if (!string.IsNullOrEmpty(value)) return Convert.ToDouble(value.ToString()).ToString("f2");
+                        }
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); }
+
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcOpsmokeValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return "0";
+                        object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                        if (o is JObject)
+                        {
+                            JObject jo = (o as JObject);
+                            string value = jo["OpSmoke"].ToString();
+                            if (!string.IsNullOrEmpty(value)) return Convert.ToDouble(value.ToString()).ToString("f2");
+                        }
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); }
+
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcBlacknessValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return "0";
+                        object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                        if (o is JObject)
+                        {
+                            JObject jo = (o as JObject);
+                            string value = jo["Blackness"].ToString();
+                            if (!string.IsNullOrEmpty(value)) return ConvertIntToRoma(value.ToString());
+                        }
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); }
+
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcNumberValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return "0";
+                        object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                        if (o is JObject)
+                        {
+                            JObject jo = (o as JObject);
+                            string value = jo["UniqueKey"].ToString();
+                            if (!string.IsNullOrEmpty(value)) return value.ToString();
+                        }
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); }
+
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcResultValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return "0";
+                        object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                        if (o is JObject)
+                        {
+                            JObject jo = (o as JObject);
+                            string value = jo["Result"].ToString();
+                            switch (Convert.ToInt32(value) + 1)
+                            {
+                                case 1:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Disqualified);
+                                case 2:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Qualified);
+                                case 3:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Invalid);
+                            }
+                        }
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); }
+
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcT1Value, lc => lc.Text, x => x.ExhaustDetailData,m=> {  return m.T12.ToString(); }));
+                AddBinding(fluent.SetBinding(lcT2value, lc => lc.Text, x => x.ExhaustDetailData,m=> { return m.T13.ToString(); }));
+                AddBinding(fluent.SetBinding(lcLightIntensityValue, lc => lc.Text, x => x.ExhaustDetailData, m => { return m.RealIntensity.ToString(); }));
+                ResultDataViewModel.VM.ModelChanged += (sender, arg) =>
+                {
+                    if (arg.ModelName == typeof(ResultDataViewModel).Name|| arg.ModelName == typeof(ResultDataViewModel.ExhaustDetailDataModel).Name) action();
+                };
+                #endregion
+                base.InitializeBindings();
+
+                RefreshChartInfo(index);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        void InitBarItemLinks()
+        {
+            rgSpectralView.Properties.Items[0].Tag = new NavBarGroupTagObject(rgSpectralView.Properties.Items[0].Value.ToString(), typeof(UserControls.ucHistorySpectrum));
+            rgSpectralView.Properties.Items[1].Tag = new NavBarGroupTagObject(rgSpectralView.Properties.Items[1].Value.ToString(), typeof(UserControls.ucHistoryHarmenic));
+            rgSpectralView.SelectedIndex = 0;
+        }
+
+        private void rgSpectralView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rgSpectralView.Properties.Items[rgSpectralView.SelectedIndex].Tag != null)
+                {
+                    NavBarItemLink link = new NavBarItemLink(new NavBarItem(rgSpectralView.Properties.Items[rgSpectralView.SelectedIndex].Value.ToString()));
+                    link.Item.Tag = rgSpectralView.Properties.Items[rgSpectralView.SelectedIndex].Tag;
+                    viewNavigator.ChangeSelectedItem(link, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+        private void pePre_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (--index < 0)
+                {
+                    index++;
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.FirstInfo), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    RefreshChartInfo(index);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+
+        private void peNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (++index >= ResultDataViewModel.VM.ExhuastEntities.Count)
+                {
+                    index--;
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.LastInfo), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    RefreshChartInfo(index);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+        public void RefreshChartInfo(int idx)
+        {
+            index = idx;
+            string uniquekey = ucExhaustData.uc.GetUniqueKeyByIndex(index);
+            ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_QueryDetialInfo, index, uniquekey });
+            if (ResultDataViewModel.VM.DetialInfoEntities == null || ResultDataViewModel.VM.DetialInfoEntities.Count == 0) return;
+            object o = ResultDataViewModel.VM.DetialInfoEntities[0];
+            if (o is JObject)
+            {
+                JObject jo = (o as JObject);
+                string value = jo["DataPath"].ToString();
+                if (!string.IsNullOrEmpty(value)) ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_QueryChartInfo, value.ToString() });
+            }
+            action();
+        }
+        //导出谱图数据
+        private void sbDeriveSpectrogram_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ResultDataViewModel.VM.DetialInfoEntities == null || ResultDataViewModel.VM.DetialInfoEntities.Count == 0)
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.SelectNull));
+                    return;
+                }
+                string s=null;
+                SaveDataToExcel(s);
+                //SaveFileDialog fileDialog = new SaveFileDialog();
+                //fileDialog.Filter = "txt files(*.txt)|*.txt";
+                //fileDialog.FileName = "WYExhaust_SG_" + DateTime.Now.ToString("yyMMddHHmmss");
+                //if (fileDialog.ShowDialog() == DialogResult.OK)
+                //{
+                //    string file = "";
+                //    file += ConvertToString(lcT12, lcT1Value);
+                //    file += ConvertToString(lcT13, lcT2value);
+                //    file += ConvertToString(lcLightIntensity, lcLightIntensityValue);
+                //    file += ConvertToString(lcNo, lcNOValue);
+                //    file += ConvertToString(lcHC, lcHCValue);
+                //    file += ConvertToString(lcCO, lcCOValue);
+                //    file += ConvertToString(lcCO2, lcCO2Value);
+                //    file += ConvertToString(lcOpSmoke, lcOpsmokeValue);
+                //    file+= lcBlackness.Text+ ":" + ConvertRomaToInt(lcBlacknessValue.Text) + " ";
+                //    file += ConvertToString(lcTestingNumber, lcNumberValue);
+                //    file += ConvertToString(lcResult, lcResultValue);
+                //    if(ResultDataViewModel.VM.uvsParam.ZeroIntensity!=null)file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.uvsParam.ZeroIntensity.ToString());
+                //    if (ResultDataViewModel.VM.UVTelemetry != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.UVTelemetry.ToString());
+                //    if (ResultDataViewModel.VM.tdlasParam.ZeroIntensity != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.tdlasParam.ZeroIntensity.ToString());
+                //    if (ResultDataViewModel.VM.UVTelemetry != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.UVTelemetry.ToString());
+                //    if (ResultDataViewModel.VM.uvNOParam.Absorb != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.uvNOParam.Absorb.ToString());
+                //    if (ResultDataViewModel.VM.uvHCParam.Absorb != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.uvHCParam.Absorb.ToString());
+                //    if (ResultDataViewModel.VM.UVTelemetryAbsorb != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.UVTelemetryAbsorb.ToString());
+                //    if (ResultDataViewModel.VM.tdlasCOParam.Harm != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.tdlasCOParam.Harm.ToString());
+                //    if (ResultDataViewModel.VM.tdlasCO2Param.Harm != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.tdlasCO2Param.Harm.ToString());
+                //    if (ResultDataViewModel.VM.tdlasParam.Harm != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.tdlasParam.Harm.ToString());
+                //    if (ResultDataViewModel.VM.TDLasTelemetryHarm != null) file += JsonNewtonsoft.ToJSON(ResultDataViewModel.VM.TDLasTelemetryHarm.ToString());
+                //    File.WriteAllText(fileDialog.FileName.ToString(), file);
+                //    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess), "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                //    //记日志
+                //   // ErrorLog.SystemLog(DateTime.Now,)
+                //}
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.ToString());
+            }
+        }
+        private string ConvertToString(LabelControl lc1, LabelControl lc2)
+        {
+            return lc1.Text + ":" + lc2.Text + " ";
+        }
+        private string ConvertIntToRoma(string e)
+        {
+            switch (e)
+            {
+                case "1":
+                    return "Ⅰ";
+                case "2":
+                    return "Ⅱ";
+                case "3":
+                    return "Ⅲ";
+                case "4":
+                    return "Ⅳ";
+                case "5":
+                    return "Ⅴ";
+                case "6":
+                    return "Ⅵ";
+                default:
+                    return "0";
+            }
+        }
+        private string ConvertRomaToInt(string e)
+        {
+            switch (e)
+            {
+                case "Ⅰ":
+                    return "1";
+                case "Ⅱ":
+                    return "2";
+                case "Ⅲ":
+                    return "3";
+                case "Ⅳ":
+                    return "4";
+                case "Ⅴ":
+                    return "5";
+                case "Ⅵ":
+                    return "6";
+                default:
+                    return "0";
+            }
+        }
+        public void SaveDataToExcel()
+        {
+            Microsoft.Office.Interop.Excel.Application app = null;
+            try
+            {
+                string log = Program.infoResource.GetLocalizedString(language.InfoId.DriveGraphData);
+                app = new Microsoft.Office.Interop.Excel.Application();
+                if (app == null)
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.NoOffice));
+                    return;
+                }
+             //   app.Visible = false;
+                //开启等待窗口
+                SplashScreenManager.ShowForm(this.ParentForm, typeof(wfMain), false, true);
+
+                //创建Excel中的工作薄
+                Workbook wb = (Workbook)app.Workbooks.Add(Missing.Value);
+                //创建Excel工作薄中的第一页 sheet
+                Worksheet sheet = (Worksheet)wb.ActiveSheet;
+                sheet.Name = "紫外设备";
+                sheet.Cells[1, 1] = "紫外";
+                sheet.Cells[2, 1] = "紫外背景光谱";
+                sheet.Cells[2, 2] = "遥测光谱";
+                sheet.Cells[2, 3] = "NO吸光度";
+                sheet.Cells[2, 4] = "HC吸光度";
+                sheet.Cells[2, 5] = "遥测吸光度";
+                //合并A1-G1,A1-G2标题居中，字号调整，字体调整
+                sheet.Range["A1", "E1"].Merge();
+                sheet.Range["A1", "E1"].ColumnWidth = 17;
+                Range rg = sheet.Range["A1", "E2"];
+                rg.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                rg.Font.Size = 14;
+                rg.Font.Name = "宋体";
+                //导入数据
+                if (ResultDataViewModel.VM.ExhaustDetailData.UVSCalParam != null)
+                    DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.UVSCalParam.ZeroIntensity, 1);
+                DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.UVSData, 2);
+                if (ResultDataViewModel.VM.ExhaustDetailData.UVSNOCalParam != null)
+                    DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.UVSNOCalParam.Absorb, 3);
+                if (ResultDataViewModel.VM.ExhaustDetailData.UVSHCCalParam != null)
+                    DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.UVSHCCalParam.Absorb, 4);
+                DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.AbsorbData, 5);
+
+                Worksheet wsRed = (Worksheet)wb.Sheets.Add(Missing.Value, sheet, Missing.Value, Missing.Value);
+                wsRed.Name = "红外设备";
+                wsRed.Cells[1, 1] = "红外";
+                wsRed.Cells[2, 1] = "红外背景光谱";
+                wsRed.Cells[2, 2] = "CO谐波";
+                wsRed.Cells[2, 3] = "CO2谐波";
+                wsRed.Cells[2, 4] = "红外背景谐波";
+                wsRed.Cells[2, 5] = "遥测谐波";
+                //合并A1-G1
+                wsRed.Range["A1", "E1"].Merge();
+                wsRed.Range["A1", "E1"].ColumnWidth = 17;
+                //A1-G2标题居中，字号调整，字体调整
+                Range rg2 = wsRed.Range["A1", "E2"];
+                rg2.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                rg2.Font.Size = 14;
+                rg2.Font.Name = "宋体";
+
+                //导入数据
+                if (ResultDataViewModel.VM.ExhaustDetailData.TDLASCalParam != null)
+                    DriveDataToSheet(wsRed, ResultDataViewModel.VM.ExhaustDetailData.TDLASCalParam.ZeroIntensity, 1);
+                if (ResultDataViewModel.VM.ExhaustDetailData.TDLASCOCalParam != null)
+                    DriveDataToSheet(wsRed, ResultDataViewModel.VM.ExhaustDetailData.TDLASCOCalParam.Harm, 2);
+                if (ResultDataViewModel.VM.ExhaustDetailData.TDLASCO2CalParam != null)
+                    DriveDataToSheet(wsRed, ResultDataViewModel.VM.ExhaustDetailData.TDLASCO2CalParam.Harm, 3);
+                if (ResultDataViewModel.VM.ExhaustDetailData.TDLASCalParam != null)
+                    DriveDataToSheet(wsRed, ResultDataViewModel.VM.ExhaustDetailData.TDLASCalParam.Harm, 4);
+                DriveDataToSheet(wsRed, ResultDataViewModel.VM.ExhaustDetailData.HarmData, 5);
+                //保存工作表,退出
+                SplashScreenManager.CloseForm();
+                dlgSave.ShowDialog();
+                if (!String.IsNullOrEmpty(dlgSave.FileName))
+                {
+                    app.ActiveWorkbook.SaveAs(dlgSave.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, Type.Missing, 
+                        Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                    log += Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess);
+                    ErrorLog.SystemLog(DateTime.Now, log);
+                }
+                //else
+                //    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OperateFail));
+                //app.Save();
+                
+                app.Quit();
+            }
+            catch (Exception ex)
+            {
+                //XtraMessageBox.Show(ex.Message+"  "+ex.TargetSite.ToString());
+          //      XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OperateFail));
+                if (app!=null)app.Quit();
+                ErrorLog.Error(ex.ToString());
+            }
+
+        }
+        public void SaveDataToExcel(string s)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "导出Excel文件";
+            saveFileDialog.Filter = "Excel 工作簿(*.xlsx)|*.xlsx|Excel 97-2003 工作簿(*.xls)|*.xls";
+            //设置默认文件类型显示顺序  
+            saveFileDialog.FilterIndex = 1;
+            //是否自动在文件名中添加扩展名
+            saveFileDialog.AddExtension = true;
+            //是否记忆上次打开的目录
+            saveFileDialog.RestoreDirectory = true;
+            //设置默认文件名
+            saveFileDialog.FileName = _defaultFileName;
+            //按下确定选择的按钮  
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //获得文件路径 
+                string localFilePath = saveFileDialog.FileName.ToString();
+
+                ////数据初始化
+                //int TotalCount;     //总行数
+                //int RowRead = 0;    //已读行数
+                //int Percent = 0;    //百分比
+                
+                //NPOI
+                IWorkbook workbook;
+                string FileExt = Path.GetExtension(localFilePath).ToLower();
+                if (FileExt == ".xlsx")
+                {
+                    workbook = new XSSFWorkbook();
+                }
+                else if (FileExt == ".xls")
+                {
+                    workbook = new HSSFWorkbook();
+                }
+                else
+                {
+                    workbook = null;
+                }
+                if (workbook == null)
+                {
+                    return;
+                }
+
+                ISheet sheet =  workbook.CreateSheet("紫外设备");
+                
+                try
+                {
+                    //读取标题  
+                    IRow rowHeader = sheet.CreateRow(0);
+                    ICell cell = rowHeader.CreateCell(0);
+                    cell.SetCellValue("紫外");
+                    rowHeader = sheet.CreateRow(1);
+                    for (int i = 0; i < _UVTitle.Count(); i++)
+                    {
+                        cell = rowHeader.CreateCell(i);
+                        cell.SetCellValue(_UVTitle[i]);
+                    }
+                    //合并单元格
+                    CellRangeAddress region = new CellRangeAddress(0, 0, 0, 4);
+                    sheet.AddMergedRegion(region);
+                    //导出数据
+                    if (ResultDataViewModel.VM.ExhaustDetailData.UVSCalParam != null)
+                        DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.UVSCalParam.ZeroIntensity, 0);
+                    DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.UVSData, 1);
+                    if (ResultDataViewModel.VM.ExhaustDetailData.UVSNOCalParam != null)
+                        DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.UVSNOCalParam.Absorb, 2);
+                    if (ResultDataViewModel.VM.ExhaustDetailData.UVSHCCalParam != null)
+                        DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.UVSHCCalParam.Absorb, 3);
+                    DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.AbsorbData, 4);
+
+                    sheet = workbook.CreateSheet("红外设备");
+
+                    //读取标题  
+                    rowHeader = sheet.CreateRow(0);
+                    cell = rowHeader.CreateCell(0);
+                    cell.SetCellValue("红外");
+                    rowHeader = sheet.CreateRow(1);
+                    for (int i = 0; i < _TDTitle.Count(); i++)
+                    {
+                        cell = rowHeader.CreateCell(i);
+                        cell.SetCellValue(_TDTitle[i]);
+                    }
+                    //合并单元格
+                    region = new CellRangeAddress(0, 0, 0, 4);
+                    sheet.AddMergedRegion(region);
+                    //导出数据
+                    if (ResultDataViewModel.VM.ExhaustDetailData.TDLASCalParam != null)
+                        DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.TDLASCalParam.ZeroIntensity, 0);
+                    if (ResultDataViewModel.VM.ExhaustDetailData.TDLASCOCalParam != null)
+                        DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.TDLASCOCalParam.Harm, 1);
+                    if (ResultDataViewModel.VM.ExhaustDetailData.TDLASCO2CalParam != null)
+                        DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.TDLASCO2CalParam.Harm, 2);
+                    if (ResultDataViewModel.VM.ExhaustDetailData.TDLASCalParam != null)
+                        DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.TDLASCalParam.Harm, 3);
+                    DriveDataToSheet(sheet, ResultDataViewModel.VM.ExhaustDetailData.HarmData, 4);
+                    
+                    Application.DoEvents();
+
+                    //转为字节数组  
+                    MemoryStream stream = new MemoryStream();
+                    workbook.Write(stream);
+                    var buf = stream.ToArray();
+
+                    //保存为Excel文件
+                    using (FileStream fs = new FileStream(localFilePath, FileMode.Create, FileAccess.Write))
+                    {
+                        fs.Write(buf, 0, buf.Length);
+                        fs.Flush();
+                        fs.Close();
+                    }
+                    
+                    //成功提示
+                    if (MessageBox.Show("导出成功，是否立即打开？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        System.Diagnostics.Process.Start(localFilePath);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                finally
+                {
+                   
+                }
+            }
+
+        }
+
+        private void DriveDataToSheet<T>(ISheet sheet, List<T> list, int column)
+        {
+            if (list == null || list.Count == 0) return;
+            for (int i = 0; i < list.Count; i++)
+            {
+                IRow row =sheet.LastRowNum>=i+2? sheet.GetRow(i+2):sheet.CreateRow(i + 2);
+                ICell cell = row.CreateCell(column);
+                cell.SetCellValue(list[i].ToString());
+            }
+        }
+
+        private void DriveDataToSheet<T>(Worksheet sheet, List<T> list,int idx)
+        {
+            if (list == null || list.Count == 0) return;
+            for (int i = 0; i < list.Count; i++)
+            {
+                sheet.Cells[i+3,idx]= list[i].ToString();
+            }
+        }
+        
+    }
+}

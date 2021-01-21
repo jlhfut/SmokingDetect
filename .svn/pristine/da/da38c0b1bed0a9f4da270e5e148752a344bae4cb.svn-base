@@ -1,0 +1,135 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using wayeal.os.exhaust.ViewModel;
+using wayeal.plugin;
+using Wayee.Services;
+
+namespace wayeal.os.exhaust
+{
+    public class ErrorLog 
+    {
+        /// <summary>
+        /// 后台日志_错误
+        /// </summary>
+        /// <param name="error"></param>
+        static public void Error(string error)
+        {
+            try
+            {
+                ResultDataViewModel.VM.Execute(new List<object> {
+                ResultDataViewModel.ExecuteCommand.ec_InsertLog,
+                System.DateTime.Now,
+                error,
+                3,
+                ""
+            });
+            }
+            catch
+            {
+
+            }
+            return;
+        }
+        /// <summary>
+        /// 后台日志_调试
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="log"></param>
+        /// <param name="user"></param>
+        static public void ParamChanged(DateTime dt,string log,string user)
+        {
+            ResultDataViewModel.VM.Execute(new List<object> {
+                ResultDataViewModel.ExecuteCommand.ec_InsertLog,
+                dt,
+                log,
+                user
+            });
+            return;
+        }
+        /// <summary>
+        /// 后台日志_致命错误
+        /// </summary>
+        /// <param name="error"></param>
+        static public void FatalError(string error)
+        {
+            ResultDataViewModel.VM.Execute(new List<object> {
+                ResultDataViewModel.ExecuteCommand.ec_InsertLog,
+                System.DateTime.Now,
+                error,
+                4,
+                ""
+            });
+            return;
+        }
+        /// <summary>
+        /// 运行日志
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="log"></param>
+        static public void RealTime(DateTime dt,string log)
+        {
+            ResultDataViewModel.VM.Execute(new List<object> {
+                ResultDataViewModel.ExecuteCommand.ec_InsertLog,
+                dt,
+                log
+            });
+            return;
+        }
+        /// <summary>
+        /// 系统日志
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="log"></param>
+        static public void SystemLog(DateTime dt, string log,string user=null)
+        {
+            if (user == null) user = frmMain.UserName;
+            ResultDataViewModel.VM.Execute(new List<object> {
+                ResultDataViewModel.ExecuteCommand.ec_InsertLog,
+                dt,
+                log,
+                user
+            });
+            return;
+        }
+        
+        /// <summary>
+        /// 拼接日志内容
+        /// </summary>
+        /// <param name="cn">参数名</param>
+        /// <param name="oldStatue">旧状态</param>
+        /// <param name="newStatue">新状态</param>
+        /// <param name="oldValue">旧值</param>
+        /// <param name="newValue">新值</param>
+        /// <returns>日志内容</returns>
+        static public string JointLogContent(string cn,bool oldStatue,bool newStatue,string oldValue,string newValue)
+        {
+            string statue = string.Empty;
+            string value = string.Empty;
+            string log = "";
+            if (oldStatue != newStatue) statue = oldStatue + "->" + newStatue;
+            if (oldValue != newValue) value = oldValue + "->" + newValue;
+            if (statue != string.Empty || value != string.Empty)
+            {
+                log = cn +" "+ statue + value;
+            }
+            return log;
+        }
+
+        static public void OperateLog(bool rs)
+        {
+            if (rs)
+            {
+                ErrorLog.SystemLog(DateTime.Now, Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess));
+            }
+            else
+            {
+                ErrorLog.SystemLog(DateTime.Now, Program.infoResource.GetLocalizedString(language.InfoId.OperateFail));
+            }
+        }
+
+    }
+}

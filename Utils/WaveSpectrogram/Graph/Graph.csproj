@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{09CA24B4-FAE8-4F23-9F86-2065D5823916}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Graph</RootNamespace>
+    <AssemblyName>Wayee.Graph</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataHelper.cs" />
+    <Compile Include="DesignHelper.cs" />
+    <Compile Include="Graph.cs" />
+    <Compile Include="PeakHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileHelper\FileHelper.csproj">
+      <Project>{1a15b1bd-3234-468c-8f6f-7bb8c501c170}</Project>
+      <Name>FileHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PeakAnalyzer\PeakAnalyzer.csproj">
+      <Project>{056d483e-6da0-4352-bb35-378e8f04bf92}</Project>
+      <Name>PeakAnalyzer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PeakLocation\PeakLocation.csproj">
+      <Project>{0a52fa6b-1850-468d-99c1-26da6f545b44}</Project>
+      <Name>PeakLocation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PeakObject\PeakObject.csproj">
+      <Project>{b5c44d88-8c1b-4bd3-a3fc-18034d6de633}</Project>
+      <Name>PeakObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WaveProcesser\WaveProcesser.csproj">
+      <Project>{cf782937-c577-4b56-90f1-c030ea80de4e}</Project>
+      <Name>WaveProcesser</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

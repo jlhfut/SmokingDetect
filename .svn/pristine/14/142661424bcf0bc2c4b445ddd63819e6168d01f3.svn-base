@@ -1,0 +1,602 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using wayeal.os.exhaust.Forms;
+using wayeal.os.exhaust.ViewModel;
+using DevExpress.Utils.MVVM;
+using Wayee.Services;
+using DevExpress.XtraEditors;
+using wayeal.os.exhaust.Services;
+
+namespace wayeal.os.exhaust.Modules
+{
+    public partial class ucUserManage : ucManagerBase
+    {
+        //初始密码
+        string SuperManager = "WAYEE";
+        string rePWD = "123456";
+        private MVVMContextFluentAPI<ResultDataViewModel> fluent;
+        int currentPage = 1;
+        string strAll = Program.infoResource.GetLocalizedString(language.InfoId.All);
+
+
+        public ucUserManage()
+        {
+            InitializeComponent();
+            InitComboBox();
+            InitializeUI();
+         //   InitSuperManager();
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+        /// <summary>
+        /// 初始化下拉框
+        /// </summary>
+        public void InitComboBox()
+        {
+            cbePermission.Properties.Items.Insert(0, Program.infoResource.GetLocalizedString(language.InfoId.All));
+            cbePermission.SelectedIndex = 0;
+            cbePermission.Properties.Items.Add(Program.infoResource.GetLocalizedString(language.InfoId.Manager));
+            cbePermission.Properties.Items.Add(Program.infoResource.GetLocalizedString(language.InfoId.Operator));
+            cbePermission.Properties.Items.Add(Program.infoResource.GetLocalizedString(language.InfoId.Tourist));
+            cbePermission.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            cbePageRecord.SelectedIndex = 0;
+            enableControl(false);
+        }
+
+        /// <summary>
+        /// Init
+        /// </summary>
+        protected override void InitializeBindings()
+        {
+            try
+            {
+                mvvmContext1.SetViewModel(typeof(ResultDataViewModel), ResultDataViewModel.VM);
+                fluent = mvvmContext1.OfType<ResultDataViewModel>();
+                ResultDataViewModel.VM.UserEntities.Clear();
+                //默认查询所有用户数据
+                ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_QueryUserPage, "", "", currentPage, cbePageRecord.SelectedItem });
+                
+                AddBinding(fluent.SetBinding(gcUserManage, gControl => gControl.DataSource, x => x.UserEntities, m => { return m; }));
+                AddBinding(fluent.SetBinding(tslTotalPage, page => page.Text, x => x.UserTotalPage, m =>
+                {
+                    if (m > 0) tslCurrentPage.Text = currentPage.ToString();
+                    if (Convert.ToInt32(tslCurrentPage.Text) > m) tslCurrentPage.Text = m.ToString();
+                    return m.ToString();
+                }));
+
+                ResultDataViewModel.VM.ModelChanged += (sender, arg) =>
+                {
+                    if (arg.ModelName == typeof(ResultDataViewModel).Name) action();
+                };
+                base.InitializeBindings();
+                pageControl();
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+        public void InitSuperManager()
+        {
+            try
+            {
+                //如果数据库中没有超级管理员就增加一个
+                if (DataServiceHelper.Instanse.DataServerStatue == null) XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.ConnectionFail));
+                ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_QueryUserAndPwd, SuperManager });
+                if (ResultDataViewModel.VM.QueryUserAndPwdEntities == null || ResultDataViewModel.VM.QueryUserAndPwdEntities.Count < 1)
+                {
+                    ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_InsertUser, SuperManager, "", DateTime.Now, 0, 1 });
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// mvvm action
+        /// </summary>
+        /// <param name="json"></param>
+        protected override void doAction(string json = "")
+        {
+            gcUserManage.DataSource = null;
+            base.doAction();
+        }
+
+        /// <summary>
+        /// 新建用户
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sbNew_Click(object sender, EventArgs e)
+        {
+            wfNewUser frmNewUser = new wfNewUser();
+            DialogResult result = frmNewUser.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                if (!insertUserManage(frmNewUser.returnUserName(), frmNewUser.returnPermission(), frmNewUser.returnStatue()))
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OperateFail));
+                }
+                else
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess));
+                    QueryUserPage(currentPage);
+                }
+            }
+        }
+        /// <summary>
+        /// 插入一行
+        /// </summary>
+        /// <param name="UserName"></param>
+        public bool insertUserManage(string UserName, string Permission, string Statue)
+        {
+            string log = "";
+            string Creator = this.OwnerForm.GetUserName();
+            List<object> list = new List<object>
+            {
+                ResultDataViewModel.ExecuteCommand.ec_InsertUser,
+                UserName,
+                Creator,
+                System.DateTime.Now,
+                Permission,
+                Statue
+            };
+            ResultDataViewModel.VM.Execute(list);
+            log += Program.infoResource.GetLocalizedString(language.InfoId.AddUser) + UserName
+                + Program.infoResource.GetLocalizedString(language.InfoId.Pression) + Utils.ConvertStringPermissionToZNCH(Permission)
+                + Program.infoResource.GetLocalizedString(language.InfoId.Statue) + Utils.ConvertStringStatueToZNCH(Statue)
+                + Program.infoResource.GetLocalizedString(language.InfoId.Creator) + Creator;
+            if (log != "") ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+            return ResultDataViewModel.VM.InsertUserResult;
+        }
+        
+        private void sbDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvUserManage.SelectedRowsCount > 0)
+                {
+                    string log = Program.infoResource.GetLocalizedString(language.InfoId.DeleteUser);
+                    DialogResult result = XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.SureDelete), "", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        List<int> selectRows = new List<int>();
+                        List<object> selectNames = new List<object>();
+                        for (int i = gvUserManage.RowCount; i > 0; i--)
+                        {
+                            if (gvUserManage.IsRowSelected(i - 1))
+                            {
+                                //不能删除自己
+                                if (gvUserManage.GetRowCellValue(i - 1, gcUserName).ToString().Equals(this.OwnerForm.GetUserName().ToString()))
+                                {
+                                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.CannotDeleteYourself), "", MessageBoxButtons.OKCancel);
+                                    return;
+                                }
+                                if (gvUserManage.GetRowCellValue(i - 1, gcUserName).ToString().Equals(SuperManager))
+                                {
+                                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.CannotDeleteSM), "", MessageBoxButtons.OKCancel);
+                                    return;
+                                }
+                                selectRows.Add(i - 1);
+                            }
+                        }
+                        for (int j = 0; j < selectRows.Count; j++)
+                        {
+                            object o = gvUserManage.GetRowCellValue(selectRows[j], gcUserName);
+                            selectNames.Add(o.ToString());
+                            log += selectNames[j].ToString() + " ";
+                            ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_DeleteUserInfo, o.ToString(), selectRows[j] });
+                            if (!ResultDataViewModel.VM.DeleteUserInfoResult)
+                            {
+                                log += Program.infoResource.GetLocalizedString(language.InfoId.OperateFail);
+                                XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OperateFail)); break;
+                            }
+                        }
+                        RefreshUI();
+                        if (log == Program.infoResource.GetLocalizedString(language.InfoId.DeleteUser)) log += Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess);
+                        ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.SelectNone), "", MessageBoxButtons.OK);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.ToString());
+            }
+        }
+        /// <summary>
+        /// 右侧三个按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repositoryItemButtonEdit1_ButtonClick_1(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            try
+            {
+                int iRowIndex = gvUserManage.GetFocusedDataSourceRowIndex();
+                if (e.Button.Index == 1)
+                {
+                    //修改信息
+                    wfChangeUser wfChangeUser = new wfChangeUser(iRowIndex, this.OwnerForm.GetUserName());
+                    DialogResult result = wfChangeUser.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        //object o = gvUserManage.GetRowCellValue(iRowIndex, gcUserName);
+                        //o.GetType().GetProperty("Value").SetValue(o, wfChangeUser.GetUserName());
+                        //o = gvUserManage.GetRowCellValue(iRowIndex, gcPermission);
+                        //o.GetType().GetProperty("Value").SetValue(o, wfChangeUser.GetPermissionItem());
+                        //o = gvUserManage.GetRowCellValue(iRowIndex, gcAccountStatue);
+                        //o.GetType().GetProperty("Value").SetValue(o, wfChangeUser.GetCheckValue());
+                        XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess));
+                        RefreshUI();
+                        return;
+                    }
+
+
+                }
+                else if (e.Button.Index == 2)
+                {
+                    object o = gvUserManage.GetRowCellValue(iRowIndex, gcUserName);
+                    if (o.ToString() == this.OwnerForm.GetUserName().ToString())
+                    {
+                        //不能删除自己
+                        XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.CannotDeleteYourself), "", MessageBoxButtons.OKCancel);
+                        return;
+                    }
+                    DialogResult rs = XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.SureDelete), "", MessageBoxButtons.OKCancel);
+                    if (rs == DialogResult.OK)
+                    {
+                        string log = Program.infoResource.GetLocalizedString(language.InfoId.DeleteUser) + o.ToString();
+                        //删除信息
+                        ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_DeleteUserInfo, o.ToString() });
+                        if (ResultDataViewModel.VM.DeleteUserInfoResult)
+                        {
+                            log += Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess);
+                            XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess));
+                            gvUserManage.DeleteRow(iRowIndex);
+                        }
+                        else
+                        {
+                            log += Program.infoResource.GetLocalizedString(language.InfoId.OperateFail);
+                            XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OperateFail));
+                        }
+                        RefreshUI();
+                        ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+                        return;
+                    }
+                }
+                else if (e.Button.Index == 0)
+                {
+                    //重置密码
+                    DialogResult result = XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.ResetPassword), "", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        object o = gvUserManage.GetRowCellValue(iRowIndex, gcUserName);
+                        string log = Program.infoResource.GetLocalizedString(language.InfoId.ResetPassword2) + o.ToString();
+                        action();
+                        ResultDataViewModel.VM.Execute(new List<object> {
+                        ResultDataViewModel.ExecuteCommand.ec_ChangeUserInfo,o.ToString (),"","",rePWD});
+                        if (ResultDataViewModel.VM.ChangeUserInfoResult)
+                        {
+                            XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.ChangeSuccess));
+                            log += Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess);
+                        }
+                        else
+                        {
+                            log += Program.infoResource.GetLocalizedString(language.InfoId.OperateFail);
+                            XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.ChangeFail));
+                        }
+                        ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+                        return;
+                    }
+                }
+                action();
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.ToString());
+            }
+        }
+        #region Text Clear
+        /// <summary>
+        /// 设置按钮状态
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+            beUserName.Properties.Buttons[0].Visible = beUserName.Text != "" ? true : false;
+            beUserName.Properties.Buttons[0].Enabled = beUserName.Text != "" ? true : false;
+        }
+        /// <summary>
+        /// 初始化按钮状态
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ucUserManage_Load(object sender, EventArgs e)
+        {
+            beUserName.Properties.Buttons[0].Visible = false;
+            beUserName.Properties.Buttons[0].Enabled = false;
+        }
+        /// <summary>
+        /// 点击按钮清空文本
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void beUserName_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Caption == "Clear") { beUserName.Text = ""; }
+        }
+        #endregion
+        private void gvUserManage_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            //启用禁用对应显示
+            if (e.Column.FieldName != "Statue" && e.Column.FieldName != "Permission") return;
+            if (e.Value == null) return;
+            if (e.Column.FieldName == "Statue")
+            {
+                e.DisplayText = e.Value.ToString().Equals("1") ? Program.infoResource.GetLocalizedString(language.InfoId.Used) :
+                    Program.infoResource.GetLocalizedString(language.InfoId.Unused);
+                return;
+            }
+            //权限对应显示
+            if (e.Column.FieldName == "Permission")
+            {
+                if (e.Value.ToString().Equals("1")) { e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Manager); }
+                else if (e.Value.ToString().Equals("0")) { e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.SuperManager); }
+                else if (e.Value.ToString().Equals("2")) { e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Operator); }
+                else if (e.Value.ToString().Equals("3")) { e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Tourist); }
+            }
+        }
+        
+        private void cbePermission_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            switch (e.Value.ToString())
+            {
+                case "0":
+                    e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Manager);
+                    return;
+                case "1":
+                    e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Operator);
+                    return;
+                case "2":
+                    e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Tourist);
+                    return;
+            }
+        }
+
+        #region SuperManagerSetting
+        /// <summary>
+        /// 设置点击事件失效
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gvUserManage_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            //超级管理员账号不允许改动
+            object o = gvUserManage.GetRowCellValue(gvUserManage.FocusedRowHandle, gcUserName);
+            if (o == null) return;
+            if (o.ToString().Equals(SuperManager))
+            {
+                e.Cancel = true;
+                //gvUserManage.rows
+            }
+        }
+        /// <summary>
+        /// 设置背景色
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gvUserManage_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            if (e.RowHandle == -1) return;
+            object o = gvUserManage.GetRowCellValue(e.RowHandle, gcUserName);
+            if (o == null) return;
+            if (o.ToString().Equals(SuperManager))
+            {
+                e.Appearance.BackColor = Color.DarkGray; //FromArgb(32, 88, 165);
+                e.Appearance.ForeColor = Color.White;
+            }
+        }
+        /// <summary>
+        /// 复选框失效
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gvUserManage_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            DevExpress.XtraGrid.Views.Grid.GridView _gridView = (DevExpress.XtraGrid.Views.Grid.GridView)sender;
+            DevExpress.XtraGrid.Columns.GridColumn _col = e.Column;
+            if (_col.CustomizationSearchCaption != ("Selection") && _col.CustomizationSearchCaption != "选择") return;
+            if (_gridView.GetRowCellValue(e.RowHandle, gcUserName).ToString().Equals(SuperManager))
+            {
+                bool _value = (bool)_gridView.GetRowCellValue(e.RowHandle, _col);
+                _gridView.SetRowCellValue(e.RowHandle, _col, false);
+            }
+        }
+        #endregion
+
+        #region 分页查询
+        //增删改查后刷新界面
+        private void RefreshUI()
+        {
+            ResultDataViewModel.VM.Execute(new List<object> {
+                            ResultDataViewModel.ExecuteCommand.ec_QueryUserPageCount,
+                            beUserName.Text,
+                            cbePermission.SelectedIndex==0? "":(cbePermission.SelectedIndex-1).ToString (),
+                            cbePageRecord.SelectedItem
+                        });
+
+            currentPage = currentPage > ResultDataViewModel.VM.UserTotalPage ? ResultDataViewModel.VM.UserTotalPage : currentPage;
+            ResultDataViewModel.VM.Execute(new List<object> {
+                            ResultDataViewModel.ExecuteCommand.ec_QueryUserPage,
+                            beUserName.Text,
+                            cbePermission.SelectedIndex==0? "":cbePermission.SelectedIndex.ToString (),
+                            currentPage,
+                            cbePageRecord.SelectedItem
+                        });
+            pageControl();
+        }
+
+        private void QueryUserPage(int currentPage)
+        {
+            List<object> list = new List<object>
+                {
+                    ResultDataViewModel.ExecuteCommand.ec_QueryUserPage,
+                    beUserName.Text,
+                    cbePermission.SelectedIndex==0? "":cbePermission.SelectedIndex.ToString (),
+                    currentPage,
+                    cbePageRecord.SelectedItem
+                };
+            ResultDataViewModel.VM.Execute(list);
+            pageControl();
+        }
+
+        private void enableControl(bool status)
+        {
+            tsbFirstPage.Enabled = status;
+            tsbEndPage.Enabled = status;
+            tsbLastPage.Enabled = status;
+            tsbNextPage.Enabled = status;
+       //     tsbGotoPage.Enabled = status;
+        }
+
+        /// <summary>
+        /// 控制翻页按钮使能
+        /// </summary>
+        private void pageControl()
+        {
+            if (tslTotalPage.Text == "0")
+            {
+                tsbFirstPage.Enabled = false;
+                tsbEndPage.Enabled = false;
+            }
+            else
+            {
+                tsbFirstPage.Enabled = true;
+                tsbEndPage.Enabled = true;
+            }
+
+            //总页数为1（或0）页
+            if (tslTotalPage.Text == "1" || tslTotalPage.Text == "0")
+            {
+                tsbNextPage.Enabled = false;
+                tsbLastPage.Enabled = false;
+            }
+            else
+            {
+                //当前页为末页
+                if (tslCurrentPage.Text != "1" && tslTotalPage.Text == tslCurrentPage.Text)
+                {
+                    tsbNextPage.Enabled = false;
+                    tsbLastPage.Enabled = true;
+                }
+                //当前页为首页
+                else if (tslCurrentPage.Text == "1" && Convert.ToInt16(tslTotalPage.Text) > 1)
+                {
+                    tsbNextPage.Enabled = true;
+                    tsbLastPage.Enabled = false;
+                }
+                //当前页为中间页
+                else
+                {
+                        tsbNextPage.Enabled = true;
+                        tsbLastPage.Enabled = true;
+                }
+            }
+        }
+
+        private void toolStrip1_Paint(object sender, PaintEventArgs e)
+        {
+            try
+            {
+                if ((sender as ToolStrip).RenderMode == ToolStripRenderMode.System)
+                {
+                    Rectangle rect = new Rectangle(0, 0, this.toolStrip1.Width, this.toolStrip1.Height - 2);
+                    e.Graphics.SetClip(rect);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+
+        private void tsbFirstPage_Click(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            tslCurrentPage.Text = currentPage.ToString();
+            QueryUserPage(currentPage);
+        }
+
+        private void tsbLastPage_Click(object sender, EventArgs e)
+        {
+            if (tsbNextPage.Enabled == false) tsbNextPage.Enabled = true;
+            if(currentPage>=1) currentPage = Convert.ToInt16(tslCurrentPage.Text) - 1;
+            tslCurrentPage.Text = currentPage.ToString();
+            QueryUserPage(currentPage);
+        }
+
+        private void tsbNextPage_Click(object sender, EventArgs e)
+        {
+            if (tsbLastPage.Enabled == false) tsbLastPage.Enabled = true;
+            currentPage = Convert.ToInt16(tslCurrentPage.Text) + 1;
+            tslCurrentPage.Text = currentPage.ToString();
+            QueryUserPage(currentPage);
+        }
+
+        private void tsbEndPage_Click(object sender, EventArgs e)
+        {
+            currentPage = ResultDataViewModel.VM.UserTotalPage;
+            tslCurrentPage.Text = currentPage.ToString();
+            if (Convert.ToInt16(tslCurrentPage.Text) > 1)
+                QueryUserPage(currentPage);
+        }
+
+        private void tsbGotoPage_Click_1(object sender, EventArgs e)
+        {
+            if (numGoPage.Text == "") XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.InputNotNull));
+            int Page = (int)numGoPage.Value;
+            if (Page == 0 || Page > ResultDataViewModel.VM.UserTotalPage || Page < 0)
+            {
+                XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.PageNotExist));
+                return;
+            }
+            currentPage = Page;
+            tslCurrentPage.Text = currentPage.ToString();
+            QueryUserPage(currentPage);
+        }
+        #endregion
+
+        private void sbSearch_Click(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            ResultDataViewModel.VM.Execute(new List<object> {
+                ResultDataViewModel.ExecuteCommand.ec_QueryUserPage,
+                beUserName.Text,
+                cbePermission.SelectedIndex==0? "":cbePermission.SelectedIndex.ToString (),
+                1,//点查询按钮默认回到第1页
+                cbePageRecord.SelectedItem });
+            pageControl();
+            if(ResultDataViewModel.VM.UserEntities==null|| ResultDataViewModel.VM.UserEntities.Count==0)
+                XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.SelectNull));
+        }
+
+        private void cbePageRecord_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshUI();
+        }
+    }
+}

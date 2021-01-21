@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0A52FA6B-1850-468D-99C1-26DA6F545B44}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wayee.PeakLocation</RootNamespace>
+    <AssemblyName>Wayee.Peak.Location</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Public\LocationBase.cs" />
+    <Compile Include="Process\ActiveProcess\PeakLocationFD.cs" />
+    <Compile Include="Process\ActiveProcess\PeakLocationSD.cs" />
+    <Compile Include="Interface\ICheckPeak.cs" />
+    <Compile Include="Interface\PeakArgs.cs" />
+    <Compile Include="Interface\PeakFoundEventHandler.cs" />
+    <Compile Include="Process\ActiveProcess\PeakMergingAdvanced.cs" />
+    <Compile Include="Process\ActiveProcess\PeakMergingDoNothing.cs" />
+    <Compile Include="Process\ActiveProcess\PeakDataRecovering.cs" />
+    <Compile Include="Process\ActiveProcess\PeakMergingTradition.cs" />
+    <Compile Include="Public\PeakLocationArgs.cs" />
+    <Compile Include="Process\PeakLocationBase.cs" />
+    <Compile Include="Public\PeakLocationManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Filter\IFilter\IFilter.csproj">
+      <Project>{B55C597B-49EC-4BC2-B4FB-768B8505BF2B}</Project>
+      <Name>IFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Filter\SG\Differentiate\Differentiate.csproj">
+      <Project>{1D1AD097-AD25-43ED-B814-46C4AF4102B1}</Project>
+      <Name>Differentiate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Filter\SG\Sample\Sample.csproj">
+      <Project>{DA1FBFF3-F3E7-412D-A49B-7136F8890C04}</Project>
+      <Name>Sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Filter\SG\SavitzkyGolayFilter\SavitzkyGolayFilter.csproj">
+      <Project>{0B093CD5-3996-4DB9-A37D-84764EE30B10}</Project>
+      <Name>SavitzkyGolayFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Filter\SG\SG_Cofficents\SGCoefficients.csproj">
+      <Project>{C0A7D6E6-4690-422D-9AD3-422F91A3BA0D}</Project>
+      <Name>SGCoefficients</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PeakObject\PeakObject.csproj">
+      <Project>{B5C44D88-8C1B-4BD3-A3FC-18034D6DE633}</Project>
+      <Name>PeakObject</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

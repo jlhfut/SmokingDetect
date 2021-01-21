@@ -1,0 +1,187 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DevExpress.XtraBars.Ribbon;
+using wayeal.os.exhaust.ViewModel;
+using DevExpress.Mvvm;
+using System.IO;
+using DevExpress.Utils.MVVM;
+using Newtonsoft.Json.Linq;
+
+namespace wayeal.os.exhaust.UserControls
+{
+    public partial class ucMonitoringPicture : ucBase
+    {
+        private GalleryItemGroup _GalleryItemGroup = new GalleryItemGroup();
+        private GalleryItemGroup _GalleryItemGroup2 = new GalleryItemGroup();
+        private MVVMContextFluentAPI<RealtimeMonitorViewModel> fluent;
+        private GalleryItem _farPicture = new GalleryItem(null, "far", "");
+        private GalleryItem _nearPicture = new GalleryItem(null, "near", "");
+        public ucMonitoringPicture()
+        {
+            InitializeComponent();            
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+
+        /// <summary>
+        /// Init
+        /// </summary>
+        protected override void InitializeBindings()
+        {
+            try
+            {
+                //_GalleryItemGroup.Items.Add(new GalleryItem(Image.FromFile("1.png"), "far", ""));
+                //_GalleryItemGroup2.Items.Add(new GalleryItem(Image.FromFile("1.png"), "far", ""));
+                
+                _GalleryItemGroup.Items.Add(_farPicture);
+                _GalleryItemGroup2.Items.Add(_nearPicture);
+                gcPicture.Gallery.Groups.Add(_GalleryItemGroup);
+                gcPicture.Gallery.Groups.Add(_GalleryItemGroup2);
+                mvvmContext1.SetViewModel(typeof(RealtimeMonitorViewModel), RealtimeMonitorViewModel.VM);
+                fluent = mvvmContext1.OfType<RealtimeMonitorViewModel>();
+                AddBinding(fluent.SetBinding(this, t => t.FarPicturePath, x => x.Entities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return null;
+                        return ((m[0] as JObject)["PicFarPath"]) == null ? null : ((m[0] as JObject)["PicFarPath"]).ToString();
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); return null; }
+                } ));
+                AddBinding(fluent.SetBinding(this, t => t.NearPicturePath, x => x.Entities, m =>
+                {
+                    try
+                    {
+                        if (m == null || m.Count == 0) return null;
+                        return ((m[0] as JObject)["PicNearPath"]) == null ? null : ((m[0] as JObject)["PicNearPath"]).ToString();
+                    }
+                    catch (Exception ex) { ErrorLog.Error(ex.ToString()); return null; }
+                }));
+                //AddBinding(fluent.SetBinding(this, t => t.FarPicturePath, x => x.Entities, m => { return m.Count > 0 ? ((Newtonsoft.Json.Linq.JObject)m[0])["PicFarPath"] : ""; }));
+                //AddBinding(fluent.SetBinding(this, t => t.NearPicturePath, x => x.Entities, m => { return m.Count > 0 ? ((Newtonsoft.Json.Linq.JObject)m[0])["PicNearPath"] : ""; }));
+               // AddBinding(fluent.SetBinding(this, t => t.FarPicturePath, x => x.MonitoringResult.PicFarPath));
+              //  AddBinding(fluent.SetBinding(this, t => t.NearPicturePath, x => x.MonitoringResult.PicNearPath));
+                Messenger.Default.Register<string>(this, typeof(RealtimeMonitorViewModel).Name, action);
+                RealtimeMonitorViewModel.VM.ModelChanged += (sender, arg) => {
+                    if (arg.ModelName == typeof(RealtimeMonitorViewModel.MonitoringResultModel).Name)
+                    {
+                        if (RealtimeMonitorViewModel.VM.Entities.Count == 0) return;
+                        action();
+                    }
+                };
+                base.InitializeBindings();
+            }
+            catch (Exception ex)
+            {                
+                ErrorLog.Error(ex.Message);
+            }
+        }
+        /// <summary>
+        /// MVVM action
+        /// </summary>
+        /// <param name="json"></param>
+        protected override void doAction(string json = "")
+        {
+            base.doAction();
+        }
+
+        private void ucMonitoringPicture_Resize(object sender, EventArgs e)
+        {
+            try
+            {
+                //gcPicture.Gallery.ItemSize = new Size(gcPicture.Width/2-6, gcPicture.Height-6);
+                gcPicture.Gallery.ItemSize = new Size(gcPicture.Width -6, gcPicture.Height/2 - 6);
+            }
+            catch(Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+
+        private string _FarPicturePath = "";
+        /// <summary>
+        /// 车辆远景照片
+        /// </summary>
+        public string FarPicturePath {
+            get { return _FarPicturePath; }
+            set {
+                _FarPicturePath = value;
+                if(File.Exists(value)){
+                    try
+                    {
+                        if (_farPicture.Caption == value) return;
+                        _farPicture.Caption = value;
+                        if(_farPicture.ImageOptions.Image!=null) _farPicture.ImageOptions.Image.Dispose();
+                        _farPicture.ImageOptions.Image = Image.FromFile(value);
+                        _farPicture.MakeVisible();
+                    }
+                    catch { }                    
+                }
+                else
+                {
+                    _farPicture.Caption = "";
+                    if (_farPicture.ImageOptions.Image != null) _farPicture.ImageOptions.Image.Dispose();
+                    _farPicture.ImageOptions.Image = null;
+                }
+            }
+        }
+
+        private string _NearPicturePath = "";
+        /// <summary>
+        /// 车辆近景照片
+        /// </summary>
+        public string NearPicturePath
+        {
+            get { return _NearPicturePath; }
+            set
+            {
+                _NearPicturePath = value;
+                if (File.Exists(value))
+                {
+                    try
+                    {
+                        if (_nearPicture.Caption == value) return;
+                        _nearPicture.Caption = value;
+                        if (_nearPicture.ImageOptions.Image != null) _nearPicture.ImageOptions.Image.Dispose();
+                        _nearPicture.ImageOptions.Image = Image.FromFile(value);
+                    }
+                    catch { }
+                }
+                else
+                {
+                    _nearPicture.Caption = "";
+                    if (_nearPicture.ImageOptions.Image != null) _nearPicture.ImageOptions.Image.Dispose();
+                    _nearPicture.ImageOptions.Image = null;
+                }
+            }
+        }
+        /// <summary>
+        /// 清除画布
+        /// </summary>
+        public void ClearGallery()
+        {
+            _GalleryItemGroup.Items.Clear();
+        }
+        /// <summary>
+        /// 清除画布
+        /// </summary>
+        public void AddImages(List<Image> images )
+        {
+            try
+            {
+                if (images == null || images.Count == 0) return;
+                for (int i = 0; i < images.Count; i++)
+                    _GalleryItemGroup.Items.Add(new GalleryItem(images[i], i.ToString(), ""));
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+
+//定义判峰算法实例，输入参数为：峰宽/4（大概是吧）：全局变量
+Wayee.WaveProcesser.ICheckPeak myprocesser = new Wayee.WaveProcesser.DistingGuish(14);
+
+myprocesser.PeakFoundEvent += findpeak;//挂载触发事件
+
+Hashtable ll = new Hashtable ();//定义数据输出哈希表
+//循环输入数据，每次输入一个点的数据（包括X，Y的值）：详见函数定义处的说明：plot就是数据数组，i代表的是横坐标时间
+for (int i = 0; i < buf.Length; i++)
+{
+    myprocesser.CheckPeak(i,RES[i],ll);//按照函数定义的参数进行输入即可，我的实例参数不同
+}
+
+//定义峰数据处理事件
+ private void findpeak(object sender,PeakFoundEventArgs e)
+{
+    参数e提供
+			e.StartPoint
+			e.EndPoint
+			e.PeakPoint
+			e.LeftTrendPointNum
+			e.BackTrendPoint
+	
+	五个参数，全部是string类型，读出即可
+    
+}

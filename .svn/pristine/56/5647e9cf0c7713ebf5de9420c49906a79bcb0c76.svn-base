@@ -1,0 +1,76 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using wayeal.os.exhaust.ViewModel;
+using DevExpress.Utils.MVVM;
+using DevExpress.Mvvm;
+using System.Collections;
+
+namespace wayeal.os.exhaust.UserControls
+{
+    public partial class ucCalibrationAcceleratedController : ucSettingsBase
+    {
+        private MVVMContextFluentAPI<CalibrationViewModel> fluent;
+        public ucCalibrationAcceleratedController()
+        {
+            InitializeComponent();
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+
+        /// <summary>
+        /// Init
+        /// </summary>
+        protected override void InitializeBindings()
+        {
+            try
+            {
+                mvvmContext1.SetViewModel(typeof(CalibrationViewModel), CalibrationViewModel.VM);
+                fluent = mvvmContext1.OfType<CalibrationViewModel>();
+                sbSetup.BindCommand(CalibrationViewModel.VM, () => CalibrationViewModel.ExecuteCommand.ec_SetAccelerated);
+                sbRefresh.BindCommand(CalibrationViewModel.VM, () => CalibrationViewModel.ExecuteCommand.ec_RefreshAccelerated);
+                AddBinding(teDistance1To2.Name, fluent.SetBinding(teDistance1To2, ce => ce.Text, x => x.Acceleration.L12));
+                AddBinding(teDistance1To3.Name, fluent.SetBinding(teDistance1To3, ce => ce.Text, x => x.Acceleration.L13));
+                AddBinding(teLightThreshold.Name, fluent.SetBinding(teLightThreshold, ce => ce.Text, x => x.Acceleration.LightThreshold));
+                AddBinding(fluent.SetBinding(lcSpeedValue, ce => ce.Text, x => x.AccelerationActive.Speed,m=> {
+                    try
+                    {
+                        return (m * 3.6f).ToString();
+                    }
+                    catch {
+                        return m.ToString();
+                    }
+                }));//转km/h
+                AddBinding(fluent.SetBinding(lcAccelerationValue, ce => ce.Text, x => x.AccelerationActive.Acceleration));
+                AddBinding(fluent.SetBinding(lcIntensity1Value, ce => ce.Text, x => x.AccelerationActive.Intensity1));
+                AddBinding(fluent.SetBinding(lcIntensity2Value, ce => ce.Text, x => x.AccelerationActive.Intensity2));
+                AddBinding(fluent.SetBinding(lcIntensity3Value, ce => ce.Text, x => x.AccelerationActive.Intensity3));
+                AddBinding(fluent.SetBinding(lcTime1To2Value, ce => ce.Text, x => x.AccelerationActive.T12));
+                AddBinding(fluent.SetBinding(lcTime1To3Value, ce => ce.Text, x => x.AccelerationActive.T13));
+
+                Messenger.Default.Register<string>(this, typeof(CalibrationViewModel.AccelerationModel).Name, action);
+                CalibrationViewModel.VM.ModelChanged += (sender, arg) => {
+                    if (arg.ModelName == typeof(CalibrationViewModel).Name || arg.ModelName == typeof(CalibrationViewModel.AccelerationModel).Name) action();
+                };
+                base.InitializeBindings();
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+        public override void sbSetup_Click(object sender, EventArgs e)
+        {
+            CalibrationViewModel.VM.Execute(new ArrayList() { CalibrationViewModel.ExecuteCommand.ec_SetAccelerated });
+
+            base.sbSetup_Click(sender, e);
+        }
+       
+        
+    }
+}

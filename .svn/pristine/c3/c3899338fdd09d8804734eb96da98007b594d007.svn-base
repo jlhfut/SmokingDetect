@@ -1,0 +1,443 @@
+﻿namespace wayeal.os.exhaust
+{
+    partial class wfDetialMessage
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.pcPage = new DevExpress.XtraEditors.PanelControl();
+            this.lcNextPage = new DevExpress.XtraEditors.LabelControl();
+            this.lcPrePage = new DevExpress.XtraEditors.LabelControl();
+            this.sbCreateReport = new DevExpress.XtraEditors.SimpleButton();
+            this.pcAll = new DevExpress.XtraEditors.PanelControl();
+            this.pcDataMessage = new DevExpress.XtraEditors.PanelControl();
+            this.pcCarType = new DevExpress.XtraEditors.PanelControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pcLeft = new DevExpress.XtraEditors.PanelControl();
+            this.gcPicture = new DevExpress.XtraBars.Ribbon.GalleryControl();
+            this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
+            this.pcStation = new DevExpress.XtraEditors.PanelControl();
+            this.gcStationInfo = new DevExpress.XtraEditors.GroupControl();
+            this.lcSlope = new DevExpress.XtraEditors.LabelControl();
+            this.lcSlopeValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcLongitude = new DevExpress.XtraEditors.LabelControl();
+            this.lcLatitude = new DevExpress.XtraEditors.LabelControl();
+            this.lcLongitudeValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcLatitudeValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcStationName = new DevExpress.XtraEditors.LabelControl();
+            this.lcStationNameValue = new DevExpress.XtraEditors.LabelControl();
+            this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext();
+            ((System.ComponentModel.ISupportInitialize)(this.pcPage)).BeginInit();
+            this.pcPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcAll)).BeginInit();
+            this.pcAll.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcDataMessage)).BeginInit();
+            this.pcDataMessage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcCarType)).BeginInit();
+            this.pcCarType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLeft)).BeginInit();
+            this.pcLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPicture)).BeginInit();
+            this.gcPicture.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcStation)).BeginInit();
+            this.pcStation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcStationInfo)).BeginInit();
+            this.gcStationInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pcPage
+            // 
+            this.pcPage.Appearance.BackColor = System.Drawing.Color.White;
+            this.pcPage.Appearance.Options.UseBackColor = true;
+            this.pcPage.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcPage.Controls.Add(this.lcNextPage);
+            this.pcPage.Controls.Add(this.lcPrePage);
+            this.pcPage.Controls.Add(this.sbCreateReport);
+            this.pcPage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pcPage.Location = new System.Drawing.Point(0, 667);
+            this.pcPage.Margin = new System.Windows.Forms.Padding(4);
+            this.pcPage.Name = "pcPage";
+            this.pcPage.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.pcPage.Size = new System.Drawing.Size(1263, 42);
+            this.pcPage.TabIndex = 10;
+            // 
+            // lcNextPage
+            // 
+            this.lcNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lcNextPage.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcNextPage.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.下一页;
+            this.lcNextPage.Appearance.Options.UseFont = true;
+            this.lcNextPage.Appearance.Options.UseImage = true;
+            this.lcNextPage.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.lcNextPage.Location = new System.Drawing.Point(1161, 4);
+            this.lcNextPage.Margin = new System.Windows.Forms.Padding(4);
+            this.lcNextPage.Name = "lcNextPage";
+            this.lcNextPage.Size = new System.Drawing.Size(89, 26);
+            this.lcNextPage.TabIndex = 10;
+            this.lcNextPage.Text = "NextPage";
+            this.lcNextPage.Click += new System.EventHandler(this.peNext_Click);
+            // 
+            // lcPrePage
+            // 
+            this.lcPrePage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lcPrePage.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcPrePage.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.上一页;
+            this.lcPrePage.Appearance.Options.UseFont = true;
+            this.lcPrePage.Appearance.Options.UseImage = true;
+            this.lcPrePage.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+            this.lcPrePage.Location = new System.Drawing.Point(1064, 4);
+            this.lcPrePage.Margin = new System.Windows.Forms.Padding(4);
+            this.lcPrePage.Name = "lcPrePage";
+            this.lcPrePage.Size = new System.Drawing.Size(82, 26);
+            this.lcPrePage.TabIndex = 9;
+            this.lcPrePage.Text = "PrePage";
+            this.lcPrePage.Click += new System.EventHandler(this.pePre_Click);
+            // 
+            // sbCreateReport
+            // 
+            this.sbCreateReport.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.sbCreateReport.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbCreateReport.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbCreateReport.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.弹窗上的按钮;
+            this.sbCreateReport.Appearance.Options.UseBackColor = true;
+            this.sbCreateReport.Appearance.Options.UseFont = true;
+            this.sbCreateReport.Appearance.Options.UseForeColor = true;
+            this.sbCreateReport.Appearance.Options.UseImage = true;
+            this.sbCreateReport.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
+            this.sbCreateReport.AppearanceHovered.Image = global::wayeal.os.exhaust.Properties.Resources.弹窗上的按钮;
+            this.sbCreateReport.AppearanceHovered.Options.UseBackColor = true;
+            this.sbCreateReport.AppearanceHovered.Options.UseImage = true;
+            this.sbCreateReport.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.sbCreateReport.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbCreateReport.AppearancePressed.ForeColor = System.Drawing.Color.White;
+            this.sbCreateReport.AppearancePressed.Image = global::wayeal.os.exhaust.Properties.Resources.弹窗上的按钮按下;
+            this.sbCreateReport.AppearancePressed.Options.UseBackColor = true;
+            this.sbCreateReport.AppearancePressed.Options.UseFont = true;
+            this.sbCreateReport.AppearancePressed.Options.UseForeColor = true;
+            this.sbCreateReport.AppearancePressed.Options.UseImage = true;
+            this.sbCreateReport.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbCreateReport.Location = new System.Drawing.Point(5, 7);
+            this.sbCreateReport.Margin = new System.Windows.Forms.Padding(4);
+            this.sbCreateReport.Name = "sbCreateReport";
+            this.sbCreateReport.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.sbCreateReport.Size = new System.Drawing.Size(93, 28);
+            this.sbCreateReport.TabIndex = 32;
+            this.sbCreateReport.Text = "CreateReport";
+            this.sbCreateReport.Click += new System.EventHandler(this.btnCreateReport_Click);
+            // 
+            // pcAll
+            // 
+            this.pcAll.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcAll.Controls.Add(this.pcDataMessage);
+            this.pcAll.Controls.Add(this.pcLeft);
+            this.pcAll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcAll.Location = new System.Drawing.Point(0, 0);
+            this.pcAll.Name = "pcAll";
+            this.pcAll.Size = new System.Drawing.Size(1263, 667);
+            this.pcAll.TabIndex = 11;
+            // 
+            // pcDataMessage
+            // 
+            this.pcDataMessage.Appearance.BackColor = System.Drawing.Color.White;
+            this.pcDataMessage.Appearance.Options.UseBackColor = true;
+            this.pcDataMessage.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcDataMessage.Controls.Add(this.pcCarType);
+            this.pcDataMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcDataMessage.Location = new System.Drawing.Point(587, 0);
+            this.pcDataMessage.Name = "pcDataMessage";
+            this.pcDataMessage.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
+            this.pcDataMessage.Size = new System.Drawing.Size(676, 667);
+            this.pcDataMessage.TabIndex = 1;
+            // 
+            // pcCarType
+            // 
+            this.pcCarType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pcCarType.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pcCarType.Appearance.Options.UseBackColor = true;
+            this.pcCarType.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcCarType.Controls.Add(this.label1);
+            this.pcCarType.Location = new System.Drawing.Point(448, 5);
+            this.pcCarType.Name = "pcCarType";
+            this.pcCarType.Size = new System.Drawing.Size(222, 237);
+            this.pcCarType.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(73, 194);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 14);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // pcLeft
+            // 
+            this.pcLeft.Appearance.BackColor = System.Drawing.Color.White;
+            this.pcLeft.Appearance.Options.UseBackColor = true;
+            this.pcLeft.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcLeft.Controls.Add(this.gcPicture);
+            this.pcLeft.Controls.Add(this.pcStation);
+            this.pcLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pcLeft.Location = new System.Drawing.Point(0, 0);
+            this.pcLeft.Name = "pcLeft";
+            this.pcLeft.Padding = new System.Windows.Forms.Padding(5);
+            this.pcLeft.Size = new System.Drawing.Size(587, 667);
+            this.pcLeft.TabIndex = 0;
+            // 
+            // gcPicture
+            // 
+            this.gcPicture.Controls.Add(this.galleryControlClient1);
+            this.gcPicture.DesignGalleryGroupIndex = 0;
+            this.gcPicture.DesignGalleryItemIndex = 0;
+            this.gcPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            // 
+            // 
+            // 
+            this.gcPicture.Gallery.AllowAllUp = false;
+            this.gcPicture.Gallery.AllowFilter = false;
+            this.gcPicture.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.None;
+            this.gcPicture.Gallery.ColumnCount = 1;
+            this.gcPicture.Gallery.FixedHoverImageSize = false;
+            this.gcPicture.Gallery.FixedImageSize = false;
+            this.gcPicture.Gallery.ItemAutoSizeMode = DevExpress.XtraBars.Ribbon.Gallery.GalleryItemAutoSizeMode.None;
+            this.gcPicture.Gallery.ItemImageLayout = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.gcPicture.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Left;
+            this.gcPicture.Gallery.RowCount = 2;
+            this.gcPicture.Gallery.ShowGroupCaption = false;
+            this.gcPicture.Gallery.ShowScrollBar = DevExpress.XtraBars.Ribbon.Gallery.ShowScrollBar.Hide;
+            this.gcPicture.Location = new System.Drawing.Point(5, 5);
+            this.gcPicture.Name = "gcPicture";
+            this.gcPicture.Size = new System.Drawing.Size(577, 520);
+            this.gcPicture.TabIndex = 2;
+            // 
+            // galleryControlClient1
+            // 
+            this.galleryControlClient1.GalleryControl = this.gcPicture;
+            this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
+            this.galleryControlClient1.Size = new System.Drawing.Size(573, 516);
+            // 
+            // pcStation
+            // 
+            this.pcStation.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcStation.Controls.Add(this.gcStationInfo);
+            this.pcStation.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pcStation.Location = new System.Drawing.Point(5, 525);
+            this.pcStation.Name = "pcStation";
+            this.pcStation.Size = new System.Drawing.Size(577, 137);
+            this.pcStation.TabIndex = 0;
+            // 
+            // gcStationInfo
+            // 
+            this.gcStationInfo.Appearance.BackColor = System.Drawing.Color.White;
+            this.gcStationInfo.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gcStationInfo.Appearance.Options.UseBackColor = true;
+            this.gcStationInfo.Appearance.Options.UseFont = true;
+            this.gcStationInfo.AppearanceCaption.BackColor = System.Drawing.Color.Transparent;
+            this.gcStationInfo.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcStationInfo.AppearanceCaption.Options.UseBackColor = true;
+            this.gcStationInfo.AppearanceCaption.Options.UseFont = true;
+            this.gcStationInfo.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.gcStationInfo.Controls.Add(this.lcSlope);
+            this.gcStationInfo.Controls.Add(this.lcSlopeValue);
+            this.gcStationInfo.Controls.Add(this.lcLongitude);
+            this.gcStationInfo.Controls.Add(this.lcLatitude);
+            this.gcStationInfo.Controls.Add(this.lcLongitudeValue);
+            this.gcStationInfo.Controls.Add(this.lcLatitudeValue);
+            this.gcStationInfo.Controls.Add(this.lcStationName);
+            this.gcStationInfo.Controls.Add(this.lcStationNameValue);
+            this.gcStationInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcStationInfo.GroupStyle = DevExpress.Utils.GroupStyle.Card;
+            this.gcStationInfo.Location = new System.Drawing.Point(0, 0);
+            this.gcStationInfo.Name = "gcStationInfo";
+            this.gcStationInfo.Size = new System.Drawing.Size(577, 137);
+            this.gcStationInfo.TabIndex = 56;
+            this.gcStationInfo.Text = "Station Information";
+            // 
+            // lcSlope
+            // 
+            this.lcSlope.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcSlope.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcSlope.Appearance.Options.UseFont = true;
+            this.lcSlope.Appearance.Options.UseForeColor = true;
+            this.lcSlope.Location = new System.Drawing.Point(422, 92);
+            this.lcSlope.Name = "lcSlope";
+            this.lcSlope.Size = new System.Drawing.Size(32, 16);
+            this.lcSlope.TabIndex = 60;
+            this.lcSlope.Text = "Slope";
+            // 
+            // lcSlopeValue
+            // 
+            this.lcSlopeValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcSlopeValue.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lcSlopeValue.Appearance.Options.UseFont = true;
+            this.lcSlopeValue.Appearance.Options.UseForeColor = true;
+            this.lcSlopeValue.Location = new System.Drawing.Point(503, 92);
+            this.lcSlopeValue.Name = "lcSlopeValue";
+            this.lcSlopeValue.Size = new System.Drawing.Size(8, 16);
+            this.lcSlopeValue.TabIndex = 61;
+            this.lcSlopeValue.Text = "0";
+            // 
+            // lcLongitude
+            // 
+            this.lcLongitude.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcLongitude.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcLongitude.Appearance.Options.UseFont = true;
+            this.lcLongitude.Appearance.Options.UseForeColor = true;
+            this.lcLongitude.Location = new System.Drawing.Point(36, 92);
+            this.lcLongitude.Name = "lcLongitude";
+            this.lcLongitude.Size = new System.Drawing.Size(55, 16);
+            this.lcLongitude.TabIndex = 55;
+            this.lcLongitude.Text = "Longitude";
+            // 
+            // lcLatitude
+            // 
+            this.lcLatitude.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcLatitude.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcLatitude.Appearance.Options.UseFont = true;
+            this.lcLatitude.Appearance.Options.UseForeColor = true;
+            this.lcLatitude.Location = new System.Drawing.Point(237, 92);
+            this.lcLatitude.Name = "lcLatitude";
+            this.lcLatitude.Size = new System.Drawing.Size(45, 16);
+            this.lcLatitude.TabIndex = 56;
+            this.lcLatitude.Text = "Latitude";
+            // 
+            // lcLongitudeValue
+            // 
+            this.lcLongitudeValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcLongitudeValue.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lcLongitudeValue.Appearance.Options.UseFont = true;
+            this.lcLongitudeValue.Appearance.Options.UseForeColor = true;
+            this.lcLongitudeValue.Location = new System.Drawing.Point(123, 92);
+            this.lcLongitudeValue.Name = "lcLongitudeValue";
+            this.lcLongitudeValue.Size = new System.Drawing.Size(8, 16);
+            this.lcLongitudeValue.TabIndex = 58;
+            this.lcLongitudeValue.Text = "0";
+            // 
+            // lcLatitudeValue
+            // 
+            this.lcLatitudeValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcLatitudeValue.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lcLatitudeValue.Appearance.Options.UseFont = true;
+            this.lcLatitudeValue.Appearance.Options.UseForeColor = true;
+            this.lcLatitudeValue.Location = new System.Drawing.Point(314, 92);
+            this.lcLatitudeValue.Name = "lcLatitudeValue";
+            this.lcLatitudeValue.Size = new System.Drawing.Size(8, 16);
+            this.lcLatitudeValue.TabIndex = 59;
+            this.lcLatitudeValue.Text = "0";
+            // 
+            // lcStationName
+            // 
+            this.lcStationName.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcStationName.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcStationName.Appearance.Options.UseFont = true;
+            this.lcStationName.Appearance.Options.UseForeColor = true;
+            this.lcStationName.Location = new System.Drawing.Point(36, 50);
+            this.lcStationName.Name = "lcStationName";
+            this.lcStationName.Size = new System.Drawing.Size(73, 16);
+            this.lcStationName.TabIndex = 54;
+            this.lcStationName.Text = "StationName";
+            // 
+            // lcStationNameValue
+            // 
+            this.lcStationNameValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcStationNameValue.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lcStationNameValue.Appearance.Options.UseFont = true;
+            this.lcStationNameValue.Appearance.Options.UseForeColor = true;
+            this.lcStationNameValue.Location = new System.Drawing.Point(154, 50);
+            this.lcStationNameValue.Name = "lcStationNameValue";
+            this.lcStationNameValue.Size = new System.Drawing.Size(8, 16);
+            this.lcStationNameValue.TabIndex = 57;
+            this.lcStationNameValue.Text = "0";
+            // 
+            // mvvmContext1
+            // 
+            this.mvvmContext1.ContainerControl = this;
+            // 
+            // wfDetialMessage
+            // 
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1263, 709);
+            this.Controls.Add(this.pcAll);
+            this.Controls.Add(this.pcPage);
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
+            this.Name = "wfDetialMessage";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "DetialMessage";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.wfDetialMessage_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.pcPage)).EndInit();
+            this.pcPage.ResumeLayout(false);
+            this.pcPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcAll)).EndInit();
+            this.pcAll.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcDataMessage)).EndInit();
+            this.pcDataMessage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcCarType)).EndInit();
+            this.pcCarType.ResumeLayout(false);
+            this.pcCarType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcLeft)).EndInit();
+            this.pcLeft.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcPicture)).EndInit();
+            this.gcPicture.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcStation)).EndInit();
+            this.pcStation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcStationInfo)).EndInit();
+            this.gcStationInfo.ResumeLayout(false);
+            this.gcStationInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraEditors.PanelControl pcPage;
+        private DevExpress.XtraEditors.LabelControl lcNextPage;
+        private DevExpress.XtraEditors.LabelControl lcPrePage;
+        private DevExpress.XtraEditors.SimpleButton sbCreateReport;
+        private DevExpress.XtraEditors.PanelControl pcAll;
+        private DevExpress.XtraEditors.PanelControl pcDataMessage;
+        private DevExpress.XtraEditors.PanelControl pcLeft;
+        private DevExpress.XtraEditors.PanelControl pcStation;
+        private DevExpress.Utils.MVVM.MVVMContext mvvmContext1;
+        private DevExpress.XtraBars.Ribbon.GalleryControl gcPicture;
+        private DevExpress.XtraBars.Ribbon.GalleryControlClient galleryControlClient1;
+        private DevExpress.XtraEditors.GroupControl gcStationInfo;
+        private DevExpress.XtraEditors.LabelControl lcSlope;
+        private DevExpress.XtraEditors.LabelControl lcSlopeValue;
+        private DevExpress.XtraEditors.LabelControl lcLongitude;
+        private DevExpress.XtraEditors.LabelControl lcLatitude;
+        private DevExpress.XtraEditors.LabelControl lcLongitudeValue;
+        private DevExpress.XtraEditors.LabelControl lcLatitudeValue;
+        private DevExpress.XtraEditors.LabelControl lcStationName;
+        private DevExpress.XtraEditors.LabelControl lcStationNameValue;
+        private DevExpress.XtraEditors.PanelControl pcCarType;
+        private System.Windows.Forms.Label label1;
+    }
+}

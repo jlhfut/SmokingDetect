@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using wayeal.os.exhaust.UserControls;
+
+namespace wayeal.os.exhaust.Modules
+{
+    public partial class ucLimitingSettings : ucManagerBase
+    {
+        private ucLimitingInfoOfGasolineCar _ucGaso = new ucLimitingInfoOfGasolineCar();
+        ucLimitingInfoOfGasolineCar ucGasoline { get { return _ucGaso; } set { _ucGaso = value; } }
+        private ucLimitingInfoOfDieselCar _ucDiesel = new ucLimitingInfoOfDieselCar();
+        ucLimitingInfoOfDieselCar ucDiesel { get { return _ucDiesel; } set { _ucDiesel = value; } }
+        //private ucLimitingHistory _ucHistory = new ucLimitingHistory();
+        //ucLimitingHistory ucHistory { get { return _ucHistory; } set { _ucHistory = value; } }
+        
+        //将uc控件显示在屏幕右侧
+        private void PanelShowUc(UserControl uc)
+        {
+            panel2.Controls.Clear();
+            panel2.Controls.Add(uc);
+            uc.Dock = DockStyle.Fill;
+            uc.BringToFront();
+        }
+
+        public ucLimitingSettings()
+        {
+            InitializeComponent();
+            InitializeUI();
+            this.ucLimtingLabel1.LabelClick += new OnLabelClickEvent(ShowUesrControl);
+        }
+
+        private void ShowUesrControl(int selectedLabel)
+        {
+            switch (selectedLabel)
+            {
+                case (int)(labelName.gasoline) :
+                    PanelShowUc(ucGasoline);
+                    break;
+                case (int)(labelName.diesel ):
+                    PanelShowUc(ucDiesel);
+                    break;
+                case (int)(labelName.history):
+                    ucLimitingHistory ucHistory = new ucLimitingHistory();
+                    PanelShowUc(ucHistory);
+                    ucHistory.QueryForReflash();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ucLimitingSettings_Load(object sender, EventArgs e)
+        {
+            ucLimitingInfoOfGasolineCar ucGasoline = new ucLimitingInfoOfGasolineCar();
+            ucGasoline.Dock = DockStyle.Fill;
+            panel2.Controls.Add(ucGasoline);
+        }
+
+    }
+}

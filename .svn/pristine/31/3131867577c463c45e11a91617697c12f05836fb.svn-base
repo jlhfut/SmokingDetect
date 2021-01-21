@@ -1,0 +1,9 @@
+SCC = This is a Source Code Control file
+
+[ResultAnalyzer.csproj]
+SCC_Aux_Path = "\\192.168.2.214\softwavedepartment$\WayeeSoft"
+SCC_Project_Name = "$/WYHPC/CurrentVersion/V2.0/Code/WYHPLC_1.2/ResultAnalyzer", UPUAAAAA
+
+[PeakAnalyzer.csproj]
+SCC_Aux_Path = "\\192.168.2.214\Softwavedepartment$\WayeeSoft"
+SCC_Project_Name = "$/WYHPC/CurrentVersion/V3.0/Code/WYHPLC/PeakAnalyzer", QJQBAAAA

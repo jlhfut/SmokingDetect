@@ -1,0 +1,244 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DevExpress.Utils.MVVM;
+using wayeal.os.exhaust.ViewModel;
+using Wayee.Services;
+using Microsoft.Win32;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using DevExpress.XtraEditors;
+
+namespace wayeal.os.exhaust.Modules
+{
+    public partial class ucAssistManage : ucManagerBase
+    {
+        #region Define
+        private MVVMContextFluentAPI<ResultDataViewModel> fluent;
+        #endregion
+        public enum RunningMode
+        {
+            riFullScreen,  
+            riBackground
+        }
+        public ucAssistManage()
+        {
+            InitializeComponent();
+            InitializeUI();
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+        protected override void InitializeBindings()
+        {
+            try
+            {
+                string s = "";
+                mvvmContext1.SetViewModel(typeof(ResultDataViewModel), ResultDataViewModel.VM);
+                fluent = mvvmContext1.OfType<ResultDataViewModel>();
+                ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_QueryOtherParam });
+                AddBinding(fluent.SetBinding(ceAddToAutoStart, ce => ce.EditValue, x => x.OtherParamEntities, m =>
+                {
+                if (m.Count != 0 &&  m[0] != null&&((DTOtherParamInfo)m[0]).AddToAutoStart.Value != null ) 
+                    return Convert.ToInt32(((DTOtherParamInfo)m[0]).AddToAutoStart.Value);
+                    return 0;
+                }));
+                AddBinding(fluent.SetBinding(rgRunningModel, rg => rg.SelectedIndex, x => x.OtherParamEntities, m =>
+                {
+                    if (m.Count != 0 && m[0] != null && ((DTOtherParamInfo)m[0]).RunningModel.Value != null)
+                    {
+                        return Convert.ToInt32(((DTOtherParamInfo)m[0]).RunningModel.Value);
+                    }
+                  
+                    else
+                    {
+                        return 1;
+                    }
+                }));
+
+                ResultDataViewModel.VM.ModelChanged += (sender, arg) =>
+                {
+                    if (arg.ModelName == typeof(ResultDataViewModel).Name) action();
+                };
+
+                base.InitializeBindings();
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+
+        /// <summary>
+        /// mvvm action
+        /// </summary>
+        /// <param name="json"></param>
+        protected override void doAction(string json = "")
+        {
+            base.doAction();
+        }
+     /// <summary>
+     /// 设置和取消开机自启动
+     /// </summary>
+     /// <param name="sender"></param>
+     /// <param name="e"></param>
+        private void ceAddToAutoStart_MouseUp(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                RegistryKey Local = Registry.CurrentUser;
+                 string keyUIName = "WYExhaust";
+                string keySOAName = "WYExhaustSOA";
+              //  string keyName = "AppStarter";
+                string subUIKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run\" + keyUIName;
+                string subSOAKey= @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run\" + keySOAName;
+                RegistryKey run = Local.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run\", true);
+
+                string pathUI = Application.ExecutablePath;
+
+                //加入SOA地址
+                string pathSOA= Path.GetDirectoryName(pathUI);
+                pathSOA = Path.GetDirectoryName(pathSOA);
+                pathSOA = Path.Combine(pathSOA,"SOA" , "Wayee.Services.RemotingServer.exe");
+                
+                if (ceAddToAutoStart.EditValue.ToString() == "1")
+                {
+                    run.SetValue(keyUIName, pathUI);
+                    run.SetValue(keySOAName, pathSOA);
+                    Local.Close();
+                }
+                else
+                {
+                    if (run != null)
+                    {
+                        run.DeleteValue(keyUIName, false);
+                        run.DeleteValue(keySOAName, false);
+                        Local.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+            //if (ceAddToAutoStart.EditValue.ToString() == "1")
+            //{
+            //    try
+            //    {
+            //        // 添加到 当前登陆用户的 注册表启动项
+            //        RegistryKey RKey = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+            //        RKey.SetValue("WYExhaust", @"../bin/Debug/WYExhaust.exe");
+            //        RKey.Close();
+            //        //// 添加到 所有用户的 注册表启动项
+            //        //RKey = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+            //        //RKey.SetValue("WYExhaust", @"../bin/Debug/WYExhaust.exe");
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        ErrorLog.Error(ex.ToString());
+            //    }
+            //}
+            //else
+            //{
+            //    try
+            //    {
+            //        //取消开机自启动
+            //        RegistryKey RKey = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+            //        RKey.DeleteValue("WYExhaust", false);
+            //        RKey.Close();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        ErrorLog.Error(ex.ToString());
+            //    }
+            //}
+            string log = ErrorLog.JointLogContent(lcAddToAutoStart.Text, false, false, "", ceAddToAutoStart.EditValue.ToString());
+            ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_ChangeOtherParam, Convert.ToInt32(ceAddToAutoStart.EditValue), "" });
+            log += ResultDataViewModel.VM.ChangeOtherParamResult ?
+                Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess) : Program.infoResource.GetLocalizedString(language.InfoId.OperateFail);
+            ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+        }
+        /// <summary>
+        /// 运行模式被选索引改变
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rgRunningModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string log = ErrorLog.JointLogContent(Program.infoResource.GetLocalizedString(language.InfoId.ChangeRunningModel), false, false, "", rgRunningModel.Properties.Items.GetItemByValue(rgRunningModel.EditValue).Description);
+
+                if (ResultDataViewModel.VM.OtherParamEntities.Count > 0)
+                {
+                    ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_ChangeOtherParam, "", rgRunningModel.SelectedIndex });
+                }
+                else
+                {
+                    ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_InsertOtherParam, "", rgRunningModel.SelectedIndex });
+                }
+                if (log != "") ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+            }
+            catch(Exception ex)
+            {
+                ErrorLog.Error(ex.ToString());
+            }
+            sbConfirmBK.Focus();
+        }
+        //还原
+        private void sbConfirmRS_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            file.Filter= "DataBase|*.bak";
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = file.FileName;//.Replace(".bak", "");
+                ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_RestoreBackup, fileName });
+                if (ResultDataViewModel.VM.RestoreBackupResult)
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess) + "," + Program.infoResource.GetLocalizedString(language.InfoId.PleaseReStart));
+                    string log = Program.infoResource.GetLocalizedString(language.InfoId.ReStoreDataBase)+file.FileName + Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess);
+                    ErrorLog.SystemLog(DateTime.Now,log, this.OwnerForm.GetUserName());
+                }
+                else
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OperateFail));
+                    string log = Program.infoResource.GetLocalizedString(language.InfoId.ReStoreDataBase) + file.FileName + Program.infoResource.GetLocalizedString(language.InfoId.OperateFail);
+                    ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+                }
+            }
+        }
+        //备份
+        private void sbConfirmBK_Click(object sender, EventArgs e)
+        {
+            DialogResult rs= XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.BackUpDBTips),"",MessageBoxButtons.OKCancel);
+            if (rs != DialogResult.OK) return;
+            SaveFileDialog file = new SaveFileDialog();
+            file.Filter = "DataBase|*.bak";
+            file.FileName = "WYExhaust_DB_" + DateTime.Now.ToString("yyMMdd");
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = file.FileName.Replace(".bak", "");
+                ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_BackupDataBase, fileName });
+                if (ResultDataViewModel.VM.BackupDataBaseResult)
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess));
+                    string log = Program.infoResource.GetLocalizedString(language.InfoId.BackUpDataBase) + file.FileName  + Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess);
+                    ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+                }
+                else
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.OperateFail));
+                    string log = Program.infoResource.GetLocalizedString(language.InfoId.BackUpDataBase) + file.FileName  + Program.infoResource.GetLocalizedString(language.InfoId.OperateFail);
+                    ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+                }
+            }
+        }
+        
+    }
+}

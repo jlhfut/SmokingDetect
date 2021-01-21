@@ -1,0 +1,229 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using wayeal.os.exhaust.ViewModel;
+using DevExpress.Utils.MVVM;
+using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
+using wayeal.os.exhaust.Forms;
+using Microsoft.Office.Interop.Excel;
+using System.Reflection;
+
+namespace wayeal.os.exhaust.Modules
+{
+    public partial class ucDataStatistics : ucManagerBase
+    {
+        private MVVMContextFluentAPI<ResultDataViewModel> fluent;
+        public ucDataStatistics()
+        {
+            InitializeComponent();
+            InitializeUI();
+            InitDateTime();
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+
+        private void InitDateTime()
+        {
+            DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 00, 00, 00);
+            dtpBegin.Value = dt.AddMonths(-1);
+            DateTime dt2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
+            dtpEnd.Value = dt2;
+
+        }
+
+        protected override void InitializeBindings()
+        {
+            mvvmContext1.SetViewModel(typeof(ResultDataViewModel), ResultDataViewModel.VM);
+            fluent = mvvmContext1.OfType<ResultDataViewModel>();
+            AddBinding(fluent.SetBinding(lcDieselQuality, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 2) return "-";
+                return m[1].ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcDieselUnquality, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 1) return "-";
+                return m[0].ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcDieselInvalid, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 3) return "-";
+                return m[2].ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcGasoQuality, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 5) return "-";
+                return m[4].ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcGasoUnquality, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 4) return "-";
+                return m[3].ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcGasoInvalid, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 6) return "-";
+                return m[5].ToString();
+            }));
+
+            AddBinding(fluent.SetBinding(lcDieselValid, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 6) return "-";
+                return (m[0]+m[1]).ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcGasoValid, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 6) return "-";
+                return (m[3]+m[4]).ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcValidValue, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 6) return "-";
+                return (m[0]+m[1]+m[3]+m[4]).ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcQualityValue, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 6) return "-";
+                return (m[4]+m[1]).ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcUnqualityValue, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count <6) return "-";
+                return (m[0]+m[3]).ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcInvalidValue, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 7) return "-";
+                return m[6].ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcDieselValue, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 6) return "-";
+                return (m[0] + m[1]+m[2]).ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcGasoValue, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 6) return "-";
+                return (m[3] + m[4]+m[5]).ToString();
+            }));
+            AddBinding(fluent.SetBinding(lcAllValue, lc => lc.Text, x => x.QueryDateStatisticsEntities, m =>
+            {
+                if (m == null || m.Count < 6) return "-";
+                return (m[0] + m[1]+ m[3] + m[4]+m[6]).ToString();
+            }));
+            ResultDataViewModel.VM.ModelChanged += (sender, arg) =>
+            {
+                if (arg.ModelName == typeof(ResultDataViewModel).Name) action();
+            };
+            ResultDataViewModel.VM.Execute(new List<object> {
+                ResultDataViewModel.ExecuteCommand.ec_QueryDataStatistics,
+                dtpBegin.Value,
+                dtpEnd.Value,
+            });
+            base.InitializeBindings();
+        }
+
+        private void sbQuary_Click(object sender, EventArgs e)
+        {
+            if (dtpBegin.Value >= dtpEnd.Value)
+            {
+                XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.BeginEndTime));
+                return;
+            }
+            ResultDataViewModel.VM.Execute(new List<object> {
+                ResultDataViewModel.ExecuteCommand.ec_QueryDataStatistics,
+                dtpBegin.Value,
+                dtpEnd.Value,
+            });
+        }
+
+        private void sbDerive_Click(object sender, EventArgs e)
+        {
+            SaveDataToExcel();
+        }
+        public void SaveDataToExcel()
+        {
+            Microsoft.Office.Interop.Excel.Application app = null;
+            try
+            {
+                //开启等待窗口
+                SplashScreenManager.ShowForm(this.ParentForm, typeof(wfMain), false, true);
+                string log = Program.infoResource.GetLocalizedString(language.InfoId.DriveGraphData);
+                app = new Microsoft.Office.Interop.Excel.Application();
+                if (app == null)
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.NoOffice));
+                    return;
+                }
+                //创建Excel中的工作薄
+                Workbook wb = (Workbook)app.Workbooks.Add(Missing.Value);
+                //创建Excel工作薄中的第一页 sheet
+                Worksheet sheet = (Worksheet)wb.ActiveSheet;
+                sheet.Name = "统计数据";
+                sheet.Cells[1, 1] = lcDataType.Text;
+                sheet.Cells[1, 2] = lcDieselData.Text;
+                sheet.Cells[1, 3] =lcGasolineCarData.Text;
+                sheet.Cells[1, 4] = lcAmount.Text;
+                //A1-D1标题居中，字号调整，字体调整
+                Range rg = sheet.Range["A1", "D1"];
+                rg.ColumnWidth = 17;
+                rg.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                rg.Font.Size = 14;
+                rg.Font.Name = "宋体";
+                //导入数据
+                sheet.Cells[2, 1] = lcValidData.Text;
+                sheet.Cells[2, 2] = lcDieselValid.Text;
+                sheet.Cells[2, 3] = lcGasoValid.Text;
+                sheet.Cells[2, 4] = lcValidValue.Text;
+                sheet.Cells[3, 1] = lcQualifiedData.Text;
+                sheet.Cells[3, 2] = lcDieselQuality.Text;
+                sheet.Cells[3, 3] = lcGasoQuality.Text;
+                sheet.Cells[3, 4] = lcQualityValue.Text;
+                sheet.Cells[4, 1] = lcUnqualifiedData.Text;
+                sheet.Cells[4, 2] = lcDieselUnquality.Text;
+                sheet.Cells[4, 3] = lcGasoUnquality.Text;
+                sheet.Cells[4, 4] = lcUnqualityValue.Text;
+                sheet.Cells[5, 1] = lcInvalidData.Text;
+                sheet.Cells[5, 2] = lcDieselInvalid.Text;
+                sheet.Cells[5, 3] = lcGasoInvalid.Text;
+                sheet.Cells[5, 4] = lcInvalidValue.Text;
+                sheet.Cells[6, 1] = lcSum.Text;
+                sheet.Cells[6, 2] = lcDieselValue.Text;
+                sheet.Cells[6, 3] = lcGasoValue.Text;
+                sheet.Cells[6, 4] = lcAllValue.Text;
+
+                 //保存工作表,退出
+                SplashScreenManager.CloseForm();
+                dlgSave.ShowDialog();
+                if (!String.IsNullOrEmpty(dlgSave.FileName))
+                {
+                    app.ActiveWorkbook.SaveAs(dlgSave.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, Type.Missing,
+                        Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                    log += Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess);
+                    ErrorLog.SystemLog(DateTime.Now, log);
+                }
+                app.Quit();
+            }
+            catch (Exception ex)
+            {
+                 if (app != null) app.Quit();
+                ErrorLog.Error(ex.ToString());
+            }
+
+        }
+        private void DriveDataToSheet<T>(Worksheet sheet, List<T> list, int idx)
+        {
+            if (list == null || list.Count == 0) return;
+            for (int i = 0; i < list.Count; i++)
+            {
+                sheet.Cells[i + 3, idx] = list[i].ToString();
+            }
+        }
+    }
+}

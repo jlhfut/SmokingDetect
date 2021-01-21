@@ -1,0 +1,678 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DevExpress.Utils.MVVM;
+using wayeal.os.exhaust.ViewModel;
+using Newtonsoft.Json.Linq;
+using DevExpress.XtraGauges.Core.Model;
+using static wayeal.os.exhaust.Modules.ucExhaustData;
+using DevExpress.Mvvm;
+using wayeal.plugin;
+using static wayeal.os.exhaust.ClassEnum;
+using wayeal.language;
+using System.Diagnostics;
+
+namespace wayeal.os.exhaust.UserControls
+{
+    public partial class ucDataMessageView : ucBase
+    {
+        private MVVMContextFluentAPI<ResultDataViewModel> fluent;
+        const string c_AirQuality = "AirQuality";
+        const string c_COName = "CO";
+        const string c_NO2Name = "NO₂";
+        const string c_O3Name = "O₃";
+        const string c_SO2Name = "SO₂";
+        const string c_PM25Name = "PM2.5";
+        const string c_PM10Name = "PM10";
+        const string c_LeftParen = "(";
+        const string c_RightParen = ")";
+        private AirUnit _unit = new AirUnit();
+        public AirUnit Unit { get { return _unit; } set { _unit = value; } }
+
+        public ucDataMessageView()
+        {
+            InitializeComponent();
+            InitializeUI();
+            SetUnit();
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+        protected override void OnResize(EventArgs e)
+        {
+            //gcMonitoryingInformation.Height = (this.Height - this.Padding.Top - this.Padding.Bottom) *5/13;
+            //gcVehicleCondition.Height = (this.Height - this.Padding.Top - this.Padding.Bottom) *4/13;
+            //gcEnvironmentInfo.Height = (this.Height - this.Padding.Top - this.Padding.Bottom)*4/13;
+            //gcStationInfo.Height= (this.Height - this.Padding.Top - this.Padding.Bottom) /5;
+
+            base.OnResize(e);
+        }
+        protected override void InitializeBindings()
+        {
+            try
+            {
+                mvvmContext1.SetViewModel(typeof(ResultDataViewModel), ResultDataViewModel.VM);
+                fluent = mvvmContext1.OfType<ResultDataViewModel>();
+                #region AddBinding
+                AddBinding(fluent.SetBinding(lcTestingnumvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o =m[0];
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("UniqueKey", out value)) return value.ToString();
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcResultvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("Result", out value))
+                        {
+                            if (value.ToString().Equals("1"))
+                            {
+                                //合格
+                                return Program.infoResource.GetLocalizedString(language.InfoId.Qualified);
+                            }
+                            else if (value.ToString().Equals("0"))
+                            {
+                                //不合格
+                                return Program.infoResource.GetLocalizedString(language.InfoId.Disqualified);
+                            }
+                            else if (value.ToString().Equals("2"))
+                            {
+                                //无效
+                                return Program.infoResource.GetLocalizedString(language.InfoId.Invalid);
+                            }
+                        }
+                    }
+                    return "0";
+                }));
+                
+                AddBinding(fluent.SetBinding(lcNOvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("NO", out value)&&value.ToString()!="") return  Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcHCvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("HC", out value) && value.ToString() != "") return Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcCOvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("CO", out value) && value.ToString() != "") return Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcCO2value, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("CO2", out value) && value.ToString() != "") return Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcOpSmokevalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("OpSmoke", out value) && value.ToString() != "") return  Convert.ToDouble(value.ToString()).ToString("f2");;
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcLicensenumvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("CarNumber", out value)) return value.ToString();
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcBlacknessvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "Ⅰ";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("Blackness", out value) && value.ToString() != "") return ConvertIntToRoma(value.ToString ());
+                    }
+                    return "Ⅰ";
+                }));
+                AddBinding(fluent.SetBinding(lcLicensecolorvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("CarNumberColor", out value))
+                        {
+                            if (value == null || value.ToString() == "") return "0";
+                            enumCarNumberColor rs;
+                            Enum.TryParse<enumCarNumberColor>(value.ToString().Trim(), out rs);
+                            switch (rs)
+                            {
+                                case enumCarNumberColor.Color_Blue:
+                                   return  Program.infoResource.GetLocalizedString(language.InfoId.Blue);
+                                case enumCarNumberColor.Color_Yellow:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Yellow);
+                                case enumCarNumberColor.Color_White:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.White);
+                                case enumCarNumberColor.Color_Black:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Black);
+                                case enumCarNumberColor.Color_Green:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Green);
+                                case enumCarNumberColor.Color_Blackness:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Blackness);
+                                default:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.OtherColor);
+                            }
+                        }
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcBodycolorvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("CarColor", out value))
+                        {
+                            if (value == null || value.ToString() == "") return "0";
+                            enumBodyColor rs;
+                            Enum.TryParse<enumBodyColor>(value.ToString().Trim(), out rs);
+                            switch (rs)
+                            {
+                                case enumBodyColor.Color_Other:
+                                   return  Program.infoResource.GetLocalizedString(language.InfoId.OtherColor);
+                                case enumBodyColor.Color_White:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.White);
+                                case enumBodyColor.Color_Silvery:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Silvery);
+                                case enumBodyColor.Color_Gray:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Gray);
+                                case enumBodyColor.Color_Black:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Black);
+                                case enumBodyColor.Color_Red:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Red);
+                                case enumBodyColor.Color_Darkblue:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.DarkBlue);
+                                case enumBodyColor.Color_Blue:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Blue);
+                                case enumBodyColor.Color_Yellow:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Yellow);
+                                case enumBodyColor.Color_Green:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Green);
+                                case enumBodyColor.Color_Brown:
+                                    return  Program.infoResource.GetLocalizedString(language.InfoId.Brown);
+                                case enumBodyColor.Color_Pink:
+                                    return  Program.infoResource.GetLocalizedString(language.InfoId.Pink);
+                                case enumBodyColor.Color_Violet:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Violet);
+                                case enumBodyColor.Color_Darkgrey:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.DarkGrey);
+                                case enumBodyColor.Color_Cyan:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.Cyan);
+                                default:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.UnfindColor);
+                            }
+                        }
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcLicenseTypeValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return Program.infoResource.GetLocalizedString(language.InfoId.UnfindColor); ;
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("LicenseType", out value))
+                        {
+                            if (value == null || value.ToString() == "") return Program.infoResource.GetLocalizedString(language.InfoId.UnfindColor); ;
+                            switch (Convert.ToInt32(value))
+                            {
+                                case (int)enumLicenseType.VCA_STANDARD92_PLATE:
+                                    return  Program.infoResource.GetLocalizedString(language.InfoId.VCA_STANDARD92_PLATE);
+                                case (int)enumLicenseType.VCA_STANDARD02_PLATE:
+                                    return  Program.infoResource.GetLocalizedString(language.InfoId.VCA_STANDARD02_PLATE);
+                                case (int)enumLicenseType.VCA_WJPOLICE_PLATE:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.VCA_WJPOLICE_PLATE);
+                                case (int)enumLicenseType.VCA_JINGCHE_PLATE:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.VCA_JINGCHE_PLATE);
+                                case (int)enumLicenseType.STANDARD92_BACK_PLATE:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.STANDARD92_BACK_PLATE);
+                                case (int)enumLicenseType.VCA_SHIGUAN_PLATE:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.VCA_SHIGUAN_PLATE);
+                                case (int)enumLicenseType.VCA_NONGYONG_PLATE:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.VCA_NONGYONG_PLATE);
+                                case (int)enumLicenseType.VCA_MOTO_PLATE:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.VCA_MOTO_PLATE);
+                                case (int)enumLicenseType.NEW_ENERGY_PLATE:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.NEW_ENERGY_PLATE);
+                                default:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.UnfindColor);
+                            }
+                        }
+                     }
+                    return Program.infoResource.GetLocalizedString(language.InfoId.UnfindColor); ;
+                }));
+                AddBinding(fluent.SetBinding(lcVehicleTypeValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return Program.infoResource.GetLocalizedString(language.InfoId.VTR_RESULT_OTHER);
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("VehicleType", out value))
+                        {
+                            if (value == null || value.ToString() == "") return Program.infoResource.GetLocalizedString(language.InfoId.VTR_RESULT_OTHER);
+                            int index = Convert.ToInt32(value);
+#if VerticalDistribution
+                            language.InfoId infoId = language.InfoId.VTR_RESULT_CLASSIFY_OTHER;
+                            int claIdx = Utils.ClassifyVehicleType(index);
+                            return Program.infoResource.GetLocalizedString(infoId+claIdx-1);
+#else
+                            if (index < 0 || index > 26)
+                            {
+                                return Program.infoResource.GetLocalizedString(language.InfoId.VTR_RESULT_OTHER);
+                            }
+#endif
+
+                        }
+                    }
+                    return Program.infoResource.GetLocalizedString(language.InfoId.UnfindColor); 
+                }));
+                AddBinding(fluent.SetBinding(lcFuelTypeValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("CarType", out value))
+                        {
+                            if (value == null || value.ToString() == "") return "";
+                            switch (value.ToString().Trim())
+                            {
+                                case "A":
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.GasolineCar);
+                                case "B":
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.DieselCar);
+                                case "Z":
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.OtherFuelCar);
+                                default:
+                                    return Program.infoResource.GetLocalizedString(language.InfoId.OtherFuelCar);
+                            }
+                        }
+                    }
+                    return "";
+                }));
+                AddBinding(fluent.SetBinding(lcConfidenceValue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("Confidence", out value) && value.ToString() != "")
+                            return (Convert.ToDouble(value.ToString())).ToString("f2");
+                    }
+                    return "0";
+                }));
+
+                AddBinding(fluent.SetBinding(lcSpeedvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("Speed", out value) && value.ToString() != "")
+                            return (Convert.ToDouble(value.ToString())*3.6).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcVSPvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("VSP", out value) && value.ToString() != "") return Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcAccelerationvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("Acceleration", out value) && value.ToString() != "") return Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcTemperaturevalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("Temperature", out value) && value.ToString() != "") return Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcHumidityvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("Humidity", out value) && value.ToString() != "") return Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcWindDirectionvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("WindDirection", out value)) return  Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcWindSpeedvalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("WindSpeed", out value) && value.ToString() != "") return Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcPressurevalue, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("Pressure", out value) && value.ToString() != "") return Convert.ToDouble(value.ToString()).ToString("f2");
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcSO2Value, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("SO2", out value) && value.ToString() != "")
+                        {
+                            float fBefore = Convert.ToSingle(value.ToString());
+                            float fAfter = Utils.UnitConvert(fBefore, Utils.UnitTypes.ugm3, Unit.SO2, 64);
+                            return fAfter.ToString("f2");
+                        }
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcO3value, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("O3", out value) && value.ToString() != "")
+                        {
+                            float fBefore = Convert.ToSingle(value.ToString());
+                            float fAfter = Utils.UnitConvert(fBefore, Utils.UnitTypes.ugm3, Unit.O3, 48);
+                            return fAfter.ToString("f2");
+                        }
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcNO2value, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("NO2", out value) && value.ToString() != "")
+                        {
+                            float fBefore = Convert.ToSingle(value.ToString());
+                            float fAfter = Utils.UnitConvert(fBefore, Utils.UnitTypes.ugm3, Unit.NO2, 46);
+                            return fAfter.ToString("f2");
+                        }
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcPM10value, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("PM10", out value) && value.ToString() != "")
+                        {
+                            float fBefore = Convert.ToSingle(value.ToString());
+                            float fAfter = Utils.UnitConvert(fBefore, Utils.UnitTypes.ugm3, Unit.PM10, 1);
+                            return fAfter.ToString("f2");
+                        }
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcPM25value, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("PM2Point5", out value) && value.ToString() != "")
+                        {
+                            float fBefore = Convert.ToSingle(value.ToString());
+                            float fAfter = Utils.UnitConvert(fBefore, Utils.UnitTypes.ugm3, Unit.PM25, 1);
+                            return fAfter.ToString("f2");
+                        }
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcCOValueAQ, lc => lc.Text, x => x.DetialInfoEntities, m =>
+                {
+                    if (m == null || m.Count == 0) return "0";
+                    object o = JsonNewtonsoft.FromJSON(m[0].ToString());
+                    if (o is JObject)
+                    {
+                        JObject jo = (o as JObject);
+                        JToken value;
+                        if (jo.TryGetValue("COAir", out value) && value.ToString() != "")
+                        {
+                            float fBefore = Convert.ToSingle(value.ToString());
+                            float fAfter = Utils.UnitConvert(fBefore, Utils.UnitTypes.mgm3, Unit.CO, 28);
+                            return fAfter.ToString("f2");
+                        }
+                    }
+                    return "0";
+                }));
+                AddBinding(fluent.SetBinding(lcPM2, ce => ce.Text, x => x.AirQuality.Param, m => {
+                    string unit = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, lcPM2.Tag.ToString()).Replace("m3", "m³");
+                    if (String.IsNullOrEmpty(unit)) unit = "ug/m³";
+                    return c_PM25Name + c_LeftParen + unit + c_RightParen;
+                }));
+                AddBinding(fluent.SetBinding(lcPM10AQ, ce => ce.Text, x => x.AirQuality.Param, m => {
+                    string unit = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, lcPM10AQ.Name.Substring(2,4)).Replace("m3", "m³");
+                    if (String.IsNullOrEmpty(unit)) unit = "ug/m³";
+                    return c_PM10Name + c_LeftParen + unit + c_RightParen;
+                }));
+                AddBinding(fluent.SetBinding(lcNO2AQ, ce => ce.Text, x => x.AirQuality.Param, m => {
+                    string unit = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, lcNO2AQ.Name.Substring(2,3)).Replace("m3", "m³");
+                    if (String.IsNullOrEmpty(unit)) unit = "ug/m³";
+                    return c_NO2Name + c_LeftParen + unit + c_RightParen;
+                }));
+                AddBinding(fluent.SetBinding(lcO3AQ, ce => ce.Text, x => x.AirQuality.Param, m => {
+                    string unit = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, lcO3AQ.Name.Substring(2,2)).Replace("m3", "m³");
+                    if (String.IsNullOrEmpty(unit)) unit = "ug/m³";
+                    return c_O3Name + c_LeftParen + unit + c_RightParen;
+                }));
+                AddBinding(fluent.SetBinding(lcSO2AQ, ce => ce.Text, x => x.AirQuality.Param, m => {
+                    string unit = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, lcSO2AQ.Name.Substring(2,3)).Replace("m3", "m³");
+                    if (String.IsNullOrEmpty(unit)) unit = "ug/m³";
+                    return c_SO2Name + c_LeftParen + unit + c_RightParen;
+                }));
+                AddBinding(fluent.SetBinding(lcCOAQ, ce => ce.Text, x => x.AirQuality.Param, m => {
+                    string unit = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, lcCOAQ.Name.Substring(2,2)).Replace("m3", "m³");
+                    if (String.IsNullOrEmpty(unit)) unit = "mg/m³";
+                    return c_COName + c_LeftParen + unit + c_RightParen;
+                }));
+
+             
+
+                Messenger.Default.Register<ucPluginBase.DeviceNotifyEventArgs>(this, (args) => {
+                    if (!args.Key.Contains(c_AirQuality)) return;
+                    RealtimeMonitorViewModel.VM.Devices = null;
+                    SetUnit();
+                    action();
+                });
+
+
+#endregion
+                ResultDataViewModel.VM.ModelChanged += (sender, arg) =>
+                {
+                    if (arg.ModelName == typeof(ResultDataViewModel).Name) action();
+                };
+
+                base.InitializeBindings();
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+        [Conditional("VerticalDistribution")]
+        private void ChangeInfoid(InfoId infoId, int[] index)
+        {
+            infoId = language.InfoId.VTR_RESULT_CLASSIFY_OTHER;
+            infoId+= Utils.ClassifyVehicleType(index[0]) - 1;
+        }
+
+        private string ConvertIntToRoma(string e)
+        {
+            switch (e)
+            {
+                case "1":
+                    return "Ⅰ";
+                case "2":
+                    return "Ⅱ";
+                case "3":
+                    return "Ⅲ";
+                case "4":
+                    return "Ⅳ";
+                case "5":
+                    return "Ⅴ";
+                case "6":
+                    return "Ⅵ";
+                default :
+                    return "0";
+            }
+        }
+        public class AirUnit
+        {
+            public string PM25 = "ug/m3";
+            public string PM10 = "ug/m3";
+            public string CO = "mg/m3";
+            public string SO2 = "ug/m3";
+            public string NO2 = "ug/m3";
+            public string O3 = "ug/m3";
+        }
+        private void SetUnit()
+        {
+            Unit.PM10 = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, "PM10");
+            Unit.PM25 = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, "PM25");
+            Unit.CO = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, "CO");
+            Unit.SO2 = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, "SO2");
+            Unit.NO2 = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, "NO2");
+            Unit.O3 = RealtimeMonitorViewModel.VM.getDeviceParam(c_AirQuality, "O3");
+        }
+      
+    }  
+}

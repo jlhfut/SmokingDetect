@@ -1,0 +1,287 @@
+﻿namespace wayeal.os.exhaust.UserControls
+{
+    partial class ucCalibrationExtendController
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucCalibrationExtendController));
+            this.lcCaptureVehicleEvent = new DevExpress.XtraEditors.LabelControl();
+            this.cbeCaptureVehicleEvent = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lcTestRange = new DevExpress.XtraEditors.LabelControl();
+            this.gcComponentRange = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gcComponent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcLowerLimit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcUpperLimit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcUnit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lcPreheatingTime = new DevExpress.XtraEditors.LabelControl();
+            this.tePreheatTime = new DevExpress.XtraEditors.TextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeCaptureVehicleEvent.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcComponentRange)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tePreheatTime.Properties)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // sbRefresh
+            // 
+            this.sbRefresh.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.sbRefresh.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbRefresh.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbRefresh.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbRefresh.Appearance.Image")));
+            this.sbRefresh.Appearance.Options.UseBackColor = true;
+            this.sbRefresh.Appearance.Options.UseFont = true;
+            this.sbRefresh.Appearance.Options.UseForeColor = true;
+            this.sbRefresh.Appearance.Options.UseImage = true;
+            this.sbRefresh.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sbRefresh.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.sbRefresh.AppearanceDisabled.Image = ((System.Drawing.Image)(resources.GetObject("sbRefresh.AppearanceDisabled.Image")));
+            this.sbRefresh.AppearanceDisabled.Options.UseBackColor = true;
+            this.sbRefresh.AppearanceDisabled.Options.UseForeColor = true;
+            this.sbRefresh.AppearanceDisabled.Options.UseImage = true;
+            this.sbRefresh.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbRefresh.AppearanceHovered.Options.UseBackColor = true;
+            this.sbRefresh.AppearancePressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(177)))), ((int)(((byte)(156)))));
+            this.sbRefresh.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbRefresh.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbRefresh.AppearancePressed.Image")));
+            this.sbRefresh.AppearancePressed.Options.UseBackColor = true;
+            this.sbRefresh.AppearancePressed.Options.UseFont = true;
+            this.sbRefresh.AppearancePressed.Options.UseImage = true;
+            // 
+            // sbSetup
+            // 
+            this.sbSetup.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.sbSetup.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbSetup.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbSetup.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbSetup.Appearance.Image")));
+            this.sbSetup.Appearance.Options.UseBackColor = true;
+            this.sbSetup.Appearance.Options.UseFont = true;
+            this.sbSetup.Appearance.Options.UseForeColor = true;
+            this.sbSetup.Appearance.Options.UseImage = true;
+            this.sbSetup.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sbSetup.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.sbSetup.AppearanceDisabled.Image = ((System.Drawing.Image)(resources.GetObject("sbSetup.AppearanceDisabled.Image")));
+            this.sbSetup.AppearanceDisabled.Options.UseBackColor = true;
+            this.sbSetup.AppearanceDisabled.Options.UseForeColor = true;
+            this.sbSetup.AppearanceDisabled.Options.UseImage = true;
+            this.sbSetup.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbSetup.AppearanceHovered.Options.UseBackColor = true;
+            this.sbSetup.AppearancePressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(177)))), ((int)(((byte)(156)))));
+            this.sbSetup.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbSetup.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbSetup.AppearancePressed.Image")));
+            this.sbSetup.AppearancePressed.Options.UseBackColor = true;
+            this.sbSetup.AppearancePressed.Options.UseFont = true;
+            this.sbSetup.AppearancePressed.Options.UseImage = true;
+            // 
+            // lcCaptureVehicleEvent
+            // 
+            this.lcCaptureVehicleEvent.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcCaptureVehicleEvent.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcCaptureVehicleEvent.Appearance.Options.UseFont = true;
+            this.lcCaptureVehicleEvent.Appearance.Options.UseForeColor = true;
+            this.lcCaptureVehicleEvent.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcCaptureVehicleEvent.Location = new System.Drawing.Point(3, 3);
+            this.lcCaptureVehicleEvent.Name = "lcCaptureVehicleEvent";
+            this.lcCaptureVehicleEvent.Size = new System.Drawing.Size(106, 16);
+            this.lcCaptureVehicleEvent.TabIndex = 70;
+            this.lcCaptureVehicleEvent.Text = "Capture Event";
+            // 
+            // cbeCaptureVehicleEvent
+            // 
+            this.cbeCaptureVehicleEvent.EditValue = "";
+            this.cbeCaptureVehicleEvent.Location = new System.Drawing.Point(110, 0);
+            this.cbeCaptureVehicleEvent.Name = "cbeCaptureVehicleEvent";
+            this.cbeCaptureVehicleEvent.Properties.AllowFocused = false;
+            this.cbeCaptureVehicleEvent.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.cbeCaptureVehicleEvent.Properties.Appearance.Options.UseFont = true;
+            this.cbeCaptureVehicleEvent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbeCaptureVehicleEvent.Properties.Items.AddRange(new object[] {
+            "TDLAS",
+            "Accelerated",
+            "Smoke"});
+            this.cbeCaptureVehicleEvent.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cbeCaptureVehicleEvent.Size = new System.Drawing.Size(119, 22);
+            this.cbeCaptureVehicleEvent.TabIndex = 1;
+            this.cbeCaptureVehicleEvent.Tag = "lcCaptureVehicleEvent";
+            // 
+            // lcTestRange
+            // 
+            this.lcTestRange.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcTestRange.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcTestRange.Appearance.Options.UseFont = true;
+            this.lcTestRange.Appearance.Options.UseForeColor = true;
+            this.lcTestRange.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcTestRange.Location = new System.Drawing.Point(3, 28);
+            this.lcTestRange.Name = "lcTestRange";
+            this.lcTestRange.Size = new System.Drawing.Size(106, 16);
+            this.lcTestRange.TabIndex = 71;
+            this.lcTestRange.Text = "Test Range";
+            // 
+            // gcComponentRange
+            // 
+            this.gcComponentRange.Location = new System.Drawing.Point(110, 28);
+            this.gcComponentRange.MainView = this.gridView2;
+            this.gcComponentRange.Name = "gcComponentRange";
+            this.gcComponentRange.Size = new System.Drawing.Size(356, 281);
+            this.gcComponentRange.TabIndex = 73;
+            this.gcComponentRange.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridView2.Appearance.Row.Options.UseFont = true;
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gcComponent,
+            this.gcLowerLimit,
+            this.gcUpperLimit,
+            this.gcUnit});
+            this.gridView2.GridControl = this.gcComponentRange;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsMenu.EnableColumnMenu = false;
+            this.gridView2.OptionsPrint.PrintFooter = false;
+            this.gridView2.OptionsPrint.PrintGroupFooter = false;
+            this.gridView2.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.OptionsView.ShowIndicator = false;
+            this.gridView2.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView2_CustomColumnDisplayText);
+            this.gridView2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView2_MouseDown);
+            // 
+            // gcComponent
+            // 
+            this.gcComponent.Caption = "Component";
+            this.gcComponent.FieldName = "Name";
+            this.gcComponent.Name = "gcComponent";
+            this.gcComponent.OptionsColumn.AllowEdit = false;
+            this.gcComponent.OptionsColumn.AllowFocus = false;
+            this.gcComponent.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcComponent.Visible = true;
+            this.gcComponent.VisibleIndex = 0;
+            this.gcComponent.Width = 87;
+            // 
+            // gcLowerLimit
+            // 
+            this.gcLowerLimit.Caption = "LowerLimit";
+            this.gcLowerLimit.FieldName = "LowerLimit";
+            this.gcLowerLimit.Name = "gcLowerLimit";
+            this.gcLowerLimit.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcLowerLimit.Visible = true;
+            this.gcLowerLimit.VisibleIndex = 1;
+            this.gcLowerLimit.Width = 97;
+            // 
+            // gcUpperLimit
+            // 
+            this.gcUpperLimit.Caption = "UpperLimit";
+            this.gcUpperLimit.FieldName = "UpLimit";
+            this.gcUpperLimit.Name = "gcUpperLimit";
+            this.gcUpperLimit.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcUpperLimit.Visible = true;
+            this.gcUpperLimit.VisibleIndex = 2;
+            this.gcUpperLimit.Width = 98;
+            // 
+            // gcUnit
+            // 
+            this.gcUnit.Caption = "Unit";
+            this.gcUnit.FieldName = "Unit";
+            this.gcUnit.Name = "gcUnit";
+            this.gcUnit.OptionsColumn.AllowEdit = false;
+            this.gcUnit.OptionsColumn.AllowFocus = false;
+            this.gcUnit.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcUnit.Visible = true;
+            this.gcUnit.VisibleIndex = 3;
+            this.gcUnit.Width = 61;
+            // 
+            // lcPreheatingTime
+            // 
+            this.lcPreheatingTime.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcPreheatingTime.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcPreheatingTime.Appearance.Options.UseFont = true;
+            this.lcPreheatingTime.Appearance.Options.UseForeColor = true;
+            this.lcPreheatingTime.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcPreheatingTime.Location = new System.Drawing.Point(243, 3);
+            this.lcPreheatingTime.Name = "lcPreheatingTime";
+            this.lcPreheatingTime.Size = new System.Drawing.Size(125, 16);
+            this.lcPreheatingTime.TabIndex = 74;
+            this.lcPreheatingTime.Text = "PreheatTime(min)";
+            this.lcPreheatingTime.Visible = false;
+            // 
+            // tePreheatTime
+            // 
+            this.tePreheatTime.Enabled = false;
+            this.tePreheatTime.Location = new System.Drawing.Point(350, 0);
+            this.tePreheatTime.Name = "tePreheatTime";
+            this.tePreheatTime.Properties.AutoHeight = false;
+            this.tePreheatTime.Size = new System.Drawing.Size(116, 22);
+            this.tePreheatTime.TabIndex = 75;
+            this.tePreheatTime.Visible = false;
+            // 
+            // ucCalibrationExtendController
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tePreheatTime);
+            this.Controls.Add(this.lcPreheatingTime);
+            this.Controls.Add(this.gcComponentRange);
+            this.Controls.Add(this.lcTestRange);
+            this.Controls.Add(this.cbeCaptureVehicleEvent);
+            this.Controls.Add(this.lcCaptureVehicleEvent);
+            this.Name = "ucCalibrationExtendController";
+            this.Size = new System.Drawing.Size(469, 312);
+            this.Controls.SetChildIndex(this.lcCaptureVehicleEvent, 0);
+            this.Controls.SetChildIndex(this.cbeCaptureVehicleEvent, 0);
+            this.Controls.SetChildIndex(this.sbSetup, 0);
+            this.Controls.SetChildIndex(this.sbRefresh, 0);
+            this.Controls.SetChildIndex(this.lcTestRange, 0);
+            this.Controls.SetChildIndex(this.gcComponentRange, 0);
+            this.Controls.SetChildIndex(this.lcPreheatingTime, 0);
+            this.Controls.SetChildIndex(this.tePreheatTime, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeCaptureVehicleEvent.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcComponentRange)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tePreheatTime.Properties)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+        private DevExpress.XtraEditors.LabelControl lcCaptureVehicleEvent;
+        private DevExpress.XtraEditors.ComboBoxEdit cbeCaptureVehicleEvent;
+        private DevExpress.XtraEditors.LabelControl lcTestRange;
+        private DevExpress.XtraGrid.GridControl gcComponentRange;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn gcComponent;
+        private DevExpress.XtraGrid.Columns.GridColumn gcLowerLimit;
+        private DevExpress.XtraGrid.Columns.GridColumn gcUpperLimit;
+        private DevExpress.XtraGrid.Columns.GridColumn gcUnit;
+        private DevExpress.XtraEditors.LabelControl lcPreheatingTime;
+        private DevExpress.XtraEditors.TextEdit tePreheatTime;
+    }
+}

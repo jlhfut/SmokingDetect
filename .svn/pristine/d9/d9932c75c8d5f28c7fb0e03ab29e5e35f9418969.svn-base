@@ -1,0 +1,638 @@
+﻿namespace wayeal.os.exhaust.UserControls
+{
+    partial class ucDebuggingDevices
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucDebuggingDevices));
+            this.icConnectionState = new DevExpress.Utils.ImageCollection(this.components);
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.lcOffline = new DevExpress.XtraEditors.LabelControl();
+            this.lcOnline = new DevExpress.XtraEditors.LabelControl();
+            this.tlDevice = new DevExpress.XtraTreeList.TreeList();
+            this.tlcDeviceName = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tlcOnline = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tlCommunication = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tcList = new DevExpress.XtraTab.XtraTabControl();
+            this.xtpDevice = new DevExpress.XtraTab.XtraTabPage();
+            this.tlDeviceSource = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tlcState = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.xtpCommunication = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lcDelete = new DevExpress.XtraEditors.LabelControl();
+            this.lcNew = new DevExpress.XtraEditors.LabelControl();
+            this.peNew = new DevExpress.XtraEditors.PictureEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icConnectionState)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tlDevice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tlCommunication)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tcList)).BeginInit();
+            this.tcList.SuspendLayout();
+            this.xtpDevice.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tlDeviceSource)).BeginInit();
+            this.xtpCommunication.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.peNew.Properties)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // icConnectionState
+            // 
+            this.icConnectionState.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("icConnectionState.ImageStream")));
+            this.icConnectionState.Images.SetKeyName(0, "离线.png");
+            this.icConnectionState.Images.SetKeyName(1, "在线.png");
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl4.Appearance.Options.UseBackColor = true;
+            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.lcOffline);
+            this.panelControl4.Controls.Add(this.lcOnline);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl4.Location = new System.Drawing.Point(0, 616);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(353, 33);
+            this.panelControl4.TabIndex = 0;
+            // 
+            // lcOffline
+            // 
+            this.lcOffline.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lcOffline.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lcOffline.Appearance.ImageIndex = 0;
+            this.lcOffline.Appearance.ImageList = this.icConnectionState;
+            this.lcOffline.Appearance.Options.UseForeColor = true;
+            this.lcOffline.Appearance.Options.UseImageAlign = true;
+            this.lcOffline.Appearance.Options.UseImageIndex = true;
+            this.lcOffline.Appearance.Options.UseImageList = true;
+            this.lcOffline.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcOffline.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.lcOffline.Location = new System.Drawing.Point(94, 5);
+            this.lcOffline.Name = "lcOffline";
+            this.lcOffline.Size = new System.Drawing.Size(84, 20);
+            this.lcOffline.TabIndex = 1;
+            this.lcOffline.Text = "Offline";
+            // 
+            // lcOnline
+            // 
+            this.lcOnline.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lcOnline.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lcOnline.Appearance.ImageIndex = 1;
+            this.lcOnline.Appearance.ImageList = this.icConnectionState;
+            this.lcOnline.Appearance.Options.UseForeColor = true;
+            this.lcOnline.Appearance.Options.UseImageAlign = true;
+            this.lcOnline.Appearance.Options.UseImageIndex = true;
+            this.lcOnline.Appearance.Options.UseImageList = true;
+            this.lcOnline.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcOnline.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.lcOnline.Location = new System.Drawing.Point(4, 4);
+            this.lcOnline.Name = "lcOnline";
+            this.lcOnline.Size = new System.Drawing.Size(84, 20);
+            this.lcOnline.TabIndex = 2;
+            this.lcOnline.Text = "Online";
+            // 
+            // tlDevice
+            // 
+            this.tlDevice.ActiveFilterString = "[Online] Like \'1\'";
+            this.tlDevice.Appearance.Empty.BackColor = System.Drawing.Color.White;
+            this.tlDevice.Appearance.Empty.Options.UseBackColor = true;
+            this.tlDevice.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.tlDevice.Appearance.FocusedCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.tlDevice.Appearance.FocusedCell.Options.UseFont = true;
+            this.tlDevice.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.tlDevice.Appearance.FocusedRow.BackColor = System.Drawing.Color.White;
+            this.tlDevice.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlDevice.Appearance.FocusedRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.tlDevice.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.tlDevice.Appearance.FocusedRow.Options.UseFont = true;
+            this.tlDevice.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.tlDevice.Appearance.Row.BackColor = System.Drawing.Color.White;
+            this.tlDevice.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlDevice.Appearance.Row.Options.UseBackColor = true;
+            this.tlDevice.Appearance.Row.Options.UseFont = true;
+            this.tlDevice.Appearance.Row.Options.UseTextOptions = true;
+            this.tlDevice.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.tlDevice.Appearance.SelectedRow.BackColor = System.Drawing.Color.Olive;
+            this.tlDevice.Appearance.SelectedRow.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlDevice.Appearance.SelectedRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tlDevice.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tlDevice.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.tlcDeviceName,
+            this.tlcOnline});
+            this.tlDevice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlDevice.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.tlDevice.IndicatorWidth = 5;
+            this.tlDevice.Location = new System.Drawing.Point(0, 0);
+            this.tlDevice.Margin = new System.Windows.Forms.Padding(5);
+            this.tlDevice.Name = "tlDevice";
+            this.tlDevice.BeginUnboundLoad();
+            this.tlDevice.AppendNode(new object[] {
+            "Meteorograph",
+            "1"}, -1, 0, 0, 0, "Meteorograph|Meteorograph");
+            this.tlDevice.AppendNode(new object[] {
+            "Air Quality Instrument",
+            "1"}, -1, 0, 0, 0, "AirQualityDevice|AirQuality");
+            this.tlDevice.AppendNode(new object[] {
+            "License Plate Recognition Camera",
+            "1"}, -1, 0, 0, 0, "LicenseRecognition|LicenseRecog");
+            this.tlDevice.AppendNode(new object[] {
+            "Security Camera",
+            "1"}, -1, 0, 0, 0, "SecurityCamera|SecurityCamera");
+            this.tlDevice.AppendNode(new object[] {
+            "NVR",
+            "1"}, -1, 0, 0, 0, "NVRDevice|NVR");
+            this.tlDevice.AppendNode(new object[] {
+            "LED Display Screen",
+            "1"}, -1, 0, 0, 0, "LEDDevice|LED");
+            this.tlDevice.AppendNode(new object[] {
+            "Exhuast Analyzer",
+            "1"}, -1, 0, 0, 0, "AnalysisDevice|Analysis");
+            this.tlDevice.AppendNode(new object[] {
+            "GPS",
+            "1"}, -1, 0, 0, 0, "GPSDevice|GPS");
+            this.tlDevice.AppendNode(new object[] {
+            "Plat",
+            "1"}, -1, 0, 0, 0, "PlatDevice|Plat");
+            this.tlDevice.EndUnboundLoad();
+            this.tlDevice.OptionsBehavior.AllowExpandOnDblClick = false;
+            this.tlDevice.OptionsBehavior.AutoChangeParent = false;
+            this.tlDevice.OptionsBehavior.AutoPopulateColumns = false;
+            this.tlDevice.OptionsBehavior.AutoScrollOnSorting = false;
+            this.tlDevice.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.tlDevice.OptionsBehavior.CloseEditorOnLostFocus = false;
+            this.tlDevice.OptionsBehavior.Editable = false;
+            this.tlDevice.OptionsBehavior.ResizeNodes = false;
+            this.tlDevice.OptionsBehavior.ShowToolTips = false;
+            this.tlDevice.OptionsBehavior.SmartMouseHover = false;
+            this.tlDevice.OptionsCustomization.AllowBandMoving = false;
+            this.tlDevice.OptionsCustomization.AllowBandResizing = false;
+            this.tlDevice.OptionsCustomization.AllowColumnMoving = false;
+            this.tlDevice.OptionsCustomization.AllowColumnResizing = false;
+            this.tlDevice.OptionsCustomization.AllowFilter = false;
+            this.tlDevice.OptionsCustomization.AllowQuickHideColumns = false;
+            this.tlDevice.OptionsCustomization.AllowSort = false;
+            this.tlDevice.OptionsCustomization.ShowBandsInCustomizationForm = false;
+            this.tlDevice.OptionsDragAndDrop.ExpandNodeOnDrag = false;
+            this.tlDevice.OptionsFilter.AllowAutoFilterConditionChange = DevExpress.Utils.DefaultBoolean.False;
+            this.tlDevice.OptionsFilter.AllowColumnMRUFilterList = false;
+            this.tlDevice.OptionsFilter.AllowFilterEditor = false;
+            this.tlDevice.OptionsFilter.AllowMRUFilterList = false;
+            this.tlDevice.OptionsFilter.ShowAllValuesInCheckedFilterPopup = false;
+            this.tlDevice.OptionsFind.AllowFindPanel = false;
+            this.tlDevice.OptionsFind.ClearFindOnClose = false;
+            this.tlDevice.OptionsFind.HighlightFindResults = false;
+            this.tlDevice.OptionsFind.ShowClearButton = false;
+            this.tlDevice.OptionsFind.ShowCloseButton = false;
+            this.tlDevice.OptionsFind.ShowFindButton = false;
+            this.tlDevice.OptionsLayout.AddNewColumns = false;
+            this.tlDevice.OptionsMenu.EnableColumnMenu = false;
+            this.tlDevice.OptionsMenu.EnableFooterMenu = false;
+            this.tlDevice.OptionsMenu.ShowAutoFilterRowItem = false;
+            this.tlDevice.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.tlDevice.OptionsSelection.MultiSelectMode = DevExpress.XtraTreeList.TreeListMultiSelectMode.CellSelect;
+            this.tlDevice.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.None;
+            this.tlDevice.OptionsView.ShowBandsMode = DevExpress.Utils.DefaultBoolean.False;
+            this.tlDevice.OptionsView.ShowButtons = false;
+            this.tlDevice.OptionsView.ShowColumns = false;
+            this.tlDevice.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
+            this.tlDevice.OptionsView.ShowFirstLines = false;
+            this.tlDevice.OptionsView.ShowHierarchyIndentationLines = DevExpress.Utils.DefaultBoolean.False;
+            this.tlDevice.OptionsView.ShowHorzLines = false;
+            this.tlDevice.OptionsView.ShowIndicator = false;
+            this.tlDevice.OptionsView.ShowRoot = false;
+            this.tlDevice.OptionsView.ShowVertLines = false;
+            this.tlDevice.Padding = new System.Windows.Forms.Padding(5);
+            this.tlDevice.RowHeight = 25;
+            this.tlDevice.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowOnlyInEditor;
+            this.tlDevice.Size = new System.Drawing.Size(353, 616);
+            this.tlDevice.StateImageList = this.icConnectionState;
+            this.tlDevice.TabIndex = 0;
+            this.tlDevice.ViewStyle = DevExpress.XtraTreeList.TreeListViewStyle.TreeList;
+            this.tlDevice.RowClick += new DevExpress.XtraTreeList.RowClickEventHandler(this.tlDevice_RowClick);
+            // 
+            // tlcDeviceName
+            // 
+            this.tlcDeviceName.Caption = "DeviceName";
+            this.tlcDeviceName.FieldName = "DeviceName";
+            this.tlcDeviceName.Name = "tlcDeviceName";
+            this.tlcDeviceName.Visible = true;
+            this.tlcDeviceName.VisibleIndex = 0;
+            // 
+            // tlcOnline
+            // 
+            this.tlcOnline.Caption = "Online";
+            this.tlcOnline.FieldName = "Online";
+            this.tlcOnline.Name = "tlcOnline";
+            // 
+            // tlCommunication
+            // 
+            this.tlCommunication.Appearance.Empty.BackColor = System.Drawing.Color.White;
+            this.tlCommunication.Appearance.Empty.Options.UseBackColor = true;
+            this.tlCommunication.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.tlCommunication.Appearance.FocusedCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.tlCommunication.Appearance.FocusedCell.Options.UseFont = true;
+            this.tlCommunication.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.tlCommunication.Appearance.FocusedRow.BackColor = System.Drawing.Color.White;
+            this.tlCommunication.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlCommunication.Appearance.FocusedRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.tlCommunication.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.tlCommunication.Appearance.FocusedRow.Options.UseFont = true;
+            this.tlCommunication.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.tlCommunication.Appearance.Row.BackColor = System.Drawing.Color.White;
+            this.tlCommunication.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlCommunication.Appearance.Row.Options.UseBackColor = true;
+            this.tlCommunication.Appearance.Row.Options.UseFont = true;
+            this.tlCommunication.Appearance.Row.Options.UseTextOptions = true;
+            this.tlCommunication.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.tlCommunication.Appearance.SelectedRow.BackColor = System.Drawing.Color.Olive;
+            this.tlCommunication.Appearance.SelectedRow.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlCommunication.Appearance.SelectedRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tlCommunication.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tlCommunication.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn1});
+            this.tlCommunication.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlCommunication.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.tlCommunication.IndicatorWidth = 5;
+            this.tlCommunication.Location = new System.Drawing.Point(0, 0);
+            this.tlCommunication.Margin = new System.Windows.Forms.Padding(5);
+            this.tlCommunication.Name = "tlCommunication";
+            this.tlCommunication.BeginUnboundLoad();
+            this.tlCommunication.AppendNode(new object[] {
+            "COM1"}, -1);
+            this.tlCommunication.AppendNode(new object[] {
+            null}, -1);
+            this.tlCommunication.AppendNode(new object[] {
+            null}, -1);
+            this.tlCommunication.AppendNode(new object[] {
+            null}, -1);
+            this.tlCommunication.EndUnboundLoad();
+            this.tlCommunication.OptionsBehavior.AllowExpandOnDblClick = false;
+            this.tlCommunication.OptionsBehavior.AutoChangeParent = false;
+            this.tlCommunication.OptionsBehavior.AutoPopulateColumns = false;
+            this.tlCommunication.OptionsBehavior.AutoScrollOnSorting = false;
+            this.tlCommunication.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.tlCommunication.OptionsBehavior.CloseEditorOnLostFocus = false;
+            this.tlCommunication.OptionsBehavior.Editable = false;
+            this.tlCommunication.OptionsBehavior.ResizeNodes = false;
+            this.tlCommunication.OptionsBehavior.ShowToolTips = false;
+            this.tlCommunication.OptionsBehavior.SmartMouseHover = false;
+            this.tlCommunication.OptionsCustomization.AllowBandMoving = false;
+            this.tlCommunication.OptionsCustomization.AllowBandResizing = false;
+            this.tlCommunication.OptionsCustomization.AllowColumnMoving = false;
+            this.tlCommunication.OptionsCustomization.AllowColumnResizing = false;
+            this.tlCommunication.OptionsCustomization.AllowFilter = false;
+            this.tlCommunication.OptionsCustomization.AllowQuickHideColumns = false;
+            this.tlCommunication.OptionsCustomization.AllowSort = false;
+            this.tlCommunication.OptionsCustomization.ShowBandsInCustomizationForm = false;
+            this.tlCommunication.OptionsDragAndDrop.ExpandNodeOnDrag = false;
+            this.tlCommunication.OptionsFilter.AllowAutoFilterConditionChange = DevExpress.Utils.DefaultBoolean.False;
+            this.tlCommunication.OptionsFilter.AllowColumnMRUFilterList = false;
+            this.tlCommunication.OptionsFilter.AllowFilterEditor = false;
+            this.tlCommunication.OptionsFilter.AllowMRUFilterList = false;
+            this.tlCommunication.OptionsFilter.ShowAllValuesInCheckedFilterPopup = false;
+            this.tlCommunication.OptionsFind.AllowFindPanel = false;
+            this.tlCommunication.OptionsFind.ClearFindOnClose = false;
+            this.tlCommunication.OptionsFind.HighlightFindResults = false;
+            this.tlCommunication.OptionsFind.ShowClearButton = false;
+            this.tlCommunication.OptionsFind.ShowCloseButton = false;
+            this.tlCommunication.OptionsFind.ShowFindButton = false;
+            this.tlCommunication.OptionsLayout.AddNewColumns = false;
+            this.tlCommunication.OptionsMenu.EnableColumnMenu = false;
+            this.tlCommunication.OptionsMenu.EnableFooterMenu = false;
+            this.tlCommunication.OptionsMenu.ShowAutoFilterRowItem = false;
+            this.tlCommunication.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.tlCommunication.OptionsSelection.MultiSelectMode = DevExpress.XtraTreeList.TreeListMultiSelectMode.CellSelect;
+            this.tlCommunication.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.None;
+            this.tlCommunication.OptionsView.ShowBandsMode = DevExpress.Utils.DefaultBoolean.False;
+            this.tlCommunication.OptionsView.ShowButtons = false;
+            this.tlCommunication.OptionsView.ShowColumns = false;
+            this.tlCommunication.OptionsView.ShowFirstLines = false;
+            this.tlCommunication.OptionsView.ShowHierarchyIndentationLines = DevExpress.Utils.DefaultBoolean.False;
+            this.tlCommunication.OptionsView.ShowHorzLines = false;
+            this.tlCommunication.OptionsView.ShowIndicator = false;
+            this.tlCommunication.OptionsView.ShowRoot = false;
+            this.tlCommunication.OptionsView.ShowVertLines = false;
+            this.tlCommunication.Padding = new System.Windows.Forms.Padding(5);
+            this.tlCommunication.RowHeight = 25;
+            this.tlCommunication.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowOnlyInEditor;
+            this.tlCommunication.Size = new System.Drawing.Size(353, 603);
+            this.tlCommunication.StateImageList = this.icConnectionState;
+            this.tlCommunication.TabIndex = 1;
+            this.tlCommunication.ViewStyle = DevExpress.XtraTreeList.TreeListViewStyle.TreeList;
+            this.tlCommunication.RowClick += new DevExpress.XtraTreeList.RowClickEventHandler(this.tlCommunication_RowClick);
+            // 
+            // treeListColumn1
+            // 
+            this.treeListColumn1.Caption = "treeListColumn1";
+            this.treeListColumn1.FieldName = "treeListColumn1";
+            this.treeListColumn1.Name = "treeListColumn1";
+            this.treeListColumn1.Visible = true;
+            this.treeListColumn1.VisibleIndex = 0;
+            // 
+            // tcList
+            // 
+            this.tcList.AppearancePage.HeaderActive.ForeColor = System.Drawing.Color.Black;
+            this.tcList.AppearancePage.HeaderActive.Options.UseForeColor = true;
+            this.tcList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcList.Location = new System.Drawing.Point(0, 0);
+            this.tcList.Name = "tcList";
+            this.tcList.SelectedTabPage = this.xtpDevice;
+            this.tcList.Size = new System.Drawing.Size(355, 680);
+            this.tcList.TabIndex = 10;
+            this.tcList.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtpDevice,
+            this.xtpCommunication});
+            this.tcList.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tcList_SelectedPageChanged);
+            // 
+            // xtpDevice
+            // 
+            this.xtpDevice.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtpDevice.Appearance.Header.Options.UseFont = true;
+            this.xtpDevice.Appearance.PageClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.xtpDevice.Appearance.PageClient.Options.UseBackColor = true;
+            this.xtpDevice.Controls.Add(this.tlDevice);
+            this.xtpDevice.Controls.Add(this.panelControl4);
+            this.xtpDevice.Controls.Add(this.tlDeviceSource);
+            this.xtpDevice.Name = "xtpDevice";
+            this.xtpDevice.Size = new System.Drawing.Size(353, 649);
+            this.xtpDevice.Text = "Device List";
+            // 
+            // tlDeviceSource
+            // 
+            this.tlDeviceSource.Appearance.Empty.BackColor = System.Drawing.Color.White;
+            this.tlDeviceSource.Appearance.Empty.Options.UseBackColor = true;
+            this.tlDeviceSource.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlDeviceSource.Appearance.FocusedCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.tlDeviceSource.Appearance.FocusedCell.Options.UseFont = true;
+            this.tlDeviceSource.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.tlDeviceSource.Appearance.FocusedRow.BackColor = System.Drawing.Color.White;
+            this.tlDeviceSource.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlDeviceSource.Appearance.FocusedRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.tlDeviceSource.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.tlDeviceSource.Appearance.FocusedRow.Options.UseFont = true;
+            this.tlDeviceSource.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.tlDeviceSource.Appearance.Row.BackColor = System.Drawing.Color.White;
+            this.tlDeviceSource.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlDeviceSource.Appearance.Row.Options.UseBackColor = true;
+            this.tlDeviceSource.Appearance.Row.Options.UseFont = true;
+            this.tlDeviceSource.Appearance.Row.Options.UseTextOptions = true;
+            this.tlDeviceSource.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.tlDeviceSource.Appearance.SelectedRow.BackColor = System.Drawing.Color.Olive;
+            this.tlDeviceSource.Appearance.SelectedRow.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tlDeviceSource.Appearance.SelectedRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tlDeviceSource.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tlDeviceSource.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn2,
+            this.tlcState});
+            this.tlDeviceSource.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlDeviceSource.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.tlDeviceSource.IndicatorWidth = 5;
+            this.tlDeviceSource.Location = new System.Drawing.Point(0, 0);
+            this.tlDeviceSource.Margin = new System.Windows.Forms.Padding(5);
+            this.tlDeviceSource.Name = "tlDeviceSource";
+            this.tlDeviceSource.BeginUnboundLoad();
+            this.tlDeviceSource.AppendNode(new object[] {
+            "Meteorograph",
+            null}, -1, 0, 0, 0, "Meteorograph|Meteorograph");
+            this.tlDeviceSource.AppendNode(new object[] {
+            "Air Quality Instrument",
+            null}, -1, 0, 0, 0, "AirQualityDevice|AirQuality");
+            this.tlDeviceSource.AppendNode(new object[] {
+            "License Plate Recognition Camera",
+            null}, -1, 0, 0, 0, "LicenseRecognition|LicenseRecog");
+            this.tlDeviceSource.AppendNode(new object[] {
+            "Security Camera",
+            null}, -1, 0, 0, 0, "SecurityCamera|SecurityCamera");
+            this.tlDeviceSource.AppendNode(new object[] {
+            "NVR",
+            null}, -1, 0, 0, 0, "NVRDevice|NVR");
+            this.tlDeviceSource.AppendNode(new object[] {
+            "LED Display Screen",
+            null}, -1, 0, 0, 0, "LEDDevice|LED");
+            this.tlDeviceSource.AppendNode(new object[] {
+            "Exhuast Analyzer",
+            null}, -1, 0, 0, 0, "AnalysisDevice|Analysis");
+            this.tlDeviceSource.AppendNode(new object[] {
+            "GPS",
+            null}, -1, 0, 0, 0, "GPSDevice|GPS");
+            this.tlDeviceSource.AppendNode(new object[] {
+            "Plat",
+            null}, -1, 0, 0, 0, "PlatDevice|Plat");
+            this.tlDeviceSource.EndUnboundLoad();
+            this.tlDeviceSource.OptionsBehavior.AllowExpandOnDblClick = false;
+            this.tlDeviceSource.OptionsBehavior.AutoChangeParent = false;
+            this.tlDeviceSource.OptionsBehavior.AutoPopulateColumns = false;
+            this.tlDeviceSource.OptionsBehavior.AutoScrollOnSorting = false;
+            this.tlDeviceSource.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.tlDeviceSource.OptionsBehavior.CloseEditorOnLostFocus = false;
+            this.tlDeviceSource.OptionsBehavior.Editable = false;
+            this.tlDeviceSource.OptionsBehavior.ResizeNodes = false;
+            this.tlDeviceSource.OptionsBehavior.ShowToolTips = false;
+            this.tlDeviceSource.OptionsBehavior.SmartMouseHover = false;
+            this.tlDeviceSource.OptionsCustomization.AllowBandMoving = false;
+            this.tlDeviceSource.OptionsCustomization.AllowBandResizing = false;
+            this.tlDeviceSource.OptionsCustomization.AllowColumnMoving = false;
+            this.tlDeviceSource.OptionsCustomization.AllowColumnResizing = false;
+            this.tlDeviceSource.OptionsCustomization.AllowFilter = false;
+            this.tlDeviceSource.OptionsCustomization.AllowQuickHideColumns = false;
+            this.tlDeviceSource.OptionsCustomization.AllowSort = false;
+            this.tlDeviceSource.OptionsCustomization.ShowBandsInCustomizationForm = false;
+            this.tlDeviceSource.OptionsDragAndDrop.ExpandNodeOnDrag = false;
+            this.tlDeviceSource.OptionsFilter.AllowAutoFilterConditionChange = DevExpress.Utils.DefaultBoolean.False;
+            this.tlDeviceSource.OptionsFilter.AllowColumnMRUFilterList = false;
+            this.tlDeviceSource.OptionsFilter.AllowFilterEditor = false;
+            this.tlDeviceSource.OptionsFilter.AllowMRUFilterList = false;
+            this.tlDeviceSource.OptionsFilter.ShowAllValuesInCheckedFilterPopup = false;
+            this.tlDeviceSource.OptionsFind.AllowFindPanel = false;
+            this.tlDeviceSource.OptionsFind.ClearFindOnClose = false;
+            this.tlDeviceSource.OptionsFind.HighlightFindResults = false;
+            this.tlDeviceSource.OptionsFind.ShowClearButton = false;
+            this.tlDeviceSource.OptionsFind.ShowCloseButton = false;
+            this.tlDeviceSource.OptionsFind.ShowFindButton = false;
+            this.tlDeviceSource.OptionsLayout.AddNewColumns = false;
+            this.tlDeviceSource.OptionsMenu.EnableColumnMenu = false;
+            this.tlDeviceSource.OptionsMenu.EnableFooterMenu = false;
+            this.tlDeviceSource.OptionsMenu.ShowAutoFilterRowItem = false;
+            this.tlDeviceSource.OptionsSelection.EnableAppearanceFocusedRow = false;
+            this.tlDeviceSource.OptionsSelection.MultiSelectMode = DevExpress.XtraTreeList.TreeListMultiSelectMode.CellSelect;
+            this.tlDeviceSource.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.None;
+            this.tlDeviceSource.OptionsView.ShowBandsMode = DevExpress.Utils.DefaultBoolean.False;
+            this.tlDeviceSource.OptionsView.ShowButtons = false;
+            this.tlDeviceSource.OptionsView.ShowColumns = false;
+            this.tlDeviceSource.OptionsView.ShowFirstLines = false;
+            this.tlDeviceSource.OptionsView.ShowHierarchyIndentationLines = DevExpress.Utils.DefaultBoolean.False;
+            this.tlDeviceSource.OptionsView.ShowHorzLines = false;
+            this.tlDeviceSource.OptionsView.ShowIndicator = false;
+            this.tlDeviceSource.OptionsView.ShowRoot = false;
+            this.tlDeviceSource.OptionsView.ShowVertLines = false;
+            this.tlDeviceSource.Padding = new System.Windows.Forms.Padding(5);
+            this.tlDeviceSource.RowHeight = 25;
+            this.tlDeviceSource.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowOnlyInEditor;
+            this.tlDeviceSource.Size = new System.Drawing.Size(353, 649);
+            this.tlDeviceSource.StateImageList = this.icConnectionState;
+            this.tlDeviceSource.TabIndex = 1;
+            this.tlDeviceSource.ViewStyle = DevExpress.XtraTreeList.TreeListViewStyle.TreeList;
+            this.tlDeviceSource.Visible = false;
+            // 
+            // treeListColumn2
+            // 
+            this.treeListColumn2.Caption = "treeListColumn1";
+            this.treeListColumn2.FieldName = "DeviceName";
+            this.treeListColumn2.Name = "treeListColumn2";
+            this.treeListColumn2.Visible = true;
+            this.treeListColumn2.VisibleIndex = 0;
+            // 
+            // tlcState
+            // 
+            this.tlcState.Caption = "treeListColumn3";
+            this.tlcState.FieldName = "treeListColumn3";
+            this.tlcState.Name = "tlcState";
+            // 
+            // xtpCommunication
+            // 
+            this.xtpCommunication.Appearance.Header.BackColor = System.Drawing.Color.White;
+            this.xtpCommunication.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.xtpCommunication.Appearance.Header.Options.UseBackColor = true;
+            this.xtpCommunication.Appearance.Header.Options.UseFont = true;
+            this.xtpCommunication.Controls.Add(this.tlCommunication);
+            this.xtpCommunication.Controls.Add(this.panelControl1);
+            this.xtpCommunication.Name = "xtpCommunication";
+            this.xtpCommunication.Size = new System.Drawing.Size(353, 649);
+            this.xtpCommunication.Text = "Communication List";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.lcDelete);
+            this.panelControl1.Controls.Add(this.lcNew);
+            this.panelControl1.Controls.Add(this.peNew);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl1.Location = new System.Drawing.Point(0, 603);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(353, 46);
+            this.panelControl1.TabIndex = 3;
+            // 
+            // lcDelete
+            // 
+            this.lcDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lcDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.lcDelete.Appearance.Options.UseFont = true;
+            this.lcDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lcDelete.Location = new System.Drawing.Point(280, 11);
+            this.lcDelete.Name = "lcDelete";
+            this.lcDelete.Size = new System.Drawing.Size(54, 19);
+            this.lcDelete.TabIndex = 4;
+            this.lcDelete.Text = "Delete";
+            this.lcDelete.Click += new System.EventHandler(this.lcDelete_Click);
+            // 
+            // lcNew
+            // 
+            this.lcNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lcNew.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.lcNew.Appearance.Options.UseFont = true;
+            this.lcNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lcNew.Location = new System.Drawing.Point(54, 11);
+            this.lcNew.Name = "lcNew";
+            this.lcNew.Size = new System.Drawing.Size(36, 19);
+            this.lcNew.TabIndex = 3;
+            this.lcNew.Text = "New";
+            this.lcNew.Click += new System.EventHandler(this.peNew_Click);
+            // 
+            // peNew
+            // 
+            this.peNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.peNew.EditValue = global::wayeal.os.exhaust.Properties.Resources.新增;
+            this.peNew.Location = new System.Drawing.Point(5, 1);
+            this.peNew.Name = "peNew";
+            this.peNew.Properties.AllowFocused = false;
+            this.peNew.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.peNew.Properties.Appearance.Options.UseFont = true;
+            this.peNew.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.peNew.Properties.InitialImageOptions.Image = global::wayeal.os.exhaust.Properties.Resources.新增;
+            this.peNew.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.peNew.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.peNew.Size = new System.Drawing.Size(45, 41);
+            this.peNew.TabIndex = 2;
+            this.peNew.Click += new System.EventHandler(this.peNew_Click);
+            // 
+            // ucDebuggingDevices
+            // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.Options.UseBackColor = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tcList);
+            this.Name = "ucDebuggingDevices";
+            this.Size = new System.Drawing.Size(355, 680);
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icConnectionState)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tlDevice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tlCommunication)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tcList)).EndInit();
+            this.tcList.ResumeLayout(false);
+            this.xtpDevice.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tlDeviceSource)).EndInit();
+            this.xtpCommunication.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.peNew.Properties)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+        private DevExpress.Utils.ImageCollection icConnectionState;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
+        private DevExpress.XtraEditors.LabelControl lcOffline;
+        private DevExpress.XtraEditors.LabelControl lcOnline;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn tlcDeviceName;
+        private DevExpress.XtraTreeList.TreeList tlDevice;
+        private DevExpress.XtraTreeList.TreeList tlCommunication;
+        private DevExpress.XtraTab.XtraTabControl tcList;
+        private DevExpress.XtraTab.XtraTabPage xtpDevice;
+        private DevExpress.XtraTab.XtraTabPage xtpCommunication;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.LabelControl lcNew;
+        private DevExpress.XtraEditors.PictureEdit peNew;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
+        private DevExpress.XtraEditors.LabelControl lcDelete;
+        private DevExpress.XtraTreeList.TreeList tlDeviceSource;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn tlcState;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn tlcOnline;
+    }
+}

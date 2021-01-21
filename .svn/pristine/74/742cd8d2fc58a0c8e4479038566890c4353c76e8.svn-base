@@ -1,0 +1,28 @@
+﻿using DevExpress.XtraEditors;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace wayeal.os.exhaust
+{
+    public class MessageBoxs
+    {
+        /// <summary>
+        /// 自动隐藏消息窗
+        /// <paramref name="text">提示信息</paramref>/>
+        /// <paramref name="delay">延迟时长</paramref>/>
+        /// </summary>
+        public static void ShowDelayMessageBox(string text,int delay=2000)
+        {
+            XtraMessageBoxArgs args = new XtraMessageBoxArgs();
+            args.AutoCloseOptions.Delay = delay;
+            //args.Caption = "";
+            args.Text = text;
+            args.Buttons = new DialogResult[] { DialogResult.OK };
+            XtraMessageBox.Show(args).ToString();
+        }
+    }
+}

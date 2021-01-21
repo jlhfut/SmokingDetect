@@ -1,0 +1,151 @@
+﻿//===============================================================================
+// Copyright (C) 2018-2019 WAYEAL
+// 文件名: LeastSquaresCalculator.cs
+// 作者：软件部 张荣周
+// 日期：2019/08/29
+// 描述：杂项
+// 版本：1.0
+// 修改历史纪录
+// 版本         修改时间         修改人                     修改内容
+//
+//==============================================================================
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace wayeal.os.exhaust
+{
+    public class LeastSquaresCalculator
+    {
+        ///<summary>
+        ///用最小二乘法拟合二元多次曲线
+        ///</summary>
+        ///<param name="arrX">已知点的x坐标集合</param>
+        ///<param name="arrY">已知点的y坐标集合</param>
+        ///<param name="length">已知点的个数</param>
+        ///<param name="dimension">方程的最高次数</param>
+        public static double[] MultiLine(double[] arrX, double[] arrY, int length, int dimension)
+        {
+            int n = dimension + 1;//dimension次方程需要求 dimension+1个 系数
+            double[,] Guass = new double[n, n + 1];//高斯矩阵 例如：y=a0+a1*x+a2*x*x
+            for (int i = 0; i < n; i++)
+            {
+                int j;
+                for (j = 0; j < n; j++)
+                {
+                    Guass[i, j] = SumArr(arrX, j + i, length);
+                }
+                Guass[i, j] = SumArr(arrX, i, arrY, 1, length);
+            }
+            return ComputeGauss(Guass, n);
+        }
+        /// <summary>
+        /// 求数组的元素的n次方的和
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="n"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        private static double SumArr(double[] arr, int n, int length)
+        {
+            double s = 0;
+            for (int i = 0; i < length; i++)
+            {
+                if (arr[i] != 0 || n != 0)
+                    s = s + Math.Pow(arr[i], n);
+                else
+                    s = s + 1;
+            }
+            return s;
+        }
+        /// <summary>
+        /// 求数组的元素的n次方的和
+        /// </summary>
+        /// <param name="arr1"></param>
+        /// <param name="n1"></param>
+        /// <param name="arr2"></param>
+        /// <param name="n2"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        private static double SumArr(double[] arr1, int n1, double[] arr2, int n2, int length)
+        {
+            double s = 0;
+            for (int i = 0; i < length; i++)
+            {
+                if ((arr1[i] != 0 || n1 != 0) && (arr2[i] != 0 || n2 != 0))
+                    s = s + Math.Pow(arr1[i], n1) * Math.Pow(arr2[i], n2);
+                else
+                    s = s + 1;
+            }
+            return s;
+
+        }
+        /// <summary>
+        /// 计算高斯
+        /// </summary>
+        /// <param name="Guass"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        private static double[] ComputeGauss(double[,] Guass, int n)
+        {
+            int i, j;
+            int k, m;
+            double temp;
+            double max;
+            double s;
+            double[] x = new double[n];
+            for (i = 0; i < n; i++) x[i] = 0.0;//初始化
+            for (j = 0; j < n; j++)
+            {
+                max = 0;
+                k = j;
+                for (i = j; i < n; i++)
+                {
+                    if (Math.Abs(Guass[i, j]) > max)
+                    {
+                        max = Guass[i, j];
+                        k = i;
+                    }
+                }
+
+                if (k != j)
+                {
+                    for (m = j; m < n + 1; m++)
+                    {
+                        temp = Guass[j, m];
+                        Guass[j, m] = Guass[k, m];
+                        Guass[k, m] = temp;
+                    }
+                }
+                if (0 == max)
+                {
+                    // "此线性方程为奇异线性方程" 
+                    return x;
+                }
+
+                for (i = j + 1; i < n; i++)
+                {
+                    s = Guass[i, j];
+                    for (m = j; m < n + 1; m++)
+                    {
+                        Guass[i, m] = Guass[i, m] - Guass[j, m] * s / (Guass[j, j]);
+                    }
+                }
+
+            }
+
+            for (i = n - 1; i >= 0; i--)
+            {
+                s = 0;
+                for (j = i + 1; j < n; j++)
+                {
+                    s = s + Guass[i, j] * x[j];
+                }
+                x[i] = (Guass[i, n] - s) / Guass[i, i];
+            }
+            return x;
+        }
+    }
+}

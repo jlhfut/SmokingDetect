@@ -1,0 +1,590 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace wayeal.language
+{
+    public class ControlCNLocalizer :ControlLocalizer
+    {
+        public override string Language { get { return "中文"; } }
+
+        #region PopulateStringTable
+        protected override void PopulateStringTable()
+        {
+            AddString(ControlStringId.None,"");
+
+            AddString("Minimize", "最小化");
+            AddString("menuHelp", "帮助");
+            AddString(ControlStringId.menuHelp, GetLocalizedText("menuHelp"));
+            AddString("bbiAbout", "关于");
+            AddString("bbiHelp", GetLocalizedText("menuHelp"));
+            AddString("bbiLogin", "登录");
+            AddString("bbiModifyPassword", "修改密码");
+            AddString("bbiLogout", "注销");
+            AddString("lcSOAConnection", "服务连接中");
+
+            #region login
+            AddString("lcName", "用户名");
+            AddString("lcPassword", "密码");
+            AddString("lcPassword2", "密码");
+            AddString("sbLogin", "登录");
+            AddString("sbExit", "退出");
+            AddString("lcOldPassword", "旧密码");
+            AddString("lcNewPassword", "新密码");
+            AddString("lcNewAgain", "确认密码");
+            AddString("sbModify", "修改");
+            AddString("wfModifyPassword", "修改密码");
+            AddString("ceRememberPassword", "记住密码");
+            #endregion
+
+            AddString("Ok", "确定");
+            AddString("Cancel", "取消");
+          
+
+            AddString("frmMain", "尾气监测工作站");
+            AddString("menuOperate", "主页");
+            AddString("bbiRealtimeMonitoring", "实时监控");
+            AddString("bbiCalibration", "浓度校准");
+            AddString("bbiDebugging", "设备调试");
+
+            AddString("menuData", "数据");
+            AddString("bbiExhaustData", "尾气数据");
+            AddString("bbiAirQuality", "空气质量");
+
+            AddString("menuSystem", "系统");
+            AddString("bbiUserManage", "用户管理");
+            AddString("bbiRoleManage", "角色管理");
+            AddString("bbiLogManage", "日志管理");
+            AddString("bbiCommunicationManage", "通信质量");
+            AddString("bbiAssistManage", "辅助管理");
+
+            AddString("bbiSystemLog", "系统日志");
+            AddString("bbiRunningLog", "运行日志");
+            AddString("bbiBackgroundLog", "后台日志");
+
+            AddString("menuStation", "站点");
+            AddString("bbiStationSettings", "站点设置");
+            AddString("bbiLimitingSettings", "限值设置");
+
+            #region realtime monitor module
+            //Realtime monitor
+            AddString("lcLEDTitle", "尾气监测");
+            AddString("gcVehicleConditionInfo", "车况信息");
+            AddString("lcSpeed", "速度");
+            AddString("lcVSP", "VSP");
+            AddString("lcAcceleration", "加速度");
+            AddString("gcEnvironmentInfo", "环境信息");
+            AddString("lcTemperature", "温度");
+            AddString("lcHumidity", "湿度");
+            AddString("lcSlope", "坡度");
+            AddString("lcWindDirection", "风向");
+            AddString("lcWindSpeed", "风速");
+            AddString("lcPressure", "气压");
+            AddString("gcAirQuality", "空气质量");
+            AddString("lcPM25", "PM2.5");
+            AddString("lcPM10", "PM10");
+            AddString("lcNO2", "NO₂");
+            AddString("lcO3", "O₃");
+            AddString("lcVOCs", "VOCs");
+            AddString("gcStationInfo", "站点信息");
+            AddString("lcRefresh", "刷新");
+            //主页标题信息
+            AddString("lcVehicleConditionInfo", "   车况信息");
+            AddString("lcEnvironmentInfo", "   环境信息");
+            AddString("lcAirQualityInfo", "   空气质量");
+            AddString("lcStationInfo", "   站点信息");
+            AddString("lcDeviceStatue", "   设备状态");
+            AddString("lcDailyStatisticsInfo", "   日统计信息");
+            AddString("lcComplexStatisticsInfo", "   综合统计信息");
+
+
+            AddString("uccOpaquesSmoke", "不透光度(%)");
+            AddString("uccLingmannblackness", "林格曼黑度(级)");
+            AddString("uccResult", "结果");
+            //Reuslt list
+            AddString("gcIndex", "序号");
+            AddString("gcDateTime", "时间");
+            AddString("gcLane", "车道");
+            AddString("gcCarNumber", "车牌号");
+            AddString("gcCarNumberColor", "车牌颜色");
+            AddString("gcConfidence", "置信度");
+            AddString("gcCarType", "燃油类型");
+
+            #endregion
+
+            #region concentration calibrator module
+            AddString("riHarmonic", "吸光度/谐波");
+            AddString("riSpectrum", "光谱");
+            AddString("riConcentration", "浓度");
+            AddString("riDebug", "调试");
+            //模式切换
+            AddString("sbEnterCalibrationMode", "进入校准模式");
+            AddString("sbExitCalibrationMode", "退出校准模式");
+            //校准参数
+            AddString("gcCalibrationParamter", "校准参数");
+            AddString("lcStandardValve1", "标气阀1");
+            AddString("lcStandardValve2", "标气阀2");
+            AddString("lcDeuteriumLamp", "氘灯");
+            AddString("lcAirPump", "气泵");
+            AddString("lcRealtimeLightIntensity", "实时光强");
+            AddString("lcOpacity", "不透光度(%)");
+            //校准控制
+            AddString("gcCalibrationControl", "校准");
+            AddString("ceInfraredBgSpectrogram", "红外背景谱图");
+            AddString("ceUltravioletBgSpectrogram", "紫外背景谱图");
+            AddString("sbOpacityCorrect", "不透光度校准");
+            AddString("sbCorrect", "校准");
+            AddString("sbRefresh", "刷新");
+            AddString("sbSetup", "设置");
+            //设置面板
+            AddString("gcUnitSettings", "设置");
+            //
+            AddString("lcAverageIntensity", "平均光强");
+            AddString("lcIntensityFullRange", "光强满量程");
+            AddString("lcIntensityAlarmRange", "光强报警范围");
+            AddString("lcLightThreshold", "挡光门限");
+            AddString("lcFilteringTimeConstant", "滤波常数(ms)");
+
+            //
+            AddString("tbUltravioletSignalControl", "紫外");
+            AddString("lcCalibrationAverageNumber", "标定平均次数");
+            AddString("lcMainBoardAverageNumber", "主控板平均次数");
+            AddString("lcSpectrometerAverageNumber", "光谱仪平均次数");
+            AddString("lcIntegralTime", "积分时间");
+            AddString("lcNOAbsorptionBand", "NO吸收波段");
+            AddString("lcHCAbsorptionBand", "HC吸收波段");
+            AddString("lcIntensityRange", "光强范围");            
+            //
+            AddString("tbInfraredSignalControl", "红外");
+            AddString("lcAverageNumber", "平均次数");
+            AddString("lcPhase", "相位");
+            AddString("lcGain", "增益");
+            AddString("lcSamplingPeriod", "采样周期(ms)");
+            AddString("lcCoreTemperature", "管芯温度(℃)");
+            AddString("lcWorkingCurrent", "工作电流(mA)");
+            AddString("lcScanningCurrent", "扫描电流(mA)");
+            AddString("lcSineCurrent", "调制电流(mA)");
+            AddString("lcCOAbsorptionBand", "CO吸收波段");
+            AddString("lcCO2AbsorptionBand", "CO2吸收波段");
+            AddString("tbSmokeSignalControl", "烟度");
+            AddString("lcAutoPhaseLocking", "自动相位锁定");
+            AddString("lcPhaseLockCoefficient", "锁相修正系数");
+            AddString("lcTriggerDelay", "触发延迟(ms)");
+            //
+
+            //吸光度/谐波等谱图
+            AddString("ccUltravioletTitle1", "紫外");
+            AddString("ccUltravioletSeries1", "实时吸光度");
+            AddString("ccUltravioletSeries2", "NO吸光度");
+            AddString("ccUltravioletSeries3", "HC吸光度");
+            AddString("ccUltravioletSeries4", "遥测吸光度");
+            AddString("ccInfraredTitle1", "红外");
+            AddString("ccInfraredSeries1", "实时谐波");
+            AddString("ccInfraredSeries2", "CO谐波");
+            AddString("ccInfraredSeries3", "CO2谐波");
+            AddString("ccInfraredSeries4", "红外背景谐波");
+            AddString("ccInfraredSeries5", "遥测谐波");
+            AddString("ccUltravioletSpectrumTitle1", GetLocalizedText("ccUltravioletTitle1"));
+            AddString("ccUltravioletSpectrumSeries1", "实时光谱");
+            AddString("ccUltravioletSpectrumSeries2", "紫外背景谱图");
+            AddString("ccUltravioletSpectrumSeries3", "遥测光谱");
+            AddString("ccInfraredSpectrumTitle1", GetLocalizedText("ccInfraredTitle1"));
+            AddString("ccInfraredSpectrumSeries1", GetLocalizedText("ccUltravioletSpectrumSeries1"));
+            AddString("ccInfraredSpectrumSeries2", "红外背景谱图");
+            AddString("cccOpacity", "不透光度");
+            AddString("ccUltravioletDebugTitle1", "紫外");
+            AddString("ccInfraredDebugTitle1", "红外");
+            AddString("ccInfraredDebugSeries1", "实时原始谐波");
+            AddString("ccInfraredDebugSeries2", "遥测原始谐波");
+            //不透光烟度校准
+            AddString("wfOpacityCalibration", "不透光度校准");
+            AddString("lcChannelIndex", "通道号");
+            AddString("sbCalculate", "计算");
+            AddString("sbSave", "保存");
+            AddString("sbCalibrate", "采集");
+            AddString("sbCalibratei", "光强\n修正");
+            string lpGroup = "第 {0} 组";
+            for (int i=1;i<6;i++)
+            {
+                AddString("sbCalibrate"+i.ToString(), GetLocalizedText("sbCalibratei"));
+                AddString("sliGroup" + i.ToString(),  String.Format(lpGroup,i));
+            }
+            AddString("lcZeroIntensity", "零点光强系数");
+            //不透光烟度板
+            //加速度板
+            AddString("lcSpeedAC", "速度(km/h)");
+            AddString("lcAccelerationAC", "加速度(m/s²)");
+            AddString("lcSwitch", "开关");
+
+            AddString("tbAcceleratedControl", "加速度");
+            for (int i = 1; i <= 3; i++)
+                AddString("lcIntensity" + i.ToString(), "点" + i.ToString() + "实时光强");
+            //系统
+            AddString("tbSystemControl", "系统");
+            AddString("lcCaptureVehicleEvent", "车辆捕获事件");
+            AddString("cbeCaptureVehicleEvent", "TDLAS,加速度,烟度");
+            AddString("lcPreheatingTime", "校准预热时间(min)");
+            AddString("lcTestRange", "测量范围");
+            AddString("gcComponent", "组分");
+            AddString("gcLowerLimit", "下限");
+            AddString("gcUpperLimit", "上限");
+            AddString("gcUnit", "单位");
+            
+            //非线性修正
+            AddString("sbNonlinearCorrection", "非线性修正");
+            AddString("wfNonlinearCorrection", "非线性修正设置");
+            AddString("lcGasName", "气体名称");
+            AddString("lcCorrection", "修正");
+            AddString("gcPreConcentration", "修正前浓度(ppm)");
+            AddString("gcPostConcentration", "修正后浓度(ppm)");
+            AddString("gcConcOperation", "操作");
+            AddString("gcConcOperation0", "删除");
+
+            //点修正
+            AddString("sbPointCorrect", "点修正");
+            AddString("wfPointCorrect", "点修正设置");
+            AddString("gcConcentrationRange", "修正范围(ppm)");
+            AddString("gcConcentrationCoefficient", "修正系数");
+            #endregion
+
+            #region debugger module
+            AddString("lcDeviceList", "设备列表");
+            AddString("lcOnline", "在线");
+            AddString("lcOffline", "离线");
+            AddString("tlDevice", "气象仪,空气质量仪,车牌识别相机,安防相机,NVR,LED显示大屏,尾气遥感分析仪,GPS,平台");
+            AddString("tlDeviceDebug", "气象仪,空气质量仪,车牌识别相机,安防相机,NVR,LED显示大屏,尾气遥感分析仪,GPS,平台,分析仪--1车道左侧,分析仪--1车道右侧,分析仪--2车道左侧,分析仪--2车道右侧,分析仪--3车道左侧,分析仪--3车道右侧");
+            AddString("ilbcDevice", GetLocalizedText("tlDevice"));
+            AddString("xtpDevice", "设备列表");
+            AddString("xtpCommunication", "通讯列表");
+            AddString("lcNew", "新建");
+            #endregion
+
+            #region statistical information
+            AddString("gcDailyStatisticsInfo", "日统计信息");
+            AddString("gcComplexStatisticsInfo", "综合统计信息");
+            AddString("lcType", "类型");
+            AddString("lcTotal", "总数");
+            #endregion
+
+            #region device status
+            AddString("lcExhuastAnalyzer", "尾气遥感分析仪");
+            AddString("lcLprCamera", "车牌识别相机");
+            AddString("lcLED", "LED显示大屏");
+            AddString("lcMeteorograph", "气象仪");
+            AddString("lcAQI", "空气质量仪");
+            #endregion
+
+            #region timing calibrate
+            //定时标定设置
+            AddString("wfTimingCalibration", "自动标定设置");
+            AddString("sbAutoCalibrate", "自动标定设置");
+            AddString("lcAutoCalibrateZeroInterval", "自动标零间隔(秒)");
+            AddString("lcAutoCalibrateZero", "自动标零");
+            AddString("lcAutoCalibrateRange", "自动标量程");
+            AddString("lcTimes", "自动标定时间(/天)");
+            #endregion
+
+            #region Station_Limiting  Settings  module
+            //Limiting Value Settings
+            AddString("lcLimitingList", "限值列表");
+            AddString("lcGasolineCar", "汽油车");
+            AddString("lcDieselCar", "柴油车");
+            AddString("lcHistoryRecord", "历史记录");
+            AddString("lcGasolineHistory", "汽油车历史记录");
+            AddString("lcDieselHistory", "柴油车历史记录");
+            //gridcontrol
+            AddString("gcCO", "CO(%)");
+            AddString("gcStartTime", "开始时间");
+            AddString("gcNO", "NO(ppm)");
+            AddString("gcHC", "HC(ppm)");
+            AddString("gcOpSmoke", "不透光度(%)");
+            AddString("gcOpSmoke2", "不透光度(%)");
+            AddString("gcTips", "备注");
+            AddString("gcNumber", "序号");
+            AddString("gcNumber2", "序号");
+            AddString("gcStartTime2", "开始时间");
+            AddString("gcNO2", "NO₂(ppm)");
+            AddString("gcBlackness", "林格曼黑度(级)");
+            AddString("gcJudgeCondition", "柴油车判断条件");
+            AddString("gcTips2", "备注");
+            //
+            AddString("lcNOLimiting", "NO限值");
+            AddString("lcCOLimiting", "CO限值");
+            AddString("lcBlacknessLimiting", "林格曼黑度");
+            AddString("lcOpSmokeLimiting", "不透光度限值");
+            AddString("lcSelect", "柴油车判定条件");
+            AddString("ceOpSmoke", "不透光度>");
+            AddString("ceYellowCar", "黄牌车");
+            AddString("lcTips", "备注");
+            AddString("lcHCLimiting", "HC限值");
+
+            #endregion
+            #region Station_Station Settings module
+            //Station Settings 
+            AddString("lcID", "编号");
+            AddString("lcStationName", "站点名称");
+            AddString("lcLongitude", "经度");
+            AddString("lcLatitude", "纬度");
+            AddString("lcHighly", "高程");
+            AddString("lcSSlope", "坡度");
+            AddString("lcDetailedAddress", "详细地址");
+            AddString("sbCancel", "取消");
+            AddString("lcBlacknessUnit", "级");
+            AddString("lcStationType", "站点类型");
+            
+            #endregion
+
+            #region Data_AirQuality
+            AddString("lcQuaryTime", "查询时间");
+            AddString("sbQuary", "查询");
+            AddString("sbDerive", "导出");
+            AddString("gcTestingTime", "检测时间");
+            #endregion
+            #region Data_ExhaustData
+            //主页面
+            AddString("lcLicenseNumber", "车牌号");
+            AddString("lcLane", "车道");
+            AddString("lcDetectionResult", "检测结果");
+            AddString("sbCreateReport", "生成报告");
+            AddString("gcTestingNumber", "检测编号");
+            AddString("gcTrackNumber", "车道");
+            AddString("gcLicenseNumber", "车牌号");
+            AddString("gcLicenseColor", "车牌颜色");
+            AddString("gcBodyColor", "车身颜色");
+            AddString("gcTestingResult", "检测结果");
+            AddString("gcCO2", "CO₂(%)");
+            AddString("gcSlope", "坡度");
+            AddString("gcWindSpeed", "风速");
+            AddString("gcWindDirection", "风向");
+            AddString("gcPressure", "气压");
+            AddString("gcTemperature", "温度");
+            AddString("gcHumidity", "湿度");
+            AddString("gcSpeed", "速度(km/h)");
+            AddString("gcAcceleration", "加速度");
+            AddString("gcOperation", "操作");
+            AddString("gcOperation0", "详情");
+            AddString("gcOperation1", "分析数据");
+            AddString("gcVSP", "VSP");
+            AddString("gcSetting", "设置");
+            AddString("gcVehicleType", "车辆类型");
+
+            AddString("tslAll", "共");
+            AddString("tslRecords", "条");
+
+            AddString("gcStationName", "站点名称");
+            AddString("gcLongitude", "经度");
+            AddString("gcLatitude", "纬度");
+            AddString("gcSlop", "坡度");
+
+            AddString("lcNORange", "NO范围");
+            AddString("lcHCRange", "HC范围");
+            AddString("lcCORange", "CO范围");
+            AddString("lcOpSmokeRange", "不透光度范围");
+            AddString("lcBlacknessRange", "林格曼黑度范围");
+
+            AddString("sbOneButtonPrint", "一键打印");
+            
+            AddString("miExit", "退出");
+            AddString("lcFactor", "分析因子");
+            //弹窗_用户自定义列wfGridViewOperation
+            //AddString("sbRestoreDefault", "恢复默认");
+            //AddString("wfGridViewOperation", "自定义列");
+            //弹窗_详情
+            AddString("wfDetialMessage", "详细信息");
+            AddString("lcOpSmoke", "不透光度(%)");
+            AddString("lcTestingNumber", "检测编号");
+            AddString("lcBlackness", "林格曼黑度(级)");
+            AddString("lcResult", "检测结果");
+            AddString("lcLicenseNum", "车牌号");
+            AddString("lcBodyColor", "车身颜色");
+            AddString("lcLicenseColor", "车牌颜色");
+            AddString("lcLicenseType", "号牌类型");
+            AddString("gcMonitoryingInformation", "检测信息");
+            AddString("gcVehicleCondition", "车况信息");
+            AddString("gcAirQualityInfo", "空气质量");
+            AddString("gcLimitingInfo", "限值信息");
+
+            AddString("lcNOLimitingppm", "NO限值(ppm)");
+            AddString("lcCOLimitingper", "CO限值(%)");
+            AddString("lcHCLimitingppm", "HC限值(ppm)");
+            AddString("lcOpSmokeLimitingper", "不透光度限值(%)");
+            AddString("lcBlacknessLimitinglevel", "林格曼黑度限值(级)");
+
+            AddString("lcTemperatureDMV", "温度(℃)");
+            AddString("lcHumidityDMV", "湿度(%)");
+            AddString("lcWindDirectionDMV", "风向(°)");
+            AddString("lcWindSpeedDMV", "风速(m/s)");
+            AddString("lcPressureDMV", "气压(kPa)");
+            AddString("lcSpeedDMV", "速度(km/h)");
+            AddString("lcAccelerationDMV", "加速度(m/s²)");
+            AddString("lcConfidence", "置信度");
+            AddString("lcVehicleType", "车辆类型");
+            AddString("lcFuelType", "燃油类型");
+
+            //弹窗_分析数据
+            AddString("wfDataAnalysis", "分析数据");
+            AddString("wfDataAnalysisVertical", "分析数据");
+
+            AddString("sbLeftLane", "左车道");
+            AddString("sbRightLane", "右车道");
+
+            AddString("sbDeriveSpectrogram", "导出谱图数据");
+            AddString("lcPrePage", "上一条");
+            AddString("lcNextPage", "下一条");
+            AddString("gcDataCollection", "采集数据");
+            AddString("gcDataCalculation", "计算数据");
+            AddString("lcLightIntensity", "不透光度光强");
+
+            AddString("ccUltravioletHTTitle1", "紫外");
+            AddString("ccUltravioletHTSeries1", "NO吸光度");
+            AddString("ccUltravioletHTSeries2", "HC吸光度");
+            AddString("ccUltravioletHTSeries3", "遥测吸光度");
+       //     AddString("ccUltravioletSeries4", "遥测吸光度");
+            AddString("ccInfraredHTTitle1", "红外");
+            AddString("ccInfraredHTSeries1", "CO谐波");
+            AddString("ccInfraredHTSeries2", "CO2谐波");
+            AddString("ccInfraredHTSeries3", "红外背景谐波");
+            AddString("ccInfraredHTSeries4", "遥测谐波");
+           // AddString("ccInfraredSeries5", "遥测谐波");
+            AddString("ccUltravioletSpectrumHTTitle1", GetLocalizedText("ccUltravioletTitle1"));
+            AddString("ccUltravioletSpectrumHTSeries1", "紫外背景谱图");
+            AddString("ccUltravioletSpectrumHTSeries2", "遥测光谱");
+       //     AddString("ccUltravioletSpectrumSeries3", "遥测光谱");
+            AddString("ccInfraredSpectrumHTTitle1", GetLocalizedText("ccInfraredTitle1"));
+            AddString("ccInfraredSpectrumHTSeries1", "红外背景谱图");
+      //      AddString("ccInfraredSpectrumSeries2", "红外背景谱图");
+           
+
+            //弹窗_打印
+            AddString("wfPrint", "监测结果");
+            AddString("menuOperation", "操作");
+            AddString("bbiPrint", "打印");
+            AddString("bbiSave", "保存");
+            #endregion
+            #region Data_DataStatistics
+            AddString("bbiDataStatistics", "数据统计");
+            AddString("lcDataType", "数据类型");
+            AddString("lcDieselData", "柴油车");
+            AddString("lcGasolineCarData", "汽油车");
+            AddString("lcAmount", "总数");
+            AddString("lcValidData", "有效数据");
+            AddString("lcQualifiedData", "合格数据");
+            AddString("lcUnqualifiedData", "超标数据");
+            AddString("lcInvalidData", "无效数据");
+            AddString("lcSum", "样本总数");
+            #endregion
+
+            #region System_RoleManage
+            AddString("gcRoleOperations", "角色操作");
+            AddString("gcCreateTime", "创建日期时间");
+            AddString("lcRoleName", "角       色");
+            AddString("lcAuthorityConfig", "权限配置");
+            AddString("wfNewRole", "新建角色");
+            AddString("wfChangeRole", "编辑角色");
+            AddString("sbCheckAll", "全选");
+            AddString("sbCheckNone", "全不选");
+            AddString("gcModulesName", "模块名称");
+            AddString("gcOperationName", "操作名称");
+            AddString("gcIsVisible", "是否可见");
+            AddString("gcIsWritable", "是否可写");
+            #endregion
+            #region System_LogManage
+            AddString("lcSeatchTime", "查询时间");
+            AddString("lcLogType", "日志类别");
+            AddString("lcLogContent", "日志内容");
+            AddString("lcSource", "日志来源");
+            AddString("gcTime", "标定时间");
+            AddString("gcLogType", "日志类别");
+            AddString("gcSource", "日志来源");
+
+            AddString("gcTheTime", "时间");
+            AddString("gcLogContent", "日志内容");
+            #endregion
+            #region System_UserManage
+
+            AddString("lcUserName", "用户名");
+
+            AddString("lcPermission", "权限级别");
+            AddString("sbSearch", "查询");
+            AddString("sbNew", "新建");
+            AddString("sbDelete", "删除");
+            AddString("gcbox", " ");
+            AddString("gcUserName", "用户名");
+            AddString("gcPermission", "权限级别");
+            AddString("gcCreateDate", "创建日期时间");
+            AddString("gcCreatorName", "创建者");
+            AddString("gcAccountStatue", "用户状态");
+            AddString("gcUserOperations", "用户操作");
+            AddString("wfChangeUser", "编辑用户");
+            AddString("wfNewUser", "新建用户");
+            AddString("ceEnableAccount", "启用账户");
+            AddString("sbConfirm", "确认");
+
+            #endregion
+            #region System_CommunicationManage
+         //   AddString("lcComName", "名称");
+            AddString("cbeCommunicationType", "通讯类型");
+            AddString("lcBaudRate", "波特率");
+            AddString("lcPortNumber", "端口号");
+            AddString("lcDataBits", "数据位");
+            AddString("lcStopBits", "停止位");
+            AddString("lcCheckBits", "校验位");
+            AddString("lcSerialInterface", "串口");
+            AddString("lcInternetAccess", "网口");
+            AddString("lcIP", "IP");
+            AddString("wfNewCom", "新建通讯");
+            AddString("lcDelete", "删除");
+            #endregion
+            #region System_AssistManage
+            AddString("lcDataBaseRestore", "数据库还原");
+            AddString("lcDataBaseBackups", "数据库备份");
+            AddString("lcAddToAutoStart", "开机自启动");
+            AddString("riBackground", "后台模式");
+            AddString("riFullScreen", "全屏独占");
+            AddString("sbConfirmRS", "确认");
+            AddString("sbConfirmBK", "确认");
+            #endregion
+            #region Help_About
+            AddString("wfAbout", "关于");
+            AddString("lcProduct", "尾气上位机软件 2020");
+            AddString("lcVersion", "版本 1.0.0.0");
+            AddString("lcConpany", "©2020 安徽皖仪科技股份有限公司");
+            AddString("lcCopyright", "保留所有权利");
+            AddString("hclLearnMore", "了解更多？");
+            AddString("lcWarning1", "警告：本计算机程序受著作权法和国际条约保护。");
+            AddString("lcWarning2", "如未经授权而擅自复制或传播本程序（或其中任何部分），将受到严厉的民事及刑事制裁，");
+            AddString("lcWarning3", "并将在法律许可范围内受到最大程度的起诉。");
+            #endregion
+            #region print
+            AddString("xlReportName", "检测结果报告");
+            #endregion
+
+            #region plug_DeviceAndComm
+            AddString("SaveCompleted", "保存参数已完成!");
+            AddString("SaveFail", "保存参数失败!");
+            AddString("lcUsed", "启用:");
+            AddString("lcCommunication", "通讯:");
+            AddString("lcPlatNumber", "编号:");
+            AddString("ceUnloadData", "上传无效数据");
+            
+            AddString("lcTemp", "温度(℃):");
+            AddString("lcHumid", "湿度(%):");
+            AddString("lcWindDirect", "风向(°):");
+            AddString("lcWindSpeedDevice", "风速(m/s):");
+            AddString("lcPressureDevice", "气压(kPa):");
+            AddString("Client", "客户端");
+            AddString("Server", "服务端");
+            AddString("lcUsedPm", "启用:");
+            AddString("lcNull", "不允许输入空值！");
+            AddString("lcSaveDevice", "保存设备参数");
+            AddString("lcDeviceName", "设备名代号");
+            AddString("lcComName", "通讯名");
+            AddString("lcNotUseDevice", "不启用");
+            AddString("lcUseDevice", "启用");
+            AddString("lcPlatNum", "平台编号");
+            AddString("sbPlay", "播放");
+            AddString("sbStop", "停止");
+            #endregion
+        }
+        #endregion
+    }
+}

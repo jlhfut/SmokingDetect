@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using System.IO;
+using wayeal.os.exhaust.Services;
+using Wayee.Services;
+using wayeal.os.exhaust.ViewModel;
+using DevExpress.Mvvm;
+using DevExpress.Utils.MVVM;
+using System.Diagnostics;
+using wayeal.os.exhaust.UserControls;
+
+namespace wayeal.os.exhaust.Modules
+{
+    public partial class ucRealtimeMonitor : ucManagerBase
+    {
+        
+        public ucRealtimeMonitor()
+        {
+            InitializeComponent();
+       //     InitVerticalDistribution();
+            InitializeUI();
+            //if (File.Exists("1.png") && File.Exists("2.png"))
+            //{
+            //    ucMonitoringPicture.ClearGallery();
+            //    Image im1 = Image.FromFile("1.png");
+            //    Image im2 = Image.FromFile("2.png");
+            //    ucMonitoringPicture.AddImages(new List<Image>() { im1, im2 });
+            //}
+            
+        }
+        //[Conditional("VerticalDistribution")]
+        //private void InitVerticalDistribution()
+        //{
+        //    ucMonitoringVedio ucvedio=new ucMonitoringVedio();
+        //    pcMid.Controls.Remove(ucMonitoringPicture);
+        //    pcMid.Controls.Add(ucvedio);
+        //    ucvedio.Dock = DockStyle.Fill;
+        //    ucStatisticalInformation1.SendToBack();
+        //}
+    }
+}

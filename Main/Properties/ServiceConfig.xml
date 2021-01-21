@@ -1,0 +1,10 @@
+﻿<configuration>
+  <system.runtime.remoting>
+    <server name="SOA Manage Server" uri="192.168.200.61" port="9800" mode="http">
+      <service name="">
+        <property name="parent server" servername="" uri="" port="" mode=""></property>
+        <property name="wellknown"  mode=""></property>
+      </service>
+    </server>
+  </system.runtime.remoting>
+</configuration>

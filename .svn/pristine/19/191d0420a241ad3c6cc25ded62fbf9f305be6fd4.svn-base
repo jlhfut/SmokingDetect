@@ -1,0 +1,225 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DevExpress.Utils.MVVM;
+using wayeal.os.exhaust.ViewModel;
+using DevExpress.Mvvm;
+using System.Collections;
+using Newtonsoft.Json.Linq;
+using System.Reflection;
+using Wayee.Services;
+using DevExpress.XtraEditors;
+using static wayeal.os.exhaust.ViewModel.CalibrationViewModel;
+using System.Text.RegularExpressions;
+
+namespace wayeal.os.exhaust.UserControls
+{
+    public partial class ucCalibrationExtendController : ucSettingsBase
+    {
+        private MVVMContextFluentAPI<CalibrationViewModel.SystemParamModel> fluent;
+        const string _notAction = "Not Action";
+        public ucCalibrationExtendController()
+        {
+            InitializeComponent();
+            cbeCaptureVehicleEvent.SelectedIndex = 0;
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+
+        /// <summary>
+        /// Init
+        /// </summary>
+        protected override void InitializeBindings()
+        {
+            try
+            {
+                mvvmContext1.SetViewModel(typeof(CalibrationViewModel.SystemParamModel), CalibrationViewModel.VM.SystemParam);
+                fluent = mvvmContext1.OfType<CalibrationViewModel.SystemParamModel>();
+                sbRefresh.BindCommand(CalibrationViewModel.VM, () => {if(gcComponentRange!=null) gcComponentRange.Tag = null; return CalibrationViewModel.ExecuteCommand.ec_RefreshSystem; }); 
+                AddBinding(cbeCaptureVehicleEvent.Name, fluent.SetBinding(cbeCaptureVehicleEvent, ce => ce.SelectedIndex, x => x.CaptureVehicleEvent, m => { return m - 1; }, v => { return v + 1; }));
+                AddBinding(tePreheatTime.Name, fluent.SetBinding(tePreheatTime, ce => ce.Text, x => x.StandardPreheatingTime, m => { return m.ToString(); }, v => { return Convert.ToInt32(v); }));
+                AddBinding(gcComponentRange.Name,fluent.SetBinding(gcComponentRange, gc => gc.DataSource, x => x.GroupLimit,m=> {
+                    if (m == null) return m;
+                    if (m.Count > 7)
+                    {
+                        m = m.GetRange(0, 7);
+                    }
+                    return m; }));
+
+               
+                base.InitializeBindings();
+                Messenger.Default.Register<string>(this, typeof(CalibrationViewModel.SystemParamModel).Name, action);
+                CalibrationViewModel.VM.ModelChanged += (sender, arg) => {
+                    if (arg.ModelName == typeof(CalibrationViewModel).Name || arg.ModelName == typeof(CalibrationViewModel.SystemParamModel).Name) action();
+                };
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+        public override void sbSetup_Click(object sender, EventArgs e)
+        {
+            if (!CheckUpAndDown())
+            {
+                XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.UpAndDown));
+                return;
+            }
+            string s = checkGridControl();
+            if(s!=null)
+            { 
+                XtraMessageBox.Show(s+Program.infoResource.GetLocalizedString(language.InfoId.vadOutRange),"",MessageBoxButtons.OK);
+                return;
+            }
+            if (CalibrationViewModel.VM.SystemParam.GroupLimit != null && CalibrationViewModel.VM.SystemParam.GroupLimit.Count > 7)
+            {
+                CalibrationViewModel.VM.SystemParam.GroupLimit = CalibrationViewModel.VM.SystemParam.GroupLimit.GetRange(0, 7);
+            }
+            CalibrationViewModel.VM.Execute(CalibrationViewModel.ExecuteCommand.ec_SetSystem);
+            base.sbSetup_Click(sender, e);
+            if (gcComponentRange != null) gcComponentRange.Tag = null;
+            WriteLog();
+        }
+        /// <summary>
+        /// 检查gridcontrol，返回验证错误行名称
+        /// </summary>
+        /// <returns></returns>
+        private string checkGridControl()
+        {
+            string error = null;
+            try
+            {
+                if (gcComponentRange == null || gcComponentRange.DataSource == null) return null;
+                List<ComponentLimit> cls = gcComponentRange.DataSource as List<ComponentLimit>;
+                foreach (ComponentLimit cl in cls)
+                {
+                    if (!CheckLimitValud(cl))
+                        error += cl.Name + " ";
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.ToString());
+            }
+            return error;
+        }
+
+        /// <summary>
+        /// 记日志
+        /// </summary>
+        private void WriteLog()
+        {
+            try
+            {
+                string log = null;
+                log += Program.infoResource.GetLocalizedString(language.InfoId.SetSystemParameter);
+                if (CalibrationViewModel.VM.SystemParam.GroupLimit == null) return;
+                foreach (ComponentLimit cl in CalibrationViewModel.VM.SystemParam.GroupLimit)
+                {
+                    log += "   "+cl.Name+":" + cl.LowerLimit.ToString("f2") + "-" + cl.UpLimit.ToString("f2") + cl.Unit;
+                }
+                ErrorLog.SystemLog(DateTime.Now,log);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 检查下限是否小于上限
+        /// </summary>
+        /// <returns>true：检查通过 false：检查不通过</returns>
+        private bool CheckUpAndDown()
+        {
+            try
+            {
+                if (gcComponentRange == null || gcComponentRange.DataSource == null) return true;
+                List<ComponentLimit> list = gcComponentRange.DataSource as List<ComponentLimit>;
+                foreach (ComponentLimit cl in list)
+                {
+                    if (cl.LowerLimit > cl.UpLimit) return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.ToString());
+                return false;
+            }
+        }
+        
+        private void gridView2_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column == gcUnit)
+            {
+                if (e.DisplayText == "m/s2") e.DisplayText = "m/s²";
+            }
+        }
+        /// <summary>
+        /// 输入时后台不刷新
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gridView2_MouseDown(object sender, MouseEventArgs e)
+        {
+            gcComponentRange.Tag = _notAction;
+        }
+        ///// <summary>
+        ///// 验证上下限范围
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void gridView2_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        //{
+        //    e.Valid = CheckLimitValud(e.Row as ComponentLimit);
+        //    e.ErrorText = Program.infoResource.GetLocalizedString(language.InfoId.vadOutRange);
+        //}
+        /// <summary>
+        /// 检验上下限是否符合要求
+        /// </summary>
+        /// <param name="cl"></param>
+        /// <returns></returns>
+        private bool CheckLimitValud(ComponentLimit cl)
+        {
+            if (cl == null) return false;
+            string strValid = null;
+            switch (cl.Name)
+            {
+                case "NO":
+                    strValid = @"^(([0-9]|[1-9][0-9]{0,4})(\.\d{1,2})?)$";
+                    break;
+                case "HC":
+                    strValid = @"^(([0-9]|[1-9][0-9]{0,4})(\.\d{1,2})?)$";
+                    break;
+                case "CO":
+                    strValid = @"^((([0-9]|[1-9][0-9])(\.\d{1,2})?)|100)$";
+                    break;
+                case "CO2":
+                    strValid = @"^((([0-9]|[1-9][0-9])(\.\d{1,2})?)|100)$";
+                    break;
+                case "CO₂":
+                    strValid = @"^((([0-9]|[1-9][0-9])(\.\d{1,2})?)|100)$";
+                    break;
+                case "不透光度":
+                    strValid = @"^((([0-9]|[1-9][0-9])(\.\d{1,2})?)|100)$";
+                    break;
+                case "速度":
+                    //strValid = @"^([-]?((([0-9]|[1-9][0-9])(\.\d{1,2})?)|100))$";
+                    strValid = @"^(([0-9]|[1-9][0-9]{0,2})(\.\d{1,2})?)|1000$";
+                    break;
+                case "加速度":
+                    strValid = @"^([-]?((([0-9]|[1-9][0-9])(\.\d{1,2})?)|100))$";
+                    break;
+                default:return false;
+            }
+            Regex regex = new Regex(strValid);
+            return  (regex.IsMatch(cl.LowerLimit.ToString()) && regex.IsMatch(cl.UpLimit.ToString()));
+        }
+    }
+}

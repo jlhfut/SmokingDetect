@@ -1,0 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using wayeal.plugin;
+namespace wayeal.exdevice
+{
+    /// <summary>
+    /// 安防相机
+    /// </summary>
+    public class SecurityCameraDevice:PluginBase
+    {
+        public SecurityCameraDevice()
+        {
+            _SetupUI = new ucSecurityCameraDevice();
+            _Key = "SecurityCamera";
+        }
+    }
+    /// <summary>
+    /// 安防相机
+    /// </summary>
+    public class LprCamera : PluginBase
+    {
+        public LprCamera()
+        {
+            _SetupUI = new ucSecurityCameraDevice();
+            _Key = "LprCamera";
+        }
+    }
+    /// <summary>
+    /// 气象仪
+    /// </summary>
+    public class MeteorographDevice : PluginBase
+    {
+        public MeteorographDevice()
+        {
+            _SetupUI = new ucMeteorographDevice();
+            _Key = "Meteorograph";
+        }
+    }
+    /// <summary>
+    /// 空气质量仪
+    /// </summary>
+    public class AirQualityDevice : PluginBase
+    {
+        public AirQualityDevice()
+        {
+            _SetupUI = new ucAirQualityDevice();
+            _Key = "AirQualityDevice";
+        }
+    }
+    /// <summary>
+    /// 尾气遥感分析仪
+    /// </summary>
+    public class AnalysisDevice : PluginBase
+    {
+        public AnalysisDevice()
+        {
+            _SetupUI = new ucAnalysisDevice();
+            _Key = "AnalysisDevice";
+        }
+    }
+    /// <summary>
+    /// GPS
+    /// </summary>
+    public class GPSDevice : PluginBase
+    {
+        public GPSDevice()
+        {
+            _SetupUI = new ucGPSDevice();
+            _Key = "GPSDevice";
+        }
+    }
+    /// <summary>
+    /// LED灯
+    /// </summary>
+    public class LEDDevice : PluginBase
+    {
+        public LEDDevice()
+        {
+            _SetupUI = new ucLEDDevice();
+            _Key = "LEDDevice";
+        }
+    }
+    /// <summary>
+    /// 车牌识别相机
+    /// </summary>
+    public class LicenseRecognition : PluginBase
+    {
+        public LicenseRecognition()
+        {
+            _SetupUI = new ucLicenseRecognitionDevice();
+            _Key = "LicenseRecognition";
+        }
+    }
+    /// <summary>
+    /// NVR设备
+    /// </summary>
+    public class NVRDevice : PluginBase
+    {
+        public NVRDevice()
+        {
+            _SetupUI = new ucNVRDevice();
+            _Key = "NVRDevice";
+        }
+    }
+    /// <summary>
+    /// 平台
+    /// </summary>
+    public class PlatDevice : PluginBase
+    {
+        public PlatDevice()
+        {
+            _SetupUI = new ucPlatDevice();
+            _Key = "PlatDevice";
+        }
+    }
+
+    /// <summary>
+    /// 网口TCP
+    /// </summary>
+    public class ComTCP : PluginBase
+    {
+        public ComTCP()
+        {
+            _SetupUI = new ucCommunicationTCP(_Param);
+            _Key = "ComTCP";
+        }
+    }
+
+   
+
+    /// <summary>
+    /// 网口UDP客户端
+    /// </summary>
+    public class ComUDP : PluginBase
+    {
+        public ComUDP()
+        {
+            _SetupUI = new ucCommunicationUDP(_Param);
+            _Key = "ComUDP";
+        }
+    }
+    
+
+    /// <summary>
+    /// 串口
+    /// </summary>
+    public class SerialPort : PluginBase
+    {
+        public SerialPort()
+        {
+            _SetupUI = new ucCommunicationCOM(_Param);
+            _Key = "ComCOM";
+        }
+    }
+}

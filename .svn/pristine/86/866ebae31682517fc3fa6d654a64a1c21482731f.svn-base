@@ -1,0 +1,1111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DB59C53-6727-4DB8-AB41-C46D1A752640}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>wayeal.os.exhaust</RootNamespace>
+    <AssemblyName>WYExhaust</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;VerticalDistribution</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.6\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v18.1" />
+    <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v18.1" />
+    <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Diagram.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dialogs.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v18.1.Drawing, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v18.1.Extensions, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.Wizard, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDiagram.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDialogs.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.1.Extensions, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\DllRelease\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="NPOI, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Wayee.Services.CommonDataStruct">
+      <HintPath>..\ServiceInterface\Wayee.Services.CommonDataStruct.dll</HintPath>
+    </Reference>
+    <Reference Include="Wayee.Services.IBusinessLogicServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ServiceInterface\Wayee.Services.IBusinessLogicServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wayee.Services.IDataServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ServiceInterface\Wayee.Services.IDataServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wayee.Services.IUserManagerServer">
+      <HintPath>..\ServiceInterface\Wayee.Services.IUserManagerServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wayee.Services.RemotingServerBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ServiceInterface\Wayee.Services.RemotingServerBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WYDAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\ServiceInterface\WYDAO.dll</HintPath>
+    </Reference>
+    <Reference Include="WYDBC, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ServiceInterface\WYDBC.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CarLimitingInfo.cs" />
+    <Compile Include="ClassEnum.cs" />
+    <Compile Include="ExhaustDetailData.cs" />
+    <Compile Include="Forms\wfAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfAbout.Designer.cs">
+      <DependentUpon>wfAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfChangeUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfChangeUser.Designer.cs">
+      <DependentUpon>wfChangeUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfDataAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfDataAnalysis.Designer.cs">
+      <DependentUpon>wfDataAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfDataAnalysisVertical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfDataAnalysisVertical.Designer.cs">
+      <DependentUpon>wfDataAnalysisVertical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfDetialMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfDetialMessage.Designer.cs">
+      <DependentUpon>wfDetialMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfModifyPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfModifyPassword.Designer.cs">
+      <DependentUpon>wfModifyPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfNewCom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfNewCom.Designer.cs">
+      <DependentUpon>wfNewCom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfNewUser.Designer.cs">
+      <DependentUpon>wfNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfNonlinearCorrection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfNonlinearCorrection.Designer.cs">
+      <DependentUpon>wfNonlinearCorrection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfPointCorrect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfPointCorrect.Designer.cs">
+      <DependentUpon>wfPointCorrect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfPrint.designer.cs">
+      <DependentUpon>wfPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfPrintOneKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfPrintOneKey.Designer.cs">
+      <DependentUpon>wfPrintOneKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfTimingCalibration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfTimingCalibration.Designer.cs">
+      <DependentUpon>wfTimingCalibration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfWaitSOA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfWaitSOA.Designer.cs">
+      <DependentUpon>wfWaitSOA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LedAct.cs" />
+    <Compile Include="Modules\ucAirQuality.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucAirQuality.Designer.cs">
+      <DependentUpon>ucAirQuality.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucAssistManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucAssistManage.Designer.cs">
+      <DependentUpon>ucAssistManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucDataStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucDataStatistics.Designer.cs">
+      <DependentUpon>ucDataStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucExhaustData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucExhaustData.designer.cs">
+      <DependentUpon>ucExhaustData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucLimitingSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucLimitingSettings.Designer.cs">
+      <DependentUpon>ucLimitingSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucLogManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucLogManager.Designer.cs">
+      <DependentUpon>ucLogManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucStationSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucStationSettings.Designer.cs">
+      <DependentUpon>ucStationSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucUserManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucUserManage.Designer.cs">
+      <DependentUpon>ucUserManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MouseHook.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls.cs" />
+    <Compile Include="ErrorLog.cs" />
+    <Compile Include="Forms\wfBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfBase.Designer.cs">
+      <DependentUpon>wfBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfLogin.Designer.cs">
+      <DependentUpon>wfLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfMain.designer.cs">
+      <DependentUpon>wfMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfOpacityCalibration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfOpacityCalibration.Designer.cs">
+      <DependentUpon>wfOpacityCalibration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DataServiceHelper.cs" />
+    <Compile Include="Services\ExternalBusinessCmd.cs" />
+    <Compile Include="Services\HKDVRServiceHelper.cs" />
+    <Compile Include="SmokeCalParam.cs" />
+    <Compile Include="SystemParam.cs" />
+    <Compile Include="SystemParamInfo.cs" />
+    <Compile Include="UserControls\ucCalibrationAccelerated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationAccelerated.Designer.cs">
+      <DependentUpon>ucCalibrationAccelerated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationDebugView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationDebugView.designer.cs">
+      <DependentUpon>ucCalibrationDebugView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationExtend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationExtend.Designer.cs">
+      <DependentUpon>ucCalibrationExtend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationSmoke.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationSmoke.Designer.cs">
+      <DependentUpon>ucCalibrationSmoke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDataAnalysisCalculation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDataAnalysisCalculation.Designer.cs">
+      <DependentUpon>ucDataAnalysisCalculation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDataAnalysisTagPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDataAnalysisTagPage.Designer.cs">
+      <DependentUpon>ucDataAnalysisTagPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDataAnalysisData--.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDataAnalysisData--.Designer.cs">
+      <DependentUpon>ucDataAnalysisData--.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDataAnalysisOneLane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDataAnalysisOneLane.Designer.cs">
+      <DependentUpon>ucDataAnalysisOneLane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDataMessageComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDataMessageComponent.Designer.cs">
+      <DependentUpon>ucDataMessageComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDataMessageDieselCar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDataMessageDieselCar.Designer.cs">
+      <DependentUpon>ucDataMessageDieselCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDataMessageGasoline.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDataMessageGasoline.Designer.cs">
+      <DependentUpon>ucDataMessageGasoline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDataMessageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDataMessageView.designer.cs">
+      <DependentUpon>ucDataMessageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDeviceStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDeviceStatus.designer.cs">
+      <DependentUpon>ucDeviceStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucHistoryHarmenic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucHistoryHarmenic.Designer.cs">
+      <DependentUpon>ucHistoryHarmenic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucHistorySpectrum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucHistorySpectrum.Designer.cs">
+      <DependentUpon>ucHistorySpectrum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLimitingHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLimitingHistory.Designer.cs">
+      <DependentUpon>ucLimitingHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLimitingInfoOfDieselCar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLimitingInfoOfDieselCar.Designer.cs">
+      <DependentUpon>ucLimitingInfoOfDieselCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLimitingInfoOfGasolineCar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLimitingInfoOfGasolineCar.Designer.cs">
+      <DependentUpon>ucLimitingInfoOfGasolineCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLimtingLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLimtingLabel.Designer.cs">
+      <DependentUpon>ucLimtingLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringStation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringStation.Designer.cs">
+      <DependentUpon>ucMonitoringStation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringVedio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringVedio.Designer.cs">
+      <DependentUpon>ucMonitoringVedio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucpdf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucpdf.Designer.cs">
+      <DependentUpon>ucpdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucpdfDocument.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucpdfDocument.Designer.cs">
+      <DependentUpon>ucpdfDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucSettingsBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucSettingsBase.Designer.cs">
+      <DependentUpon>ucSettingsBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucStatisticalInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucStatisticalInformation.Designer.cs">
+      <DependentUpon>ucStatisticalInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\CHCNetSDK.cs" />
+    <Compile Include="Utils\LeastSquaresCalculator.cs" />
+    <Compile Include="Utils\MessageBox.cs" />
+    <Compile Include="VehicleInfoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VehicleInfoReport.Designer.cs">
+      <DependentUpon>VehicleInfoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleInfoReportZNCH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VehicleInfoReportZNCH.Designer.cs">
+      <DependentUpon>VehicleInfoReportZNCH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BaseModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CalibrationParamterViewModel.cs" />
+    <Compile Include="Utils\JSONHelper.cs" />
+    <Compile Include="ViewModel\RealtimeMonitorViewModel.cs" />
+    <Compile Include="Modules\ucCommunicationManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucCommunicationManager.Designer.cs">
+      <DependentUpon>ucCommunicationManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucConcentrationCalibrator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucConcentrationCalibrator.Designer.cs">
+      <DependentUpon>ucConcentrationCalibrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucDebugger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucDebugger.Designer.cs">
+      <DependentUpon>ucDebugger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucManagerBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucManagerBase.Designer.cs">
+      <DependentUpon>ucManagerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucRealtimeMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucRealtimeMonitor.Designer.cs">
+      <DependentUpon>ucRealtimeMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BusinessServiceHelper.cs" />
+    <Compile Include="UserControls\ucBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucBase.Designer.cs">
+      <DependentUpon>ucBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationConcComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationConcComponent.Designer.cs">
+      <DependentUpon>ucCalibrationConcComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationConcentrationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationConcentrationView.Designer.cs">
+      <DependentUpon>ucCalibrationConcentrationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationHarmonicView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationHarmonicView.Designer.cs">
+      <DependentUpon>ucCalibrationHarmonicView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationInfrared.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationInfrared.Designer.cs">
+      <DependentUpon>ucCalibrationInfrared.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationParamter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationParamter.Designer.cs">
+      <DependentUpon>ucCalibrationParamter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationSpectrumView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationSpectrumView.Designer.cs">
+      <DependentUpon>ucCalibrationSpectrumView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationUltraviolet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationUltraviolet.Designer.cs">
+      <DependentUpon>ucCalibrationUltraviolet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucCalibrationControl.Designer.cs">
+      <DependentUpon>ucCalibrationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDebuggingDevices.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDebuggingDevices.Designer.cs">
+      <DependentUpon>ucDebuggingDevices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringComponent.Designer.cs">
+      <DependentUpon>ucMonitoringComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringInfo.Designer.cs">
+      <DependentUpon>ucMonitoringInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucComponent.Designer.cs">
+      <DependentUpon>ucComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringPicture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringPicture.Designer.cs">
+      <DependentUpon>ucMonitoringPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucMonitoringResult.Designer.cs">
+      <DependentUpon>ucMonitoringResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Utils.cs" />
+    <EmbeddedResource Include="Forms\wfAbout.resx">
+      <DependentUpon>wfAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfBase.resx">
+      <DependentUpon>wfBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfChangeUser.resx">
+      <DependentUpon>wfChangeUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfDataAnalysis.resx">
+      <DependentUpon>wfDataAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="ViewModel\ResultDataViewModel.cs" />
+    <EmbeddedResource Include="Forms\wfDataAnalysisVertical.resx">
+      <DependentUpon>wfDataAnalysisVertical.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfDetialMessage.resx">
+      <DependentUpon>wfDetialMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfLogin.resx">
+      <DependentUpon>wfLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfMain.resx">
+      <DependentUpon>wfMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfModifyPassword.resx">
+      <DependentUpon>wfModifyPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfNewCom.resx">
+      <DependentUpon>wfNewCom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfNewUser.resx">
+      <DependentUpon>wfNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfNonlinearCorrection.resx">
+      <DependentUpon>wfNonlinearCorrection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfOpacityCalibration.resx">
+      <DependentUpon>wfOpacityCalibration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfPointCorrect.resx">
+      <DependentUpon>wfPointCorrect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfPrint.resx">
+      <DependentUpon>wfPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfPrintOneKey.resx">
+      <DependentUpon>wfPrintOneKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfTimingCalibration.resx">
+      <DependentUpon>wfTimingCalibration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfWaitSOA.resx">
+      <DependentUpon>wfWaitSOA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.en.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucAirQuality.resx">
+      <DependentUpon>ucAirQuality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucAssistManage.resx">
+      <DependentUpon>ucAssistManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucCommunicationManager.resx">
+      <DependentUpon>ucCommunicationManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucConcentrationCalibrator.resx">
+      <DependentUpon>ucConcentrationCalibrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucDataStatistics.resx">
+      <DependentUpon>ucDataStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucDebugger.resx">
+      <DependentUpon>ucDebugger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucExhaustData.resx">
+      <DependentUpon>ucExhaustData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucLimitingSettings.resx">
+      <DependentUpon>ucLimitingSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucLogManager.resx">
+      <DependentUpon>ucLogManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucManagerBase.resx">
+      <DependentUpon>ucManagerBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucRealtimeMonitor.resx">
+      <DependentUpon>ucRealtimeMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucStationSettings.resx">
+      <DependentUpon>ucStationSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucUserManage.resx">
+      <DependentUpon>ucUserManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\XRDesignRibbonControllerResources.resx" />
+    <EmbeddedResource Include="UserControls\ucBase.resx">
+      <DependentUpon>ucBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationAccelerated.resx">
+      <DependentUpon>ucCalibrationAccelerated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationConcComponent.resx">
+      <DependentUpon>ucCalibrationConcComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationConcentrationView.resx">
+      <DependentUpon>ucCalibrationConcentrationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationDebugView.resx">
+      <DependentUpon>ucCalibrationDebugView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationExtend.resx">
+      <DependentUpon>ucCalibrationExtend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationHarmonicView.resx">
+      <DependentUpon>ucCalibrationHarmonicView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationInfrared.resx">
+      <DependentUpon>ucCalibrationInfrared.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationParamter.resx">
+      <DependentUpon>ucCalibrationParamter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationSmoke.resx">
+      <DependentUpon>ucCalibrationSmoke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationSpectrumView.resx">
+      <DependentUpon>ucCalibrationSpectrumView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationUltraviolet.resx">
+      <DependentUpon>ucCalibrationUltraviolet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucCalibrationControl.resx">
+      <DependentUpon>ucCalibrationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucComponent.resx">
+      <DependentUpon>ucComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDataAnalysisCalculation.resx">
+      <DependentUpon>ucDataAnalysisCalculation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDataAnalysisTagPage.resx">
+      <DependentUpon>ucDataAnalysisTagPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDataAnalysisData--.resx">
+      <DependentUpon>ucDataAnalysisData--.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDataAnalysisOneLane.resx">
+      <DependentUpon>ucDataAnalysisOneLane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDataMessageComponent.resx">
+      <DependentUpon>ucDataMessageComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDataMessageDieselCar.resx">
+      <DependentUpon>ucDataMessageDieselCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDataMessageGasoline.resx">
+      <DependentUpon>ucDataMessageGasoline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDataMessageView.resx">
+      <DependentUpon>ucDataMessageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDebuggingDevices.resx">
+      <DependentUpon>ucDebuggingDevices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucDeviceStatus.resx">
+      <DependentUpon>ucDeviceStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucHistoryHarmenic.resx">
+      <DependentUpon>ucHistoryHarmenic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucHistorySpectrum.resx">
+      <DependentUpon>ucHistorySpectrum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucLimitingHistory.resx">
+      <DependentUpon>ucLimitingHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucLimitingInfoOfDieselCar.resx">
+      <DependentUpon>ucLimitingInfoOfDieselCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucLimitingInfoOfGasolineCar.resx">
+      <DependentUpon>ucLimitingInfoOfGasolineCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucLimtingLabel.resx">
+      <DependentUpon>ucLimtingLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucMonitoringComponent.resx">
+      <DependentUpon>ucMonitoringComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucMonitoringInfo.resx">
+      <DependentUpon>ucMonitoringInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucMonitoringPicture.resx">
+      <DependentUpon>ucMonitoringPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucMonitoringResult.resx">
+      <DependentUpon>ucMonitoringResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucMonitoringStation.resx">
+      <DependentUpon>ucMonitoringStation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucMonitoringVedio.resx">
+      <DependentUpon>ucMonitoringVedio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucpdf.resx">
+      <DependentUpon>ucpdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucpdfDocument.resx">
+      <DependentUpon>ucpdfDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucSettingsBase.resx">
+      <DependentUpon>ucSettingsBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucStatisticalInformation.resx">
+      <DependentUpon>ucStatisticalInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehicleInfoReport.resx">
+      <DependentUpon>VehicleInfoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehicleInfoReportZNCH.resx">
+      <DependentUpon>VehicleInfoReportZNCH.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Apps\PluginBase\PluginBase.csproj">
+      <Project>{9b5ba439-fbd6-40b6-8aea-d2acec73a39b}</Project>
+      <Name>PluginBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Apps\PluginManager\PluginManager.csproj">
+      <Project>{5e50855f-92af-47bc-a90c-23d47915a745}</Project>
+      <Name>PluginManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\ComponentResourceManager\ComponentResourceManager.csproj">
+      <Project>{db55b582-8d7a-4e50-a451-961b879b176d}</Project>
+      <Name>ComponentResourceManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\ComponetResourecLocalizer\ComponetResourecLocalizer.csproj">
+      <Project>{a955c343-c274-437c-ba6e-6163e40eb452}</Project>
+      <Name>ComponetResourecLocalizer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\LocalizationHelper\LocalizationHelper.csproj">
+      <Project>{a7b2f840-b6ff-4377-bc11-1d29f8b0db5a}</Project>
+      <Name>LocalizationHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\Localizaton\Localizaton.csproj">
+      <Project>{b0e4db30-12b3-47b3-8b91-415c67fbf2e3}</Project>
+      <Name>Localizaton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\zh_CN\zh_CN.csproj">
+      <Project>{8a1325c8-1da2-43bf-a891-5bef5b2fce52}</Project>
+      <Name>zh_CN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Permission\PermissionLoader\PermissionLoader.csproj">
+      <Project>{ad4c0542-7dd7-4a41-b9b9-764c785cbdb7}</Project>
+      <Name>PermissionLoader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Permission\PermissionManager\PermissionManager.csproj">
+      <Project>{741bb421-85b8-47d8-8c71-4f2bdce90e8d}</Project>
+      <Name>PermissionManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Permission\uv_Permission\exhaust_Permission.csproj">
+      <Project>{5f749208-5275-43ca-8607-d0b5d4ebee38}</Project>
+      <Name>exhaust_Permission</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\ControlIterate\ControlIterate.csproj">
+      <Project>{aa33fc75-225d-42ed-ad89-57bd8dbeeef3}</Project>
+      <Name>ControlIterate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validate\uv_Validity\exhaust_Validity.csproj">
+      <Project>{9bc302cb-f026-473b-a4c3-2faf5c067097}</Project>
+      <Name>exhaust_Validity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validate\ValidateLoader\Validator.csproj">
+      <Project>{9b17d6db-736b-4878-b565-e1badd6f65f6}</Project>
+      <Name>Validator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validate\ValidateManager\ValidateManager.csproj">
+      <Project>{1ab7e6d5-96a0-4766-8521-7d0ad2588462}</Project>
+      <Name>ValidateManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\未选中\站点设置未选中.png" />
+    <None Include="Resources\未选中\用户管理未选中.png" />
+    <None Include="Resources\未选中\限值设置未选中.png" />
+    <None Include="Resources\未选中\尾气数据未选中.png" />
+    <None Include="Resources\未选中\通讯管理未选中.png" />
+    <None Include="Resources\未选中\实时监测未选中.png" />
+    <None Include="Resources\未选中\设备管理未选中.png" />
+    <None Include="Resources\未选中\日志管理未选中.png" />
+    <None Include="Resources\未选中\浓度校准未选中.png" />
+    <None Include="Resources\未选中\空气质量未选中.png" />
+    <None Include="Resources\未选中\角色管理未选中.png" />
+    <None Include="Resources\未选中\关于未选中.png" />
+    <None Include="Resources\未选中\辅助设置未选中.png" />
+    <None Include="Resources\未选中\帮助文档未选中.png" />
+    <None Include="Resources\选中\站点设置选中.png" />
+    <None Include="Resources\选中\用户管理选中.png" />
+    <None Include="Resources\选中\限值设置选中.png" />
+    <None Include="Resources\选中\尾气数据选中.png" />
+    <None Include="Resources\选中\通讯管理选中.png" />
+    <None Include="Resources\选中\实时监测.png" />
+    <None Include="Resources\选中\设备管理选中.png" />
+    <None Include="Resources\选中\日志管理选中.png" />
+    <None Include="Resources\选中\浓度校准选中.png" />
+    <None Include="Resources\选中\角色管理选中.png" />
+    <None Include="Resources\选中\关于选中.png" />
+    <None Include="Resources\选中\辅助设置选中.png" />
+    <None Include="Resources\选中\帮助文档选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\关闭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\开启.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\单选未选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\单选选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\复选未选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\复选选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\选中\空气质量选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\离线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\在线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\ServiceConfig.xml" />
+    <None Include="Resources\其他图标\Preview.png" />
+    <Content Include="Resources\其他图标\尾气主页.ico" />
+    <Content Include="Resources\其他图标\展开.png" />
+    <Content Include="Resources\其他图标\收起.png" />
+    <Content Include="Resources\其他图标\用户.png" />
+    <Content Include="Resources\其他图标\记录.png" />
+    <None Include="Resources\按钮\9028.jpg" />
+    <Content Include="Resources\按钮\关于外界的按钮.png" />
+    <Content Include="Resources\按钮\关于外界的按钮按下.png" />
+    <Content Include="Resources\按钮\创建报告.png" />
+    <Content Include="Resources\按钮\创建报告按下.png" />
+    <Content Include="Resources\按钮\取消大.png" />
+    <Content Include="Resources\按钮\取消大按下.png" />
+    <Content Include="Resources\按钮\取消小.png" />
+    <Content Include="Resources\按钮\取消小按下.png" />
+    <Content Include="Resources\按钮\弹窗上的按钮.png" />
+    <Content Include="Resources\按钮\弹窗上的按钮按下.png" />
+    <Content Include="Resources\按钮\按钮失效7528.jpg" />
+    <Content Include="Resources\按钮\按钮失效8028.jpg" />
+    <Content Include="Resources\按钮\按钮失效9028.jpg" />
+    <Content Include="Resources\按钮\按钮失效9928.jpg" />
+    <Content Include="Resources\按钮\按钮按下7528.jpg" />
+    <Content Include="Resources\按钮\按钮按下8028.jpg" />
+    <Content Include="Resources\按钮\按钮按下9028.jpg" />
+    <Content Include="Resources\按钮\按钮按下9928.jpg" />
+    <Content Include="Resources\按钮\按钮蓝7528.jpg" />
+    <Content Include="Resources\按钮\按钮蓝8028.jpg" />
+    <Content Include="Resources\按钮\按钮蓝9028.jpg" />
+    <Content Include="Resources\按钮\按钮蓝9928.jpg" />
+    <Content Include="Resources\按钮\按钮蓝按下7528.jpg" />
+    <Content Include="Resources\按钮\按钮蓝按下8028.jpg" />
+    <Content Include="Resources\按钮\按钮蓝按下9028.jpg" />
+    <Content Include="Resources\按钮\按钮蓝按下9928.jpg" />
+    <Content Include="Resources\按钮\数据库备份与还原.png" />
+    <Content Include="Resources\按钮\数据库备份与还原按下.png" />
+    <Content Include="Resources\按钮\普通按钮.png" />
+    <Content Include="Resources\按钮\普通按钮按下.png" />
+    <Content Include="Resources\按钮\校准.png" />
+    <Content Include="Resources\按钮\校准按下.png" />
+    <Content Include="Resources\按钮\计算大.png" />
+    <Content Include="Resources\按钮\计算大按下.png" />
+    <Content Include="Resources\按钮\计算小.png" />
+    <Content Include="Resources\按钮\计算小按下.png" />
+    <Content Include="Resources\按钮\进入校准.png" />
+    <Content Include="Resources\按钮\进入校准按下.png" />
+    <Content Include="Resources\未选中\数据统计未选中.png" />
+    <Content Include="Resources\选中\数据统计选中.png" />
+    <None Include="Resources\首页.png" />
+    <None Include="Resources\上页.png" />
+    <None Include="Resources\下页.png" />
+    <Content Include="Resources\其他图标\上一页.png" />
+    <Content Include="Resources\其他图标\下一页.png" />
+    <Content Include="Resources\其他图标\数据库.png" />
+    <None Include="Resources\末页.png" />
+    <None Include="Resources\其他图标\编辑.png" />
+    <None Include="Resources\其他图标\新增.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DllRelease\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

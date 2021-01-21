@@ -1,0 +1,216 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using wayeal.os.exhaust.ViewModel;
+using DevExpress.Mvvm;
+using DevExpress.Utils.MVVM;
+using Wayee.Services;
+using System.Collections;
+using Wayeal.Services.Configs;
+using wayeal.os.exhaust.Services;
+using Newtonsoft.Json.Linq;
+using Wayeal.Services.Business.Utils;
+using DevExpress.XtraEditors;
+
+namespace wayeal.os.exhaust.UserControls
+{
+    public partial class ucLimitingInfoOfDieselCar : ucBase
+    {
+        private MVVMContextFluentAPI<ResultDataViewModel> fluent;
+        public ucLimitingInfoOfDieselCar()
+        {
+            InitializeComponent();
+            InitializeUI();
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+        /// <summary>
+        /// Init
+        /// </summary>
+        protected override void InitializeBindings()
+        {
+            try
+            {
+                mvvmContext1.SetViewModel(typeof(ResultDataViewModel), ResultDataViewModel.VM);
+                fluent = mvvmContext1.OfType<ResultDataViewModel>();
+
+                ResultDataViewModel.VM.Execute(new List<object> { ResultDataViewModel.ExecuteCommand.ec_QueryDieselCarLimiting });
+                AddBinding(fluent.SetBinding(txtNO, x => x.Text, y => y.DieselCarLimitingEntities, m =>{
+                    if (m.Count > 0 && ((DTDieselCarLimitingInfo)m[0]).NOLimiting.Value != null) {return ((DTDieselCarLimitingInfo)m[0]).NOLimiting.Value.ToString();}
+                    return "1500";}));
+                AddBinding(fluent.SetBinding(txtOpSmoke, x => x.Text, y => y.DieselCarLimitingEntities, m => {
+                    if (m.Count > 0 && ((DTDieselCarLimitingInfo)m[0]).OpSmokeLimiting.Value != null) { return ((DTDieselCarLimitingInfo)m[0]).OpSmokeLimiting.Value.ToString(); }
+                    return "30";
+                }));
+                AddBinding(fluent.SetBinding(txtBlackness, x => x.Text, y => y.DieselCarLimitingEntities, m => {
+                    if (m.Count > 0 && ((DTDieselCarLimitingInfo)m[0]).BlacknessLimiting.Value != null) { return ((DTDieselCarLimitingInfo)m[0]).BlacknessLimiting.Value.ToString(); }
+                    return "Ⅰ";
+                }));
+                AddBinding(fluent.SetBinding(mmTips, x => x.Text, y => y.DieselCarLimitingEntities, m => {
+                    if (m.Count > 0 && ((DTDieselCarLimitingInfo)m[0]).Tips.Value != null) { return ((DTDieselCarLimitingInfo)m[0]).Tips.Value.ToString(); }
+                    return null;
+                }));
+                AddBinding(fluent.SetBinding(ceOpSmoke, x => x.Checked, y => y.DieselCarLimitingEntities, m => {
+                    if (m.Count > 0 && ((DTDieselCarLimitingInfo)m[0]).JudgeOpSmoke.Value != null) { return ((DTDieselCarLimitingInfo)m[0]).JudgeOpSmoke.Value.ToString ()=="1"? true:false; }
+                    return ceOpSmoke.Checked;
+                }));
+                AddBinding(fluent.SetBinding(ceYellowCar, x => x.Checked, y => y.DieselCarLimitingEntities, m => {
+                    if (m.Count > 0 && ((DTDieselCarLimitingInfo)m[0]).JudgeYellowCar.Value!=null) { return ((DTDieselCarLimitingInfo)m[0]).JudgeYellowCar.Value.ToString() == "1" ? true : false; }
+                    return ceYellowCar.Checked;
+                }));
+                AddBinding(fluent.SetBinding(txtOpSmokeSetting, x => x.Text, y => y.DieselCarLimitingEntities, m => {
+                    if (m.Count > 0&& ((DTDieselCarLimitingInfo)m[0]).JudgeOpSmokeValue.Value!=null)
+                    { return ((DTDieselCarLimitingInfo)m[0]).JudgeOpSmokeValue.Value.ToString(); }
+                    return null;
+                }));
+                ResultDataViewModel.VM.ModelChanged += (sender, arg) =>
+                {
+                    if (arg.ModelName == ResultDataViewModel.ExecuteCommand.ec_QueryDieselCarLimiting.ToString()) action();
+                };
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+       
+        private void sbSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtNO.Text.Trim() == "" || txtOpSmoke.Text.Trim() == "" || txtBlackness.Text.Trim() == "" || mmTips.Text.Trim() == ""||(ceOpSmoke.Checked==true&&txtOpSmokeSetting.Text.Trim()==""))
+                {
+                    XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.InputNotNull));
+                }
+                else
+                {
+                    string log = Program.infoResource.GetLocalizedString(language.InfoId.LimitingInfoChange);
+                    CarLimitingInfo info = new CarLimitingInfo();
+                    DieselCarInfo diesel = new DieselCarInfo();
+                    diesel.NOLimiting = Convert.ToDouble(txtNO.Text);
+                    diesel.OpSmokeLimiting = Convert.ToDouble(txtOpSmoke.Text);
+                    diesel.BlacknessLimiting = Convert.ToInt32(ConvertRomaToInt(txtBlackness.Text));
+                    info.DieselCarLimitInfo = diesel;
+                    info.JudgeOpSmoke = ceOpSmoke.Checked ? 1 : 0;
+                    info.JudgeOpSmokeValue = Convert.ToDouble(txtOpSmokeSetting.Text==""?"0": txtOpSmokeSetting.Text);
+                    info.JudgeYellowCar = ceYellowCar.Checked ? 1 : 0;
+                    string str = JsonNewtonsoft.ToJSON(info);
+                    BusinessMessage msg = new BusinessMessage();
+                    msg.BusinessCommand = ExternalBusinessCmd.SetCarLimitInfo;
+                    msg.BusinessParam = str;
+                    msg.BusiType = BusinessType.Set;
+                    msg.BusiPriority= BusinessPriority.Highest;
+                    if (str != "")
+                    {
+                        BusinessResult br=BusinessServiceHelper.Instanse.ExecuteBusiness(msg);
+                        if (br == null || !br.Result)
+                        {
+                            XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.SaveFail));
+                            log += Program.infoResource.GetLocalizedString(language.InfoId.OperateFail);
+                            ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+                            return;
+                        }
+                    }
+
+                    ResultDataViewModel.VM.Execute(new List<object>{
+                    ResultDataViewModel.ExecuteCommand.ec_InsertDieselCarLimiting,
+                    System.DateTime.Now,
+                    txtNO.Text,
+                    txtOpSmoke.Text,
+                    ConvertRomaToInt(txtBlackness.Text),
+                    ceOpSmoke.EditValue,
+                    ceYellowCar.EditValue,
+                    txtOpSmokeSetting.Text,
+                    mmTips.Text });
+                   
+                    log += lcNOLimiting.Text + ":" + txtNO.Text + ",";
+                    log += lcOpSmokeLimiting.Text + ":" + txtOpSmoke.Text + ",";
+                    log += lcBlacknessLimiting.Text + ":" + txtBlackness.Text + ",";
+                    log += lcSelect.Text + ":" + (ceOpSmoke.Checked ? ceOpSmoke.Text + txtOpSmokeSetting.Text : "") + (ceYellowCar.Checked ? ceYellowCar.Text : "");
+                    log += lcTips.Text + " " + mmTips.Text + ",";
+                    if (ResultDataViewModel.VM.InsertDieselCarLimitingResult)
+                    {
+                        log += Program.infoResource.GetLocalizedString(language.InfoId.OpearteSuccess);
+                        XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.SaveCompleted));
+                    }
+                    else
+                    {
+                        log += Program.infoResource.GetLocalizedString(language.InfoId.OperateFail);
+                        XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.SaveFail));
+                    }
+                    ErrorLog.SystemLog(DateTime.Now, log, this.OwnerForm.GetUserName());
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.ToString ());
+            }
+
+        }
+
+        private void ceOpSmoke_CheckedChanged(object sender, EventArgs e)
+        {
+            txtOpSmokeSetting.Enabled = ceOpSmoke.Checked ? true : false;
+        }
+
+        private void sbCancel_Click(object sender, EventArgs e)
+        {
+            //if (ResultDataViewModel.VM.DieselCarLimitingEntities.Count > 0)
+            //{
+                action();
+            //}
+        }
+
+        private void txtBlackness_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            switch (e.Value)
+            {
+                case "1":
+                    e.DisplayText = "Ⅰ";
+                    break;
+                case "2":
+                    e.DisplayText = "Ⅱ";
+                    break;
+                case "3":
+                    e.DisplayText = "Ⅲ";
+                    break;
+                case "4":
+                    e.DisplayText = "Ⅳ";
+                    break;
+                case "5":
+                    e.DisplayText = "Ⅴ";
+                    break;
+                case "6":
+                    e.DisplayText = "Ⅵ";
+                    break;
+            }
+        }
+        private int ConvertRomaToInt(string s)
+        {
+            switch (s.Trim())
+            {
+                case "Ⅰ":
+                    return 1;
+                case "Ⅱ":
+                    return 2;
+                case "Ⅲ":
+                    return 3;
+                case "Ⅳ":
+                    return 4;
+                case "Ⅴ":
+                    return 5;
+                case "Ⅵ":
+                    return 6;
+                default:
+                    return 0;
+
+            }
+
+        }
+    }
+}

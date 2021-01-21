@@ -1,0 +1,257 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using wayeal.os.exhaust.ViewModel;
+using DevExpress.Mvvm;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.Utils.MVVM;
+using Newtonsoft.Json.Linq;
+using static wayeal.os.exhaust.ClassEnum;
+
+namespace wayeal.os.exhaust.UserControls
+{
+    public partial class ucMonitoringResult : ucBase
+    {
+        private MVVMContextFluentAPI<RealtimeMonitorViewModel> fluent;
+        public ucMonitoringResult()
+        {
+            InitializeComponent();
+
+            if (!mvvmContext1.IsDesignMode) InitializeBindings();
+        }
+
+        /// <summary>
+        /// Init
+        /// </summary>
+        protected override void InitializeBindings()
+        {
+            try
+            {
+                mvvmContext1.SetViewModel(typeof(RealtimeMonitorViewModel), RealtimeMonitorViewModel.VM);
+                fluent = mvvmContext1.OfType<RealtimeMonitorViewModel>();
+                AddBinding(fluent.SetBinding(gridView, gView => gView.LoadingPanelVisible, x => x.IsLoading));
+                AddBinding(fluent.SetBinding(gcExhaustData, gControl => gControl.DataSource, x => x.Entities,m=>
+                {
+                    try
+                    {
+                        if (m == null) return null;
+                        for (int i = 0; i < m.Count; i++)
+                        {
+                            if (m[i] is JObject)
+                            {
+                                (m[i] as JObject)["Serial"] = i + 1;
+                            }
+                        }
+                    }
+                    catch { }
+                    return m;
+                }));
+                Messenger.Default.Register<string>(this, typeof(RealtimeMonitorViewModel.MonitoringResultModel).Name, action);
+                RealtimeMonitorViewModel.VM.ModelChanged += (sender, arg) =>
+                {
+                    if (arg.ModelName == typeof(RealtimeMonitorViewModel.MonitoringResultModel).Name)
+                    {
+                        if (RealtimeMonitorViewModel.VM.Entities.Count == 0) return;
+                        action();
+                    }
+                };
+                base.InitializeBindings();
+                
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+        }
+        
+        /// <summary>
+        /// mvvm action
+        /// </summary>
+        /// <param name="json"></param>
+        protected override void doAction(string json = "")
+        {
+            
+            gcExhaustData.GetViewAt(new Point()).GetRow(0);
+            gcExhaustData.DataSource = null;
+            base.doAction();
+        }
+        //显示变更
+        private void gridView_CustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
+        {
+            try
+            {
+                if (e.Column.FieldName == "Result")
+                {
+                    if (e.Value == null || e.Value.ToString() == "") return;
+                    if (e.Value.ToString().Equals("0"))
+                    {
+                        //不合格
+                        e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Disqualified);
+                    }
+                    else if (e.Value.ToString().Equals("1"))
+                    {
+                        //合格
+                        e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Qualified);
+                    }
+                    else if (e.Value.ToString().Equals("2") || e.Value.ToString().Equals("-1"))
+                    {
+                        //无效
+                        e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Invalid);
+                    }
+                }
+                else if (e.Column.FieldName == "Blackness")
+                {
+                    if (e.Value == null || e.Value.ToString() == "") return;
+                    switch (e.Value.ToString())
+                    {
+                        case "1":
+                            e.DisplayText = "Ⅰ";
+                            break;
+                        case "2":
+                            e.DisplayText = "Ⅱ";
+                            break;
+                        case "3":
+                            e.DisplayText = "Ⅲ";
+                            break;
+                        case "4":
+                            e.DisplayText = "Ⅳ";
+                            break;
+                        case "5":
+                            e.DisplayText = "Ⅴ";
+                            break;
+                        case "6":
+                            e.DisplayText = "Ⅵ";
+                            break;
+                        default:
+                            e.DisplayText = e.Value.ToString();
+                            break;
+                    }
+                }
+                else if (e.Column.FieldName == "CarNumberColor")
+                {
+                    if (e.Value == null || e.Value.ToString() == "") return;
+                    if (e.Value.ToString().Trim() == "-1")
+                    {
+                        e.DisplayText = "";
+                    }
+                    else
+                    {
+                        enumCarNumberColor rs;
+                        Enum.TryParse<enumCarNumberColor>(e.Value.ToString().Trim(), out rs);
+                        switch (rs)
+                        {
+                            case enumCarNumberColor.Color_Blue:
+                                e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Blue);
+                                break;
+                            case enumCarNumberColor.Color_Yellow:
+                                e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Yellow);
+                                break;
+                            case enumCarNumberColor.Color_White:
+                                e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.White);
+                                break;
+                            case enumCarNumberColor.Color_Black:
+                                e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Black);
+                                break;
+                            case enumCarNumberColor.Color_Green:
+                                e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Green);
+                                break;
+                            case enumCarNumberColor.Color_Blackness:
+                                e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.Blackness);
+                                break;
+                            default:
+                                e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.OtherColor);
+                                break;
+                        }
+                    }
+                }
+                else if (e.Column.FieldName == "Lane")
+                {
+                    if (e.Value == null || e.Value.ToString().Trim() == "0")//无车道
+                        e.DisplayText = "";
+                }
+                else if (e.Column == gcCO || e.Column == gcCO2 || e.Column == gcNO || e.Column == gcHC || e.Column == gcOpSmoke || e.Column == gcAcceleration || e.Column == gcHumidity
+                    || e.Column == gcPressure || e.Column == gcTemperature || e.Column == gcVSP || e.Column == gcWindSpeed || e.Column == gcWindDirection)
+                {
+                    if (e.Value == null || e.Value.ToString() == "") return;
+                    e.DisplayText = Convert.ToSingle(e.Value.ToString()).ToString("f2");
+                }
+                else if (e.Column == gcSpeed)
+                {
+                    if (e.Value == null || e.Value.ToString() == "") return;
+                    e.DisplayText = (Convert.ToSingle(e.Value.ToString()) * 3.6).ToString("f2");//米每秒转千米时
+                }
+                else if (e.Column == gcCarType)
+                {
+                    if (e.Value == null || e.Value.ToString() == "") return;
+                    switch (e.Value.ToString().Trim())
+                    {
+                        case "A": e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.GasolineCar); break;
+                        case "B": e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.DieselCar); break;
+                        case "Z": e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.OtherFuelCar); break;
+                        default: break;
+                    }
+                }
+                else if (e.Column == gcSlope)
+                {
+                    if (e.Value == null || e.Value.ToString() == "") return;
+                    e.DisplayText = Convert.ToSingle(e.Value.ToString()).ToString("f1");
+                }
+                else if (e.Column == gcVehicleType)
+                {
+                    if (e.Value == null || e.Value.ToString() == "") return;
+                    int index = Convert.ToInt32(e.Value);
+                    if (index < 0 || index > 26)
+                    {
+                        e.DisplayText = Program.infoResource.GetLocalizedString(language.InfoId.VTR_RESULT_OTHER);
+                        return;
+                    }
+                    language.InfoId infoId = language.InfoId.VTR_RESULT_OTHER;
+                    infoId += index;
+                    e.DisplayText = Program.infoResource.GetLocalizedString(infoId);
+                }
+            }
+            catch { };
+
+        }
+        /// <summary>
+        /// 车牌颜色
+        /// </summary>
+        public enum enumCarNumberColor
+        {
+            /// <summary>
+            /// 蓝色
+            /// </summary>
+            Color_Blue = 0,
+            /// <summary>
+            /// 黄色
+            /// </summary>
+            Color_Yellow = 1,
+            /// <summary>
+            /// 白色
+            /// </summary>
+            Color_White = 2,
+            /// <summary>
+            /// 黑色
+            /// </summary>
+            Color_Black = 3,
+            /// <summary>
+            /// 绿色
+            /// </summary>
+            Color_Green = 4,
+            /// <summary>
+            /// 民航黑
+            /// </summary>
+            Color_Blackness = 5,
+            /// <summary>
+            /// q其他颜色
+            /// </summary>
+            Color_Other = 0xff
+        }
+    }
+}

@@ -1,0 +1,743 @@
+﻿using wayeal.language;
+
+namespace wayeal.os.exhaust
+{
+    partial class frmMain
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.bbiHelp = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAbout = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiCopyRight = new DevExpress.XtraBars.BarStaticItem();
+            this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiModifyPassword = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiUser = new DevExpress.XtraBars.BarButtonItem();
+            this.pmUserManage = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.bbiLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiInfo = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRealtimeMonitoring = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCalibration = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDebugging = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiExhaustData = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAirQuality = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiUserManage = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAssistManage = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiStationSettings = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiLimitingSettings = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRunningLog = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiBackgroundLog = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSystemLog = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDataStatistics = new DevExpress.XtraBars.BarButtonItem();
+            this.menuOperate = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpHome = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.menuData = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.menuSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgLog = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.menuStation = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpStation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.menuHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpHelp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
+            this.repositoryItemRadioGroup2 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.repositoryItemRadioGroup3 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
+            this.repositoryItemImageEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+            this.repositoryItemPictureEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.rpgFollowUp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.pcMain = new DevExpress.XtraEditors.PanelControl();
+            this.notify = new System.Windows.Forms.NotifyIcon(this.components);
+            this.IconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.miExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerLogout = new System.Windows.Forms.Timer(this.components);
+            this.hpHelp = new System.Windows.Forms.HelpProvider();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmUserManage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMain)).BeginInit();
+            this.IconMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // ribbonControl
+            // 
+            this.ribbonControl.AllowMdiChildButtons = false;
+            this.ribbonControl.AllowMinimizeRibbon = false;
+            this.ribbonControl.BackColor = System.Drawing.Color.White;
+            this.ribbonControl.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Blue;
+            this.ribbonControl.DrawGroupCaptions = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ExpandCollapseItem.Id = 0;
+            resources.ApplyResources(this.ribbonControl, "ribbonControl");
+            this.ribbonControl.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonControl.ExpandCollapseItem,
+            this.bbiHelp,
+            this.bbiAbout,
+            this.bsiCopyRight,
+            this.bbiLogin,
+            this.bbiModifyPassword,
+            this.bbiUser,
+            this.bsiInfo,
+            this.bbiRealtimeMonitoring,
+            this.bbiCalibration,
+            this.bbiDebugging,
+            this.bbiExhaustData,
+            this.bbiAirQuality,
+            this.bbiUserManage,
+            this.bbiAssistManage,
+            this.bbiStationSettings,
+            this.bbiLimitingSettings,
+            this.bbiRunningLog,
+            this.bbiBackgroundLog,
+            this.bbiSystemLog,
+            this.bbiLogout,
+            this.bbiDataStatistics});
+            this.ribbonControl.MaxItemId = 1;
+            this.ribbonControl.Name = "ribbonControl";
+            this.ribbonControl.OptionsStubGlyphs.Type = DevExpress.Utils.Drawing.GlyphBackgroundType.Ellipse;
+            this.ribbonControl.PageHeaderItemLinks.Add(this.bbiUser);
+            this.ribbonControl.PageHeaderMinWidth = 40;
+            this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.menuOperate,
+            this.menuData,
+            this.menuSystem,
+            this.menuStation,
+            this.menuHelp});
+            this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemImageEdit1,
+            this.repositoryItemPictureEdit1,
+            this.repositoryItemRadioGroup1,
+            this.repositoryItemRadioGroup2,
+            this.repositoryItemCheckEdit1,
+            this.repositoryItemRadioGroup3,
+            this.repositoryItemImageEdit2,
+            this.repositoryItemPictureEdit2,
+            this.repositoryItemTextEdit1});
+            this.ribbonControl.RibbonCaptionAlignment = DevExpress.XtraBars.Ribbon.RibbonCaptionAlignment.Center;
+            this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.MacOffice;
+            this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ShowCategoryInCaption = false;
+            this.ribbonControl.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ShowItemCaptionsInPageHeader = true;
+            this.ribbonControl.ShowPageHeadersInFormCaption = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonControl.ShowQatLocationSelector = false;
+            this.ribbonControl.ShowToolbarCustomizeItem = false;
+            this.ribbonControl.StatusBar = this.ribbonStatusBar;
+            this.ribbonControl.Toolbar.ShowCustomizeItem = false;
+            this.ribbonControl.TransparentEditorsMode = DevExpress.Utils.DefaultBoolean.False;
+            // 
+            // bbiHelp
+            // 
+            resources.ApplyResources(this.bbiHelp, "bbiHelp");
+            this.bbiHelp.Id = 52;
+            this.bbiHelp.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.帮助文档选中;
+            this.bbiHelp.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.帮助文档未选中;
+            this.bbiHelp.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.帮助文档未选中;
+            this.bbiHelp.Name = "bbiHelp";
+            this.bbiHelp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiAbout
+            // 
+            resources.ApplyResources(this.bbiAbout, "bbiAbout");
+            this.bbiAbout.Id = 53;
+            this.bbiAbout.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.关于选中;
+            this.bbiAbout.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.关于未选中;
+            this.bbiAbout.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.关于未选中;
+            this.bbiAbout.Name = "bbiAbout";
+            this.bbiAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiAbout_ItemClick);
+            // 
+            // bsiCopyRight
+            // 
+            resources.ApplyResources(this.bsiCopyRight, "bsiCopyRight");
+            this.bsiCopyRight.Id = 2;
+            this.bsiCopyRight.Name = "bsiCopyRight";
+            this.bsiCopyRight.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // bbiLogin
+            // 
+            resources.ApplyResources(this.bbiLogin, "bbiLogin");
+            this.bbiLogin.Id = 2;
+            this.bbiLogin.Name = "bbiLogin";
+            this.bbiLogin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiModifyPassword
+            // 
+            resources.ApplyResources(this.bbiModifyPassword, "bbiModifyPassword");
+            this.bbiModifyPassword.Id = 3;
+            this.bbiModifyPassword.Name = "bbiModifyPassword";
+            this.bbiModifyPassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiUser
+            // 
+            this.bbiUser.ActAsDropDown = true;
+            this.bbiUser.AllowRightClickInMenu = false;
+            this.bbiUser.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            resources.ApplyResources(this.bbiUser, "bbiUser");
+            this.bbiUser.DropDownControl = this.pmUserManage;
+            this.bbiUser.Id = 4;
+            this.bbiUser.ImageOptions.Image = global::wayeal.os.exhaust.Properties.Resources.用户;
+            this.bbiUser.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.用户;
+            this.bbiUser.Name = "bbiUser";
+            // 
+            // pmUserManage
+            // 
+            this.pmUserManage.ItemLinks.Add(this.bbiLogin);
+            this.pmUserManage.ItemLinks.Add(this.bbiModifyPassword);
+            this.pmUserManage.ItemLinks.Add(this.bbiLogout);
+            this.pmUserManage.Name = "pmUserManage";
+            this.pmUserManage.Ribbon = this.ribbonControl;
+            // 
+            // bbiLogout
+            // 
+            resources.ApplyResources(this.bbiLogout, "bbiLogout");
+            this.bbiLogout.Id = 16;
+            this.bbiLogout.Name = "bbiLogout";
+            this.bbiLogout.Tag = "LogOut";
+            this.bbiLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bsiInfo
+            // 
+            this.bsiInfo.Id = 6;
+            this.bsiInfo.Name = "bsiInfo";
+            // 
+            // bbiRealtimeMonitoring
+            // 
+            this.bbiRealtimeMonitoring.AllowRightClickInMenu = false;
+            resources.ApplyResources(this.bbiRealtimeMonitoring, "bbiRealtimeMonitoring");
+            this.bbiRealtimeMonitoring.CloseSubMenuOnClick = false;
+            this.bbiRealtimeMonitoring.DropDownEnabled = false;
+            this.bbiRealtimeMonitoring.GroupIndex = 1;
+            this.bbiRealtimeMonitoring.Id = 11;
+            this.bbiRealtimeMonitoring.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
+            this.bbiRealtimeMonitoring.ImageOptions.AllowStubGlyph = DevExpress.Utils.DefaultBoolean.False;
+            this.bbiRealtimeMonitoring.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.实时监测;
+            this.bbiRealtimeMonitoring.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.实时监测未选中;
+            this.bbiRealtimeMonitoring.ImageOptions.Image = global::wayeal.os.exhaust.Properties.Resources.实时监测未选中;
+            this.bbiRealtimeMonitoring.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.实时监测未选中;
+            this.bbiRealtimeMonitoring.ItemAppearance.Pressed.BackColor = ((System.Drawing.Color)(resources.GetObject("bbiRealtimeMonitoring.ItemAppearance.Pressed.BackColor")));
+            this.bbiRealtimeMonitoring.ItemAppearance.Pressed.Options.UseBackColor = true;
+            this.bbiRealtimeMonitoring.ItemClickFireMode = DevExpress.XtraBars.BarItemEventFireMode.Postponed;
+            this.bbiRealtimeMonitoring.Name = "bbiRealtimeMonitoring";
+            this.bbiRealtimeMonitoring.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.Caption;
+            this.bbiRealtimeMonitoring.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.bbiRealtimeMonitoring.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiCalibration
+            // 
+            resources.ApplyResources(this.bbiCalibration, "bbiCalibration");
+            this.bbiCalibration.GroupIndex = 1;
+            this.bbiCalibration.Id = 12;
+            this.bbiCalibration.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.浓度校准选中;
+            this.bbiCalibration.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.浓度校准未选中;
+            this.bbiCalibration.ImageOptions.Image = global::wayeal.os.exhaust.Properties.Resources.浓度校准未选中;
+            this.bbiCalibration.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.浓度校准未选中;
+            this.bbiCalibration.Name = "bbiCalibration";
+            this.bbiCalibration.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiDebugging
+            // 
+            resources.ApplyResources(this.bbiDebugging, "bbiDebugging");
+            this.bbiDebugging.GroupIndex = 1;
+            this.bbiDebugging.Id = 13;
+            this.bbiDebugging.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.设备管理选中;
+            this.bbiDebugging.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.设备管理未选中;
+            this.bbiDebugging.ImageOptions.Image = global::wayeal.os.exhaust.Properties.Resources.设备管理未选中;
+            this.bbiDebugging.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.设备管理未选中;
+            this.bbiDebugging.Name = "bbiDebugging";
+            this.bbiDebugging.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiExhaustData
+            // 
+            resources.ApplyResources(this.bbiExhaustData, "bbiExhaustData");
+            this.bbiExhaustData.Id = 18;
+            this.bbiExhaustData.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.尾气数据选中;
+            this.bbiExhaustData.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.尾气数据未选中;
+            this.bbiExhaustData.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.尾气数据未选中;
+            this.bbiExhaustData.Name = "bbiExhaustData";
+            this.bbiExhaustData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiAirQuality
+            // 
+            resources.ApplyResources(this.bbiAirQuality, "bbiAirQuality");
+            this.bbiAirQuality.Id = 19;
+            this.bbiAirQuality.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.空气质量选中;
+            this.bbiAirQuality.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.空气质量未选中;
+            this.bbiAirQuality.ImageOptions.Image = global::wayeal.os.exhaust.Properties.Resources.空气质量未选中;
+            this.bbiAirQuality.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.空气质量未选中;
+            this.bbiAirQuality.Name = "bbiAirQuality";
+            this.bbiAirQuality.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiUserManage
+            // 
+            resources.ApplyResources(this.bbiUserManage, "bbiUserManage");
+            this.bbiUserManage.Id = 20;
+            this.bbiUserManage.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.用户管理选中;
+            this.bbiUserManage.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.用户管理未选中;
+            this.bbiUserManage.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.用户管理未选中;
+            this.bbiUserManage.Name = "bbiUserManage";
+            this.bbiUserManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiAssistManage
+            // 
+            resources.ApplyResources(this.bbiAssistManage, "bbiAssistManage");
+            this.bbiAssistManage.Id = 24;
+            this.bbiAssistManage.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.辅助设置选中;
+            this.bbiAssistManage.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.辅助设置未选中;
+            this.bbiAssistManage.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.辅助设置未选中;
+            this.bbiAssistManage.Name = "bbiAssistManage";
+            this.bbiAssistManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiStationSettings
+            // 
+            resources.ApplyResources(this.bbiStationSettings, "bbiStationSettings");
+            this.bbiStationSettings.Id = 25;
+            this.bbiStationSettings.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.站点设置选中;
+            this.bbiStationSettings.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.站点设置未选中;
+            this.bbiStationSettings.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.站点设置未选中;
+            this.bbiStationSettings.Name = "bbiStationSettings";
+            this.bbiStationSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiLimitingSettings
+            // 
+            resources.ApplyResources(this.bbiLimitingSettings, "bbiLimitingSettings");
+            this.bbiLimitingSettings.Id = 26;
+            this.bbiLimitingSettings.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.限值设置选中;
+            this.bbiLimitingSettings.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.限值设置未选中;
+            this.bbiLimitingSettings.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.限值设置未选中;
+            this.bbiLimitingSettings.Name = "bbiLimitingSettings";
+            this.bbiLimitingSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiRunningLog
+            // 
+            resources.ApplyResources(this.bbiRunningLog, "bbiRunningLog");
+            this.bbiRunningLog.Id = 12;
+            this.bbiRunningLog.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.日志管理选中;
+            this.bbiRunningLog.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.日志管理未选中;
+            this.bbiRunningLog.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.日志管理未选中;
+            this.bbiRunningLog.Name = "bbiRunningLog";
+            this.bbiRunningLog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiBackgroundLog
+            // 
+            resources.ApplyResources(this.bbiBackgroundLog, "bbiBackgroundLog");
+            this.bbiBackgroundLog.Id = 14;
+            this.bbiBackgroundLog.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.日志管理选中;
+            this.bbiBackgroundLog.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.日志管理未选中;
+            this.bbiBackgroundLog.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.日志管理未选中;
+            this.bbiBackgroundLog.Name = "bbiBackgroundLog";
+            this.bbiBackgroundLog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiSystemLog
+            // 
+            resources.ApplyResources(this.bbiSystemLog, "bbiSystemLog");
+            this.bbiSystemLog.Id = 15;
+            this.bbiSystemLog.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.日志管理选中;
+            this.bbiSystemLog.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.日志管理未选中;
+            this.bbiSystemLog.ImageOptions.Image = global::wayeal.os.exhaust.Properties.Resources.日志管理未选中;
+            this.bbiSystemLog.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.日志管理未选中;
+            this.bbiSystemLog.Name = "bbiSystemLog";
+            this.bbiSystemLog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // bbiDataStatistics
+            // 
+            resources.ApplyResources(this.bbiDataStatistics, "bbiDataStatistics");
+            this.bbiDataStatistics.Id = 17;
+            this.bbiDataStatistics.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.数据统计选中;
+            this.bbiDataStatistics.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.数据统计未选中;
+            this.bbiDataStatistics.ImageOptions.Image = global::wayeal.os.exhaust.Properties.Resources.数据统计未选中;
+            this.bbiDataStatistics.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.数据统计未选中;
+            this.bbiDataStatistics.Name = "bbiDataStatistics";
+            this.bbiDataStatistics.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ItemClick);
+            // 
+            // menuOperate
+            // 
+            this.menuOperate.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpHome});
+            this.menuOperate.Name = "menuOperate";
+            resources.ApplyResources(this.menuOperate, "menuOperate");
+            // 
+            // rpHome
+            // 
+            this.rpHome.ItemLinks.Add(this.bbiRealtimeMonitoring);
+            this.rpHome.ItemLinks.Add(this.bbiCalibration);
+            this.rpHome.ItemLinks.Add(this.bbiDebugging);
+            this.rpHome.ItemsLayout = DevExpress.XtraBars.Ribbon.RibbonPageGroupItemsLayout.OneRow;
+            this.rpHome.Name = "rpHome";
+            this.rpHome.ShowCaptionButton = false;
+            // 
+            // menuData
+            // 
+            this.menuData.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpData});
+            this.menuData.Name = "menuData";
+            resources.ApplyResources(this.menuData, "menuData");
+            // 
+            // rpData
+            // 
+            this.rpData.ItemLinks.Add(this.bbiExhaustData);
+            this.rpData.ItemLinks.Add(this.bbiAirQuality);
+            this.rpData.ItemLinks.Add(this.bbiDataStatistics);
+            this.rpData.Name = "rpData";
+            this.rpData.ShowCaptionButton = false;
+            // 
+            // menuSystem
+            // 
+            this.menuSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpSystem,
+            this.rpgLog});
+            this.menuSystem.Name = "menuSystem";
+            resources.ApplyResources(this.menuSystem, "menuSystem");
+            // 
+            // rpSystem
+            // 
+            this.rpSystem.ItemLinks.Add(this.bbiUserManage);
+            this.rpSystem.ItemLinks.Add(this.bbiAssistManage);
+            this.rpSystem.Name = "rpSystem";
+            this.rpSystem.ShowCaptionButton = false;
+            // 
+            // rpgLog
+            // 
+            this.rpgLog.ItemLinks.Add(this.bbiSystemLog);
+            this.rpgLog.ItemLinks.Add(this.bbiRunningLog);
+            this.rpgLog.ItemLinks.Add(this.bbiBackgroundLog);
+            this.rpgLog.Name = "rpgLog";
+            resources.ApplyResources(this.rpgLog, "rpgLog");
+            // 
+            // menuStation
+            // 
+            this.menuStation.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpStation});
+            this.menuStation.Name = "menuStation";
+            resources.ApplyResources(this.menuStation, "menuStation");
+            // 
+            // rpStation
+            // 
+            this.rpStation.ItemLinks.Add(this.bbiStationSettings);
+            this.rpStation.ItemLinks.Add(this.bbiLimitingSettings);
+            this.rpStation.Name = "rpStation";
+            this.rpStation.ShowCaptionButton = false;
+            // 
+            // menuHelp
+            // 
+            this.menuHelp.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpHelp});
+            this.menuHelp.Name = "menuHelp";
+            resources.ApplyResources(this.menuHelp, "menuHelp");
+            // 
+            // rpHelp
+            // 
+            this.rpHelp.ItemLinks.Add(this.bbiHelp);
+            this.rpHelp.ItemLinks.Add(this.bbiAbout);
+            this.rpHelp.Name = "rpHelp";
+            this.rpHelp.ShowCaptionButton = false;
+            // 
+            // repositoryItemImageEdit1
+            // 
+            resources.ApplyResources(this.repositoryItemImageEdit1, "repositoryItemImageEdit1");
+            this.repositoryItemImageEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemImageEdit1.Buttons"))))});
+            this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
+            // 
+            // repositoryItemPictureEdit1
+            // 
+            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            this.repositoryItemPictureEdit1.PictureAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.repositoryItemPictureEdit1.ShowMenu = false;
+            // 
+            // repositoryItemRadioGroup1
+            // 
+            this.repositoryItemRadioGroup1.Columns = 3;
+            this.repositoryItemRadioGroup1.Name = "repositoryItemRadioGroup1";
+            // 
+            // repositoryItemRadioGroup2
+            // 
+            this.repositoryItemRadioGroup2.Name = "repositoryItemRadioGroup2";
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoWidth = true;
+            resources.ApplyResources(this.repositoryItemCheckEdit1, "repositoryItemCheckEdit1");
+            this.repositoryItemCheckEdit1.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.UserDefined;
+            this.repositoryItemCheckEdit1.ImageOptions.ImageChecked = global::wayeal.os.exhaust.Properties.Resources.开启;
+            this.repositoryItemCheckEdit1.ImageOptions.ImageUnchecked = global::wayeal.os.exhaust.Properties.Resources.关闭;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            this.repositoryItemCheckEdit1.RadioGroupIndex = 1;
+            // 
+            // repositoryItemRadioGroup3
+            // 
+            this.repositoryItemRadioGroup3.Name = "repositoryItemRadioGroup3";
+            // 
+            // repositoryItemImageEdit2
+            // 
+            resources.ApplyResources(this.repositoryItemImageEdit2, "repositoryItemImageEdit2");
+            this.repositoryItemImageEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(((DevExpress.XtraEditors.Controls.ButtonPredefines)(resources.GetObject("repositoryItemImageEdit2.Buttons"))))});
+            this.repositoryItemImageEdit2.Name = "repositoryItemImageEdit2";
+            // 
+            // repositoryItemPictureEdit2
+            // 
+            this.repositoryItemPictureEdit2.Name = "repositoryItemPictureEdit2";
+            this.repositoryItemPictureEdit2.ShowMenu = false;
+            this.repositoryItemPictureEdit2.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.StretchHorizontal;
+            // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ForeColor = System.Drawing.Color.Silver;
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiCopyRight);
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiInfo);
+            resources.ApplyResources(this.ribbonStatusBar, "ribbonStatusBar");
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbonControl;
+            // 
+            // defaultLookAndFeel1
+            // 
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2016 Colorful";
+            // 
+            // dockManager1
+            // 
+            this.dockManager1.DockingOptions.FloatOnDblClick = false;
+            this.dockManager1.DockingOptions.ShowAutoHideButton = false;
+            this.dockManager1.DockingOptions.ShowCaptionOnMouseHover = true;
+            this.dockManager1.DockingOptions.ShowCloseButton = false;
+            this.dockManager1.DockingOptions.ShowMaximizeButton = false;
+            this.dockManager1.DockMode = DevExpress.XtraBars.Docking.Helpers.DockMode.Standard;
+            this.dockManager1.Form = this;
+            this.dockManager1.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "System.Windows.Forms.MenuStrip",
+            "System.Windows.Forms.StatusStrip",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl",
+            "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
+            "DevExpress.XtraBars.Navigation.TileNavPane",
+            "DevExpress.XtraBars.TabFormControl",
+            "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl"});
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            resources.ApplyResources(this.barDockControlTop, "barDockControlTop");
+            this.barDockControlTop.Manager = null;
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            resources.ApplyResources(this.barDockControlBottom, "barDockControlBottom");
+            this.barDockControlBottom.Manager = null;
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            resources.ApplyResources(this.barDockControlLeft, "barDockControlLeft");
+            this.barDockControlLeft.Manager = null;
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            resources.ApplyResources(this.barDockControlRight, "barDockControlRight");
+            this.barDockControlRight.Manager = null;
+            // 
+            // rpgFollowUp
+            // 
+            this.rpgFollowUp.Name = "rpgFollowUp";
+            this.rpgFollowUp.ShowCaptionButton = false;
+            resources.ApplyResources(this.rpgFollowUp, "rpgFollowUp");
+            // 
+            // pcMain
+            // 
+            this.pcMain.Appearance.BackColor = ((System.Drawing.Color)(resources.GetObject("pcMain.Appearance.BackColor")));
+            this.pcMain.Appearance.BackColor2 = ((System.Drawing.Color)(resources.GetObject("pcMain.Appearance.BackColor2")));
+            this.pcMain.Appearance.Options.UseBackColor = true;
+            this.pcMain.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            resources.ApplyResources(this.pcMain, "pcMain");
+            this.pcMain.Name = "pcMain";
+            // 
+            // notify
+            // 
+            resources.ApplyResources(this.notify, "notify");
+            this.notify.ContextMenuStrip = this.IconMenu;
+            this.notify.DoubleClick += new System.EventHandler(this.notify_DoubleClick);
+            this.notify.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notify_MouseClick);
+            // 
+            // IconMenu
+            // 
+            this.IconMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miExit});
+            this.IconMenu.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.IconMenu, "IconMenu");
+            // 
+            // miExit
+            // 
+            this.miExit.Name = "miExit";
+            resources.ApplyResources(this.miExit, "miExit");
+            this.miExit.Click += new System.EventHandler(this.miExit_Click);
+            // 
+            // barButtonItem2
+            // 
+            resources.ApplyResources(this.barButtonItem2, "barButtonItem2");
+            this.barButtonItem2.Id = 19;
+            this.barButtonItem2.ImageOptions.DisabledImage = global::wayeal.os.exhaust.Properties.Resources.空气质量选中;
+            this.barButtonItem2.ImageOptions.DisabledLargeImage = global::wayeal.os.exhaust.Properties.Resources.空气质量未选中;
+            this.barButtonItem2.ImageOptions.Image = global::wayeal.os.exhaust.Properties.Resources.空气质量未选中;
+            this.barButtonItem2.ImageOptions.LargeImage = global::wayeal.os.exhaust.Properties.Resources.空气质量未选中;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            resources.ApplyResources(this.repositoryItemTextEdit1, "repositoryItemTextEdit1");
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // frmMain
+            // 
+            this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
+            this.Appearance.ForeColor = ((System.Drawing.Color)(resources.GetObject("frmMain.Appearance.ForeColor")));
+            this.Appearance.Options.UseFont = true;
+            this.Appearance.Options.UseForeColor = true;
+            resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pcMain);
+            this.Controls.Add(this.ribbonStatusBar);
+            this.Controls.Add(this.ribbonControl);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
+            this.Name = "frmMain";
+            this.Ribbon = this.ribbonControl;
+            this.StatusBar = this.ribbonStatusBar;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pmUserManage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcMain)).EndInit();
+            this.IconMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
+        private DevExpress.XtraBars.Docking.DockManager dockManager1;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
+        private DevExpress.XtraBars.Ribbon.RibbonPage menuOperate;
+        private DevExpress.XtraBars.Ribbon.RibbonPage menuHelp;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgFollowUp;
+        private DevExpress.XtraBars.BarButtonItem bbiHelp;
+        private DevExpress.XtraBars.BarButtonItem bbiAbout;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpHelp;
+        private DevExpress.XtraEditors.PanelControl pcMain;
+        private DevExpress.XtraBars.BarStaticItem bsiCopyRight;
+        private DevExpress.XtraBars.Ribbon.RibbonPage menuStation;
+        private DevExpress.XtraBars.PopupMenu pmUserManage;
+        private DevExpress.XtraBars.BarButtonItem bbiLogin;
+        private DevExpress.XtraBars.BarButtonItem bbiModifyPassword;
+        private DevExpress.XtraBars.BarButtonItem bbiUser;
+        private DevExpress.XtraBars.Ribbon.RibbonPage menuData;
+        private DevExpress.XtraBars.Ribbon.RibbonPage menuSystem;
+        private DevExpress.XtraBars.BarButtonItem bsiInfo;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
+        private DevExpress.XtraBars.BarButtonItem bbiRealtimeMonitoring;
+        private DevExpress.XtraBars.BarButtonItem bbiCalibration;
+        private DevExpress.XtraBars.BarButtonItem bbiDebugging;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpHome;
+        private DevExpress.XtraBars.BarButtonItem bbiExhaustData;
+        private DevExpress.XtraBars.BarButtonItem bbiAirQuality;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpData;
+        private DevExpress.XtraBars.BarButtonItem bbiUserManage;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpSystem;
+        private DevExpress.XtraBars.BarButtonItem bbiAssistManage;
+        private DevExpress.XtraBars.BarButtonItem bbiStationSettings;
+        private DevExpress.XtraBars.BarButtonItem bbiLimitingSettings;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpStation;
+        private DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup repositoryItemRadioGroup1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup repositoryItemRadioGroup2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup repositoryItemRadioGroup3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit2;
+        private DevExpress.XtraBars.BarButtonItem bbiRunningLog;
+        private DevExpress.XtraBars.BarButtonItem bbiBackgroundLog;
+        private DevExpress.XtraBars.BarButtonItem bbiSystemLog;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgLog;
+        private System.Windows.Forms.NotifyIcon notify;
+        private System.Windows.Forms.ContextMenuStrip IconMenu;
+        private System.Windows.Forms.ToolStripMenuItem miExit;
+        private DevExpress.XtraBars.BarButtonItem bbiLogout;
+        private System.Windows.Forms.Timer timerLogout;
+        private System.Windows.Forms.HelpProvider hpHelp;
+        private DevExpress.XtraBars.BarButtonItem bbiDataStatistics;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+    }
+}
+

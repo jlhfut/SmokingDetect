@@ -1,0 +1,1403 @@
+﻿using DevExpress.XtraEditors;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using wayeal.os.exhaust.Services;
+using Wayeal.Services.Business.Utils;
+using Wayeal.Services.Configs;
+using Wayee.Services;
+using Wayee.Services.BusinessLogic.Data;
+//using static wayeal.os.exhaust.ViewModel.CalibrationViewModel;
+
+namespace wayeal.os.exhaust.ViewModel
+{
+    public delegate void ComboboxEventHandler();
+    public class ResultDataViewModel : BaseViewModel
+    {
+
+        public event ComboboxEventHandler UpdateDeviceCombx;
+        public enum ExecuteCommand
+        {
+            ec_QueryExhuast,
+            ec_QueryExhuastCount,
+            ec_QueryExhaustPage,
+            ec_QueryUser,
+            ec_QueryUserPage,
+            ec_QueryUserPageCount,
+            ec_QueryDieselCarLimiting,
+            ec_QueryGasolineLimiting,
+            ec_QueryOtherParam,
+            ec_QueryAirQuality,
+            ec_QueryAirQualityDrive,
+            ec_QueryAirQualityPageCount,
+            ec_QueryDetialInfo,
+            ec_InsertUser,
+            ec_InsertDieselCarLimiting,
+            ec_InsertGasolineLimiting,
+            ec_InsertOtherParam,
+            ec_ChangeOtherParam,
+            ec_ChangeUserInfo,
+            ec_DeleteUserInfo,
+            ec_QueryChartInfo,
+            ec_QueryCarLimitingInfo,
+            ec_QueryLogin,
+            ec_QuerySystemLog,
+            ec_QueryRunningLog,
+            ec_QueryBackgroundLog,
+            ec_InsertLog,
+            ec_QueryUserAndPwd,
+            ec_BackupDataBase,
+            ec_RestoreBackup,
+            ec_QueryCommunicationInfo,
+            ec_InsertCommunicationInfo,
+            ec_DeleteComInfo,
+            ec_QueryDataStatistics,
+            ec_QueryComponentRangeInfo,
+            ec_ChangeComponentRange,
+            ec_CloseVedio
+        }
+
+        private static ResultDataViewModel _VM = new ResultDataViewModel();
+        public static ResultDataViewModel VM
+        {
+            get { return _VM; }
+        }
+        public event ModelEventHandler ModelChanged;
+
+        /// <summary>
+        /// 尾气结果总页数
+        /// </summary>
+        public int ExhuastTotalPage { get; private set; }
+        /// <summary>
+        /// 尾气结果总条数
+        /// </summary>
+        public int ExhuastTotalCount { get; private set; }
+
+        private ArrayList _ExhuastEntities = new ArrayList();
+        /// <summary>
+        /// 尾气当前分页条件下的监测结果集模型（绑定UI）
+        /// </summary>
+        public ArrayList ExhuastEntities { get { return _ExhuastEntities; } private set { _ExhuastEntities = value; } }
+
+        private ArrayList _ExhuastAllEntities = new ArrayList();
+        /// <summary>
+        /// 尾气当前条件下查询到的所有监测结果集模型
+        /// </summary>
+        public ArrayList ExhuastAllEntities { get { return _ExhuastAllEntities; } private set { _ExhuastAllEntities = value; } }
+
+        /// <summary>
+        /// 空气质量检测结果总页数
+        /// </summary>
+        public int AirQualityTotalPage { get; private set; }
+
+        /// <summary>
+        /// 空气质量检测结果总条数
+        /// </summary>
+        public int AirQualityTotalCount { get; private set; }
+
+        private ArrayList _AirQualityEntities = new ArrayList();
+        /// <summary>
+        /// 空气质量检测结果集模型
+        /// </summary>
+        public ArrayList AirQualityEntities { get { return _AirQualityEntities; } private set { _AirQualityEntities = value; } }
+
+        private ArrayList _AirQualityDriveEntities = new ArrayList();
+        /// <summary>
+        /// 空气质量检测结果集模型
+        /// </summary>
+        public ArrayList AirQualityDriveEntities { get { return _AirQualityDriveEntities; } private set { _AirQualityDriveEntities = value; } }
+
+        private DTDeviceInfo _AirQuality = new DTDeviceInfo();
+        /// <summary>
+        /// 空气质量仪设备信息
+        /// </summary>
+        public DTDeviceInfo AirQuality { get { return _AirQuality; } private set { _AirQuality = value; } }
+
+        private ArrayList _queryCommunicationEntities = new ArrayList();
+        /// <summary>
+        /// 查询通讯列表结果集模型
+        /// </summary>
+        public ArrayList QueryCommunicationEntities { get { return _queryCommunicationEntities; } private set { _queryCommunicationEntities = value; } }
+
+        private ArrayList _queryComSingleEntities = new ArrayList();
+        /// <summary>
+        /// 查询单个通讯结果集模型
+        /// </summary>
+        public ArrayList QueryComSingleEntities { get { return _queryComSingleEntities; } private set { _queryComSingleEntities = value; } }
+
+        private ArrayList _UserEntities = new ArrayList();
+        /// <summary>
+        /// 用户结果集模型
+        /// </summary>
+        public ArrayList UserEntities { get { return _UserEntities; } private set { _UserEntities = value; } }
+
+        /// <summary>
+        /// 用户管理总页面个数
+        /// </summary>
+        public int UserTotalPage { get; private set; }
+
+        private ArrayList _LoginEntities = new ArrayList();
+        /// <summary>
+        /// 用户登录集模型
+        /// </summary>
+        public ArrayList LoginEntities { get { return _LoginEntities; } private set { _LoginEntities = value; } }
+
+        private ArrayList _DieselCarLimitingEntities = new ArrayList();
+        /// <summary>
+        /// 柴油车限值历史记录结果集模型
+        /// </summary>
+        public ArrayList DieselCarLimitingEntities { get { return _DieselCarLimitingEntities; } private set { _DieselCarLimitingEntities = value; } }
+
+
+        private ArrayList _GasolineLimitingEntities = new ArrayList();
+        /// <summary>
+        /// 汽油车限值历史记录结果集模型
+        /// </summary>
+        public ArrayList GasolineLimitingEntities { get { return _GasolineLimitingEntities; } private set { _GasolineLimitingEntities = value; } }
+
+        private ArrayList _OtherParamEntities = new ArrayList();
+        /// <summary>
+        /// 汽油车限值历史记录结果集模型
+        /// </summary>
+        public ArrayList OtherParamEntities { get { return _OtherParamEntities; } private set { _OtherParamEntities = value; } }
+
+        private ArrayList _DetialInfoEntities = new ArrayList();
+        /// <summary>
+        /// 汽油车限值历史记录结果集模型
+        /// </summary>
+        public ArrayList DetialInfoEntities { get { return _DetialInfoEntities; } private set { _DetialInfoEntities = value; } }
+
+        private bool _InsertUserResult = false;
+        /// <summary>
+        /// 用户数据插入结果
+        /// </summary>
+        public bool InsertUserResult { get { return _InsertUserResult; } private set { _InsertUserResult = value; } }
+
+        private bool _InsertDieselCarLimitingResult = false;
+        /// <summary>
+        /// 柴油车限值数据插入结果
+        /// </summary>
+        public bool InsertDieselCarLimitingResult { get { return _InsertDieselCarLimitingResult; } private set { _InsertDieselCarLimitingResult = value; } }
+
+        private bool _InsertGasolineLimitingResult = false;
+        /// <summary>
+        /// 汽油车限值数据插入结果
+        /// </summary>
+        public bool InsertGasolineLimitingResult { get { return _InsertGasolineLimitingResult; } private set { _InsertGasolineLimitingResult = value; } }
+
+        private bool _InserOtherParamResult = false;
+        /// <summary>
+        /// 其他参数数据插入结果
+        /// </summary>
+        public bool InserOtherParamResult { get { return _InserOtherParamResult; } private set { _InserOtherParamResult = value; } }
+
+        private bool _ChangeOtherParamResult = false;
+        /// <summary>
+        /// 其他参数数据修改结果
+        /// </summary>
+        public bool ChangeOtherParamResult { get { return _ChangeOtherParamResult; } private set { _ChangeOtherParamResult = value; } }
+
+        private bool _ChangeUserInfoResult = false;
+        /// <summary>
+        /// 用户信息数据修改结果
+        /// </summary>
+        public bool ChangeUserInfoResult { get { return _ChangeUserInfoResult; } private set { _ChangeUserInfoResult = value; } }
+
+        private bool _DeleteUserInfoResult = false;
+        /// <summary>
+        /// 用户信息数据删除结果
+        /// </summary>
+        public bool DeleteUserInfoResult { get { return _DeleteUserInfoResult; } private set { _DeleteUserInfoResult = value; } }
+
+        private ArrayList _monitoringComponentRangeEntities = new ArrayList();
+        /// <summary>
+        /// 检测组分范围结果集模型
+        /// </summary>
+        public ArrayList MonitoringComponentRangeEntities { get { return _monitoringComponentRangeEntities; } private set { _monitoringComponentRangeEntities = value; } }
+
+        private bool _changeComponentRangeEntities = false;
+        /// <summary>
+        /// 修改检测组分范围结果集模型
+        /// </summary>
+        public bool ChangeComponentRangeEntities { get { return _changeComponentRangeEntities; } private set { _changeComponentRangeEntities = value; } }
+
+        //private List<double> _UVSpectra = new List<double>();
+        ///// <summary>
+        ///// 紫外背景谱图
+        ///// </summary>
+        //public List<double> UVSpectra { get { return _UVSpectra; } private set { _UVSpectra = value; } }
+
+        private List<double> _UVTelemetry = new List<double>();
+        /// <summary>
+        /// 紫外遥测光谱
+        /// </summary>
+        public List<double> UVTelemetry { get { return _UVTelemetry; } private set { _UVTelemetry = value; } }
+
+        private ExhaustDetailDataModel _ExhaustDetailData = new ExhaustDetailDataModel();
+        /// <summary>
+        /// T12、T13、光强
+        /// </summary>
+        public ExhaustDetailDataModel ExhaustDetailData { get { return _ExhaustDetailData; } private set { _ExhaustDetailData = value; } }
+
+
+
+        private List<ExhaustDetailDataModel> _ExhaustDetailListData = new List<ExhaustDetailDataModel>();
+        /// <summary>
+        /// 文件中读取出的尾气详细信息
+        /// </summary>
+        public List<ExhaustDetailDataModel> ExhaustDetailListData { get { return _ExhaustDetailListData; } private set { _ExhaustDetailListData = value; } }
+
+        private List<double> _UVTelemetryAbsorb = new List<double>();
+        /// <summary>
+        /// 紫外遥测吸光度
+        /// </summary>
+        public List<double> UVTelemetryAbsorb { get { return _UVTelemetryAbsorb; } private set { _UVTelemetryAbsorb = value; } }
+
+        private List<short> _TDLasTelemetryHarm = new List<short>();
+        /// <summary>
+        /// 红外遥测谐波
+        /// </summary>
+        public List<short> TDLasTelemetryHarm { get { return _TDLasTelemetryHarm; } private set { _TDLasTelemetryHarm = value; } }
+
+        private UVSParam _uvsParam = new UVSParam();
+        /// <summary>
+        /// 紫外谱图参数
+        /// </summary>
+        public UVSParam uvsParam { get { return _uvsParam; } private set { _uvsParam = value; } }
+
+        private TDLASParam _tdlasParam = new TDLASParam();
+        /// <summary>
+        /// 紫外谱图参数
+        /// </summary>
+        public TDLASParam tdlasParam { get { return _tdlasParam; } private set { _tdlasParam = value; } }
+
+        private UVSRangeParam _uvNOParam = new UVSRangeParam();
+        /// <summary>
+        /// 紫外谱图参数
+        /// </summary>
+        public UVSRangeParam uvNOParam { get { return _uvNOParam; } private set { _uvNOParam = value; } }
+
+        private UVSRangeParam _uvHCParam = new UVSRangeParam();
+        /// <summary>
+        /// 紫外谱图参数
+        /// </summary>
+        public UVSRangeParam uvHCParam { get { return _uvHCParam; } private set { _uvHCParam = value; } }
+
+        private TDLASRangeParam _tdlasCOParam = new TDLASRangeParam();
+        /// <summary>
+        /// 紫外谱图参数
+        /// </summary>
+        public TDLASRangeParam tdlasCOParam { get { return _tdlasCOParam; } private set { _tdlasCOParam = value; } }
+
+        private TDLASRangeParam _tdlasCO2Param = new TDLASRangeParam();
+        /// <summary>
+        /// 紫外谱图参数
+        /// </summary>
+        public TDLASRangeParam tdlasCO2Param { get { return _tdlasCO2Param; } private set { _tdlasCO2Param = value; } }
+
+        private CarLimitingInfo _QueryCarLimitingInfoEntities = new CarLimitingInfo();
+        /// <summary>
+        /// 查询车辆限值结果集
+        /// </summary>
+        public CarLimitingInfo QueryCarLimitingInfoEntities { get { return _QueryCarLimitingInfoEntities; } private set { _QueryCarLimitingInfoEntities = value; } }
+
+        private ArrayList _SystemLogEntities = new ArrayList();
+        /// <summary>
+        /// 系统日志结果集模型
+        /// </summary>
+        public ArrayList SystemLogEntities { get { return _SystemLogEntities; } private set { _SystemLogEntities = value; } }
+
+        private ArrayList _RunningLogEntities = new ArrayList();
+        /// <summary>
+        /// 运行日志结果集模型
+        /// </summary>
+        public ArrayList RunningLogEntities { get { return _RunningLogEntities; } private set { _RunningLogEntities = value; } }
+
+        private ArrayList _BackgroundLogEntities = new ArrayList();
+        /// <summary>
+        /// 背景日志结果集模型
+        /// </summary>
+        public ArrayList BackgroundLogEntities { get { return _BackgroundLogEntities; } private set { _BackgroundLogEntities = value; } }
+
+        private bool _InsertLogEntities = false;
+        /// <summary>
+        /// 插入日志结果集模型
+        /// </summary>
+        public bool InsertLogEntities { get { return _InsertLogEntities; } private set { _InsertLogEntities = value; } }
+
+        private ArrayList _QueryUserAndPwdEntities = new ArrayList();
+        /// <summary>
+        /// 查询用户名和密码
+        /// </summary>
+        public ArrayList QueryUserAndPwdEntities { get { return _QueryUserAndPwdEntities; } private set { _QueryUserAndPwdEntities = value; } }
+
+        /// <summary>
+        /// 总页面个数
+        /// </summary>
+        public int TotalPage { get; private set; }
+        private bool backupDataBaseResult = false;
+        /// <summary>
+        /// 备份数据库结果
+        /// </summary>
+        public bool BackupDataBaseResult { get { return backupDataBaseResult; } private set { backupDataBaseResult = value; } }
+        private bool restoreBackupResult = false;
+        /// <summary>
+        /// 还原数据库结果
+        /// </summary>
+        public bool RestoreBackupResult { get { return restoreBackupResult; } private set { restoreBackupResult = value; } }
+
+        private bool _newComInfoEntities = false;
+        /// <summary>
+        /// 新建通讯结果
+        /// </summary>
+        public bool NewComInfoEntities { get { return _newComInfoEntities; } private set { _newComInfoEntities = value; } }
+        private bool _deleteComInfoEntities = false;
+        /// <summary>
+        /// 删除通讯信息的结果
+        /// </summary>
+        public bool DeleteComInfoEntities { get { return _deleteComInfoEntities; } private set { _deleteComInfoEntities = value; } }
+        private List<int> _queryDateStatisticsEntities = new List<int>();
+        /// <summary>
+        /// 查询数据统计结果集
+        /// </summary>
+        public List<int> QueryDateStatisticsEntities { get { return _queryDateStatisticsEntities; } private set { _queryDateStatisticsEntities = value; } }
+
+        private List<object> _Devices = null;
+        /// <summary>
+        /// 查询设备信息列表
+        /// </summary>
+        public virtual List<object> Devices
+        {
+            get
+            {
+                if (_Devices == null) _Devices = DataServiceHelper.Instanse.QueryDevices();
+                return _Devices;
+            }
+            set { _Devices = value; }
+        }
+
+        /// <summary>
+        /// 绑定到视图中的函数表
+        /// </summary>
+        public ResultDataViewModel()
+        {
+        }
+        /// <summary>
+        /// UI binding method
+        /// </summary>
+        /// <param name="parameter"></param>
+        public void Execute(object paramter)
+        {
+            if (paramter is List<object> && (paramter as List<object>).Count > 0 && (paramter as List<object>)[0] is ExecuteCommand)
+            {
+                List<object> args = (paramter as List<object>);
+                ExecuteCommand ec = (ExecuteCommand)args[0];
+                args.RemoveAt(0);
+                switch (ec)
+                {
+                    case ExecuteCommand.ec_QueryExhuast: QueryExhuast(args); break;
+                    //       case ExecuteCommand.ec_QueryExhuastCount: QueryExhuastCount(args); break;
+                    case ExecuteCommand.ec_QueryExhaustPage: QueryExhaustPage(args); break;
+                    case ExecuteCommand.ec_QueryDataStatistics: QueryDataStatistics(args); break;
+                    case ExecuteCommand.ec_QueryUser: QueryUser(args); break;
+                    case ExecuteCommand.ec_QueryUserPage: QueryUserPage(args); break;
+                    case ExecuteCommand.ec_QueryUserPageCount: QueryUserPageCount(args); break;
+                    case ExecuteCommand.ec_QueryLogin: QueryLogin(args); break;
+                    case ExecuteCommand.ec_QueryDieselCarLimiting: QueryDieselCarLimiting(args); break;
+                    case ExecuteCommand.ec_QueryGasolineLimiting: QueryGasolineLimiting(args); break;
+                    case ExecuteCommand.ec_QueryOtherParam: QueryOtherParam(args); break;
+                    case ExecuteCommand.ec_QueryAirQuality: QueryAirQuality(args); break;
+                    case ExecuteCommand.ec_QueryAirQualityDrive: QueryAirQualityDrive(args); break;
+                    case ExecuteCommand.ec_QueryAirQualityPageCount: QueryAirQualityPageCount(args); break;
+                    case ExecuteCommand.ec_QueryDetialInfo: QueryDetialInfo(args); break;
+                    case ExecuteCommand.ec_InsertUser: InsertUser(args); break;
+                    case ExecuteCommand.ec_InsertDieselCarLimiting: InsertDieselCarLimiting(args); break;
+                    case ExecuteCommand.ec_InsertGasolineLimiting: InsertGasolineLimiting(args); break;
+                    case ExecuteCommand.ec_InsertOtherParam: InsertOtherParam(args); break;
+                    case ExecuteCommand.ec_ChangeOtherParam: ChangeOtherParam(args); break;
+                    case ExecuteCommand.ec_ChangeUserInfo: ChangeUserInfo(args); break;
+                    case ExecuteCommand.ec_DeleteUserInfo: DeleteUserInfo(args); break;
+                    case ExecuteCommand.ec_QueryChartInfo: QueryChartInfo(args); break;
+                    case ExecuteCommand.ec_QueryCarLimitingInfo: QueryCarLimitingInfo(args); break;
+                    case ExecuteCommand.ec_InsertLog: InsertLogInfo(args); break;
+                    case ExecuteCommand.ec_QueryUserAndPwd: QueryUserAndPwd(args); break;
+                    case ExecuteCommand.ec_RestoreBackup: RestoreDataBase(args); break;
+                    case ExecuteCommand.ec_BackupDataBase: BackUpDataBase(args); break;
+                    case ExecuteCommand.ec_QueryCommunicationInfo: QueryComInfo(args); break;
+                    case ExecuteCommand.ec_InsertCommunicationInfo: NewComInfo(args); break;
+                    case ExecuteCommand.ec_DeleteComInfo: DeleteComInfo(args); break;
+                    case ExecuteCommand.ec_QueryComponentRangeInfo: QueryComponentRangeInfo(args); break;
+                    case ExecuteCommand.ec_CloseVedio:CloseVedio(args); break;
+               //     case ExecuteCommand.ec_ChangeComponentRange: ChangeComponentRangeInfo(args); break;
+                };
+            }
+        }
+
+       
+
+        /// <summary>
+        /// 查询尾气
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryExhuast(List<object> args)
+        {
+            if (args.Count >= 18)
+            {
+                try
+                {
+                    ArrayList rs = null;
+                    DateTime s, e;
+                    if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                    if (!DateTime.TryParse(args[1].ToString(), out e)) return;
+                    ExhuastEntities.Clear();
+                    rs = DataServiceHelper.Instanse.Query(s, e, args[2].ToString(), args[3].ToString(), args[4].ToString(), args[5].ToString(), args[6].ToString(), args[7].ToString(),
+                        args[8].ToString(), args[9].ToString(), args[10].ToString(), args[11].ToString(), args[12].ToString(), args[13].ToString(), args[14].ToString(), Convert.ToInt32(args[15].ToString()),
+                       Convert.ToInt32(args[16].ToString()), Convert.ToInt32(args[18].ToString()), Convert.ToInt32(args[17].ToString()), Convert.ToInt32(args[19].ToString()), Convert.ToInt32(args[20].ToString())
+                        , Convert.ToInt32(args[21].ToString()));
+                    ExhuastTotalCount = DataServiceHelper.Instanse.QueryExhaustCount(s, e, args[2].ToString(), args[3].ToString(), args[4].ToString(), args[5].ToString(), args[6].ToString(), args[7].ToString(),
+                        args[8].ToString(), args[9].ToString(), args[10].ToString(), args[11].ToString(), args[12].ToString(), args[13].ToString(), args[14].ToString(), args[19].ToString(), args[20].ToString(),
+                        Convert.ToInt32(args[21].ToString()));
+                    if (args.Count > 15 && rs != null)
+                    {
+                        ExhuastTotalPage = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(ExhuastTotalCount) / Convert.ToDouble(args[17])));
+                    }
+                    if (rs != null) ExhuastEntities = rs;
+                    if (rs == null) ExhuastTotalPage = 0;
+                    if (ModelChanged != null) ModelChanged(this, new ModelEventArgs("ExhaustHistoryData"));
+                }
+                catch (Exception ex)
+                {
+                    ErrorLog.Error(ex.ToString());
+                }
+            }
+        }
+        private void QueryExhaustPage(List<object> args)
+        {
+            if (args.Count >= 18)
+            {
+                ArrayList rs = null;
+                DateTime s, e;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                if (!DateTime.TryParse(args[1].ToString(), out e)) return;
+                ExhuastAllEntities.Clear();
+                rs = DataServiceHelper.Instanse.Query(s, e, args[2].ToString(), args[3].ToString(), args[4].ToString(), args[5].ToString(), args[6].ToString(), args[7].ToString(),
+                    args[8].ToString(), args[9].ToString(), args[10].ToString(), args[11].ToString(), args[12].ToString(), args[13].ToString(), args[14].ToString(), Convert.ToInt32(args[15].ToString()),
+                   Convert.ToInt32(args[16].ToString()), Convert.ToInt32(args[18].ToString()), Convert.ToInt32(args[17].ToString()), Convert.ToInt32(args[19].ToString()), Convert.ToInt32(args[20].ToString())
+                    , Convert.ToInt32(args[21].ToString()));
+                
+                if(rs!=null) ExhuastAllEntities = rs;
+               // if (ModelChanged != null) ModelChanged(this, new ModelEventArgs("ExhaustHistoryData"));
+            }
+        }
+        /// <summary>
+        /// 查询用户
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryUser(List<object> args)
+        {
+            ArrayList rs = null;
+            UserEntities.Clear();
+
+            rs = DataServiceHelper.Instanse.QueryUser(args.Count > 0 ? args[0].ToString() : "", args.Count > 1 ? args[1].ToString() : "", args.Count > 2 ? args[2].ToString() : null);
+            if (rs != null) UserEntities = rs;
+            if (args.Count >= 5 && rs != null)
+            {
+                int iCount = rs.Count;
+                if (iCount > 0) UserTotalPage = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(iCount) / Convert.ToDouble(args[5])));
+            }
+            if (rs == null) UserTotalPage = 0;
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryUser.ToString()));
+        }
+        /// <summary>
+        /// 查询登录
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryLogin(List<object> args)
+        {
+            LoginEntities.Clear();
+            if (args.Count > 1)
+            {
+                if (args[0].ToString() == "WAYEE")
+                {
+                    //超级管理员动态密码登录
+                    ArrayList rs1 = DataServiceHelper.Instanse.ManagerLogin(args[0].ToString(), args[1].ToString());
+                    if (rs1 != null && rs1.Count > 0)
+                    {
+                        if ((bool)rs1[0] == true)
+                        {
+                            //登录成功，权限为0
+                            LoginEntities.Add(true);
+                            LoginEntities.Add(0);
+                            return;
+                        }
+                        if (rs1.Count < 2) return;
+                        if ((int)rs1[1] != 2)
+                        {
+                            //登录失败，错误为未连接
+                            LoginEntities.Add(false);
+                            LoginEntities.Add((int)rs1[1]);
+                            return;
+                        }
+                        //登录失败，错误为密码错误
+                        LoginEntities.Add(false);
+                        LoginEntities.Add(2);
+                        return;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                //用户登录
+                ArrayList rs2 = DataServiceHelper.Instanse.QueryUserAndPwd(args[0].ToString(), args[1].ToString());
+                if (rs2 != null && rs2.Count > 0)
+                {
+                    if ((rs2[0] as DTUserInfo).Statue.Value.ToString() == "0")
+                    {//账户被禁用
+                        LoginEntities.Add(false);
+                        LoginEntities.Add(3);
+                        return;
+                    }
+
+                    //登录成功，获取权限.没权限则赋值最低权限
+                    LoginEntities.Add(true);
+                    if ((rs2[0] as DTUserInfo).Permission == null) LoginEntities.Add(2);
+                    else { LoginEntities.Add((rs2[0] as DTUserInfo).Permission.Value); }
+                    return;
+                }
+                else
+                {
+                    //登录失败，错误为用户名或密码错误
+                    LoginEntities.Add(false);
+                    LoginEntities.Add(2);
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 查询柴油车限值列表
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryDieselCarLimiting(List<object> args)
+        {
+            ArrayList rs = null;
+            _DieselCarLimitingEntities.Clear();
+            rs = DataServiceHelper.Instanse.QueryDieselCarLimiting();
+            if (rs != null) _DieselCarLimitingEntities = rs;
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryDieselCarLimiting.ToString()));
+        }
+        /// <summary>
+        /// 查询汽油车限值列表
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryGasolineLimiting(List<object> args)
+        {
+            ArrayList rs = null;
+            _GasolineLimitingEntities.Clear();
+            rs = DataServiceHelper.Instanse.QueryGasolineLimiting();
+            if (rs != null) _GasolineLimitingEntities = rs;
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryDieselCarLimiting.ToString()));
+        }
+        /// <summary>
+        /// 查询其他参数
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryOtherParam(List<object> args)
+        {
+            ArrayList rs = null;
+            _OtherParamEntities.Clear();
+            rs = DataServiceHelper.Instanse.QueryOtherParam();
+            if (rs != null) _OtherParamEntities = rs;
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryOtherParam.ToString()));
+        }
+        /// <summary>
+        /// 查询空气质量
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryAirQuality(List<object> args)
+        {
+            try
+            {
+                if (args.Count < 4) return;
+                ArrayList rs = null;
+                DateTime s, e;
+                int num, size;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                if (!DateTime.TryParse(args[1].ToString(), out e)) return;
+                num = Convert.ToInt32(args[2].ToString());
+                size = Convert.ToInt32(args[3].ToString());
+                int airCount = DataServiceHelper.Instanse.QueryAirQualityCount(s, e);
+                AirQualityTotalCount = airCount;
+                if (airCount > 0) AirQualityTotalPage = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(airCount) / Convert.ToDouble(args[3])));
+                else AirQualityTotalPage = 0;
+                if (AirQualityEntities != null) AirQualityEntities.Clear();
+                rs = DataServiceHelper.Instanse.QueryAirQuality(s, e, num, size);
+                //    if (rs == null || rs.Count == 0) XtraMessageBox.Show(Program.infoResource.GetLocalizedString(language.InfoId.SelectNull));
+                AirQualityEntities = rs;
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        /// <summary>
+        /// 查询空气质量(导出专用)
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryAirQualityDrive(List<object> args)
+        {
+            try
+            {
+                if (args.Count < 2) return;
+                ArrayList rs = null;
+                DateTime s, e;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                if (!DateTime.TryParse(args[1].ToString(), out e)) return;
+                rs = DataServiceHelper.Instanse.QueryAirQuality(s, e);
+                if (rs != null) AirQualityDriveEntities = rs;
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        /// <summary>
+        /// 空气质量总页数查询
+        /// </summary>
+        /// <param name="args"></param>
+        private void QueryAirQualityPageCount(List<object> args)
+        {
+            try
+            {
+                if (args.Count < 3) return;
+                DateTime s, e;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                if (!DateTime.TryParse(args[1].ToString(), out e)) return;
+                int userCount = DataServiceHelper.Instanse.QueryAirQualityCount(s, e);
+                if (userCount > 0) AirQualityTotalPage = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(userCount) / Convert.ToDouble(args[2])));
+                else AirQualityTotalPage = 0;
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        /// <summary>
+        /// 查询详细信息
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryDetialInfo(List<object> args)
+        {
+            if (args.Count == 1)
+            {
+                int index;
+                if (!int.TryParse(args[0].ToString(), out index)) return;
+                if (index < 0 || index >= ExhuastEntities.Count) return;
+                DetialInfoEntities.Clear();
+                DetialInfoEntities.Add(ExhuastEntities[index]);
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+            else if (args.Count == 2)
+            {
+                DetialInfoEntities.Clear();
+                string uniqueKey = args[1].ToString();
+                ArrayList rs = DataServiceHelper.Instanse.QueryUniqueKey(uniqueKey);
+                if (rs != null) DetialInfoEntities = rs;
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+        }
+        /// <summary>
+        /// 插入用户数据
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void InsertUser(List<object> args)
+        {
+            if (args.Count == 5 || args.Count == 4)
+            {
+                DateTime s;
+                if (!DateTime.TryParse(args[2].ToString(), out s)) return;
+                object dt = DataServiceHelper.Instanse.InsertUser(args[0].ToString(), args[1].ToString(), s, args.Count > 4 ? args[3].ToString() : "", args[4].ToString());
+                InsertUserResult = dt != null;
+                //  UserEntities.Add(dt);
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryUser.ToString()));
+            }
+        }
+        /// <summary>
+        /// 插入柴油车限值数据
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void InsertDieselCarLimiting(List<object> args)
+        {
+            if (args.Count == 8)
+            {
+                DateTime s;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                object dt = DataServiceHelper.Instanse.InsertDieselCarLimiting(
+                    s,
+                    args[1].ToString(),
+                    args[2].ToString(),
+                    args[3].ToString(),
+                    args[4].ToString(),
+                    args[5].ToString(),
+                    args[6].ToString(),
+                    args[7].ToString());
+                InsertDieselCarLimitingResult = dt != null;
+                if (dt != null)
+                {
+                    if (DieselCarLimitingEntities.Count > 0)
+                    {
+                        DieselCarLimitingEntities.Insert(0, dt);
+                    }
+                    else
+                    {
+                        DieselCarLimitingEntities.Add(dt);
+                    }
+
+                }
+
+
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+        }
+        /// <summary>
+        /// 插入汽油车限值数据
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void InsertGasolineLimiting(List<object> args)
+        {
+            if (args.Count == 5)
+            {
+                DateTime s;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                object dt = DataServiceHelper.Instanse.InsertGasolineLimiting(
+                    s,
+                    args[1].ToString(),
+                    args[2].ToString(),
+                    args[3].ToString(),
+                    args[4].ToString());
+                InsertGasolineLimitingResult = dt != null;
+                GasolineLimitingEntities.Insert(0, dt);
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+        }
+        private void InsertOtherParam(List<object> args)
+        {
+            if (args.Count == 2)
+            {
+                object dt = DataServiceHelper.Instanse.InsertOtherParam(args[0].ToString(), args[1].ToString(), "", "", "", "", "", "", "", "", -1);
+                _InserOtherParamResult = dt != null;
+                if (dt != null)
+                {
+                    OtherParamEntities.Clear();
+                    OtherParamEntities.Add(dt);
+                }
+            }
+            else if (args.Count == 9)
+            {
+                object dt = DataServiceHelper.Instanse.InsertOtherParam("", "",
+                    args[0].ToString(),
+                    args[1].ToString(),
+                    args[2].ToString(),
+                    args[3].ToString(),
+                    args[4].ToString(),
+                    args[5].ToString(),
+                    args[6].ToString(),
+                    args[7].ToString(),
+                     Convert.ToInt32(args[8].ToString())
+                    );
+                _InserOtherParamResult = dt != null;
+                if (dt != null)
+                {
+                    OtherParamEntities.Clear();
+                    OtherParamEntities.Add(dt);
+                }
+            }
+            else if (args.Count == 11)
+            {
+                object dt = DataServiceHelper.Instanse.InsertOtherParam(
+                    args[0].ToString(),
+                    args[1].ToString(),
+                    args[2].ToString(),
+                    args[3].ToString(),
+                    args[4].ToString(),
+                    args[5].ToString(),
+                    args[6].ToString(),
+                    args[7].ToString(),
+                    args[8].ToString(),
+                    args[9].ToString(),
+                     Convert.ToInt32(args[10].ToString())
+                    );
+                _InserOtherParamResult = dt != null;
+                if (dt != null)
+                {
+                    OtherParamEntities.Clear();
+                    OtherParamEntities.Add(dt);
+                }
+            }
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+        }
+        /// <summary>
+        /// 改变其他参数结果
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void ChangeOtherParam(List<object> args)
+        {
+            object dt = new object();
+            if (args.Count == 2)
+            {
+                dt = DataServiceHelper.Instanse.ChangeOtherParam(args[0].ToString() == "" ? null : args[0].ToString(), args[1].ToString() == "" ? null : args[1].ToString(),
+                   null, null, null, null, null, null, null, null, -1);
+                _ChangeOtherParamResult = dt != null;
+                if (dt != null)
+                {
+                    DTOtherParamInfo dt2 = (DTOtherParamInfo)OtherParamEntities[0];
+                    if (args[0].ToString() != null) dt2.AddToAutoStart.Value = ((DTOtherParamInfo)dt).AddToAutoStart.Value;
+                    if (args[1].ToString() != null) dt2.RunningModel.Value = ((DTOtherParamInfo)dt).RunningModel.Value;
+                    OtherParamEntities.Clear();
+                    OtherParamEntities.Add(dt2);
+                    dt = dt2;
+                }
+            }
+            else if (args.Count == 9)
+            {
+                dt = DataServiceHelper.Instanse.ChangeOtherParam(null, null,
+                    args[0].ToString(),
+                    args[1].ToString(),
+                    args[2].ToString(),
+                    args[3].ToString(),
+                    args[4].ToString(),
+                    args[5].ToString(),
+                    args[6].ToString(),
+                    args[7].ToString(),
+                    Convert.ToInt32(args[8].ToString())
+                        );
+                _ChangeOtherParamResult = dt != null;
+                if (dt != null)
+                {
+                    DTOtherParamInfo dt2 = (DTOtherParamInfo)OtherParamEntities[0];
+                    ((DTOtherParamInfo)dt).AddToAutoStart.Value = dt2.AddToAutoStart.Value;
+                    ((DTOtherParamInfo)dt).RunningModel.Value = dt2.RunningModel.Value;
+                    OtherParamEntities.Clear();
+                    OtherParamEntities.Add(dt);
+                }
+            }
+            else if (args.Count == 11)
+            {
+                dt = DataServiceHelper.Instanse.ChangeOtherParam(
+                   args[0].ToString(),
+                   args[1].ToString(),
+                   args[2].ToString(),
+                   args[3].ToString(),
+                   args[4].ToString(),
+                   args[5].ToString(),
+                   args[6].ToString(),
+                   args[7].ToString(),
+                   args[8].ToString(),
+                   args[9].ToString(),
+                    Convert.ToInt32(args[10].ToString())
+                   );
+                _ChangeOtherParamResult = dt != null;
+                if (dt != null) OtherParamEntities.Clear();
+                OtherParamEntities.Add(dt);
+            }
+            if (dt != null)
+            {
+                RealtimeMonitorViewModel.VM._stnType = Convert.ToInt32((dt as DTOtherParamInfo).StationType.Value.ToString());
+            }
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+        }
+       
+        private void ChangeUserInfo(List<object> args)
+        {
+            if (args.Count > 2)
+            {
+                object dt = DataServiceHelper.Instanse.ChangeUserInfo(
+                    args[0].ToString(),
+                    args[1].ToString(),
+                    args[2].ToString(),
+                    args.Count > 3 ? args[3].ToString() : null,
+                    args.Count > 4 ? args[4].ToString() : null);
+                _ChangeUserInfoResult = false;
+                if (dt.ToString() == false.ToString()) _ChangeUserInfoResult = false;
+                else _ChangeUserInfoResult = dt != null;
+            }
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryUser.ToString()));
+        }
+        private void DeleteUserInfo(List<object> args)
+        {
+            if (args.Count > 0)
+            {
+                object dt = DataServiceHelper.Instanse.DeleteUserInfo(args[0].ToString());
+                _DeleteUserInfoResult = false;
+                _DeleteUserInfoResult = dt != null;
+            }
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryUser.ToString()));
+        }
+        private void QueryChartInfo(List<object> args)
+        {
+            if (args.Count > 0)
+            {
+                try
+                {
+                    string rs = DataServiceHelper.Instanse.QueryFileInfo(args[0].ToString());
+                    if (rs != null && rs != ""&& rs.Count()!=0 )
+                    {
+                        ExhaustDetailListData = JsonConvert.DeserializeObject<List<ExhaustDetailDataModel>>(rs);
+                        if (args.Count > 1)
+                        {
+                            SetParamDetial(args[1].ToString().ToLower() == "left" ? ExhaustDetailListData[0] : ExhaustDetailListData[1]);
+                        }
+                        else
+                        {
+                            SetParamDetial(ExhaustDetailListData[0]);
+                        }
+                    }
+                    else
+                    {
+                        ExhaustDetailDataModel nullModel = new ExhaustDetailDataModel();
+                        SetParamDetial(nullModel);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ErrorLog.Error(ex.ToString());
+                }
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel.ExhaustDetailDataModel).Name));
+            }
+        }
+        private void SetParamDetial(ExhaustDetailDataModel edd)
+        {
+            if (edd == null)
+            {
+                ExhaustDetailDataModel nullmodel = new ExhaustDetailDataModel();
+                SetParamDetial(nullmodel);
+            }
+            uvsParam = edd.UVSCalParam;
+            tdlasParam = edd.TDLASCalParam;
+            uvNOParam = edd.UVSNOCalParam;
+            uvHCParam = edd.UVSHCCalParam;
+            tdlasCOParam = edd.TDLASCOCalParam;
+            tdlasCO2Param = edd.TDLASCO2CalParam;
+            ExhaustDetailData = edd;
+            UVTelemetryAbsorb = edd.AbsorbData;
+            TDLasTelemetryHarm = edd.HarmData;
+        }
+        private void QueryCarLimitingInfo(List<object> args)
+        {
+            try
+            {
+                if (args.Count > 0)
+                {
+                    ClearQueryCarLimitingInfoEntities();
+                    string rs = DataServiceHelper.Instanse.QueryFileInfo(args[0].ToString());
+                    if (rs != null && rs != "")
+                    {
+                        object o = JsonNewtonsoft.FromJSON(rs);
+                        if (o == null) return;
+                        if (o is JObject)
+                        {
+                            JObject jo = (o as JObject);
+                            //CarLimitingInfo info = jo.Value<CarLimitingInfo>("CarLimitParamInfo");
+                            CarLimitingInfo info = (CarLimitingInfo)jo["CarLimitParamInfo"].ToObject(typeof(CarLimitingInfo));
+                            QueryCarLimitingInfoEntities = info;
+                        }
+                        else if (o is JArray)
+                        {
+                            try
+                            {
+                                JArray ja = (o as JArray);
+                                var lstCarlmt = JArray.Parse(o.ToString());
+                                if (lstCarlmt == null || lstCarlmt.Count < 1) return;
+                                CarLimitingInfo info = new CarLimitingInfo();
+                                for (int i = 0; i < lstCarlmt.Count; i++)
+                                {
+                                    if (lstCarlmt[i] != null && lstCarlmt[i].ToString() != "")
+                                    {
+                                         info = (CarLimitingInfo)((JObject)lstCarlmt[i])["CarLimitParamInfo"].ToObject(typeof(CarLimitingInfo));
+                                         break;
+                                    }
+                                }
+                                QueryCarLimitingInfoEntities = info;
+                            }
+                            catch (Exception ex)
+                            {
+                                ErrorLog.Error(ex.ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { ErrorLog.Error(ex.ToString()); }
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+        }
+
+        private void ClearQueryCarLimitingInfoEntities()
+        {
+            QueryCarLimitingInfoEntities = new CarLimitingInfo();
+        }
+
+        private void QuerySystemLogInfo(List<object> args)
+        {
+            if (args.Count >= 2)
+            {
+                DateTime s, e;
+                ArrayList rs = null;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                if (!DateTime.TryParse(args[1].ToString(), out e)) return;
+                SystemLogEntities.Clear();
+                rs = DataServiceHelper.Instanse.QuerySystemLog(s, e, args.Count < 3 ? "" : args[2].ToString(), args.Count < 4 ? "" : args[3].ToString());
+                if (rs != null) SystemLogEntities = rs;
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+        }
+        private void QueryRunningLogInfo(List<object> args)
+        {
+            if (args.Count >= 2)
+            {
+                DateTime s, e;
+                ArrayList rs = null;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                if (!DateTime.TryParse(args[1].ToString(), out e)) return;
+                RunningLogEntities.Clear();
+                rs = DataServiceHelper.Instanse.QueryRunningLog(s, e, args.Count < 3 ? "" : args[2].ToString());
+                if (rs != null) RunningLogEntities = rs;
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+        }
+        private void QueryBackgroundLogInfo(List<object> args)
+        {
+            if (args.Count >= 2)
+            {
+                DateTime s, e;
+                ArrayList rs = null;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                if (!DateTime.TryParse(args[1].ToString(), out e)) return;
+                BackgroundLogEntities.Clear();
+                rs = DataServiceHelper.Instanse.QueryBackgroundLog(s, e, args.Count < 3 ? "" : args[2].ToString(), args.Count < 4 ? "" : args[3].ToString());
+                if (rs != null) BackgroundLogEntities = rs;
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+        }
+        /// <summary>
+        /// 插入日志信息
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void InsertLogInfo(List<object> args)
+        {
+            if (args.Count > 1)
+            {
+                DateTime s;
+                if (!DateTime.TryParse(args[0].ToString(), out s)) return;
+                object dt = null;
+                if (args.Count == 2)
+                {
+                    dt = DataServiceHelper.Instanse.InsertRunningLog(s, args[1].ToString());
+                    if (dt != null) RunningLogEntities.Add(dt);
+                }
+                else if (args.Count == 3)
+                {
+                    dt = DataServiceHelper.Instanse.InsertSystemLog(s, args[1].ToString(), args[2].ToString());
+                    if (dt != null) SystemLogEntities.Add(dt);
+                }
+                else if (args.Count == 4)
+                {
+                    dt = DataServiceHelper.Instanse.InsertBackgroundLog(s, args[1].ToString(), Convert.ToInt32(args[2]));
+                    if (dt != null) BackgroundLogEntities.Add(dt);
+                }
+                InsertLogEntities = dt != null;
+            }
+        }
+        /// <summary>
+        /// 查询用户名密码是否存在
+        /// </summary>
+        /// <param name="ec"></param>
+        /// <param name="args"></param>
+        private void QueryUserAndPwd(List<object> args)
+        {
+            QueryUserAndPwdEntities.Clear();
+            if (args.Count > 0)
+            {
+                ArrayList rs = DataServiceHelper.Instanse.QueryUserAndPwd(args[0].ToString(), args.Count > 1 ? args[1].ToString() : "");
+                if (rs != null) QueryUserAndPwdEntities = rs;
+            }
+        }
+        /// <summary>
+        /// 用户分页查询
+        /// </summary>
+        /// <param name="args"></param>
+        private void QueryUserPage(List<object> args)
+        {
+            ArrayList rs = null;
+            if (UserEntities != null) UserEntities.Clear();
+            if (args.Count < 4) return;
+            int userCount = DataServiceHelper.Instanse.QueryUserCount(args[0].ToString(), args[1].ToString());
+            if (userCount > 0) UserTotalPage = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(userCount) / Convert.ToDouble(args[3])));
+            rs = DataServiceHelper.Instanse.QueryUser(args[0].ToString(), args[1].ToString(), null, Convert.ToInt32(args[2]), Convert.ToInt32(args[3]));
+            if (rs == null || rs.Count == 0)
+            {
+                UserTotalPage = 0;
+            }
+            else
+            {
+                UserEntities = rs;
+            }
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryUser.ToString()));
+        }
+        /// <summary>
+        /// 用户总页数查询
+        /// </summary>
+        /// <param name="args"></param>
+        private void QueryUserPageCount(List<object> args)
+        {
+            if (args.Count < 3) return;
+            int userCount = DataServiceHelper.Instanse.QueryUserCount(args[0].ToString(), args[1].ToString());
+            if (userCount >= 0) UserTotalPage = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(userCount) / Convert.ToDouble(args[2])));
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryUser.ToString()));
+        }
+        /// <summary>
+        /// 查询组分范围
+        /// </summary>
+        /// <param name="args"></param>
+        private void QueryComponentRangeInfo(List<object> args)
+        {
+            MonitoringComponentRangeEntities.Clear();
+            ArrayList rs = DataServiceHelper.Instanse.QueryComponentRangeInfo();
+            if (rs != null) MonitoringComponentRangeEntities = rs;
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+        }
+        /// <summary>
+        /// 关闭app
+        /// </summary>
+        /// <param name="args"></param>
+        private void CloseVedio(List<object> args)
+        {
+            if (ModelChanged != null) ModelChanged(this, new ModelEventArgs("CloseAPP"));
+            BusinessServiceHelper.Instanse.ExecuteBusiness(ExternalBusinessCmd.StopSystem, "", BusinessType.Set);
+            Thread.Sleep(2000);
+        }
+        ///// <summary>
+        ///// 修改组分范围
+        ///// </summary>
+        ///// <param name="args"></param>
+        //private void ChangeComponentRangeInfo(List<object> args)
+        //{
+        //    ChangeComponentRangeEntities = false;
+        //    if (args == null || args.Count < 1 || !(args[0] is ArrayList)) return;
+        //    ChangeComponentRangeEntities = DataServiceHelper.Instanse.ChangeComponentRange(args[0] as ArrayList);
+        //    if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+        //}
+
+        #region private
+
+        private void BackUpDataBase(List<object> args)
+        {
+            if (args == null || args.Count == 0) return;
+            backupDataBaseResult = DataServiceHelper.Instanse.BackUpDataBase(args[0].ToString());
+        }
+        private void RestoreDataBase(List<object> args)
+        {
+            if (args == null || args.Count == 0) return;
+            restoreBackupResult = DataServiceHelper.Instanse.RestoreDataBase(args[0].ToString());
+        }
+        private void QueryComInfo(List<object> args)
+        {
+            if (args.Count == 0)
+            {
+                QueryCommunicationEntities = DataServiceHelper.Instanse.QueryComInfo();
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+            if (args.Count > 0)
+            {
+                QueryComSingleEntities = DataServiceHelper.Instanse.QueryComInfo(args[0].ToString());
+                if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(typeof(ResultDataViewModel).Name));
+            }
+        }
+        /// <summary>
+        /// 新建通讯
+        /// </summary>
+        /// <param name="args"></param>
+        private void NewComInfo(List<object> args)
+        {
+            NewComInfoEntities = false;
+            if (args.Count < 2) return;
+            NewComInfoEntities = DataServiceHelper.Instanse.NewComInfo(args[0].ToString(), args[1].ToString());
+            if (NewComInfoEntities && UpdateDeviceCombx != null) UpdateDeviceCombx();
+        }
+        /// <summary>
+        /// 删除通讯信息
+        /// </summary>
+        /// <param name="args"></param>
+        private void DeleteComInfo(List<object> args)
+        {
+            try
+            {
+                DeleteComInfoEntities = false;
+                if (args.Count < 1) return;
+                DeleteComInfoEntities = DataServiceHelper.Instanse.DeleteCommunicationInfo(args[0].ToString());
+                if (DeleteComInfoEntities && UpdateDeviceCombx != null) UpdateDeviceCombx();
+            }
+            catch (Exception ex)
+            {
+                DeleteComInfoEntities = false;
+            }
+        }
+        /// <summary>
+        /// 查询数据统计
+        /// </summary>
+        /// <param name="args"></param>
+        private void QueryDataStatistics(List<object> args)
+        {
+            try
+            {
+                QueryDateStatisticsEntities.Clear();
+                if (args.Count >= 2)
+                {
+                    List<int> rs = DataServiceHelper.Instanse.Statistics(false, args[0].ToString(), args[1].ToString());
+                    if (rs == null || rs.Count < 0) return;
+                    QueryDateStatisticsEntities = rs;
+                    if (ModelChanged != null) ModelChanged(this, new ModelEventArgs(ResultDataViewModel.ExecuteCommand.ec_QueryDataStatistics.ToString()));
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        #endregion
+        /// <summary>
+        /// 遥测详细数据
+        /// </summary>
+        public class ExhaustDetailDataModel
+        {
+            /// <summary>
+            /// 原始 CO %
+            /// </summary>
+            public double OriginalCO { get; set; }
+
+            /// <summary>
+            /// 原始 CO2 %
+            /// </summary>
+            public double OriginalCO2 { get; set; }
+
+            /// <summary>
+            ///原始 HC ppm
+            /// </summary>
+            public double OriginalHC { get; set; }
+
+            /// <summary>
+            /// 原始HC ppm
+            /// </summary>
+            public double OriginalNO { get; set; }
+
+            /// <summary>
+            /// 通道1到2的时间
+            /// </summary>
+            public double T12 { get; set; }
+
+            /// <summary>
+            /// 通道1到3的时间
+            /// </summary>
+            public double T13 { get; set; }
+
+            /// <summary>
+            /// 不透光度实时光强
+            /// </summary>
+            public int RealIntensity { get; set; }
+
+            /// <summary>
+            /// 光谱仪校准参数
+            /// </summary>
+            public UVSParam UVSCalParam { get; set; }
+
+            /// <summary>
+            /// NO相关校准参数
+            /// </summary>
+            public UVSRangeParam UVSNOCalParam { get; set; }
+
+            /// <summary>
+            /// HC相关校准参数
+            /// </summary>
+            public UVSRangeParam UVSHCCalParam { get; set; }
+
+            /// <summary>
+            /// TDLAS校准参数
+            /// </summary>
+            public TDLASParam TDLASCalParam { get; set; }
+
+            /// <summary>
+            /// CO相关校准参数
+            /// </summary>
+            public TDLASRangeParam TDLASCOCalParam { get; set; }
+
+            /// <summary>
+            /// CO2相关校准参数
+            /// </summary>
+            public TDLASRangeParam TDLASCO2CalParam { get; set; }
+
+            /// <summary>
+            /// TDLAS平均光强
+            /// </summary>
+            public int TDLASAverageIntensity { get; set; }
+
+            /// <summary>
+            /// TDLAS谐波采样值
+            /// </summary>
+            public List<short> HarmData { get; set; }
+
+            /// <summary>
+            /// UVS光强数据
+            /// </summary>
+            public List<double> UVSData { get; set; }
+
+            /// <summary>
+            /// 吸光度数据
+            /// </summary>
+            public List<double> AbsorbData { get; set; }
+
+            /// <summary>
+            /// 车辆限值信息
+            /// </summary>
+            public CarLimitingInfo CarLimitParamInfo { get; set; }
+
+        }
+
+        /// <summary>
+        /// 单位参数
+        /// </summary>
+        [Serializable]
+        public class UnitParam
+        {
+            public string PM25;
+            public string PM10;
+            public string CO;
+            public string SO2;
+            public string NO2;
+            public string O3;
+        }
+    }
+
+}

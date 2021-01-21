@@ -1,0 +1,210 @@
+﻿namespace wayeal.exdevice
+{
+    partial class ucAnalysisDevice
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucAnalysisDevice));
+            this.sbRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.sbSave = new DevExpress.XtraEditors.SimpleButton();
+            this.cbeCommunication = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lcCommunication = new DevExpress.XtraEditors.LabelControl();
+            this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.ceUsedPm = new DevExpress.XtraEditors.CheckEdit();
+            this.lcUsedPm = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeCommunication.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceUsedPm.Properties)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // sbRefresh
+            // 
+            this.sbRefresh.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.sbRefresh.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbRefresh.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbRefresh.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbRefresh.Appearance.Image")));
+            this.sbRefresh.Appearance.Options.UseBackColor = true;
+            this.sbRefresh.Appearance.Options.UseFont = true;
+            this.sbRefresh.Appearance.Options.UseForeColor = true;
+            this.sbRefresh.Appearance.Options.UseImage = true;
+            this.sbRefresh.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbRefresh.AppearanceDisabled.Options.UseBackColor = true;
+            this.sbRefresh.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbRefresh.AppearanceHovered.Options.UseBackColor = true;
+            this.sbRefresh.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.sbRefresh.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbRefresh.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbRefresh.AppearancePressed.Image")));
+            this.sbRefresh.AppearancePressed.Options.UseBackColor = true;
+            this.sbRefresh.AppearancePressed.Options.UseFont = true;
+            this.sbRefresh.AppearancePressed.Options.UseImage = true;
+            this.sbRefresh.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbRefresh.Location = new System.Drawing.Point(255, 100);
+            this.sbRefresh.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.sbRefresh.Name = "sbRefresh";
+            this.sbRefresh.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.sbRefresh.Size = new System.Drawing.Size(78, 28);
+            this.sbRefresh.TabIndex = 75;
+            this.sbRefresh.Text = "Refresh";
+            this.sbRefresh.Click += new System.EventHandler(this.sbRefresh_Click);
+            // 
+            // sbSave
+            // 
+            this.sbSave.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.sbSave.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbSave.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbSave.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbSave.Appearance.Image")));
+            this.sbSave.Appearance.Options.UseBackColor = true;
+            this.sbSave.Appearance.Options.UseFont = true;
+            this.sbSave.Appearance.Options.UseForeColor = true;
+            this.sbSave.Appearance.Options.UseImage = true;
+            this.sbSave.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbSave.AppearanceDisabled.Options.UseBackColor = true;
+            this.sbSave.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbSave.AppearanceHovered.Options.UseBackColor = true;
+            this.sbSave.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.sbSave.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbSave.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbSave.AppearancePressed.Image")));
+            this.sbSave.AppearancePressed.Options.UseBackColor = true;
+            this.sbSave.AppearancePressed.Options.UseFont = true;
+            this.sbSave.AppearancePressed.Options.UseImage = true;
+            this.sbSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbSave.Location = new System.Drawing.Point(355, 100);
+            this.sbSave.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.sbSave.Name = "sbSave";
+            this.sbSave.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.sbSave.Size = new System.Drawing.Size(78, 28);
+            this.sbSave.TabIndex = 74;
+            this.sbSave.Text = "Save";
+            this.sbSave.Click += new System.EventHandler(this.sbSave_Click);
+            // 
+            // cbeCommunication
+            // 
+            this.cbeCommunication.Location = new System.Drawing.Point(285, 69);
+            this.cbeCommunication.Name = "cbeCommunication";
+            this.cbeCommunication.Properties.AllowFocused = false;
+            this.cbeCommunication.Properties.AllowMouseWheel = false;
+            this.cbeCommunication.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.cbeCommunication.Properties.Appearance.Options.UseFont = true;
+            this.cbeCommunication.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbeCommunication.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cbeCommunication.Size = new System.Drawing.Size(148, 22);
+            this.cbeCommunication.TabIndex = 73;
+            // 
+            // lcCommunication
+            // 
+            this.lcCommunication.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcCommunication.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lcCommunication.Appearance.Options.UseFont = true;
+            this.lcCommunication.Appearance.Options.UseForeColor = true;
+            this.lcCommunication.Appearance.Options.UseTextOptions = true;
+            this.lcCommunication.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lcCommunication.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcCommunication.Location = new System.Drawing.Point(242, 69);
+            this.lcCommunication.Name = "lcCommunication";
+            this.lcCommunication.Size = new System.Drawing.Size(37, 22);
+            this.lcCommunication.TabIndex = 72;
+            this.lcCommunication.Text = "Com:";
+            // 
+            // mvvmContext1
+            // 
+            this.mvvmContext1.ContainerControl = this;
+            // 
+            // ceUsedPm
+            // 
+            this.ceUsedPm.EditValue = 0;
+            this.ceUsedPm.Location = new System.Drawing.Point(285, 36);
+            this.ceUsedPm.Name = "ceUsedPm";
+            this.ceUsedPm.Properties.AllowFocused = false;
+            this.ceUsedPm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ceUsedPm.Properties.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("ceUsedPm.Properties.Appearance.Image")));
+            this.ceUsedPm.Properties.Appearance.Options.UseFont = true;
+            this.ceUsedPm.Properties.Appearance.Options.UseImage = true;
+            this.ceUsedPm.Properties.Caption = "";
+            this.ceUsedPm.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.UserDefined;
+            this.ceUsedPm.Properties.ImageOptions.ImageChecked = ((System.Drawing.Image)(resources.GetObject("ceUsedPm.Properties.ImageOptions.ImageChecked")));
+            this.ceUsedPm.Properties.ImageOptions.ImageUnchecked = ((System.Drawing.Image)(resources.GetObject("ceUsedPm.Properties.ImageOptions.ImageUnchecked")));
+            this.ceUsedPm.Properties.ValueChecked = 1;
+            this.ceUsedPm.Properties.ValueUnchecked = 0;
+            this.ceUsedPm.Size = new System.Drawing.Size(58, 22);
+            this.ceUsedPm.TabIndex = 94;
+            // 
+            // lcUsedPm
+            // 
+            this.lcUsedPm.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcUsedPm.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lcUsedPm.Appearance.Options.UseFont = true;
+            this.lcUsedPm.Appearance.Options.UseForeColor = true;
+            this.lcUsedPm.Appearance.Options.UseTextOptions = true;
+            this.lcUsedPm.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lcUsedPm.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcUsedPm.Location = new System.Drawing.Point(237, 35);
+            this.lcUsedPm.Name = "lcUsedPm";
+            this.lcUsedPm.Size = new System.Drawing.Size(42, 22);
+            this.lcUsedPm.TabIndex = 93;
+            this.lcUsedPm.Text = "Used:";
+            // 
+            // ucAnalysisDevice
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.ceUsedPm);
+            this.Controls.Add(this.lcUsedPm);
+            this.Controls.Add(this.sbRefresh);
+            this.Controls.Add(this.sbSave);
+            this.Controls.Add(this.cbeCommunication);
+            this.Controls.Add(this.lcCommunication);
+            this.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.Name = "ucAnalysisDevice";
+            this.Size = new System.Drawing.Size(641, 440);
+            this.Controls.SetChildIndex(this.lcCommunication, 0);
+            this.Controls.SetChildIndex(this.cbeCommunication, 0);
+            this.Controls.SetChildIndex(this.sbSave, 0);
+            this.Controls.SetChildIndex(this.sbRefresh, 0);
+            this.Controls.SetChildIndex(this.lcUsedPm, 0);
+            this.Controls.SetChildIndex(this.ceUsedPm, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.cbeCommunication.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceUsedPm.Properties)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraEditors.SimpleButton sbRefresh;
+        private DevExpress.XtraEditors.SimpleButton sbSave;
+        private DevExpress.XtraEditors.ComboBoxEdit cbeCommunication;
+        private DevExpress.XtraEditors.LabelControl lcCommunication;
+        private DevExpress.Utils.MVVM.MVVMContext mvvmContext1;
+        private DevExpress.XtraEditors.CheckEdit ceUsedPm;
+        private DevExpress.XtraEditors.LabelControl lcUsedPm;
+    }
+}

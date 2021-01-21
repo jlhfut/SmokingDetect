@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DB59C53-6727-4DB8-AB41-C46D1A752640}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>wayeal.os.exhaust</RootNamespace>
+    <AssemblyName>WYExhaust</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;VerticalDistribution</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.6\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v18.1" />
+    <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v18.1" />
+    <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Diagram.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dialogs.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v18.1.Drawing, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v18.1.Extensions, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core" />
+    <Reference Include="DevExpress.SpellChecker.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.Wizard, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDiagram.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDialogs.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.1.Extensions, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpellChecker.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\DllRelease\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="NPOI, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.5.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlSugar, Version=5.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SqlSugar.5.0.1.7\lib\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vlc.DotNet.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Core.3.1.0\lib\net45\Vlc.DotNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Core.Interops.3.1.0\lib\net45\Vlc.DotNet.Core.Interops.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Forms, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Forms.3.1.0\lib\net45\Vlc.DotNet.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Wpf, Version=3.1.0.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Wpf.3.1.0\lib\net45\Vlc.DotNet.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Wayee.Services.CommonDataStruct">
+      <HintPath>..\ServiceInterface\Wayee.Services.CommonDataStruct.dll</HintPath>
+    </Reference>
+    <Reference Include="Wayee.Services.IBusinessLogicServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ServiceInterface\Wayee.Services.IBusinessLogicServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wayee.Services.IDataServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ServiceInterface\Wayee.Services.IDataServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wayee.Services.IUserManagerServer">
+      <HintPath>..\ServiceInterface\Wayee.Services.IUserManagerServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Wayee.Services.RemotingServerBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ServiceInterface\Wayee.Services.RemotingServerBase.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WYDAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\ServiceInterface\WYDAO.dll</HintPath>
+    </Reference>
+    <Reference Include="WYDBC, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ServiceInterface\WYDBC.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BAL\IBAL\IDeviceListBAL.cs" />
+    <Compile Include="BAL\IBAL\ILogBAL.cs" />
+    <Compile Include="BAL\IBAL\IStationBAL.cs" />
+    <Compile Include="BAL\IBAL\IUserListBAL.cs" />
+    <Compile Include="BAL\IBAL\IVehicleBAL.cs" />
+    <Compile Include="BAL\ImBAL\ImDeviceListBAL.cs" />
+    <Compile Include="BAL\ImBAL\ImStationBAL.cs" />
+    <Compile Include="BAL\ImBAL\ImUserListBAL.cs" />
+    <Compile Include="BAL\ImBAL\ImVehicleBAL.cs" />
+    <Compile Include="DAL\IDAL\IDeviceListDAL.cs" />
+    <Compile Include="DAL\IDAL\ILogDAL.cs" />
+    <Compile Include="DAL\IDAL\IStationDAL.cs" />
+    <Compile Include="DAL\IDAL\IUserListDAL.cs" />
+    <Compile Include="BAL\ImBAL\ImLogBAL.cs" />
+    <Compile Include="DAL\IDAL\IVehicleDAL.cs" />
+    <Compile Include="DAL\ImDAL\ImDeviceListDAL.cs" />
+    <Compile Include="DAL\ImDAL\ImLogDAL.cs" />
+    <Compile Include="DAL\ImDAL\ImStationDAL.cs" />
+    <Compile Include="DAL\ImDAL\ImUserListDAL.cs" />
+    <Compile Include="DAL\ImDAL\ImVehicleDAL.cs" />
+    <Compile Include="DAL\ImDAL\SqlConnect.cs" />
+    <Compile Include="DataServiceHelper.cs" />
+    <Compile Include="DBUtils\DBBackupHelper.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\add.Designer.cs">
+      <DependentUpon>add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\AddConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\AddConnect.Designer.cs">
+      <DependentUpon>AddConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfAbout.designer.cs">
+      <DependentUpon>wfAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfAddCommunication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfAddCommunication.Designer.cs">
+      <DependentUpon>wfAddCommunication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfBase.designer.cs">
+      <DependentUpon>wfBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfChangeUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfChangeUser.designer.cs">
+      <DependentUpon>wfChangeUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfDeviceDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfDeviceDelete.Designer.cs">
+      <DependentUpon>wfDeviceDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfLogin.designer.cs">
+      <DependentUpon>wfLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfMain.designer.cs">
+      <DependentUpon>wfMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfModifyPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfModifyPassword.designer.cs">
+      <DependentUpon>wfModifyPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfDelte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfDelte.Designer.cs">
+      <DependentUpon>wfDelte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="From\wfVehileDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="From\wfVehileDetails.Designer.cs">
+      <DependentUpon>wfVehileDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HKDevice\CHCNetSDK.cs" />
+    <Compile Include="HKDevice\DeviceUtils.cs" />
+    <Compile Include="LedAct.cs" />
+    <Compile Include="LogUtils\LogHelper.cs" />
+    <Compile Include="Models\DeviceList.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\StationList.cs" />
+    <Compile Include="Models\UserList.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Modules\ucAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucAbout.Designer.cs">
+      <DependentUpon>ucAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucAssistManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucAssistManage.Designer.cs">
+      <DependentUpon>ucAssistManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucBackgroundLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucBackgroundLog.designer.cs">
+      <DependentUpon>ucBackgroundLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucCountInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucCountInfo.Designer.cs">
+      <DependentUpon>ucCountInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucDevicemanager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucDevicemanager.Designer.cs">
+      <DependentUpon>ucDevicemanager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucLimitingSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucLimitingSettings.Designer.cs">
+      <DependentUpon>ucLimitingSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucMain.designer.cs">
+      <DependentUpon>ucMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucManagerBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucManagerBase.designer.cs">
+      <DependentUpon>ucManagerBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucRealHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucRealHistory.Designer.cs">
+      <DependentUpon>ucRealHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucStationSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucStationSetting.designer.cs">
+      <DependentUpon>ucStationSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucSystemLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucSystemLog.designer.cs">
+      <DependentUpon>ucSystemLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ucUserManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\ucUserManager.Designer.cs">
+      <DependentUpon>ucUserManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MouseHook.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Controls.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucBase.Designer.cs">
+      <DependentUpon>ucBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BaseModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ResultDataViewModel.cs" />
+    <EmbeddedResource Include="frmMain.en.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\add.resx">
+      <DependentUpon>add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\AddConnect.resx">
+      <DependentUpon>AddConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfAbout.resx">
+      <DependentUpon>wfAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfAddCommunication.resx">
+      <DependentUpon>wfAddCommunication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfBase.resx">
+      <DependentUpon>wfBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfChangeUser.resx">
+      <DependentUpon>wfChangeUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfDeviceDelete.resx">
+      <DependentUpon>wfDeviceDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfLogin.resx">
+      <DependentUpon>wfLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfMain.resx">
+      <DependentUpon>wfMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfModifyPassword.resx">
+      <DependentUpon>wfModifyPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfDelte.resx">
+      <DependentUpon>wfDelte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="From\wfVehileDetails.resx">
+      <DependentUpon>wfVehileDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucAssistManage.resx">
+      <DependentUpon>ucAssistManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucBackgroundLog.resx">
+      <DependentUpon>ucBackgroundLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucCountInfo.resx">
+      <DependentUpon>ucCountInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucDevicemanager.resx">
+      <DependentUpon>ucDevicemanager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucLimitingSettings.resx">
+      <DependentUpon>ucLimitingSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucMain.resx">
+      <DependentUpon>ucMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucManagerBase.resx">
+      <DependentUpon>ucManagerBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucRealHistory.resx">
+      <DependentUpon>ucRealHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucStationSetting.resx">
+      <DependentUpon>ucStationSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucSystemLog.resx">
+      <DependentUpon>ucSystemLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\ucUserManager.resx">
+      <DependentUpon>ucUserManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\XRDesignRibbonControllerResources.resx" />
+    <EmbeddedResource Include="UserControls\ucBase.resx">
+      <DependentUpon>ucBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="frmMain.resx.bak" />
+    <None Include="log4net.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Apps\PluginBase\PluginBase.csproj">
+      <Project>{9b5ba439-fbd6-40b6-8aea-d2acec73a39b}</Project>
+      <Name>PluginBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Apps\PluginManager\PluginManager.csproj">
+      <Project>{5e50855f-92af-47bc-a90c-23d47915a745}</Project>
+      <Name>PluginManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\ComponentResourceManager\ComponentResourceManager.csproj">
+      <Project>{db55b582-8d7a-4e50-a451-961b879b176d}</Project>
+      <Name>ComponentResourceManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\ComponetResourecLocalizer\ComponetResourecLocalizer.csproj">
+      <Project>{a955c343-c274-437c-ba6e-6163e40eb452}</Project>
+      <Name>ComponetResourecLocalizer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\LocalizationHelper\LocalizationHelper.csproj">
+      <Project>{a7b2f840-b6ff-4377-bc11-1d29f8b0db5a}</Project>
+      <Name>LocalizationHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\Localizaton\Localizaton.csproj">
+      <Project>{b0e4db30-12b3-47b3-8b91-415c67fbf2e3}</Project>
+      <Name>Localizaton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Language\zh_CN\zh_CN.csproj">
+      <Project>{8a1325c8-1da2-43bf-a891-5bef5b2fce52}</Project>
+      <Name>zh_CN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\ControlIterate\ControlIterate.csproj">
+      <Project>{aa33fc75-225d-42ed-ad89-57bd8dbeeef3}</Project>
+      <Name>ControlIterate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validate\uv_Validity\exhaust_Validity.csproj">
+      <Project>{9bc302cb-f026-473b-a4c3-2faf5c067097}</Project>
+      <Name>exhaust_Validity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validate\ValidateLoader\Validator.csproj">
+      <Project>{9b17d6db-736b-4878-b565-e1badd6f65f6}</Project>
+      <Name>Validator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validate\ValidateManager\ValidateManager.csproj">
+      <Project>{1ab7e6d5-96a0-4766-8521-7d0ad2588462}</Project>
+      <Name>ValidateManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\未选中\站点设置未选中.png" />
+    <None Include="Resources\未选中\用户管理未选中.png" />
+    <None Include="Resources\未选中\限值设置未选中.png" />
+    <None Include="Resources\未选中\尾气数据未选中.png" />
+    <None Include="Resources\未选中\通讯管理未选中.png" />
+    <None Include="Resources\未选中\设备管理未选中.png" />
+    <None Include="Resources\未选中\日志管理未选中.png" />
+    <None Include="Resources\未选中\浓度校准未选中.png" />
+    <None Include="Resources\未选中\空气质量未选中.png" />
+    <None Include="Resources\未选中\角色管理未选中.png" />
+    <None Include="Resources\未选中\关于未选中.png" />
+    <None Include="Resources\未选中\辅助设置未选中.png" />
+    <None Include="Resources\未选中\帮助文档未选中.png" />
+    <None Include="Resources\选中\站点设置选中.png" />
+    <None Include="Resources\选中\用户管理选中.png" />
+    <None Include="Resources\选中\限值设置选中.png" />
+    <None Include="Resources\选中\尾气数据选中.png" />
+    <None Include="Resources\选中\通讯管理选中.png" />
+    <None Include="Resources\选中\设备管理选中.png" />
+    <None Include="Resources\选中\日志管理选中.png" />
+    <None Include="Resources\选中\浓度校准选中.png" />
+    <None Include="Resources\选中\角色管理选中.png" />
+    <None Include="Resources\选中\关于选中.png" />
+    <None Include="Resources\选中\辅助设置选中.png" />
+    <None Include="Resources\选中\帮助文档选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\关闭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\开启.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\单选未选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\单选选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\复选未选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\复选选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\选中\空气质量选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\离线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\其他图标\在线.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\ServiceConfig.xml" />
+    <None Include="Resources\选中按钮3.png" />
+    <None Include="Resources\选中按钮2.png" />
+    <None Include="Resources\选中按钮1.png" />
+    <None Include="Resources\选中按钮.png" />
+    <None Include="Resources\其他图标\Preview.png" />
+    <Content Include="Resources\zh-CN\DevExpress.Data.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.DataAccess.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.DataAccess.v18.2.UI.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.Diagram.v18.2.Core.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.Office.v18.2.Core.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.Pdf.v18.2.Core.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.PivotGrid.v18.2.Core.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.Printing.v18.2.Core.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.RichEdit.v18.2.Core.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.Sparkline.v18.2.Core.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.Utils.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.Utils.v18.2.UI.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.Xpo.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraBars.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraCharts.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraCharts.v18.2.Wizard.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraEditors.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraGrid.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraLayout.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraNavBar.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraPivotGrid.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraPrinting.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraRichEdit.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraScheduler.v18.2.Core.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraScheduler.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraTreeList.v18.2.resources.dll" />
+    <Content Include="Resources\zh-CN\DevExpress.XtraVerticalGrid.v18.2.resources.dll" />
+    <Content Include="Resources\其他图标\尾气主页.ico" />
+    <Content Include="Resources\其他图标\展开.png" />
+    <Content Include="Resources\其他图标\形状867.png" />
+    <Content Include="Resources\其他图标\收起.png" />
+    <Content Include="Resources\其他图标\用户.png" />
+    <Content Include="Resources\其他图标\记录.png" />
+    <None Include="Resources\按钮\9028.jpg" />
+    <None Include="Resources\历史数据.png" />
+    <None Include="Resources\实时监测未选中.png" />
+    <None Include="Resources\实时监测未选中1.png" />
+    <Content Include="Resources\按钮\关于外界的按钮.png" />
+    <Content Include="Resources\按钮\关于外界的按钮按下.png" />
+    <Content Include="Resources\按钮\创建报告.png" />
+    <Content Include="Resources\按钮\创建报告按下.png" />
+    <Content Include="Resources\按钮\取消大.png" />
+    <Content Include="Resources\按钮\取消大按下.png" />
+    <Content Include="Resources\按钮\取消小.png" />
+    <Content Include="Resources\按钮\取消小按下.png" />
+    <Content Include="Resources\按钮\弹窗上的按钮.png" />
+    <Content Include="Resources\按钮\弹窗上的按钮按下.png" />
+    <Content Include="Resources\按钮\按钮失效7528.jpg" />
+    <Content Include="Resources\按钮\按钮失效8028.jpg" />
+    <Content Include="Resources\按钮\按钮失效9028.jpg" />
+    <Content Include="Resources\按钮\按钮失效9928.jpg" />
+    <Content Include="Resources\按钮\按钮按下7528.jpg" />
+    <Content Include="Resources\按钮\按钮按下8028.jpg" />
+    <Content Include="Resources\按钮\按钮按下9028.jpg" />
+    <Content Include="Resources\按钮\按钮按下9928.jpg" />
+    <Content Include="Resources\按钮\按钮蓝7528.jpg" />
+    <Content Include="Resources\按钮\按钮蓝8028.jpg" />
+    <Content Include="Resources\按钮\按钮蓝9028.jpg" />
+    <Content Include="Resources\按钮\按钮蓝9928.jpg" />
+    <Content Include="Resources\按钮\按钮蓝按下7528.jpg" />
+    <Content Include="Resources\按钮\按钮蓝按下8028.jpg" />
+    <Content Include="Resources\按钮\按钮蓝按下9028.jpg" />
+    <Content Include="Resources\按钮\按钮蓝按下9928.jpg" />
+    <Content Include="Resources\按钮\数据库备份与还原.png" />
+    <Content Include="Resources\按钮\数据库备份与还原按下.png" />
+    <Content Include="Resources\按钮\普通按钮.png" />
+    <Content Include="Resources\按钮\普通按钮按下.png" />
+    <Content Include="Resources\按钮\校准.png" />
+    <Content Include="Resources\按钮\校准按下.png" />
+    <Content Include="Resources\按钮\计算大.png" />
+    <Content Include="Resources\按钮\计算大按下.png" />
+    <Content Include="Resources\按钮\计算小.png" />
+    <Content Include="Resources\按钮\计算小按下.png" />
+    <Content Include="Resources\按钮\进入校准.png" />
+    <Content Include="Resources\按钮\进入校准按下.png" />
+    <None Include="Resources\按钮背景未选中.png" />
+    <None Include="Resources\数据统计.png" />
+    <None Include="Resources\按钮未选中.png" />
+    <None Include="Resources\按钮未选中1.png" />
+    <Content Include="Resources\未选中\实时监测未选中.png" />
+    <Content Include="Resources\未选中\按钮背景未选中.png" />
+    <Content Include="Resources\未选中\数据统计未选中.png" />
+    <None Include="Resources\设备管理选中.png" />
+    <None Include="Resources\设备管理选中1.png" />
+    <None Include="Resources\矢量智能对象.png" />
+    <None Include="Resources\椭圆 8 拷贝 3%402x.png" />
+    <None Include="Resources\椭圆 8 拷贝 3%402x1.png" />
+    <None Include="Resources\椭圆 8 拷贝 3%402x2.png" />
+    <None Include="Resources\椭圆 10 拷贝 2%402x.png" />
+    <None Include="Resources\椭圆 10 拷贝%402x.png" />
+    <None Include="Resources\椭圆 10 拷贝%402x1.png" />
+    <None Include="Resources\椭圆 9 拷贝 2%402x.png" />
+    <None Include="Resources\椭圆 9 拷贝%402x.png" />
+    <None Include="Resources\椭圆 9 拷贝%402x1.png" />
+    <None Include="Resources\矩形 14 拷贝 2%402x.png" />
+    <None Include="Resources\矩形 14 拷贝%402x.png" />
+    <None Include="Resources\矩形 14 拷贝%402x1.png" />
+    <None Include="Resources\矩形 14 拷贝%402x2.png" />
+    <None Include="Resources\矩形 14 拷贝 4%402x.png" />
+    <None Include="Resources\矩形 14 拷贝 3%402x.png" />
+    <None Include="Resources\矩形 14 拷贝 3%402x1.png" />
+    <None Include="Resources\状态1 %284%29.png" />
+    <Content Include="Resources\选中\实时监测.png" />
+    <Content Include="Resources\选中\数据统计选中.png" />
+    <None Include="Resources\首页.png" />
+    <None Include="Resources\上页.png" />
+    <None Include="Resources\下页.png" />
+    <Content Include="Resources\其他图标\上一页.png" />
+    <Content Include="Resources\其他图标\下一页.png" />
+    <Content Include="Resources\其他图标\数据库.png" />
+    <None Include="Resources\末页.png" />
+    <None Include="Resources\其他图标\编辑.png" />
+    <None Include="Resources\其他图标\新增.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DllRelease\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\VideoLAN.LibVLC.Windows.3.0.11\build\VideoLAN.LibVLC.Windows.targets" Condition="Exists('..\packages\VideoLAN.LibVLC.Windows.3.0.11\build\VideoLAN.LibVLC.Windows.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\VideoLAN.LibVLC.Windows.3.0.11\build\VideoLAN.LibVLC.Windows.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\VideoLAN.LibVLC.Windows.3.0.11\build\VideoLAN.LibVLC.Windows.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

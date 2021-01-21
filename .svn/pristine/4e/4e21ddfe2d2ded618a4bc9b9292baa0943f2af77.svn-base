@@ -1,0 +1,753 @@
+﻿namespace wayeal.os.exhaust.Forms
+{
+    partial class wfDataAnalysis
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.pBorder = new System.Windows.Forms.Panel();
+            this.pcData = new DevExpress.XtraEditors.PanelControl();
+            this.gcDataCalculation = new DevExpress.XtraEditors.GroupControl();
+            this.lcResult = new DevExpress.XtraEditors.LabelControl();
+            this.lcResultValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcTestingNumber = new DevExpress.XtraEditors.LabelControl();
+            this.lcNumberValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcBlackness = new DevExpress.XtraEditors.LabelControl();
+            this.lcBlacknessValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcOpSmoke = new DevExpress.XtraEditors.LabelControl();
+            this.lcCO2 = new DevExpress.XtraEditors.LabelControl();
+            this.lcCO2Value = new DevExpress.XtraEditors.LabelControl();
+            this.lcOpsmokeValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcHC = new DevExpress.XtraEditors.LabelControl();
+            this.lcNo = new DevExpress.XtraEditors.LabelControl();
+            this.lcCOValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcHCValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcCO = new DevExpress.XtraEditors.LabelControl();
+            this.lcNOValue = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.gcDataCollection = new DevExpress.XtraEditors.GroupControl();
+            this.lcCO2DC = new DevExpress.XtraEditors.LabelControl();
+            this.lcCO2DCvalue = new DevExpress.XtraEditors.LabelControl();
+            this.lcCODC = new DevExpress.XtraEditors.LabelControl();
+            this.lcCODCvalue = new DevExpress.XtraEditors.LabelControl();
+            this.lcHCDC = new DevExpress.XtraEditors.LabelControl();
+            this.lcNODC = new DevExpress.XtraEditors.LabelControl();
+            this.lcNODCvalue = new DevExpress.XtraEditors.LabelControl();
+            this.lcHCDCvalue = new DevExpress.XtraEditors.LabelControl();
+            this.lcLightIntensity = new DevExpress.XtraEditors.LabelControl();
+            this.lcLightIntensityValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcT13 = new DevExpress.XtraEditors.LabelControl();
+            this.lcT12 = new DevExpress.XtraEditors.LabelControl();
+            this.lcT1Value = new DevExpress.XtraEditors.LabelControl();
+            this.lcT2value = new DevExpress.XtraEditors.LabelControl();
+            this.pcPage = new DevExpress.XtraEditors.PanelControl();
+            this.lcNextPage = new DevExpress.XtraEditors.LabelControl();
+            this.lcPrePage = new DevExpress.XtraEditors.LabelControl();
+            this.sbDeriveSpectrogram = new DevExpress.XtraEditors.SimpleButton();
+            this.pcSpectrogram = new DevExpress.XtraEditors.PanelControl();
+            this.pcChart = new DevExpress.XtraEditors.PanelControl();
+            this.rgSpectralView = new DevExpress.XtraEditors.RadioGroup();
+            this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.dlgSave = new DevExpress.XtraEditors.XtraSaveFileDialog(this.components);
+            this.pBorder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcData)).BeginInit();
+            this.pcData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDataCalculation)).BeginInit();
+            this.gcDataCalculation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDataCollection)).BeginInit();
+            this.gcDataCollection.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcPage)).BeginInit();
+            this.pcPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcSpectrogram)).BeginInit();
+            this.pcSpectrogram.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgSpectralView.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pBorder
+            // 
+            this.pBorder.Controls.Add(this.pcData);
+            this.pBorder.Controls.Add(this.pcPage);
+            this.pBorder.Controls.Add(this.pcSpectrogram);
+            this.pBorder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pBorder.Location = new System.Drawing.Point(0, 0);
+            this.pBorder.Margin = new System.Windows.Forms.Padding(4);
+            this.pBorder.Name = "pBorder";
+            this.pBorder.Size = new System.Drawing.Size(1263, 709);
+            this.pBorder.TabIndex = 3;
+            // 
+            // pcData
+            // 
+            this.pcData.Appearance.BackColor = System.Drawing.Color.White;
+            this.pcData.Appearance.Options.UseBackColor = true;
+            this.pcData.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcData.Controls.Add(this.gcDataCalculation);
+            this.pcData.Controls.Add(this.panelControl1);
+            this.pcData.Controls.Add(this.gcDataCollection);
+            this.pcData.Location = new System.Drawing.Point(857, 0);
+            this.pcData.Margin = new System.Windows.Forms.Padding(4);
+            this.pcData.Name = "pcData";
+            this.pcData.Padding = new System.Windows.Forms.Padding(0, 10, 12, 8);
+            this.pcData.Size = new System.Drawing.Size(406, 667);
+            this.pcData.TabIndex = 8;
+            // 
+            // gcDataCalculation
+            // 
+            this.gcDataCalculation.Appearance.BackColor = System.Drawing.Color.White;
+            this.gcDataCalculation.Appearance.BackColor2 = System.Drawing.Color.White;
+            this.gcDataCalculation.Appearance.BorderColor = System.Drawing.Color.White;
+            this.gcDataCalculation.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.gcDataCalculation.Appearance.Options.UseBackColor = true;
+            this.gcDataCalculation.Appearance.Options.UseBorderColor = true;
+            this.gcDataCalculation.Appearance.Options.UseForeColor = true;
+            this.gcDataCalculation.AppearanceCaption.BackColor = System.Drawing.Color.White;
+            this.gcDataCalculation.AppearanceCaption.BackColor2 = System.Drawing.Color.White;
+            this.gcDataCalculation.AppearanceCaption.BorderColor = System.Drawing.Color.White;
+            this.gcDataCalculation.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
+            this.gcDataCalculation.AppearanceCaption.ForeColor = System.Drawing.Color.Black;
+            this.gcDataCalculation.AppearanceCaption.Options.UseBackColor = true;
+            this.gcDataCalculation.AppearanceCaption.Options.UseBorderColor = true;
+            this.gcDataCalculation.AppearanceCaption.Options.UseFont = true;
+            this.gcDataCalculation.AppearanceCaption.Options.UseForeColor = true;
+            this.gcDataCalculation.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.gcDataCalculation.CaptionImageOptions.AllowGlyphSkinning = true;
+            this.gcDataCalculation.Controls.Add(this.lcResult);
+            this.gcDataCalculation.Controls.Add(this.lcResultValue);
+            this.gcDataCalculation.Controls.Add(this.lcTestingNumber);
+            this.gcDataCalculation.Controls.Add(this.lcNumberValue);
+            this.gcDataCalculation.Controls.Add(this.lcBlackness);
+            this.gcDataCalculation.Controls.Add(this.lcBlacknessValue);
+            this.gcDataCalculation.Controls.Add(this.lcOpSmoke);
+            this.gcDataCalculation.Controls.Add(this.lcCO2);
+            this.gcDataCalculation.Controls.Add(this.lcCO2Value);
+            this.gcDataCalculation.Controls.Add(this.lcOpsmokeValue);
+            this.gcDataCalculation.Controls.Add(this.lcHC);
+            this.gcDataCalculation.Controls.Add(this.lcNo);
+            this.gcDataCalculation.Controls.Add(this.lcCOValue);
+            this.gcDataCalculation.Controls.Add(this.lcHCValue);
+            this.gcDataCalculation.Controls.Add(this.lcCO);
+            this.gcDataCalculation.Controls.Add(this.lcNOValue);
+            this.gcDataCalculation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcDataCalculation.GroupStyle = DevExpress.Utils.GroupStyle.Card;
+            this.gcDataCalculation.Location = new System.Drawing.Point(0, 201);
+            this.gcDataCalculation.Name = "gcDataCalculation";
+            this.gcDataCalculation.Size = new System.Drawing.Size(394, 458);
+            this.gcDataCalculation.TabIndex = 41;
+            this.gcDataCalculation.Text = "DataCalculation";
+            // 
+            // lcResult
+            // 
+            this.lcResult.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcResult.Appearance.Options.UseFont = true;
+            this.lcResult.Location = new System.Drawing.Point(48, 185);
+            this.lcResult.Name = "lcResult";
+            this.lcResult.Size = new System.Drawing.Size(35, 16);
+            this.lcResult.TabIndex = 55;
+            this.lcResult.Text = "Result";
+            // 
+            // lcResultValue
+            // 
+            this.lcResultValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcResultValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcResultValue.Appearance.Options.UseFont = true;
+            this.lcResultValue.Appearance.Options.UseForeColor = true;
+            this.lcResultValue.Location = new System.Drawing.Point(156, 185);
+            this.lcResultValue.Name = "lcResultValue";
+            this.lcResultValue.Size = new System.Drawing.Size(8, 16);
+            this.lcResultValue.TabIndex = 56;
+            this.lcResultValue.Text = "0";
+            // 
+            // lcTestingNumber
+            // 
+            this.lcTestingNumber.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcTestingNumber.Appearance.Options.UseFont = true;
+            this.lcTestingNumber.Location = new System.Drawing.Point(48, 151);
+            this.lcTestingNumber.Name = "lcTestingNumber";
+            this.lcTestingNumber.Size = new System.Drawing.Size(91, 16);
+            this.lcTestingNumber.TabIndex = 57;
+            this.lcTestingNumber.Text = "Testing Number";
+            // 
+            // lcNumberValue
+            // 
+            this.lcNumberValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcNumberValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcNumberValue.Appearance.Options.UseFont = true;
+            this.lcNumberValue.Appearance.Options.UseForeColor = true;
+            this.lcNumberValue.Location = new System.Drawing.Point(156, 151);
+            this.lcNumberValue.Name = "lcNumberValue";
+            this.lcNumberValue.Size = new System.Drawing.Size(8, 16);
+            this.lcNumberValue.TabIndex = 54;
+            this.lcNumberValue.Text = "0";
+            // 
+            // lcBlackness
+            // 
+            this.lcBlackness.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcBlackness.Appearance.Options.UseFont = true;
+            this.lcBlackness.Location = new System.Drawing.Point(234, 117);
+            this.lcBlackness.Name = "lcBlackness";
+            this.lcBlackness.Size = new System.Drawing.Size(91, 16);
+            this.lcBlackness.TabIndex = 50;
+            this.lcBlackness.Text = "Blackness(level)";
+            // 
+            // lcBlacknessValue
+            // 
+            this.lcBlacknessValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcBlacknessValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcBlacknessValue.Appearance.Options.UseFont = true;
+            this.lcBlacknessValue.Appearance.Options.UseForeColor = true;
+            this.lcBlacknessValue.Location = new System.Drawing.Point(342, 117);
+            this.lcBlacknessValue.Name = "lcBlacknessValue";
+            this.lcBlacknessValue.Size = new System.Drawing.Size(8, 16);
+            this.lcBlacknessValue.TabIndex = 51;
+            this.lcBlacknessValue.Text = "0";
+            // 
+            // lcOpSmoke
+            // 
+            this.lcOpSmoke.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcOpSmoke.Appearance.Options.UseFont = true;
+            this.lcOpSmoke.Location = new System.Drawing.Point(48, 117);
+            this.lcOpSmoke.Name = "lcOpSmoke";
+            this.lcOpSmoke.Size = new System.Drawing.Size(77, 16);
+            this.lcOpSmoke.TabIndex = 53;
+            this.lcOpSmoke.Text = "OpSmoke(%)";
+            // 
+            // lcCO2
+            // 
+            this.lcCO2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcCO2.Appearance.Options.UseFont = true;
+            this.lcCO2.Location = new System.Drawing.Point(234, 83);
+            this.lcCO2.Name = "lcCO2";
+            this.lcCO2.Size = new System.Drawing.Size(45, 16);
+            this.lcCO2.TabIndex = 52;
+            this.lcCO2.Text = "CO₂(%)";
+            // 
+            // lcCO2Value
+            // 
+            this.lcCO2Value.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcCO2Value.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcCO2Value.Appearance.Options.UseFont = true;
+            this.lcCO2Value.Appearance.Options.UseForeColor = true;
+            this.lcCO2Value.Location = new System.Drawing.Point(342, 83);
+            this.lcCO2Value.Name = "lcCO2Value";
+            this.lcCO2Value.Size = new System.Drawing.Size(8, 16);
+            this.lcCO2Value.TabIndex = 48;
+            this.lcCO2Value.Text = "0";
+            // 
+            // lcOpsmokeValue
+            // 
+            this.lcOpsmokeValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcOpsmokeValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcOpsmokeValue.Appearance.Options.UseFont = true;
+            this.lcOpsmokeValue.Appearance.Options.UseForeColor = true;
+            this.lcOpsmokeValue.Location = new System.Drawing.Point(156, 117);
+            this.lcOpsmokeValue.Name = "lcOpsmokeValue";
+            this.lcOpsmokeValue.Size = new System.Drawing.Size(8, 16);
+            this.lcOpsmokeValue.TabIndex = 49;
+            this.lcOpsmokeValue.Text = "0";
+            // 
+            // lcHC
+            // 
+            this.lcHC.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcHC.Appearance.Options.UseFont = true;
+            this.lcHC.Location = new System.Drawing.Point(48, 83);
+            this.lcHC.Name = "lcHC";
+            this.lcHC.Size = new System.Drawing.Size(51, 16);
+            this.lcHC.TabIndex = 44;
+            this.lcHC.Text = "HC(ppm)";
+            // 
+            // lcNo
+            // 
+            this.lcNo.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcNo.Appearance.Options.UseFont = true;
+            this.lcNo.Location = new System.Drawing.Point(48, 49);
+            this.lcNo.Name = "lcNo";
+            this.lcNo.Size = new System.Drawing.Size(52, 16);
+            this.lcNo.TabIndex = 46;
+            this.lcNo.Text = "NO(ppm)";
+            // 
+            // lcCOValue
+            // 
+            this.lcCOValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcCOValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcCOValue.Appearance.Options.UseFont = true;
+            this.lcCOValue.Appearance.Options.UseForeColor = true;
+            this.lcCOValue.Location = new System.Drawing.Point(342, 49);
+            this.lcCOValue.Name = "lcCOValue";
+            this.lcCOValue.Size = new System.Drawing.Size(8, 16);
+            this.lcCOValue.TabIndex = 45;
+            this.lcCOValue.Text = "0";
+            // 
+            // lcHCValue
+            // 
+            this.lcHCValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcHCValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcHCValue.Appearance.Options.UseFont = true;
+            this.lcHCValue.Appearance.Options.UseForeColor = true;
+            this.lcHCValue.Location = new System.Drawing.Point(156, 83);
+            this.lcHCValue.Name = "lcHCValue";
+            this.lcHCValue.Size = new System.Drawing.Size(8, 16);
+            this.lcHCValue.TabIndex = 43;
+            this.lcHCValue.Text = "0";
+            // 
+            // lcCO
+            // 
+            this.lcCO.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcCO.Appearance.Options.UseFont = true;
+            this.lcCO.Location = new System.Drawing.Point(234, 49);
+            this.lcCO.Name = "lcCO";
+            this.lcCO.Size = new System.Drawing.Size(39, 16);
+            this.lcCO.TabIndex = 47;
+            this.lcCO.Text = "CO(%)";
+            // 
+            // lcNOValue
+            // 
+            this.lcNOValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcNOValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcNOValue.Appearance.Options.UseFont = true;
+            this.lcNOValue.Appearance.Options.UseForeColor = true;
+            this.lcNOValue.Location = new System.Drawing.Point(156, 49);
+            this.lcNOValue.Name = "lcNOValue";
+            this.lcNOValue.Size = new System.Drawing.Size(8, 16);
+            this.lcNOValue.TabIndex = 42;
+            this.lcNOValue.Text = "0";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 193);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(394, 8);
+            this.panelControl1.TabIndex = 34;
+            // 
+            // gcDataCollection
+            // 
+            this.gcDataCollection.Appearance.BackColor = System.Drawing.Color.White;
+            this.gcDataCollection.Appearance.Options.UseBackColor = true;
+            this.gcDataCollection.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
+            this.gcDataCollection.AppearanceCaption.Options.UseFont = true;
+            this.gcDataCollection.Controls.Add(this.lcCO2DC);
+            this.gcDataCollection.Controls.Add(this.lcCO2DCvalue);
+            this.gcDataCollection.Controls.Add(this.lcCODC);
+            this.gcDataCollection.Controls.Add(this.lcCODCvalue);
+            this.gcDataCollection.Controls.Add(this.lcHCDC);
+            this.gcDataCollection.Controls.Add(this.lcNODC);
+            this.gcDataCollection.Controls.Add(this.lcNODCvalue);
+            this.gcDataCollection.Controls.Add(this.lcHCDCvalue);
+            this.gcDataCollection.Controls.Add(this.lcLightIntensity);
+            this.gcDataCollection.Controls.Add(this.lcLightIntensityValue);
+            this.gcDataCollection.Controls.Add(this.lcT13);
+            this.gcDataCollection.Controls.Add(this.lcT12);
+            this.gcDataCollection.Controls.Add(this.lcT1Value);
+            this.gcDataCollection.Controls.Add(this.lcT2value);
+            this.gcDataCollection.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcDataCollection.GroupStyle = DevExpress.Utils.GroupStyle.Card;
+            this.gcDataCollection.Location = new System.Drawing.Point(0, 10);
+            this.gcDataCollection.Name = "gcDataCollection";
+            this.gcDataCollection.Size = new System.Drawing.Size(394, 183);
+            this.gcDataCollection.TabIndex = 40;
+            this.gcDataCollection.Text = "DataCollection";
+            // 
+            // lcCO2DC
+            // 
+            this.lcCO2DC.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcCO2DC.Appearance.Options.UseFont = true;
+            this.lcCO2DC.Location = new System.Drawing.Point(48, 132);
+            this.lcCO2DC.Name = "lcCO2DC";
+            this.lcCO2DC.Size = new System.Drawing.Size(45, 16);
+            this.lcCO2DC.TabIndex = 48;
+            this.lcCO2DC.Text = "CO₂(%)";
+            // 
+            // lcCO2DCvalue
+            // 
+            this.lcCO2DCvalue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcCO2DCvalue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcCO2DCvalue.Appearance.Options.UseFont = true;
+            this.lcCO2DCvalue.Appearance.Options.UseForeColor = true;
+            this.lcCO2DCvalue.Location = new System.Drawing.Point(157, 132);
+            this.lcCO2DCvalue.Name = "lcCO2DCvalue";
+            this.lcCO2DCvalue.Size = new System.Drawing.Size(8, 16);
+            this.lcCO2DCvalue.TabIndex = 49;
+            this.lcCO2DCvalue.Text = "0";
+            // 
+            // lcCODC
+            // 
+            this.lcCODC.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcCODC.Appearance.Options.UseFont = true;
+            this.lcCODC.Location = new System.Drawing.Point(48, 103);
+            this.lcCODC.Name = "lcCODC";
+            this.lcCODC.Size = new System.Drawing.Size(39, 16);
+            this.lcCODC.TabIndex = 44;
+            this.lcCODC.Text = "CO(%)";
+            // 
+            // lcCODCvalue
+            // 
+            this.lcCODCvalue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcCODCvalue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcCODCvalue.Appearance.Options.UseFont = true;
+            this.lcCODCvalue.Appearance.Options.UseForeColor = true;
+            this.lcCODCvalue.Location = new System.Drawing.Point(157, 103);
+            this.lcCODCvalue.Name = "lcCODCvalue";
+            this.lcCODCvalue.Size = new System.Drawing.Size(8, 16);
+            this.lcCODCvalue.TabIndex = 45;
+            this.lcCODCvalue.Text = "0";
+            // 
+            // lcHCDC
+            // 
+            this.lcHCDC.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcHCDC.Appearance.Options.UseFont = true;
+            this.lcHCDC.Location = new System.Drawing.Point(48, 74);
+            this.lcHCDC.Name = "lcHCDC";
+            this.lcHCDC.Size = new System.Drawing.Size(51, 16);
+            this.lcHCDC.TabIndex = 47;
+            this.lcHCDC.Text = "HC(ppm)";
+            // 
+            // lcNODC
+            // 
+            this.lcNODC.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcNODC.Appearance.Options.UseFont = true;
+            this.lcNODC.Location = new System.Drawing.Point(48, 45);
+            this.lcNODC.Name = "lcNODC";
+            this.lcNODC.Size = new System.Drawing.Size(52, 16);
+            this.lcNODC.TabIndex = 46;
+            this.lcNODC.Text = "NO(ppm)";
+            // 
+            // lcNODCvalue
+            // 
+            this.lcNODCvalue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcNODCvalue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcNODCvalue.Appearance.Options.UseFont = true;
+            this.lcNODCvalue.Appearance.Options.UseForeColor = true;
+            this.lcNODCvalue.Location = new System.Drawing.Point(157, 45);
+            this.lcNODCvalue.Name = "lcNODCvalue";
+            this.lcNODCvalue.Size = new System.Drawing.Size(8, 16);
+            this.lcNODCvalue.TabIndex = 42;
+            this.lcNODCvalue.Text = "0";
+            // 
+            // lcHCDCvalue
+            // 
+            this.lcHCDCvalue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcHCDCvalue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcHCDCvalue.Appearance.Options.UseFont = true;
+            this.lcHCDCvalue.Appearance.Options.UseForeColor = true;
+            this.lcHCDCvalue.Location = new System.Drawing.Point(157, 74);
+            this.lcHCDCvalue.Name = "lcHCDCvalue";
+            this.lcHCDCvalue.Size = new System.Drawing.Size(8, 16);
+            this.lcHCDCvalue.TabIndex = 43;
+            this.lcHCDCvalue.Text = "0";
+            // 
+            // lcLightIntensity
+            // 
+            this.lcLightIntensity.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcLightIntensity.Appearance.Options.UseFont = true;
+            this.lcLightIntensity.Location = new System.Drawing.Point(234, 103);
+            this.lcLightIntensity.Name = "lcLightIntensity";
+            this.lcLightIntensity.Size = new System.Drawing.Size(83, 16);
+            this.lcLightIntensity.TabIndex = 38;
+            this.lcLightIntensity.Text = "Light Intensity ";
+            // 
+            // lcLightIntensityValue
+            // 
+            this.lcLightIntensityValue.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcLightIntensityValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcLightIntensityValue.Appearance.Options.UseFont = true;
+            this.lcLightIntensityValue.Appearance.Options.UseForeColor = true;
+            this.lcLightIntensityValue.Location = new System.Drawing.Point(343, 101);
+            this.lcLightIntensityValue.Name = "lcLightIntensityValue";
+            this.lcLightIntensityValue.Size = new System.Drawing.Size(8, 16);
+            this.lcLightIntensityValue.TabIndex = 39;
+            this.lcLightIntensityValue.Text = "0";
+            // 
+            // lcT13
+            // 
+            this.lcT13.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcT13.Appearance.Options.UseFont = true;
+            this.lcT13.Location = new System.Drawing.Point(234, 74);
+            this.lcT13.Name = "lcT13";
+            this.lcT13.Size = new System.Drawing.Size(45, 16);
+            this.lcT13.TabIndex = 41;
+            this.lcT13.Text = "T13(μs)";
+            // 
+            // lcT12
+            // 
+            this.lcT12.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcT12.Appearance.Options.UseFont = true;
+            this.lcT12.Location = new System.Drawing.Point(234, 45);
+            this.lcT12.Name = "lcT12";
+            this.lcT12.Size = new System.Drawing.Size(45, 16);
+            this.lcT12.TabIndex = 40;
+            this.lcT12.Text = "T12(μs)";
+            // 
+            // lcT1Value
+            // 
+            this.lcT1Value.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcT1Value.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcT1Value.Appearance.Options.UseFont = true;
+            this.lcT1Value.Appearance.Options.UseForeColor = true;
+            this.lcT1Value.Location = new System.Drawing.Point(343, 45);
+            this.lcT1Value.Name = "lcT1Value";
+            this.lcT1Value.Size = new System.Drawing.Size(8, 16);
+            this.lcT1Value.TabIndex = 36;
+            this.lcT1Value.Text = "0";
+            // 
+            // lcT2value
+            // 
+            this.lcT2value.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcT2value.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcT2value.Appearance.Options.UseFont = true;
+            this.lcT2value.Appearance.Options.UseForeColor = true;
+            this.lcT2value.Location = new System.Drawing.Point(343, 74);
+            this.lcT2value.Name = "lcT2value";
+            this.lcT2value.Size = new System.Drawing.Size(8, 16);
+            this.lcT2value.TabIndex = 37;
+            this.lcT2value.Text = "0";
+            // 
+            // pcPage
+            // 
+            this.pcPage.Appearance.BackColor = System.Drawing.Color.White;
+            this.pcPage.Appearance.Options.UseBackColor = true;
+            this.pcPage.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcPage.Controls.Add(this.lcNextPage);
+            this.pcPage.Controls.Add(this.lcPrePage);
+            this.pcPage.Controls.Add(this.sbDeriveSpectrogram);
+            this.pcPage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pcPage.Location = new System.Drawing.Point(857, 667);
+            this.pcPage.Margin = new System.Windows.Forms.Padding(4);
+            this.pcPage.Name = "pcPage";
+            this.pcPage.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.pcPage.Size = new System.Drawing.Size(406, 42);
+            this.pcPage.TabIndex = 9;
+            // 
+            // lcNextPage
+            // 
+            this.lcNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lcNextPage.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcNextPage.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.下一页;
+            this.lcNextPage.Appearance.Options.UseFont = true;
+            this.lcNextPage.Appearance.Options.UseImage = true;
+            this.lcNextPage.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.lcNextPage.Location = new System.Drawing.Point(304, 4);
+            this.lcNextPage.Margin = new System.Windows.Forms.Padding(4);
+            this.lcNextPage.Name = "lcNextPage";
+            this.lcNextPage.Size = new System.Drawing.Size(89, 26);
+            this.lcNextPage.TabIndex = 10;
+            this.lcNextPage.Text = "NextPage";
+            this.lcNextPage.Click += new System.EventHandler(this.peNext_Click);
+            // 
+            // lcPrePage
+            // 
+            this.lcPrePage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lcPrePage.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lcPrePage.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.上一页;
+            this.lcPrePage.Appearance.Options.UseFont = true;
+            this.lcPrePage.Appearance.Options.UseImage = true;
+            this.lcPrePage.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+            this.lcPrePage.Location = new System.Drawing.Point(207, 4);
+            this.lcPrePage.Margin = new System.Windows.Forms.Padding(4);
+            this.lcPrePage.Name = "lcPrePage";
+            this.lcPrePage.Size = new System.Drawing.Size(82, 26);
+            this.lcPrePage.TabIndex = 9;
+            this.lcPrePage.Text = "PrePage";
+            this.lcPrePage.Click += new System.EventHandler(this.pePre_Click);
+            // 
+            // sbDeriveSpectrogram
+            // 
+            this.sbDeriveSpectrogram.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.sbDeriveSpectrogram.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbDeriveSpectrogram.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbDeriveSpectrogram.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.创建报告;
+            this.sbDeriveSpectrogram.Appearance.Options.UseBackColor = true;
+            this.sbDeriveSpectrogram.Appearance.Options.UseFont = true;
+            this.sbDeriveSpectrogram.Appearance.Options.UseForeColor = true;
+            this.sbDeriveSpectrogram.Appearance.Options.UseImage = true;
+            this.sbDeriveSpectrogram.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbDeriveSpectrogram.AppearanceHovered.Options.UseBackColor = true;
+            this.sbDeriveSpectrogram.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.sbDeriveSpectrogram.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbDeriveSpectrogram.AppearancePressed.Image = global::wayeal.os.exhaust.Properties.Resources.创建报告按下;
+            this.sbDeriveSpectrogram.AppearancePressed.Options.UseBackColor = true;
+            this.sbDeriveSpectrogram.AppearancePressed.Options.UseFont = true;
+            this.sbDeriveSpectrogram.AppearancePressed.Options.UseImage = true;
+            this.sbDeriveSpectrogram.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbDeriveSpectrogram.Location = new System.Drawing.Point(0, 2);
+            this.sbDeriveSpectrogram.Margin = new System.Windows.Forms.Padding(4);
+            this.sbDeriveSpectrogram.Name = "sbDeriveSpectrogram";
+            this.sbDeriveSpectrogram.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.sbDeriveSpectrogram.Size = new System.Drawing.Size(124, 28);
+            this.sbDeriveSpectrogram.TabIndex = 32;
+            this.sbDeriveSpectrogram.Text = "DeriveSpectrogram";
+            this.sbDeriveSpectrogram.Click += new System.EventHandler(this.sbDeriveSpectrogram_Click);
+            // 
+            // pcSpectrogram
+            // 
+            this.pcSpectrogram.Appearance.BackColor = System.Drawing.Color.White;
+            this.pcSpectrogram.Appearance.Options.UseBackColor = true;
+            this.pcSpectrogram.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcSpectrogram.Controls.Add(this.pcChart);
+            this.pcSpectrogram.Controls.Add(this.rgSpectralView);
+            this.pcSpectrogram.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pcSpectrogram.Location = new System.Drawing.Point(0, 0);
+            this.pcSpectrogram.Margin = new System.Windows.Forms.Padding(4);
+            this.pcSpectrogram.Name = "pcSpectrogram";
+            this.pcSpectrogram.Padding = new System.Windows.Forms.Padding(12, 10, 12, 10);
+            this.pcSpectrogram.Size = new System.Drawing.Size(857, 709);
+            this.pcSpectrogram.TabIndex = 11;
+            // 
+            // pcChart
+            // 
+            this.pcChart.Appearance.BackColor = System.Drawing.Color.White;
+            this.pcChart.Appearance.Options.UseBackColor = true;
+            this.pcChart.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.pcChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcChart.Location = new System.Drawing.Point(12, 10);
+            this.pcChart.Margin = new System.Windows.Forms.Padding(4);
+            this.pcChart.Name = "pcChart";
+            this.pcChart.Size = new System.Drawing.Size(833, 649);
+            this.pcChart.TabIndex = 5;
+            // 
+            // rgSpectralView
+            // 
+            this.rgSpectralView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rgSpectralView.EditValue = "riSpectrum";
+            this.rgSpectralView.Location = new System.Drawing.Point(12, 659);
+            this.rgSpectralView.Margin = new System.Windows.Forms.Padding(4);
+            this.rgSpectralView.Name = "rgSpectralView";
+            this.rgSpectralView.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.rgSpectralView.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rgSpectralView.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(106)))), ((int)(((byte)(170)))));
+            this.rgSpectralView.Properties.Appearance.Options.UseBackColor = true;
+            this.rgSpectralView.Properties.Appearance.Options.UseFont = true;
+            this.rgSpectralView.Properties.Appearance.Options.UseForeColor = true;
+            this.rgSpectralView.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rgSpectralView.Properties.ColumnIndent = 12;
+            this.rgSpectralView.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Near;
+            this.rgSpectralView.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("riSpectrum", "Spectrum"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("riHarmonic", "Abs/Harmonic")});
+            this.rgSpectralView.Size = new System.Drawing.Size(833, 40);
+            this.rgSpectralView.TabIndex = 1;
+            this.rgSpectralView.SelectedIndexChanged += new System.EventHandler(this.rgSpectralView_SelectedIndexChanged);
+            // 
+            // mvvmContext1
+            // 
+            this.mvvmContext1.ContainerControl = this;
+            // 
+            // dlgSave
+            // 
+            this.dlgSave.FileName = null;
+            this.dlgSave.Filter = "xls|*.xls";
+            // 
+            // wfDataAnalysis
+            // 
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1263, 709);
+            this.Controls.Add(this.pBorder);
+            this.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "wfDataAnalysis";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "DataAnalysis";
+            this.pBorder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcData)).EndInit();
+            this.pcData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcDataCalculation)).EndInit();
+            this.gcDataCalculation.ResumeLayout(false);
+            this.gcDataCalculation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDataCollection)).EndInit();
+            this.gcDataCollection.ResumeLayout(false);
+            this.gcDataCollection.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcPage)).EndInit();
+            this.pcPage.ResumeLayout(false);
+            this.pcPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcSpectrogram)).EndInit();
+            this.pcSpectrogram.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgSpectralView.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel pBorder;
+        private DevExpress.XtraEditors.PanelControl pcChart;
+        private DevExpress.XtraEditors.PanelControl pcPage;
+        private DevExpress.XtraEditors.PanelControl pcData;
+        private DevExpress.XtraEditors.SimpleButton sbDeriveSpectrogram;
+        private DevExpress.XtraEditors.PanelControl pcSpectrogram;
+        private DevExpress.XtraEditors.RadioGroup rgSpectralView;
+        private DevExpress.XtraEditors.LabelControl lcPrePage;
+        private DevExpress.XtraEditors.LabelControl lcNextPage;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.LabelControl lcLightIntensityValue;
+        private DevExpress.XtraEditors.LabelControl lcLightIntensity;
+        private DevExpress.XtraEditors.LabelControl lcT2value;
+        private DevExpress.XtraEditors.LabelControl lcT1Value;
+        private DevExpress.XtraEditors.GroupControl gcDataCalculation;
+        private DevExpress.XtraEditors.GroupControl gcDataCollection;
+        private DevExpress.XtraEditors.LabelControl lcT13;
+        private DevExpress.XtraEditors.LabelControl lcT12;
+        private DevExpress.XtraEditors.LabelControl lcResult;
+        private DevExpress.XtraEditors.LabelControl lcResultValue;
+        private DevExpress.XtraEditors.LabelControl lcTestingNumber;
+        private DevExpress.XtraEditors.LabelControl lcNumberValue;
+        private DevExpress.XtraEditors.LabelControl lcBlackness;
+        private DevExpress.XtraEditors.LabelControl lcBlacknessValue;
+        private DevExpress.XtraEditors.LabelControl lcOpSmoke;
+        private DevExpress.XtraEditors.LabelControl lcCO2;
+        private DevExpress.XtraEditors.LabelControl lcCO2Value;
+        private DevExpress.XtraEditors.LabelControl lcOpsmokeValue;
+        private DevExpress.XtraEditors.LabelControl lcHC;
+        private DevExpress.XtraEditors.LabelControl lcNo;
+        private DevExpress.XtraEditors.LabelControl lcCOValue;
+        private DevExpress.XtraEditors.LabelControl lcHCValue;
+        private DevExpress.XtraEditors.LabelControl lcCO;
+        private DevExpress.XtraEditors.LabelControl lcNOValue;
+        private DevExpress.Utils.MVVM.MVVMContext mvvmContext1;
+        private DevExpress.XtraEditors.XtraSaveFileDialog dlgSave;
+        private DevExpress.XtraEditors.LabelControl lcCO2DC;
+        private DevExpress.XtraEditors.LabelControl lcCO2DCvalue;
+        private DevExpress.XtraEditors.LabelControl lcCODC;
+        private DevExpress.XtraEditors.LabelControl lcCODCvalue;
+        private DevExpress.XtraEditors.LabelControl lcHCDC;
+        private DevExpress.XtraEditors.LabelControl lcNODC;
+        private DevExpress.XtraEditors.LabelControl lcNODCvalue;
+        private DevExpress.XtraEditors.LabelControl lcHCDCvalue;
+    }
+}

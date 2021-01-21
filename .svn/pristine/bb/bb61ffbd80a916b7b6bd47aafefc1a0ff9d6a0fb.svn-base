@@ -1,0 +1,302 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Wayeal.Services.Business.Utils
+{
+    public class ExternalBusinessCmd
+    {
+        /// <summary>
+        /// 读取遥测实时数据
+        /// </summary>
+        public const string GetRealData = "GetRealData";
+
+        /// <summary>
+        /// 读取调试数据数据
+        /// </summary>
+        public const string GetDebugData = "GetDebugData";
+
+        /// <summary>
+        /// 获取气象数据
+        /// </summary>
+        public const string GetMeteorologyData = "GetMeteorologyData";
+
+        /// <summary>
+        /// 获取空气质量数据
+        /// </summary>
+        public const string GetAirData = "GetAirData";
+
+        /// <summary>
+        /// 获取握手数据
+        /// </summary>
+        public const string GetHandShakeData = "GetHandShakeData";
+
+        /// <summary>
+        /// 下发校准命令
+        /// </summary>
+        public const string CalibrateGas = "CalibrateGas";
+
+        /// <summary>
+        /// 读取紫外控制参数
+        /// </summary>
+        public const string ReadUVSCtrlParameter = "ReadUVSCtrlParameter";
+
+        /// <summary>
+        /// 设置紫外控制参数
+        /// </summary>
+        public const string SetUVSCtrlParameter = "SetUVSCtrlParameter";
+
+        /// <summary>
+        /// 读取TDLAS控制参数
+        /// </summary>
+        public const string ReadTDLASCtrlParameter = "ReadTDLASCtrlParameter";
+
+        /// <summary>
+        /// 设置TDLAS控制参数
+        /// </summary>
+        public const string SetTDLASCtrlParameter = "SetTDLASCtrlParameter";
+
+        /// <summary>
+        /// 读取SMOKE控制参数
+        /// </summary>
+        public const string ReadSmokeParameter = "ReadSmokeParameter";
+
+        /// <summary>
+        /// 设置SMOKE控制参数
+        /// </summary>
+        public const string SetSmokeParameter = "SetSmokeParameter";
+
+        /// <summary>
+        /// 读取零点谱图
+        /// </summary>
+        public const string ReadBackgroundSpectrogram = "ReadBackgroundSpectrogram";
+
+        /// <summary>
+        /// 读取气体1吸光度谐波
+        /// </summary>
+        public const string ReadNOCORangeSpectrogram = "ReadNOCORangeSpectrogram";
+
+        /// <summary>
+        /// 读取气体2吸光度谐波
+        /// </summary>
+        public const string ReadHCCO2RangeSpectrogram = "ReadHCCO2RangeSpectrogram";
+
+        /// <summary>
+        /// 读取遥测实时数据
+        /// </summary>
+        public const string ReadMeasureSpectrogram = "ReadMeasureSpectrogram";
+
+        /// <summary>
+        /// 读取原始谐波数据
+        /// </summary>
+        public const string ReadOrigialHarmSpectrogram = "ReadOrigialHarmSpectrogram";
+
+        /// <summary>
+        /// 读取烟度光强
+        /// </summary>
+        public const string ReadSmokeIntensity = "ReadSmokeIntensity";
+
+        /// <summary>
+        /// 读取加速度参数
+        /// </summary>
+        public const string ReadAcceleratedParameter = "ReadAcceleratedParameter";
+
+        /// <summary>
+        /// 设置加速度参数
+        /// </summary>
+        public const string SetAcceleratedParameter = "SetAcceleratedParameter";
+
+        /// <summary>
+        /// 读取其它参数
+        /// </summary>
+        public const string ReadSystemParameter = "ReadSystemParameter";
+
+        /// <summary>
+        /// 设置其它参数
+        /// </summary>
+        public const string SetSystemParameter = "SetSystemParameter";
+
+        /// <summary>
+        /// 读取SMOKE模型参数
+        /// </summary>
+        public const string ReadSmokeHandwareParameter = "ReadSmokeHandwareParameter";
+
+        /// <summary>
+        /// 设置SMOKE模型参数
+        /// </summary>
+        public const string SetSmokeHandwareParameter = "SetSmokeHandwareParameter";
+
+        /// <summary>
+        /// 读取非线性校准参数
+        /// </summary>
+        public const string ReadNoLinearCalParameter = "ReadNoLinearCalParameter";
+
+        /// <summary>
+        /// 设置非线性校准参数
+        /// </summary>
+        public const string SetNoLinearCalParameter = "SetNoLinearCalParameter";
+
+        /// <summary>
+        /// 读取点校准参数
+        /// </summary>
+        public const string ReadPointCalParameter = "ReadPointCalParameter";
+        
+        /// <summary>
+        /// 设置点校准参数
+        /// </summary>
+        public const string SePointCalParameter = "SetPointCalParameter";
+        
+        /// <summary>
+        /// 读取定时校准参数
+        /// </summary>
+        public const string ReadTimingCalParameter = "ReadTimingCalParameter";
+
+        /// <summary>
+        /// 设置定时校准参数
+        /// </summary>
+        public const string SetTimingCalParameter = "SetTimingCalParameter";
+
+        /// <summary>
+        /// 设备配置更新
+        /// </summary>
+        public const string DeviceConfigUpdate = "DeviceConfigUpdate";
+
+        /// <summary>
+        /// 读取缓存记录数据
+        /// </summary>
+        public const string GetBufferRecData = "GetBufferRecData";
+
+
+        #region 控制设备命令
+
+        /// <summary>
+        /// 设备进入正常运行模式
+        /// </summary>
+        public const string ExhaustToNormalBusiness = "ExhaustToNormalBusiness";
+
+        /// <summary>
+        /// 设备进入维护工作模式
+        /// </summary>
+        public const string ExhaustToMaintenanceBusiness = "ExhaustToMaintenanceBusiness";
+
+        /// <summary>
+        /// 开启氘灯
+        /// </summary>
+        public const string ExhaustLampOnBusiness = "ExhaustLampOnBusiness";
+
+        /// <summary>
+        /// 关闭氘灯
+        /// </summary>
+        public const string ExhaustLampOffBusiness = "ExhaustLampOffBusiness";
+
+        /// <summary>
+        /// 开启气泵
+        /// </summary>
+        public const string ExhaustAirPumpOnBusiness = "ExhaustAirPumpOnBusiness";
+
+        /// <summary>
+        /// 关闭气泵
+        /// </summary>
+        public const string ExhaustAirPumpOffBusiness = "ExhaustAirPumpOffBusiness";
+
+        /// <summary>
+        /// 开启标气阀1
+        /// </summary>
+        public const string ExhaustAirValve1OnBusiness = "ExhaustAirValve1OnBusiness";
+
+        /// <summary>
+        /// 关闭标气阀1
+        /// </summary>
+        public const string ExhaustAirValve1OffBusiness = "ExhaustAirValve1OffBusiness";
+
+        /// <summary>
+        /// 开启标气阀2
+        /// </summary>
+        public const string ExhaustAirValve2OnBusiness = "ExhaustAirValve2OnBusiness";
+
+        /// <summary>
+        /// 关闭标气阀2
+        /// </summary>
+        public const string ExhaustAirValve2OffBusiness = "ExhaustAirValve2OffBusiness";
+
+        /// <summary>
+        /// 设置车辆限值信息
+        /// </summary>
+        public const string SetCarLimitInfo = "SetCarLimitInfo";
+
+        /// <summary>
+        /// 设置站点信息
+        /// </summary>
+        public const string SetStationInfo = "SetStationInfo";
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 校准下发参数
+    /// </summary>
+    public class CalibrateParam
+    {
+        /// <summary>
+        /// 平均次数
+        /// </summary>
+        public int UVAverageCount { get; set; }
+
+        /// <summary>
+        /// 平均次数
+        /// </summary>
+        public int TDLASAverageCount { get; set; }
+
+        /// <summary>
+        /// 紫外NO 校准使能
+        /// </summary>
+        public bool IsNOCalEnable { get; set; }
+
+        /// <summary>
+        /// 紫外HC 校准使能
+        /// </summary>
+        public bool IsHCCalEnable { get; set; }
+
+        /// <summary>
+        /// 红外校准使能
+        /// </summary>
+        public bool IsCOCalEnable { get; set; }
+
+        /// <summary>
+        /// 红外校准使能
+        /// </summary>
+        public bool IsCO2CalEnable { get; set; }
+
+        /// <summary>
+        /// 紫外校准选择,false为校准量程，true为校准零点
+        /// </summary>
+        public bool IsUVCalZero { get; set; }
+
+        /// <summary>
+        /// 红外校准选择false为校准量程，true为校准零点
+        /// </summary>
+        public bool IsTDLASCalZero { get; set; }
+
+        /// <summary>
+        /// NO量程
+        /// </summary>
+        public double NORange { get; set; }
+
+        /// <summary>
+        /// 碳氢量程
+        /// </summary>
+        public double HCRange { get; set; }
+
+        /// <summary>
+        /// CO量程
+        /// </summary>
+        public double CORange { get; set; }
+
+        /// <summary>
+        /// CO2量程
+        /// </summary>
+        public double CO2Range { get; set; }
+    }
+}

@@ -1,0 +1,784 @@
+﻿namespace wayeal.os.exhaust.Modules
+{
+    partial class ucUserManage
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucUserManage));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
+            this.lcUserName = new DevExpress.XtraEditors.LabelControl();
+            this.lcPermission = new DevExpress.XtraEditors.LabelControl();
+            this.cbePermission = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.beUserName = new DevExpress.XtraEditors.ButtonEdit();
+            this.sbDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.sbNew = new DevExpress.XtraEditors.SimpleButton();
+            this.sbSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.gcUserManage = new DevExpress.XtraGrid.GridControl();
+            this.gvUserManage = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gcUserName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcPermission = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcCreatorName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcCreateDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcAccountStatue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcUserOperations = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riUserOperate = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.pcBottom = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.tsbGotoPage = new DevExpress.XtraEditors.SimpleButton();
+            this.numGoPage = new System.Windows.Forms.NumericUpDown();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.cbePageRecord = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbFirstPage = new System.Windows.Forms.ToolStripButton();
+            this.tsbLastPage = new System.Windows.Forms.ToolStripButton();
+            this.tslCurrentPage = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.tslTotalPage = new System.Windows.Forms.ToolStripLabel();
+            this.tsbNextPage = new System.Windows.Forms.ToolStripButton();
+            this.tsbEndPage = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbePermission.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.beUserName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcUserManage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUserManage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riUserOperate)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBottom)).BeginInit();
+            this.pcBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numGoPage)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // imageCollection1
+            // 
+            this.imageCollection1.ImageSize = new System.Drawing.Size(24, 24);
+            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            this.imageCollection1.Images.SetKeyName(0, "编辑.png");
+            this.imageCollection1.Images.SetKeyName(1, "删除.png");
+            this.imageCollection1.Images.SetKeyName(2, "重置密码.png");
+            // 
+            // lcUserName
+            // 
+            this.lcUserName.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcUserName.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcUserName.Appearance.Options.UseFont = true;
+            this.lcUserName.Appearance.Options.UseForeColor = true;
+            this.lcUserName.Appearance.Options.UseTextOptions = true;
+            this.lcUserName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lcUserName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcUserName.Location = new System.Drawing.Point(3, 11);
+            this.lcUserName.Name = "lcUserName";
+            this.lcUserName.Size = new System.Drawing.Size(48, 19);
+            this.lcUserName.TabIndex = 0;
+            this.lcUserName.Text = "User";
+            // 
+            // lcPermission
+            // 
+            this.lcPermission.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcPermission.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcPermission.Appearance.Options.UseFont = true;
+            this.lcPermission.Appearance.Options.UseForeColor = true;
+            this.lcPermission.Appearance.Options.UseTextOptions = true;
+            this.lcPermission.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lcPermission.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcPermission.Location = new System.Drawing.Point(190, 12);
+            this.lcPermission.Name = "lcPermission";
+            this.lcPermission.Size = new System.Drawing.Size(62, 16);
+            this.lcPermission.TabIndex = 3;
+            this.lcPermission.Text = "Permission";
+            // 
+            // cbePermission
+            // 
+            this.cbePermission.EditValue = "All";
+            this.cbePermission.Location = new System.Drawing.Point(254, 10);
+            this.cbePermission.Name = "cbePermission";
+            this.cbePermission.Properties.AllowFocused = false;
+            this.cbePermission.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.cbePermission.Properties.Appearance.Options.UseFont = true;
+            serializableAppearanceObject1.BackColor = System.Drawing.Color.White;
+            serializableAppearanceObject1.BackColor2 = System.Drawing.Color.White;
+            serializableAppearanceObject1.BorderColor = System.Drawing.Color.White;
+            serializableAppearanceObject1.Options.UseBackColor = true;
+            serializableAppearanceObject1.Options.UseBorderColor = true;
+            serializableAppearanceObject2.BackColor = System.Drawing.Color.White;
+            serializableAppearanceObject2.BackColor2 = System.Drawing.Color.White;
+            serializableAppearanceObject2.BorderColor = System.Drawing.Color.White;
+            serializableAppearanceObject2.Options.UseBackColor = true;
+            serializableAppearanceObject2.Options.UseBorderColor = true;
+            serializableAppearanceObject3.BackColor = System.Drawing.Color.White;
+            serializableAppearanceObject3.BackColor2 = System.Drawing.Color.White;
+            serializableAppearanceObject3.BorderColor = System.Drawing.Color.White;
+            serializableAppearanceObject3.Options.UseBackColor = true;
+            serializableAppearanceObject3.Options.UseBorderColor = true;
+            serializableAppearanceObject4.BackColor = System.Drawing.Color.White;
+            serializableAppearanceObject4.BackColor2 = System.Drawing.Color.White;
+            serializableAppearanceObject4.BorderColor = System.Drawing.Color.White;
+            serializableAppearanceObject4.Options.UseBackColor = true;
+            serializableAppearanceObject4.Options.UseBorderColor = true;
+            this.cbePermission.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.cbePermission.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.cbePermission.Size = new System.Drawing.Size(131, 22);
+            this.cbePermission.TabIndex = 4;
+            this.cbePermission.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.cbePermission_CustomDisplayText);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.beUserName);
+            this.panel1.Controls.Add(this.sbDelete);
+            this.panel1.Controls.Add(this.sbNew);
+            this.panel1.Controls.Add(this.sbSearch);
+            this.panel1.Controls.Add(this.lcUserName);
+            this.panel1.Controls.Add(this.lcPermission);
+            this.panel1.Controls.Add(this.cbePermission);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1178, 40);
+            this.panel1.TabIndex = 8;
+            // 
+            // beUserName
+            // 
+            this.beUserName.EditValue = "";
+            this.beUserName.Location = new System.Drawing.Point(57, 11);
+            this.beUserName.Name = "beUserName";
+            this.beUserName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Clear, "Clear", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.beUserName.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beUserName_Properties_ButtonClick);
+            this.beUserName.Size = new System.Drawing.Size(127, 20);
+            this.beUserName.TabIndex = 3;
+            this.beUserName.EditValueChanged += new System.EventHandler(this.buttonEdit1_EditValueChanged);
+            // 
+            // sbDelete
+            // 
+            this.sbDelete.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.sbDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbDelete.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbDelete.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbDelete.Appearance.Image")));
+            this.sbDelete.Appearance.Options.UseBackColor = true;
+            this.sbDelete.Appearance.Options.UseFont = true;
+            this.sbDelete.Appearance.Options.UseForeColor = true;
+            this.sbDelete.Appearance.Options.UseImage = true;
+            this.sbDelete.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
+            this.sbDelete.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbDelete.AppearanceHovered.Image = ((System.Drawing.Image)(resources.GetObject("sbDelete.AppearanceHovered.Image")));
+            this.sbDelete.AppearanceHovered.Options.UseBackColor = true;
+            this.sbDelete.AppearanceHovered.Options.UseFont = true;
+            this.sbDelete.AppearanceHovered.Options.UseImage = true;
+            this.sbDelete.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.sbDelete.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbDelete.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbDelete.AppearancePressed.Image")));
+            this.sbDelete.AppearancePressed.Options.UseBackColor = true;
+            this.sbDelete.AppearancePressed.Options.UseFont = true;
+            this.sbDelete.AppearancePressed.Options.UseImage = true;
+            this.sbDelete.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbDelete.Location = new System.Drawing.Point(569, 7);
+            this.sbDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.sbDelete.Name = "sbDelete";
+            this.sbDelete.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.sbDelete.Size = new System.Drawing.Size(78, 28);
+            this.sbDelete.TabIndex = 42;
+            this.sbDelete.Text = "Delete";
+            this.sbDelete.Click += new System.EventHandler(this.sbDelete_Click);
+            // 
+            // sbNew
+            // 
+            this.sbNew.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.sbNew.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbNew.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbNew.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbNew.Appearance.Image")));
+            this.sbNew.Appearance.Options.UseBackColor = true;
+            this.sbNew.Appearance.Options.UseFont = true;
+            this.sbNew.Appearance.Options.UseForeColor = true;
+            this.sbNew.Appearance.Options.UseImage = true;
+            this.sbNew.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
+            this.sbNew.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbNew.AppearanceHovered.Image = ((System.Drawing.Image)(resources.GetObject("sbNew.AppearanceHovered.Image")));
+            this.sbNew.AppearanceHovered.Options.UseBackColor = true;
+            this.sbNew.AppearanceHovered.Options.UseFont = true;
+            this.sbNew.AppearanceHovered.Options.UseImage = true;
+            this.sbNew.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.sbNew.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbNew.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbNew.AppearancePressed.Image")));
+            this.sbNew.AppearancePressed.Options.UseBackColor = true;
+            this.sbNew.AppearancePressed.Options.UseFont = true;
+            this.sbNew.AppearancePressed.Options.UseImage = true;
+            this.sbNew.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbNew.Location = new System.Drawing.Point(483, 7);
+            this.sbNew.Margin = new System.Windows.Forms.Padding(4);
+            this.sbNew.Name = "sbNew";
+            this.sbNew.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.sbNew.Size = new System.Drawing.Size(78, 28);
+            this.sbNew.TabIndex = 41;
+            this.sbNew.Text = "New";
+            this.sbNew.Click += new System.EventHandler(this.sbNew_Click);
+            // 
+            // sbSearch
+            // 
+            this.sbSearch.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.sbSearch.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbSearch.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbSearch.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch.Appearance.Image")));
+            this.sbSearch.Appearance.Options.UseBackColor = true;
+            this.sbSearch.Appearance.Options.UseFont = true;
+            this.sbSearch.Appearance.Options.UseForeColor = true;
+            this.sbSearch.Appearance.Options.UseImage = true;
+            this.sbSearch.AppearanceHovered.BackColor = System.Drawing.Color.Transparent;
+            this.sbSearch.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbSearch.AppearanceHovered.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch.AppearanceHovered.Image")));
+            this.sbSearch.AppearanceHovered.Options.UseBackColor = true;
+            this.sbSearch.AppearanceHovered.Options.UseFont = true;
+            this.sbSearch.AppearanceHovered.Options.UseImage = true;
+            this.sbSearch.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
+            this.sbSearch.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbSearch.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbSearch.AppearancePressed.Image")));
+            this.sbSearch.AppearancePressed.Options.UseBackColor = true;
+            this.sbSearch.AppearancePressed.Options.UseFont = true;
+            this.sbSearch.AppearancePressed.Options.UseImage = true;
+            this.sbSearch.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbSearch.Location = new System.Drawing.Point(397, 7);
+            this.sbSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.sbSearch.Name = "sbSearch";
+            this.sbSearch.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.sbSearch.Size = new System.Drawing.Size(78, 28);
+            this.sbSearch.TabIndex = 40;
+            this.sbSearch.Text = "Search";
+            this.sbSearch.Click += new System.EventHandler(this.sbSearch_Click);
+            // 
+            // gcUserManage
+            // 
+            this.gcUserManage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcUserManage.Location = new System.Drawing.Point(8, 3);
+            this.gcUserManage.MainView = this.gvUserManage;
+            this.gcUserManage.Name = "gcUserManage";
+            this.gcUserManage.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.riUserOperate});
+            this.gcUserManage.Size = new System.Drawing.Size(1162, 628);
+            this.gcUserManage.TabIndex = 2;
+            this.gcUserManage.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvUserManage});
+            // 
+            // gvUserManage
+            // 
+            this.gvUserManage.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
+            this.gvUserManage.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvUserManage.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gcUserName,
+            this.gcPermission,
+            this.gcCreatorName,
+            this.gcCreateDate,
+            this.gcAccountStatue,
+            this.gcUserOperations});
+            this.gvUserManage.DetailHeight = 408;
+            this.gvUserManage.GridControl = this.gcUserManage;
+            this.gvUserManage.Name = "gvUserManage";
+            this.gvUserManage.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDown;
+            this.gvUserManage.OptionsCustomization.AllowColumnMoving = false;
+            this.gvUserManage.OptionsCustomization.AllowColumnResizing = false;
+            this.gvUserManage.OptionsCustomization.AllowSort = false;
+            this.gvUserManage.OptionsSelection.MultiSelect = true;
+            this.gvUserManage.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gvUserManage.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gvUserManage.OptionsView.ShowGroupPanel = false;
+            this.gvUserManage.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvUserManage_RowCellClick);
+            this.gvUserManage.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gvUserManage_RowStyle);
+            this.gvUserManage.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gvUserManage_ShowingEditor);
+            this.gvUserManage.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gvUserManage_CustomColumnDisplayText);
+            // 
+            // gcUserName
+            // 
+            this.gcUserName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gcUserName.AppearanceCell.Options.UseFont = true;
+            this.gcUserName.Caption = "User Name";
+            this.gcUserName.FieldName = "UserName";
+            this.gcUserName.Name = "gcUserName";
+            this.gcUserName.OptionsColumn.AllowEdit = false;
+            this.gcUserName.OptionsColumn.AllowFocus = false;
+            this.gcUserName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gcUserName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gcUserName.OptionsColumn.AllowMove = false;
+            this.gcUserName.OptionsColumn.AllowShowHide = false;
+            this.gcUserName.OptionsColumn.AllowSize = false;
+            this.gcUserName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcUserName.OptionsColumn.FixedWidth = true;
+            this.gcUserName.OptionsColumn.ReadOnly = true;
+            this.gcUserName.OptionsColumn.ShowInCustomizationForm = false;
+            this.gcUserName.OptionsColumn.ShowInExpressionEditor = false;
+            this.gcUserName.Visible = true;
+            this.gcUserName.VisibleIndex = 1;
+            this.gcUserName.Width = 223;
+            // 
+            // gcPermission
+            // 
+            this.gcPermission.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gcPermission.AppearanceCell.Options.UseFont = true;
+            this.gcPermission.Caption = "Permission";
+            this.gcPermission.FieldName = "Permission";
+            this.gcPermission.Name = "gcPermission";
+            this.gcPermission.OptionsColumn.AllowEdit = false;
+            this.gcPermission.OptionsColumn.AllowFocus = false;
+            this.gcPermission.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gcPermission.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gcPermission.OptionsColumn.AllowMove = false;
+            this.gcPermission.OptionsColumn.AllowShowHide = false;
+            this.gcPermission.OptionsColumn.AllowSize = false;
+            this.gcPermission.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcPermission.OptionsColumn.FixedWidth = true;
+            this.gcPermission.OptionsColumn.ReadOnly = true;
+            this.gcPermission.OptionsColumn.ShowInCustomizationForm = false;
+            this.gcPermission.OptionsColumn.ShowInExpressionEditor = false;
+            this.gcPermission.Visible = true;
+            this.gcPermission.VisibleIndex = 2;
+            this.gcPermission.Width = 223;
+            // 
+            // gcCreatorName
+            // 
+            this.gcCreatorName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gcCreatorName.AppearanceCell.Options.UseFont = true;
+            this.gcCreatorName.Caption = "Creator Name";
+            this.gcCreatorName.FieldName = "Creator";
+            this.gcCreatorName.Name = "gcCreatorName";
+            this.gcCreatorName.OptionsColumn.AllowEdit = false;
+            this.gcCreatorName.OptionsColumn.AllowFocus = false;
+            this.gcCreatorName.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gcCreatorName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gcCreatorName.OptionsColumn.AllowMove = false;
+            this.gcCreatorName.OptionsColumn.AllowShowHide = false;
+            this.gcCreatorName.OptionsColumn.AllowSize = false;
+            this.gcCreatorName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcCreatorName.OptionsColumn.FixedWidth = true;
+            this.gcCreatorName.OptionsColumn.ReadOnly = true;
+            this.gcCreatorName.OptionsColumn.ShowInCustomizationForm = false;
+            this.gcCreatorName.OptionsColumn.ShowInExpressionEditor = false;
+            this.gcCreatorName.Visible = true;
+            this.gcCreatorName.VisibleIndex = 3;
+            this.gcCreatorName.Width = 223;
+            // 
+            // gcCreateDate
+            // 
+            this.gcCreateDate.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gcCreateDate.AppearanceCell.Options.UseFont = true;
+            this.gcCreateDate.Caption = "Create Date";
+            this.gcCreateDate.FieldName = "CreateTime";
+            this.gcCreateDate.Name = "gcCreateDate";
+            this.gcCreateDate.OptionsColumn.AllowEdit = false;
+            this.gcCreateDate.OptionsColumn.AllowFocus = false;
+            this.gcCreateDate.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gcCreateDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gcCreateDate.OptionsColumn.AllowMove = false;
+            this.gcCreateDate.OptionsColumn.AllowShowHide = false;
+            this.gcCreateDate.OptionsColumn.AllowSize = false;
+            this.gcCreateDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcCreateDate.OptionsColumn.FixedWidth = true;
+            this.gcCreateDate.OptionsColumn.ReadOnly = true;
+            this.gcCreateDate.OptionsColumn.ShowInCustomizationForm = false;
+            this.gcCreateDate.OptionsColumn.ShowInExpressionEditor = false;
+            this.gcCreateDate.Visible = true;
+            this.gcCreateDate.VisibleIndex = 4;
+            this.gcCreateDate.Width = 183;
+            // 
+            // gcAccountStatue
+            // 
+            this.gcAccountStatue.Caption = "AccountStatue";
+            this.gcAccountStatue.FieldName = "Statue";
+            this.gcAccountStatue.Name = "gcAccountStatue";
+            this.gcAccountStatue.OptionsColumn.AllowEdit = false;
+            this.gcAccountStatue.OptionsColumn.AllowFocus = false;
+            this.gcAccountStatue.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gcAccountStatue.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gcAccountStatue.OptionsColumn.AllowMove = false;
+            this.gcAccountStatue.OptionsColumn.AllowShowHide = false;
+            this.gcAccountStatue.OptionsColumn.AllowSize = false;
+            this.gcAccountStatue.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcAccountStatue.OptionsColumn.FixedWidth = true;
+            this.gcAccountStatue.OptionsColumn.ReadOnly = true;
+            this.gcAccountStatue.OptionsColumn.ShowInCustomizationForm = false;
+            this.gcAccountStatue.OptionsColumn.ShowInExpressionEditor = false;
+            this.gcAccountStatue.Visible = true;
+            this.gcAccountStatue.VisibleIndex = 5;
+            this.gcAccountStatue.Width = 154;
+            // 
+            // gcUserOperations
+            // 
+            this.gcUserOperations.AppearanceCell.BackColor = System.Drawing.Color.Transparent;
+            this.gcUserOperations.AppearanceCell.BorderColor = System.Drawing.Color.Transparent;
+            this.gcUserOperations.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gcUserOperations.AppearanceCell.Options.UseBackColor = true;
+            this.gcUserOperations.AppearanceCell.Options.UseBorderColor = true;
+            this.gcUserOperations.AppearanceCell.Options.UseFont = true;
+            this.gcUserOperations.Caption = "User Operations";
+            this.gcUserOperations.ColumnEdit = this.riUserOperate;
+            this.gcUserOperations.Name = "gcUserOperations";
+            this.gcUserOperations.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gcUserOperations.OptionsColumn.AllowMove = false;
+            this.gcUserOperations.OptionsColumn.AllowSize = false;
+            this.gcUserOperations.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gcUserOperations.OptionsColumn.FixedWidth = true;
+            this.gcUserOperations.OptionsColumn.ShowInCustomizationForm = false;
+            this.gcUserOperations.OptionsColumn.ShowInExpressionEditor = false;
+            this.gcUserOperations.Visible = true;
+            this.gcUserOperations.VisibleIndex = 6;
+            this.gcUserOperations.Width = 60;
+            // 
+            // riUserOperate
+            // 
+            this.riUserOperate.AllowFocused = false;
+            this.riUserOperate.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.riUserOperate.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.编辑;
+            this.riUserOperate.Appearance.Options.UseBackColor = true;
+            this.riUserOperate.Appearance.Options.UseImage = true;
+            this.riUserOperate.AppearanceDisabled.BorderColor = System.Drawing.Color.Transparent;
+            this.riUserOperate.AppearanceDisabled.Options.UseBorderColor = true;
+            this.riUserOperate.AppearanceFocused.BorderColor = System.Drawing.Color.Transparent;
+            this.riUserOperate.AppearanceFocused.Options.UseBorderColor = true;
+            this.riUserOperate.AppearanceReadOnly.BorderColor = System.Drawing.Color.Transparent;
+            this.riUserOperate.AppearanceReadOnly.Options.UseBorderColor = true;
+            this.riUserOperate.AutoHeight = false;
+            this.riUserOperate.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            editorButtonImageOptions3.Image = global::wayeal.os.exhaust.Properties.Resources.重置密码;
+            editorButtonImageOptions3.ImageIndex = 0;
+            serializableAppearanceObject9.BackColor = System.Drawing.Color.Transparent;
+            serializableAppearanceObject9.Options.UseBackColor = true;
+            editorButtonImageOptions4.Image = global::wayeal.os.exhaust.Properties.Resources.编辑;
+            editorButtonImageOptions4.ImageIndex = 1;
+            serializableAppearanceObject13.BackColor = System.Drawing.Color.Transparent;
+            serializableAppearanceObject13.Options.UseBackColor = true;
+            editorButtonImageOptions5.Image = global::wayeal.os.exhaust.Properties.Resources.删除;
+            editorButtonImageOptions5.ImageIndex = 2;
+            serializableAppearanceObject17.BackColor = System.Drawing.Color.Transparent;
+            serializableAppearanceObject17.Options.UseBackColor = true;
+            this.riUserOperate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "initialize", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "edit", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "delete", -1, true, true, false, editorButtonImageOptions5, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, serializableAppearanceObject18, serializableAppearanceObject19, serializableAppearanceObject20, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.riUserOperate.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.riUserOperate.Name = "riUserOperate";
+            this.riUserOperate.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.riUserOperate.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick_1);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.gcUserManage);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 40);
+            this.panel2.Margin = new System.Windows.Forms.Padding(5);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(8, 3, 8, 8);
+            this.panel2.Size = new System.Drawing.Size(1178, 639);
+            this.panel2.TabIndex = 9;
+            // 
+            // pcBottom
+            // 
+            this.pcBottom.Controls.Add(this.labelControl1);
+            this.pcBottom.Controls.Add(this.tsbGotoPage);
+            this.pcBottom.Controls.Add(this.numGoPage);
+            this.pcBottom.Controls.Add(this.toolStrip1);
+            this.pcBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pcBottom.Location = new System.Drawing.Point(0, 679);
+            this.pcBottom.Name = "pcBottom";
+            this.pcBottom.Size = new System.Drawing.Size(1178, 37);
+            this.pcBottom.TabIndex = 54;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Location = new System.Drawing.Point(1124, 12);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(12, 14);
+            this.labelControl1.TabIndex = 105;
+            this.labelControl1.Text = "页";
+            // 
+            // tsbGotoPage
+            // 
+            this.tsbGotoPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tsbGotoPage.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.tsbGotoPage.Appearance.Options.UseBorderColor = true;
+            this.tsbGotoPage.AutoSize = true;
+            this.tsbGotoPage.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tsbGotoPage.Location = new System.Drawing.Point(1134, 9);
+            this.tsbGotoPage.Name = "tsbGotoPage";
+            this.tsbGotoPage.Size = new System.Drawing.Size(27, 20);
+            this.tsbGotoPage.TabIndex = 100;
+            this.tsbGotoPage.Text = "跳转";
+            this.tsbGotoPage.Click += new System.EventHandler(this.tsbGotoPage_Click_1);
+            // 
+            // numGoPage
+            // 
+            this.numGoPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.numGoPage.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numGoPage.Location = new System.Drawing.Point(1063, 8);
+            this.numGoPage.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numGoPage.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numGoPage.Name = "numGoPage";
+            this.numGoPage.Size = new System.Drawing.Size(55, 23);
+            this.numGoPage.TabIndex = 99;
+            this.numGoPage.Tag = "pageControl7";
+            this.numGoPage.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cbePageRecord,
+            this.toolStripLabel2,
+            this.toolStripSeparator1,
+            this.tsbFirstPage,
+            this.tsbLastPage,
+            this.tslCurrentPage,
+            this.toolStripLabel3,
+            this.tslTotalPage,
+            this.tsbNextPage,
+            this.tsbEndPage,
+            this.toolStripSeparator2,
+            this.toolStripLabel1});
+            this.toolStrip1.Location = new System.Drawing.Point(789, 8);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.toolStrip1.Size = new System.Drawing.Size(276, 25);
+            this.toolStrip1.TabIndex = 91;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // cbePageRecord
+            // 
+            this.cbePageRecord.AutoSize = false;
+            this.cbePageRecord.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbePageRecord.DropDownWidth = 55;
+            this.cbePageRecord.Items.AddRange(new object[] {
+            "20",
+            "40",
+            "60",
+            "80",
+            "100"});
+            this.cbePageRecord.MaxDropDownItems = 5;
+            this.cbePageRecord.Name = "cbePageRecord";
+            this.cbePageRecord.Size = new System.Drawing.Size(55, 25);
+            this.cbePageRecord.SelectedIndexChanged += new System.EventHandler(this.cbePageRecord_SelectedIndexChanged);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(37, 22);
+            this.toolStripLabel2.Text = "行/页";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsbFirstPage
+            // 
+            this.tsbFirstPage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbFirstPage.Image = global::wayeal.os.exhaust.Properties.Resources.首页;
+            this.tsbFirstPage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbFirstPage.Name = "tsbFirstPage";
+            this.tsbFirstPage.Size = new System.Drawing.Size(23, 22);
+            this.tsbFirstPage.Text = "首页";
+            this.tsbFirstPage.Click += new System.EventHandler(this.tsbFirstPage_Click);
+            // 
+            // tsbLastPage
+            // 
+            this.tsbLastPage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbLastPage.Image = global::wayeal.os.exhaust.Properties.Resources.上页;
+            this.tsbLastPage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbLastPage.Name = "tsbLastPage";
+            this.tsbLastPage.Size = new System.Drawing.Size(23, 22);
+            this.tsbLastPage.Text = "上一页";
+            this.tsbLastPage.Click += new System.EventHandler(this.tsbLastPage_Click);
+            // 
+            // tslCurrentPage
+            // 
+            this.tslCurrentPage.Name = "tslCurrentPage";
+            this.tslCurrentPage.Size = new System.Drawing.Size(15, 22);
+            this.tslCurrentPage.Text = "0";
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(13, 22);
+            this.toolStripLabel3.Text = "/";
+            // 
+            // tslTotalPage
+            // 
+            this.tslTotalPage.Name = "tslTotalPage";
+            this.tslTotalPage.Size = new System.Drawing.Size(15, 22);
+            this.tslTotalPage.Text = "0";
+            // 
+            // tsbNextPage
+            // 
+            this.tsbNextPage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNextPage.Image = global::wayeal.os.exhaust.Properties.Resources.下页;
+            this.tsbNextPage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNextPage.Name = "tsbNextPage";
+            this.tsbNextPage.Size = new System.Drawing.Size(23, 22);
+            this.tsbNextPage.Text = "下一页";
+            this.tsbNextPage.Click += new System.EventHandler(this.tsbNextPage_Click);
+            // 
+            // tsbEndPage
+            // 
+            this.tsbEndPage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEndPage.Image = global::wayeal.os.exhaust.Properties.Resources.末页;
+            this.tsbEndPage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEndPage.Name = "tsbEndPage";
+            this.tsbEndPage.Size = new System.Drawing.Size(23, 22);
+            this.tsbEndPage.Text = "末页";
+            this.tsbEndPage.Click += new System.EventHandler(this.tsbEndPage_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(32, 22);
+            this.toolStripLabel1.Text = "转至";
+            // 
+            // ucUserManage
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pcBottom);
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Name = "ucUserManage";
+            this.Padding = new System.Windows.Forms.Padding(0);
+            this.Size = new System.Drawing.Size(1178, 716);
+            this.Load += new System.EventHandler(this.ucUserManage_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbePermission.Properties)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.beUserName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcUserManage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUserManage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riUserOperate)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBottom)).EndInit();
+            this.pcBottom.ResumeLayout(false);
+            this.pcBottom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numGoPage)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraEditors.LabelControl lcUserName;
+        private DevExpress.XtraEditors.LabelControl lcPermission;
+        private DevExpress.XtraEditors.ComboBoxEdit cbePermission;
+        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraGrid.GridControl gcUserManage;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvUserManage;
+        private DevExpress.XtraGrid.Columns.GridColumn gcUserName;
+        private DevExpress.XtraGrid.Columns.GridColumn gcPermission;
+        private DevExpress.XtraGrid.Columns.GridColumn gcCreatorName;
+        private DevExpress.XtraGrid.Columns.GridColumn gcCreateDate;
+        private DevExpress.XtraGrid.Columns.GridColumn gcUserOperations;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit riUserOperate;
+        private System.Windows.Forms.Panel panel2;
+        private DevExpress.XtraEditors.SimpleButton sbDelete;
+        private DevExpress.XtraEditors.SimpleButton sbNew;
+        private DevExpress.XtraEditors.SimpleButton sbSearch;
+        private DevExpress.Utils.ImageCollection imageCollection1;
+        private DevExpress.XtraGrid.Columns.GridColumn gcAccountStatue;
+        private DevExpress.XtraEditors.ButtonEdit beUserName;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraEditors.PanelControl pcBottom;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton tsbGotoPage;
+        private System.Windows.Forms.NumericUpDown numGoPage;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripComboBox cbePageRecord;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbFirstPage;
+        private System.Windows.Forms.ToolStripButton tsbLastPage;
+        private System.Windows.Forms.ToolStripLabel tslCurrentPage;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripLabel tslTotalPage;
+        private System.Windows.Forms.ToolStripButton tsbNextPage;
+        private System.Windows.Forms.ToolStripButton tsbEndPage;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+    }
+}

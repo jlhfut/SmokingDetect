@@ -1,0 +1,103 @@
+﻿namespace wayeal.os.exhaust.UserControls
+{
+    partial class ucMonitoringPicture
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.gcPicture = new DevExpress.XtraBars.Ribbon.GalleryControl();
+            this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPicture)).BeginInit();
+            this.gcPicture.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // gcPicture
+            // 
+            this.gcPicture.Controls.Add(this.galleryControlClient1);
+            this.gcPicture.DesignGalleryGroupIndex = 0;
+            this.gcPicture.DesignGalleryItemIndex = 0;
+            this.gcPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            // 
+            // 
+            // 
+            this.gcPicture.Gallery.AllowAllUp = false;
+            this.gcPicture.Gallery.AllowFilter = false;
+            this.gcPicture.Gallery.AutoSize = DevExpress.XtraBars.Ribbon.GallerySizeMode.None;
+            this.gcPicture.Gallery.ColumnCount = 1;
+            this.gcPicture.Gallery.FixedHoverImageSize = false;
+            this.gcPicture.Gallery.FixedImageSize = false;
+            this.gcPicture.Gallery.ItemAutoSizeMode = DevExpress.XtraBars.Ribbon.Gallery.GalleryItemAutoSizeMode.None;
+            this.gcPicture.Gallery.ItemImageLayout = DevExpress.Utils.Drawing.ImageLayoutMode.ZoomInside;
+            this.gcPicture.Gallery.ItemImageLocation = DevExpress.Utils.Locations.Left;
+            this.gcPicture.Gallery.RowCount = 2;
+            this.gcPicture.Gallery.ShowGroupCaption = false;
+            this.gcPicture.Gallery.ShowScrollBar = DevExpress.XtraBars.Ribbon.Gallery.ShowScrollBar.Hide;
+            this.gcPicture.Location = new System.Drawing.Point(5, 5);
+            this.gcPicture.Name = "gcPicture";
+            this.gcPicture.Size = new System.Drawing.Size(411, 343);
+            this.gcPicture.TabIndex = 1;
+            // 
+            // galleryControlClient1
+            // 
+            this.galleryControlClient1.GalleryControl = this.gcPicture;
+            this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
+            this.galleryControlClient1.Size = new System.Drawing.Size(407, 339);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // ucMonitoringPicture
+            // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.Options.UseBackColor = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.Controls.Add(this.gcPicture);
+            this.DoubleBuffered = true;
+            this.Name = "ucMonitoringPicture";
+            this.Padding = new System.Windows.Forms.Padding(5);
+            this.Size = new System.Drawing.Size(421, 353);
+            this.Resize += new System.EventHandler(this.ucMonitoringPicture_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPicture)).EndInit();
+            this.gcPicture.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+        private DevExpress.XtraBars.Ribbon.GalleryControl gcPicture;
+        private DevExpress.XtraBars.Ribbon.GalleryControlClient galleryControlClient1;
+        private System.Windows.Forms.ImageList imageList1;
+    }
+}

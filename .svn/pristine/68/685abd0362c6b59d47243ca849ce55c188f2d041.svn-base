@@ -1,0 +1,521 @@
+﻿namespace wayeal.os.exhaust.Modules
+{
+    partial class ucConcentrationCalibrator
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.gcUnitSettings = new DevExpress.XtraEditors.GroupControl();
+            this.tpSettings = new DevExpress.XtraBars.Navigation.TabPane();
+            this.tbUltravioletSignalControl = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.ucCalibrationUltravioletController1 = new wayeal.os.exhaust.UserControls.ucCalibrationUltravioletController();
+            this.tbInfraredSignalControl = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.ucCalibrationInfraredController1 = new wayeal.os.exhaust.UserControls.ucCalibrationInfraredController();
+            this.tbSmokeSignalControl = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.ucCalibrationSmokeController1 = new wayeal.os.exhaust.UserControls.ucCalibrationSmokeController();
+            this.tbAcceleratedControl = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.ucCalibrationAcceleratedController1 = new wayeal.os.exhaust.UserControls.ucCalibrationAcceleratedController();
+            this.tbSystemControl = new DevExpress.XtraBars.Navigation.TabNavigationPage();
+            this.ucCalibrationExtendController1 = new wayeal.os.exhaust.UserControls.ucCalibrationExtendController();
+            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.ucCalibration = new wayeal.os.exhaust.UserControls.ucCalibrationControl();
+            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.ucCalibrationParamter = new wayeal.os.exhaust.UserControls.ucCalibrationParamter();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.sbExitCalibrationMode = new DevExpress.XtraEditors.SimpleButton();
+            this.sbEnterCalibrationMode = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.pcClient = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.rgSpectralView = new DevExpress.XtraEditors.RadioGroup();
+            this.tmCalibrateMonitor = new System.Windows.Forms.Timer();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcUnitSettings)).BeginInit();
+            this.gcUnitSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tpSettings)).BeginInit();
+            this.tpSettings.SuspendLayout();
+            this.tbUltravioletSignalControl.SuspendLayout();
+            this.tbInfraredSignalControl.SuspendLayout();
+            this.tbSmokeSignalControl.SuspendLayout();
+            this.tbAcceleratedControl.SuspendLayout();
+            this.tbSystemControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgSpectralView.Properties)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.gcUnitSettings);
+            this.panelControl1.Controls.Add(this.panelControl7);
+            this.panelControl1.Controls.Add(this.ucCalibration);
+            this.panelControl1.Controls.Add(this.panelControl6);
+            this.panelControl1.Controls.Add(this.ucCalibrationParamter);
+            this.panelControl1.Controls.Add(this.panelControl4);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl1.Location = new System.Drawing.Point(628, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Padding = new System.Windows.Forms.Padding(5, 6, 5, 10);
+            this.panelControl1.Size = new System.Drawing.Size(493, 805);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // gcUnitSettings
+            // 
+            this.gcUnitSettings.AllowBorderColorBlending = true;
+            this.gcUnitSettings.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gcUnitSettings.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.gcUnitSettings.Appearance.BorderColor = System.Drawing.Color.White;
+            this.gcUnitSettings.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcUnitSettings.Appearance.Options.UseBackColor = true;
+            this.gcUnitSettings.Appearance.Options.UseBorderColor = true;
+            this.gcUnitSettings.Appearance.Options.UseFont = true;
+            this.gcUnitSettings.AppearanceCaption.BackColor = System.Drawing.Color.Red;
+            this.gcUnitSettings.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.gcUnitSettings.AppearanceCaption.Options.UseBackColor = true;
+            this.gcUnitSettings.AppearanceCaption.Options.UseFont = true;
+            this.gcUnitSettings.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.gcUnitSettings.Controls.Add(this.tpSettings);
+            this.gcUnitSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcUnitSettings.GroupStyle = DevExpress.Utils.GroupStyle.Title;
+            this.gcUnitSettings.Location = new System.Drawing.Point(5, 314);
+            this.gcUnitSettings.Margin = new System.Windows.Forms.Padding(0);
+            this.gcUnitSettings.Name = "gcUnitSettings";
+            this.gcUnitSettings.ShowCaption = false;
+            this.gcUnitSettings.Size = new System.Drawing.Size(483, 388);
+            this.gcUnitSettings.TabIndex = 9;
+            this.gcUnitSettings.Text = "Unit Settings";
+            // 
+            // tpSettings
+            // 
+            this.tpSettings.AllowCollapse = DevExpress.Utils.DefaultBoolean.Default;
+            this.tpSettings.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tpSettings.Appearance.BackColor2 = System.Drawing.Color.Aqua;
+            this.tpSettings.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.tpSettings.Appearance.Options.UseBackColor = true;
+            this.tpSettings.Appearance.Options.UseBorderColor = true;
+            this.tpSettings.AppearanceButton.Hovered.BackColor = System.Drawing.Color.Red;
+            this.tpSettings.AppearanceButton.Hovered.Options.UseBackColor = true;
+            this.tpSettings.AppearanceButton.Normal.BackColor = System.Drawing.Color.Yellow;
+            this.tpSettings.AppearanceButton.Normal.Options.UseBackColor = true;
+            this.tpSettings.AppearanceButton.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tpSettings.AppearanceButton.Pressed.Options.UseBackColor = true;
+            this.tpSettings.Controls.Add(this.tbUltravioletSignalControl);
+            this.tpSettings.Controls.Add(this.tbInfraredSignalControl);
+            this.tpSettings.Controls.Add(this.tbSmokeSignalControl);
+            this.tpSettings.Controls.Add(this.tbAcceleratedControl);
+            this.tpSettings.Controls.Add(this.tbSystemControl);
+            this.tpSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tpSettings.Location = new System.Drawing.Point(0, 0);
+            this.tpSettings.Name = "tpSettings";
+            this.tpSettings.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tpSettings.PageProperties.AppearanceCaption.BackColor = System.Drawing.Color.Yellow;
+            this.tpSettings.PageProperties.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tpSettings.PageProperties.AppearanceCaption.Options.UseBackColor = true;
+            this.tpSettings.PageProperties.AppearanceCaption.Options.UseFont = true;
+            this.tpSettings.PageProperties.ShowMode = DevExpress.XtraBars.Navigation.ItemShowMode.ImageOrText;
+            this.tpSettings.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.tbUltravioletSignalControl,
+            this.tbInfraredSignalControl,
+            this.tbSmokeSignalControl,
+            this.tbAcceleratedControl,
+            this.tbSystemControl});
+            this.tpSettings.RegularSize = new System.Drawing.Size(483, 388);
+            this.tpSettings.SelectedPage = this.tbUltravioletSignalControl;
+            this.tpSettings.Size = new System.Drawing.Size(483, 388);
+            this.tpSettings.TabAlignment = DevExpress.XtraEditors.Alignment.Near;
+            this.tpSettings.TabIndex = 0;
+            this.tpSettings.Text = "Accelerated";
+            // 
+            // tbUltravioletSignalControl
+            // 
+            this.tbUltravioletSignalControl.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbUltravioletSignalControl.Appearance.Options.UseBackColor = true;
+            this.tbUltravioletSignalControl.Caption = "Ultraviolet";
+            this.tbUltravioletSignalControl.Controls.Add(this.ucCalibrationUltravioletController1);
+            this.tbUltravioletSignalControl.Name = "tbUltravioletSignalControl";
+            this.tbUltravioletSignalControl.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tbUltravioletSignalControl.Properties.AppearanceCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.tbUltravioletSignalControl.Properties.AppearanceCaption.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.tbUltravioletSignalControl.Properties.AppearanceCaption.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.tbUltravioletSignalControl.Properties.AppearanceCaption.Options.UseBackColor = true;
+            this.tbUltravioletSignalControl.Properties.AppearanceCaption.Options.UseBorderColor = true;
+            this.tbUltravioletSignalControl.Size = new System.Drawing.Size(483, 360);
+            // 
+            // ucCalibrationUltravioletController1
+            // 
+            this.ucCalibrationUltravioletController1.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucCalibrationUltravioletController1.Appearance.Options.UseBackColor = true;
+            this.ucCalibrationUltravioletController1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucCalibrationUltravioletController1.ExecMergeRibbon = false;
+            this.ucCalibrationUltravioletController1.Location = new System.Drawing.Point(5, 10);
+            this.ucCalibrationUltravioletController1.Margin = new System.Windows.Forms.Padding(0);
+            this.ucCalibrationUltravioletController1.Name = "ucCalibrationUltravioletController1";
+            this.ucCalibrationUltravioletController1.Size = new System.Drawing.Size(473, 345);
+            this.ucCalibrationUltravioletController1.TabIndex = 0;
+            this.ucCalibrationUltravioletController1.ZoomFactor = 1F;
+            // 
+            // tbInfraredSignalControl
+            // 
+            this.tbInfraredSignalControl.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbInfraredSignalControl.Appearance.Options.UseBackColor = true;
+            this.tbInfraredSignalControl.Caption = "Infrared";
+            this.tbInfraredSignalControl.Controls.Add(this.ucCalibrationInfraredController1);
+            this.tbInfraredSignalControl.Name = "tbInfraredSignalControl";
+            this.tbInfraredSignalControl.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tbInfraredSignalControl.Size = new System.Drawing.Size(483, 360);
+            // 
+            // ucCalibrationInfraredController1
+            // 
+            this.ucCalibrationInfraredController1.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ucCalibrationInfraredController1.Appearance.Options.UseBackColor = true;
+            this.ucCalibrationInfraredController1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucCalibrationInfraredController1.ExecMergeRibbon = false;
+            this.ucCalibrationInfraredController1.Location = new System.Drawing.Point(5, 10);
+            this.ucCalibrationInfraredController1.Margin = new System.Windows.Forms.Padding(0);
+            this.ucCalibrationInfraredController1.Name = "ucCalibrationInfraredController1";
+            this.ucCalibrationInfraredController1.Size = new System.Drawing.Size(473, 345);
+            this.ucCalibrationInfraredController1.TabIndex = 0;
+            this.ucCalibrationInfraredController1.ZoomFactor = 1F;
+            // 
+            // tbSmokeSignalControl
+            // 
+            this.tbSmokeSignalControl.Caption = "Smoke";
+            this.tbSmokeSignalControl.Controls.Add(this.ucCalibrationSmokeController1);
+            this.tbSmokeSignalControl.Name = "tbSmokeSignalControl";
+            this.tbSmokeSignalControl.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tbSmokeSignalControl.Size = new System.Drawing.Size(483, 360);
+            // 
+            // ucCalibrationSmokeController1
+            // 
+            this.ucCalibrationSmokeController1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucCalibrationSmokeController1.ExecMergeRibbon = false;
+            this.ucCalibrationSmokeController1.Location = new System.Drawing.Point(5, 10);
+            this.ucCalibrationSmokeController1.Margin = new System.Windows.Forms.Padding(0);
+            this.ucCalibrationSmokeController1.Name = "ucCalibrationSmokeController1";
+            this.ucCalibrationSmokeController1.Size = new System.Drawing.Size(473, 345);
+            this.ucCalibrationSmokeController1.TabIndex = 0;
+            this.ucCalibrationSmokeController1.ZoomFactor = 1F;
+            // 
+            // tbAcceleratedControl
+            // 
+            this.tbAcceleratedControl.Caption = "Accelerated";
+            this.tbAcceleratedControl.Controls.Add(this.ucCalibrationAcceleratedController1);
+            this.tbAcceleratedControl.Name = "tbAcceleratedControl";
+            this.tbAcceleratedControl.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tbAcceleratedControl.Size = new System.Drawing.Size(483, 360);
+            // 
+            // ucCalibrationAcceleratedController1
+            // 
+            this.ucCalibrationAcceleratedController1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucCalibrationAcceleratedController1.ExecMergeRibbon = false;
+            this.ucCalibrationAcceleratedController1.Location = new System.Drawing.Point(5, 10);
+            this.ucCalibrationAcceleratedController1.Margin = new System.Windows.Forms.Padding(0);
+            this.ucCalibrationAcceleratedController1.Name = "ucCalibrationAcceleratedController1";
+            this.ucCalibrationAcceleratedController1.Size = new System.Drawing.Size(473, 345);
+            this.ucCalibrationAcceleratedController1.TabIndex = 0;
+            this.ucCalibrationAcceleratedController1.ZoomFactor = 1F;
+            // 
+            // tbSystemControl
+            // 
+            this.tbSystemControl.Caption = "System";
+            this.tbSystemControl.Controls.Add(this.ucCalibrationExtendController1);
+            this.tbSystemControl.Name = "tbSystemControl";
+            this.tbSystemControl.Padding = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.tbSystemControl.Size = new System.Drawing.Size(483, 360);
+            // 
+            // ucCalibrationExtendController1
+            // 
+            this.ucCalibrationExtendController1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucCalibrationExtendController1.ExecMergeRibbon = false;
+            this.ucCalibrationExtendController1.Location = new System.Drawing.Point(5, 10);
+            this.ucCalibrationExtendController1.Margin = new System.Windows.Forms.Padding(0);
+            this.ucCalibrationExtendController1.Name = "ucCalibrationExtendController1";
+            this.ucCalibrationExtendController1.Size = new System.Drawing.Size(473, 345);
+            this.ucCalibrationExtendController1.TabIndex = 0;
+            this.ucCalibrationExtendController1.ZoomFactor = 1F;
+            // 
+            // panelControl7
+            // 
+            this.panelControl7.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl7.Appearance.Options.UseBackColor = true;
+            this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl7.Location = new System.Drawing.Point(5, 304);
+            this.panelControl7.Name = "panelControl7";
+            this.panelControl7.Size = new System.Drawing.Size(483, 10);
+            this.panelControl7.TabIndex = 8;
+            // 
+            // ucCalibration
+            // 
+            this.ucCalibration.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucCalibration.ExecMergeRibbon = false;
+            this.ucCalibration.Location = new System.Drawing.Point(5, 134);
+            this.ucCalibration.Margin = new System.Windows.Forms.Padding(0);
+            this.ucCalibration.Name = "ucCalibration";
+            this.ucCalibration.Size = new System.Drawing.Size(483, 170);
+            this.ucCalibration.TabIndex = 6;
+            this.ucCalibration.ZoomFactor = 1F;
+            // 
+            // panelControl6
+            // 
+            this.panelControl6.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl6.Appearance.Options.UseBackColor = true;
+            this.panelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl6.Location = new System.Drawing.Point(5, 124);
+            this.panelControl6.Name = "panelControl6";
+            this.panelControl6.Size = new System.Drawing.Size(483, 10);
+            this.panelControl6.TabIndex = 5;
+            // 
+            // ucCalibrationParamter
+            // 
+            this.ucCalibrationParamter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucCalibrationParamter.ExecMergeRibbon = false;
+            this.ucCalibrationParamter.Location = new System.Drawing.Point(5, 34);
+            this.ucCalibrationParamter.Margin = new System.Windows.Forms.Padding(0);
+            this.ucCalibrationParamter.Name = "ucCalibrationParamter";
+            this.ucCalibrationParamter.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.ucCalibrationParamter.Size = new System.Drawing.Size(483, 90);
+            this.ucCalibrationParamter.TabIndex = 1;
+            this.ucCalibrationParamter.ZoomFactor = 1F;
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.sbExitCalibrationMode);
+            this.panelControl4.Controls.Add(this.sbEnterCalibrationMode);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl4.Location = new System.Drawing.Point(5, 6);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(483, 28);
+            this.panelControl4.TabIndex = 0;
+            // 
+            // sbExitCalibrationMode
+            // 
+            this.sbExitCalibrationMode.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.sbExitCalibrationMode.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbExitCalibrationMode.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbExitCalibrationMode.Appearance.Options.UseBackColor = true;
+            this.sbExitCalibrationMode.Appearance.Options.UseFont = true;
+            this.sbExitCalibrationMode.Appearance.Options.UseForeColor = true;
+            this.sbExitCalibrationMode.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sbExitCalibrationMode.AppearanceDisabled.Options.UseBackColor = true;
+            this.sbExitCalibrationMode.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbExitCalibrationMode.AppearanceHovered.Options.UseBackColor = true;
+            this.sbExitCalibrationMode.AppearancePressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbExitCalibrationMode.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbExitCalibrationMode.AppearancePressed.Options.UseBackColor = true;
+            this.sbExitCalibrationMode.AppearancePressed.Options.UseFont = true;
+            this.sbExitCalibrationMode.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbExitCalibrationMode.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sbExitCalibrationMode.Location = new System.Drawing.Point(137, 0);
+            this.sbExitCalibrationMode.Name = "sbExitCalibrationMode";
+            this.sbExitCalibrationMode.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.sbExitCalibrationMode.Size = new System.Drawing.Size(137, 28);
+            this.sbExitCalibrationMode.TabIndex = 1;
+            this.sbExitCalibrationMode.Text = "Exit Calibration Mode";
+            this.sbExitCalibrationMode.Visible = false;
+            this.sbExitCalibrationMode.Click += new System.EventHandler(this.sbCalibrationMode_Click);
+            // 
+            // sbEnterCalibrationMode
+            // 
+            this.sbEnterCalibrationMode.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.sbEnterCalibrationMode.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbEnterCalibrationMode.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbEnterCalibrationMode.Appearance.Options.UseBackColor = true;
+            this.sbEnterCalibrationMode.Appearance.Options.UseFont = true;
+            this.sbEnterCalibrationMode.Appearance.Options.UseForeColor = true;
+            this.sbEnterCalibrationMode.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sbEnterCalibrationMode.AppearanceDisabled.Options.UseBackColor = true;
+            this.sbEnterCalibrationMode.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbEnterCalibrationMode.AppearanceHovered.Options.UseBackColor = true;
+            this.sbEnterCalibrationMode.AppearancePressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbEnterCalibrationMode.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbEnterCalibrationMode.AppearancePressed.Options.UseBackColor = true;
+            this.sbEnterCalibrationMode.AppearancePressed.Options.UseFont = true;
+            this.sbEnterCalibrationMode.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbEnterCalibrationMode.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sbEnterCalibrationMode.Location = new System.Drawing.Point(0, 0);
+            this.sbEnterCalibrationMode.Name = "sbEnterCalibrationMode";
+            this.sbEnterCalibrationMode.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.sbEnterCalibrationMode.Size = new System.Drawing.Size(137, 28);
+            this.sbEnterCalibrationMode.TabIndex = 0;
+            this.sbEnterCalibrationMode.Text = "Enter Calibration Mode";
+            this.sbEnterCalibrationMode.Click += new System.EventHandler(this.sbCalibrationMode_Click);
+            // 
+            // panelControl5
+            // 
+            this.panelControl5.Appearance.BackColor = System.Drawing.Color.LightGray;
+            this.panelControl5.Appearance.Options.UseBackColor = true;
+            this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelControl5.Location = new System.Drawing.Point(627, 0);
+            this.panelControl5.Name = "panelControl5";
+            this.panelControl5.Size = new System.Drawing.Size(1, 805);
+            this.panelControl5.TabIndex = 2;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.pcClient);
+            this.panelControl2.Controls.Add(this.panelControl3);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(627, 805);
+            this.panelControl2.TabIndex = 3;
+            // 
+            // pcClient
+            // 
+            this.pcClient.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pcClient.Appearance.Options.UseBackColor = true;
+            this.pcClient.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcClient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcClient.Location = new System.Drawing.Point(0, 0);
+            this.pcClient.Name = "pcClient";
+            this.pcClient.Size = new System.Drawing.Size(627, 763);
+            this.pcClient.TabIndex = 1;
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl3.Appearance.Options.UseBackColor = true;
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.rgSpectralView);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl3.Location = new System.Drawing.Point(0, 763);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(627, 42);
+            this.panelControl3.TabIndex = 0;
+            // 
+            // rgSpectralView
+            // 
+            this.rgSpectralView.EditValue = "riHarmonic";
+            this.rgSpectralView.Location = new System.Drawing.Point(4, 7);
+            this.rgSpectralView.Name = "rgSpectralView";
+            this.rgSpectralView.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rgSpectralView.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(106)))), ((int)(((byte)(170)))));
+            this.rgSpectralView.Properties.Appearance.Options.UseFont = true;
+            this.rgSpectralView.Properties.Appearance.Options.UseForeColor = true;
+            this.rgSpectralView.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rgSpectralView.Properties.ColumnIndent = 12;
+            this.rgSpectralView.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Near;
+            this.rgSpectralView.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("riHarmonic", "Abs/Harmonic"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("riSpectrum", "Spectrum"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("riConcentration", "Concentration"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("riDebug", "Debug")});
+            this.rgSpectralView.Size = new System.Drawing.Size(474, 30);
+            this.rgSpectralView.TabIndex = 0;
+            this.rgSpectralView.SelectedIndexChanged += new System.EventHandler(this.rgSpectralView_SelectedIndexChanged);
+            // 
+            // tmCalibrateMonitor
+            // 
+            this.tmCalibrateMonitor.Interval = 15000;
+            this.tmCalibrateMonitor.Tick += new System.EventHandler(this.tmCalibrateMonitor_Tick);
+            // 
+            // ucConcentrationCalibrator
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelControl2);
+            this.Controls.Add(this.panelControl5);
+            this.Controls.Add(this.panelControl1);
+            this.Name = "ucConcentrationCalibrator";
+            this.Padding = new System.Windows.Forms.Padding(0);
+            this.Size = new System.Drawing.Size(1121, 805);
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcUnitSettings)).EndInit();
+            this.gcUnitSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tpSettings)).EndInit();
+            this.tpSettings.ResumeLayout(false);
+            this.tbUltravioletSignalControl.ResumeLayout(false);
+            this.tbInfraredSignalControl.ResumeLayout(false);
+            this.tbSmokeSignalControl.ResumeLayout(false);
+            this.tbAcceleratedControl.ResumeLayout(false);
+            this.tbSystemControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rgSpectralView.Properties)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
+        private DevExpress.XtraEditors.SimpleButton sbEnterCalibrationMode;
+        private DevExpress.XtraEditors.SimpleButton sbExitCalibrationMode;
+        private UserControls.ucCalibrationParamter ucCalibrationParamter;
+        private DevExpress.XtraEditors.PanelControl panelControl5;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.PanelControl pcClient;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.RadioGroup rgSpectralView;
+        private DevExpress.XtraEditors.PanelControl panelControl6;
+        private DevExpress.XtraEditors.PanelControl panelControl7;
+        private DevExpress.XtraEditors.GroupControl gcUnitSettings;
+        private DevExpress.XtraBars.Navigation.TabPane tpSettings;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tbUltravioletSignalControl;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tbInfraredSignalControl;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tbSmokeSignalControl;
+        private UserControls.ucCalibrationUltravioletController ucCalibrationUltravioletController1;
+        private UserControls.ucCalibrationInfraredController ucCalibrationInfraredController1;
+        private UserControls.ucCalibrationSmokeController ucCalibrationSmokeController1;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tbAcceleratedControl;
+        private UserControls.ucCalibrationAcceleratedController ucCalibrationAcceleratedController1;
+        private DevExpress.XtraBars.Navigation.TabNavigationPage tbSystemControl;
+        private UserControls.ucCalibrationExtendController ucCalibrationExtendController1;
+        private UserControls.ucCalibrationControl ucCalibration;
+        private System.Windows.Forms.Timer tmCalibrateMonitor;
+    }
+}

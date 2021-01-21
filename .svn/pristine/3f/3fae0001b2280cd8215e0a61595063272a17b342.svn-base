@@ -1,0 +1,447 @@
+﻿namespace wayeal.os.exhaust.UserControls
+{
+    partial class ucCalibrationAcceleratedController
+    {
+        /// <summary> 
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region 组件设计器生成的代码
+
+        /// <summary> 
+        /// 设计器支持所需的方法 - 不要修改
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucCalibrationAcceleratedController));
+            this.lcIntensity1Value = new DevExpress.XtraEditors.LabelControl();
+            this.teDistance1To3 = new DevExpress.XtraEditors.TextEdit();
+            this.teDistance1To2 = new DevExpress.XtraEditors.TextEdit();
+            this.lcIntensity1 = new DevExpress.XtraEditors.LabelControl();
+            this.lcAccelerationAC = new DevExpress.XtraEditors.LabelControl();
+            this.lcTime1To3 = new DevExpress.XtraEditors.LabelControl();
+            this.lcTime1To2 = new DevExpress.XtraEditors.LabelControl();
+            this.lcSpeedAC = new DevExpress.XtraEditors.LabelControl();
+            this.lcDistance1To3 = new DevExpress.XtraEditors.LabelControl();
+            this.lcDistance1To2 = new DevExpress.XtraEditors.LabelControl();
+            this.teLightThreshold = new DevExpress.XtraEditors.TextEdit();
+            this.lcLightThreshold = new DevExpress.XtraEditors.LabelControl();
+            this.lcIntensity2 = new DevExpress.XtraEditors.LabelControl();
+            this.lcIntensity2Value = new DevExpress.XtraEditors.LabelControl();
+            this.lcIntensity3 = new DevExpress.XtraEditors.LabelControl();
+            this.lcIntensity3Value = new DevExpress.XtraEditors.LabelControl();
+            this.lcTime1To2Value = new DevExpress.XtraEditors.LabelControl();
+            this.lcTime1To3Value = new DevExpress.XtraEditors.LabelControl();
+            this.lcSpeedValue = new DevExpress.XtraEditors.LabelControl();
+            this.lcAccelerationValue = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teDistance1To3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teDistance1To2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teLightThreshold.Properties)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // sbRefresh
+            // 
+            this.sbRefresh.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.sbRefresh.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbRefresh.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbRefresh.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbRefresh.Appearance.Image")));
+            this.sbRefresh.Appearance.Options.UseBackColor = true;
+            this.sbRefresh.Appearance.Options.UseFont = true;
+            this.sbRefresh.Appearance.Options.UseForeColor = true;
+            this.sbRefresh.Appearance.Options.UseImage = true;
+            this.sbRefresh.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sbRefresh.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.sbRefresh.AppearanceDisabled.Image = ((System.Drawing.Image)(resources.GetObject("sbRefresh.AppearanceDisabled.Image")));
+            this.sbRefresh.AppearanceDisabled.Options.UseBackColor = true;
+            this.sbRefresh.AppearanceDisabled.Options.UseForeColor = true;
+            this.sbRefresh.AppearanceDisabled.Options.UseImage = true;
+            this.sbRefresh.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbRefresh.AppearanceHovered.Options.UseBackColor = true;
+            this.sbRefresh.AppearancePressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(177)))), ((int)(((byte)(156)))));
+            this.sbRefresh.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbRefresh.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbRefresh.AppearancePressed.Image")));
+            this.sbRefresh.AppearancePressed.Options.UseBackColor = true;
+            this.sbRefresh.AppearancePressed.Options.UseFont = true;
+            this.sbRefresh.AppearancePressed.Options.UseImage = true;
+            // 
+            // sbSetup
+            // 
+            this.sbSetup.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(88)))), ((int)(((byte)(165)))));
+            this.sbSetup.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbSetup.Appearance.ForeColor = System.Drawing.Color.White;
+            this.sbSetup.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbSetup.Appearance.Image")));
+            this.sbSetup.Appearance.Options.UseBackColor = true;
+            this.sbSetup.Appearance.Options.UseFont = true;
+            this.sbSetup.Appearance.Options.UseForeColor = true;
+            this.sbSetup.Appearance.Options.UseImage = true;
+            this.sbSetup.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.sbSetup.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.sbSetup.AppearanceDisabled.Image = ((System.Drawing.Image)(resources.GetObject("sbSetup.AppearanceDisabled.Image")));
+            this.sbSetup.AppearanceDisabled.Options.UseBackColor = true;
+            this.sbSetup.AppearanceDisabled.Options.UseForeColor = true;
+            this.sbSetup.AppearanceDisabled.Options.UseImage = true;
+            this.sbSetup.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
+            this.sbSetup.AppearanceHovered.Options.UseBackColor = true;
+            this.sbSetup.AppearancePressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(177)))), ((int)(((byte)(156)))));
+            this.sbSetup.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.sbSetup.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbSetup.AppearancePressed.Image")));
+            this.sbSetup.AppearancePressed.Options.UseBackColor = true;
+            this.sbSetup.AppearancePressed.Options.UseFont = true;
+            this.sbSetup.AppearancePressed.Options.UseImage = true;
+            // 
+            // lcIntensity1Value
+            // 
+            this.lcIntensity1Value.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcIntensity1Value.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lcIntensity1Value.Appearance.Options.UseFont = true;
+            this.lcIntensity1Value.Appearance.Options.UseForeColor = true;
+            this.lcIntensity1Value.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcIntensity1Value.Location = new System.Drawing.Point(350, 3);
+            this.lcIntensity1Value.Name = "lcIntensity1Value";
+            this.lcIntensity1Value.Size = new System.Drawing.Size(109, 16);
+            this.lcIntensity1Value.TabIndex = 71;
+            this.lcIntensity1Value.Text = "---";
+            // 
+            // teDistance1To3
+            // 
+            this.teDistance1To3.EditValue = "40";
+            this.teDistance1To3.Location = new System.Drawing.Point(110, 32);
+            this.teDistance1To3.Name = "teDistance1To3";
+            this.teDistance1To3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.teDistance1To3.Properties.Appearance.Options.UseFont = true;
+            this.teDistance1To3.Size = new System.Drawing.Size(116, 22);
+            this.teDistance1To3.TabIndex = 68;
+            this.teDistance1To3.Tag = "lcDistance1To3";
+            // 
+            // teDistance1To2
+            // 
+            this.teDistance1To2.EditValue = "20";
+            this.teDistance1To2.Location = new System.Drawing.Point(110, 0);
+            this.teDistance1To2.Name = "teDistance1To2";
+            this.teDistance1To2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.teDistance1To2.Properties.Appearance.Options.UseFont = true;
+            this.teDistance1To2.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Strong;
+            this.teDistance1To2.Properties.Mask.BeepOnError = true;
+            this.teDistance1To2.Size = new System.Drawing.Size(116, 22);
+            this.teDistance1To2.TabIndex = 70;
+            this.teDistance1To2.Tag = "lcDistance1To2";
+            // 
+            // lcIntensity1
+            // 
+            this.lcIntensity1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcIntensity1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcIntensity1.Appearance.Options.UseFont = true;
+            this.lcIntensity1.Appearance.Options.UseForeColor = true;
+            this.lcIntensity1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcIntensity1.Location = new System.Drawing.Point(243, 3);
+            this.lcIntensity1.Name = "lcIntensity1";
+            this.lcIntensity1.Size = new System.Drawing.Size(106, 16);
+            this.lcIntensity1.TabIndex = 60;
+            this.lcIntensity1.Text = "Intensity 1";
+            // 
+            // lcAccelerationAC
+            // 
+            this.lcAccelerationAC.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcAccelerationAC.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcAccelerationAC.Appearance.Options.UseFont = true;
+            this.lcAccelerationAC.Appearance.Options.UseForeColor = true;
+            this.lcAccelerationAC.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcAccelerationAC.Location = new System.Drawing.Point(3, 131);
+            this.lcAccelerationAC.Name = "lcAccelerationAC";
+            this.lcAccelerationAC.Size = new System.Drawing.Size(106, 16);
+            this.lcAccelerationAC.TabIndex = 59;
+            this.lcAccelerationAC.Text = "Accelerate(m/s²)";
+            // 
+            // lcTime1To3
+            // 
+            this.lcTime1To3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcTime1To3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcTime1To3.Appearance.Options.UseFont = true;
+            this.lcTime1To3.Appearance.Options.UseForeColor = true;
+            this.lcTime1To3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcTime1To3.Location = new System.Drawing.Point(243, 131);
+            this.lcTime1To3.Name = "lcTime1To3";
+            this.lcTime1To3.Size = new System.Drawing.Size(106, 16);
+            this.lcTime1To3.TabIndex = 63;
+            this.lcTime1To3.Text = "T1-3(μs)";
+            // 
+            // lcTime1To2
+            // 
+            this.lcTime1To2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcTime1To2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcTime1To2.Appearance.Options.UseFont = true;
+            this.lcTime1To2.Appearance.Options.UseForeColor = true;
+            this.lcTime1To2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcTime1To2.Location = new System.Drawing.Point(243, 99);
+            this.lcTime1To2.Name = "lcTime1To2";
+            this.lcTime1To2.Size = new System.Drawing.Size(106, 16);
+            this.lcTime1To2.TabIndex = 61;
+            this.lcTime1To2.Text = "T1-2(μs)";
+            // 
+            // lcSpeedAC
+            // 
+            this.lcSpeedAC.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcSpeedAC.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcSpeedAC.Appearance.Options.UseFont = true;
+            this.lcSpeedAC.Appearance.Options.UseForeColor = true;
+            this.lcSpeedAC.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcSpeedAC.Location = new System.Drawing.Point(3, 99);
+            this.lcSpeedAC.Name = "lcSpeedAC";
+            this.lcSpeedAC.Size = new System.Drawing.Size(106, 16);
+            this.lcSpeedAC.TabIndex = 65;
+            this.lcSpeedAC.Text = "Speed(km/h)";
+            // 
+            // lcDistance1To3
+            // 
+            this.lcDistance1To3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcDistance1To3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcDistance1To3.Appearance.Options.UseFont = true;
+            this.lcDistance1To3.Appearance.Options.UseForeColor = true;
+            this.lcDistance1To3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcDistance1To3.Location = new System.Drawing.Point(3, 35);
+            this.lcDistance1To3.Name = "lcDistance1To3";
+            this.lcDistance1To3.Size = new System.Drawing.Size(106, 16);
+            this.lcDistance1To3.TabIndex = 66;
+            this.lcDistance1To3.Text = "L1-3(mm)";
+            // 
+            // lcDistance1To2
+            // 
+            this.lcDistance1To2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcDistance1To2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcDistance1To2.Appearance.Options.UseFont = true;
+            this.lcDistance1To2.Appearance.Options.UseForeColor = true;
+            this.lcDistance1To2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcDistance1To2.Location = new System.Drawing.Point(3, 3);
+            this.lcDistance1To2.Name = "lcDistance1To2";
+            this.lcDistance1To2.Size = new System.Drawing.Size(106, 16);
+            this.lcDistance1To2.TabIndex = 67;
+            this.lcDistance1To2.Text = "L1-2(mm)";
+            // 
+            // teLightThreshold
+            // 
+            this.teLightThreshold.EditValue = "868";
+            this.teLightThreshold.Location = new System.Drawing.Point(110, 64);
+            this.teLightThreshold.Name = "teLightThreshold";
+            this.teLightThreshold.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.teLightThreshold.Properties.Appearance.Options.UseFont = true;
+            this.teLightThreshold.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Strong;
+            this.teLightThreshold.Properties.Mask.BeepOnError = true;
+            this.teLightThreshold.Size = new System.Drawing.Size(116, 22);
+            this.teLightThreshold.TabIndex = 73;
+            this.teLightThreshold.Tag = "lcLightThreshold";
+            // 
+            // lcLightThreshold
+            // 
+            this.lcLightThreshold.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcLightThreshold.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcLightThreshold.Appearance.Options.UseFont = true;
+            this.lcLightThreshold.Appearance.Options.UseForeColor = true;
+            this.lcLightThreshold.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcLightThreshold.Location = new System.Drawing.Point(3, 67);
+            this.lcLightThreshold.Name = "lcLightThreshold";
+            this.lcLightThreshold.Size = new System.Drawing.Size(106, 16);
+            this.lcLightThreshold.TabIndex = 72;
+            this.lcLightThreshold.Text = "Light Threshold";
+            // 
+            // lcIntensity2
+            // 
+            this.lcIntensity2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcIntensity2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcIntensity2.Appearance.Options.UseFont = true;
+            this.lcIntensity2.Appearance.Options.UseForeColor = true;
+            this.lcIntensity2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcIntensity2.Location = new System.Drawing.Point(243, 35);
+            this.lcIntensity2.Name = "lcIntensity2";
+            this.lcIntensity2.Size = new System.Drawing.Size(106, 16);
+            this.lcIntensity2.TabIndex = 60;
+            this.lcIntensity2.Text = "Intensity 2";
+            // 
+            // lcIntensity2Value
+            // 
+            this.lcIntensity2Value.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcIntensity2Value.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lcIntensity2Value.Appearance.Options.UseFont = true;
+            this.lcIntensity2Value.Appearance.Options.UseForeColor = true;
+            this.lcIntensity2Value.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcIntensity2Value.Location = new System.Drawing.Point(350, 35);
+            this.lcIntensity2Value.Name = "lcIntensity2Value";
+            this.lcIntensity2Value.Size = new System.Drawing.Size(109, 16);
+            this.lcIntensity2Value.TabIndex = 71;
+            this.lcIntensity2Value.Text = "---";
+            // 
+            // lcIntensity3
+            // 
+            this.lcIntensity3.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcIntensity3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lcIntensity3.Appearance.Options.UseFont = true;
+            this.lcIntensity3.Appearance.Options.UseForeColor = true;
+            this.lcIntensity3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcIntensity3.Location = new System.Drawing.Point(243, 67);
+            this.lcIntensity3.Name = "lcIntensity3";
+            this.lcIntensity3.Size = new System.Drawing.Size(106, 16);
+            this.lcIntensity3.TabIndex = 60;
+            this.lcIntensity3.Text = "Intensity 3";
+            // 
+            // lcIntensity3Value
+            // 
+            this.lcIntensity3Value.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcIntensity3Value.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lcIntensity3Value.Appearance.Options.UseFont = true;
+            this.lcIntensity3Value.Appearance.Options.UseForeColor = true;
+            this.lcIntensity3Value.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcIntensity3Value.Location = new System.Drawing.Point(350, 67);
+            this.lcIntensity3Value.Name = "lcIntensity3Value";
+            this.lcIntensity3Value.Size = new System.Drawing.Size(109, 16);
+            this.lcIntensity3Value.TabIndex = 71;
+            this.lcIntensity3Value.Text = "---";
+            // 
+            // lcTime1To2Value
+            // 
+            this.lcTime1To2Value.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcTime1To2Value.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lcTime1To2Value.Appearance.Options.UseFont = true;
+            this.lcTime1To2Value.Appearance.Options.UseForeColor = true;
+            this.lcTime1To2Value.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcTime1To2Value.Location = new System.Drawing.Point(350, 99);
+            this.lcTime1To2Value.Name = "lcTime1To2Value";
+            this.lcTime1To2Value.Size = new System.Drawing.Size(109, 16);
+            this.lcTime1To2Value.TabIndex = 71;
+            this.lcTime1To2Value.Text = "---";
+            // 
+            // lcTime1To3Value
+            // 
+            this.lcTime1To3Value.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcTime1To3Value.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lcTime1To3Value.Appearance.Options.UseFont = true;
+            this.lcTime1To3Value.Appearance.Options.UseForeColor = true;
+            this.lcTime1To3Value.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcTime1To3Value.Location = new System.Drawing.Point(350, 131);
+            this.lcTime1To3Value.Name = "lcTime1To3Value";
+            this.lcTime1To3Value.Size = new System.Drawing.Size(109, 16);
+            this.lcTime1To3Value.TabIndex = 71;
+            this.lcTime1To3Value.Text = "---";
+            // 
+            // lcSpeedValue
+            // 
+            this.lcSpeedValue.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcSpeedValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lcSpeedValue.Appearance.Options.UseFont = true;
+            this.lcSpeedValue.Appearance.Options.UseForeColor = true;
+            this.lcSpeedValue.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcSpeedValue.Location = new System.Drawing.Point(110, 99);
+            this.lcSpeedValue.Name = "lcSpeedValue";
+            this.lcSpeedValue.Size = new System.Drawing.Size(109, 16);
+            this.lcSpeedValue.TabIndex = 71;
+            this.lcSpeedValue.Text = "---";
+            // 
+            // lcAccelerationValue
+            // 
+            this.lcAccelerationValue.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lcAccelerationValue.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lcAccelerationValue.Appearance.Options.UseFont = true;
+            this.lcAccelerationValue.Appearance.Options.UseForeColor = true;
+            this.lcAccelerationValue.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcAccelerationValue.Location = new System.Drawing.Point(110, 131);
+            this.lcAccelerationValue.Name = "lcAccelerationValue";
+            this.lcAccelerationValue.Size = new System.Drawing.Size(109, 16);
+            this.lcAccelerationValue.TabIndex = 71;
+            this.lcAccelerationValue.Text = "---";
+            // 
+            // ucCalibrationAcceleratedController
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.teLightThreshold);
+            this.Controls.Add(this.lcLightThreshold);
+            this.Controls.Add(this.lcTime1To3Value);
+            this.Controls.Add(this.lcTime1To2Value);
+            this.Controls.Add(this.lcIntensity3Value);
+            this.Controls.Add(this.lcAccelerationValue);
+            this.Controls.Add(this.lcIntensity2Value);
+            this.Controls.Add(this.lcSpeedValue);
+            this.Controls.Add(this.lcIntensity1Value);
+            this.Controls.Add(this.teDistance1To3);
+            this.Controls.Add(this.teDistance1To2);
+            this.Controls.Add(this.lcIntensity3);
+            this.Controls.Add(this.lcIntensity2);
+            this.Controls.Add(this.lcIntensity1);
+            this.Controls.Add(this.lcAccelerationAC);
+            this.Controls.Add(this.lcTime1To3);
+            this.Controls.Add(this.lcTime1To2);
+            this.Controls.Add(this.lcSpeedAC);
+            this.Controls.Add(this.lcDistance1To3);
+            this.Controls.Add(this.lcDistance1To2);
+            this.Name = "ucCalibrationAcceleratedController";
+            this.Size = new System.Drawing.Size(469, 312);
+            this.Controls.SetChildIndex(this.lcDistance1To2, 0);
+            this.Controls.SetChildIndex(this.lcDistance1To3, 0);
+            this.Controls.SetChildIndex(this.lcSpeedAC, 0);
+            this.Controls.SetChildIndex(this.lcTime1To2, 0);
+            this.Controls.SetChildIndex(this.lcTime1To3, 0);
+            this.Controls.SetChildIndex(this.lcAccelerationAC, 0);
+            this.Controls.SetChildIndex(this.lcIntensity1, 0);
+            this.Controls.SetChildIndex(this.lcIntensity2, 0);
+            this.Controls.SetChildIndex(this.lcIntensity3, 0);
+            this.Controls.SetChildIndex(this.teDistance1To2, 0);
+            this.Controls.SetChildIndex(this.teDistance1To3, 0);
+            this.Controls.SetChildIndex(this.lcIntensity1Value, 0);
+            this.Controls.SetChildIndex(this.lcSpeedValue, 0);
+            this.Controls.SetChildIndex(this.lcIntensity2Value, 0);
+            this.Controls.SetChildIndex(this.lcAccelerationValue, 0);
+            this.Controls.SetChildIndex(this.lcIntensity3Value, 0);
+            this.Controls.SetChildIndex(this.lcTime1To2Value, 0);
+            this.Controls.SetChildIndex(this.lcTime1To3Value, 0);
+            this.Controls.SetChildIndex(this.lcLightThreshold, 0);
+            this.Controls.SetChildIndex(this.teLightThreshold, 0);
+            this.Controls.SetChildIndex(this.sbSetup, 0);
+            this.Controls.SetChildIndex(this.sbRefresh, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teDistance1To3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teDistance1To2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teLightThreshold.Properties)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraEditors.LabelControl lcIntensity1Value;
+        private DevExpress.XtraEditors.TextEdit teDistance1To3;
+        private DevExpress.XtraEditors.TextEdit teDistance1To2;
+        private DevExpress.XtraEditors.LabelControl lcIntensity1;
+        private DevExpress.XtraEditors.LabelControl lcAccelerationAC;
+        private DevExpress.XtraEditors.LabelControl lcTime1To3;
+        private DevExpress.XtraEditors.LabelControl lcTime1To2;
+        private DevExpress.XtraEditors.LabelControl lcSpeedAC;
+        private DevExpress.XtraEditors.LabelControl lcDistance1To3;
+        private DevExpress.XtraEditors.LabelControl lcDistance1To2;
+        private DevExpress.XtraEditors.TextEdit teLightThreshold;
+        private DevExpress.XtraEditors.LabelControl lcLightThreshold;
+        private DevExpress.XtraEditors.LabelControl lcIntensity2;
+        private DevExpress.XtraEditors.LabelControl lcIntensity2Value;
+        private DevExpress.XtraEditors.LabelControl lcIntensity3;
+        private DevExpress.XtraEditors.LabelControl lcIntensity3Value;
+        private DevExpress.XtraEditors.LabelControl lcTime1To2Value;
+        private DevExpress.XtraEditors.LabelControl lcTime1To3Value;
+        private DevExpress.XtraEditors.LabelControl lcSpeedValue;
+        private DevExpress.XtraEditors.LabelControl lcAccelerationValue;
+        //private DevExpress.XtraEditors.SimpleButton sbRefresh;
+        //private DevExpress.XtraEditors.SimpleButton sbSetup;
+    }
+}

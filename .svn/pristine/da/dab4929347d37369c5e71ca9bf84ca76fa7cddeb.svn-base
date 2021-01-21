@@ -1,0 +1,334 @@
+﻿//===============================================================================
+// Copyright (C) 2018-2019 WAYEAL
+// 文件名: Utils.cs
+// 作者：软件部 张荣周
+// 日期：2019/08/29
+// 描述：杂项
+// 版本：1.0
+// 修改历史纪录
+// 版本         修改时间         修改人                     修改内容
+//
+//==============================================================================
+
+using DevExpress.Utils;
+using DevExpress.XtraCharts;
+using DevExpress.XtraEditors.Controls;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace wayeal.os.exhaust
+{
+    class Utils
+    {
+        /// <summary>
+        /// 显示控件的提示
+        /// </summary>
+        /// <param name="activeEditor">当前控件</param>
+        /// <param name="hintText">提示文本</param>
+        /// <returns></returns>
+        public static bool ShowEditorHint(Control activeEditor, string hintText)
+        {
+            if (hintText == null || hintText.Length == 0) return false;
+            ToolTipControllerShowEventArgs tool = ToolTipController.DefaultController.CreateShowArgs();
+            tool.SelectedControl = activeEditor;
+            tool.IconType = ToolTipIconType.None;
+            tool.IconSize = ToolTipIconSize.Small;
+            tool.ToolTip = hintText;
+            tool.ToolTipLocation = ToolTipLocation.TopCenter;
+            ToolTipController.DefaultController.ShowHint(tool, activeEditor);
+            return true;
+        }
+        /// <summary>
+        /// 对象内容拷贝
+        /// </summary>
+        /// <param name="d">目标对象</param>
+        /// <param name="o">原始对象</param>
+        public static void Copy(object d,object o)
+        {
+            PropertyInfo[] p2 = o.GetType().GetProperties();
+            for (int i = 0; i < p2.Length; i++)
+            {
+                if(d.GetType().GetProperty(p2[i].Name)!=null)
+                    d.GetType().GetProperty(p2[i].Name).SetValue(d, p2[i].GetValue(o));
+            }
+                
+        }
+
+        /// <summary>
+        /// 获取数据源表
+        /// </summary>
+        /// <param name="ds">源数据</param>
+        /// <returns></returns>
+        public static DataTable FillDataSource<T>(T[] ds)
+        {
+            if (ds == null) return null;
+            string x = "Argument";
+            string y = "Value";
+            DataTable table = new DataTable("Table");
+            table.Columns.Add(x, typeof(float));
+            table.Columns.Add(y, typeof(T));
+            DataRow row = null;
+            for (int i = 0; i < ds.Length; i++)
+            {
+                row = table.NewRow();
+                row[x] = i;
+                row[y] = ds[i];
+                table.Rows.Add(row);
+            }
+            return table;
+        }
+        /// <summary>
+        /// 设置图表序列模式
+        /// </summary>
+        /// <param name="series"></param>
+        public static void SetSeries(Series series)
+        {
+            string x = "Argument";
+            string y = "Value";
+            //series.DataSource = table;
+            series.ArgumentScaleType = ScaleType.Numerical;
+            series.ArgumentDataMember = x;
+            series.ValueScaleType = ScaleType.Numerical;
+            series.ValueDataMembers.AddRange(new string[] { y });
+        }
+        /// <summary>
+        /// 设置图表属性
+        /// </summary>
+        /// <param name="chart"></param>
+        public static void SetChart(ChartControl chart)
+        {
+            try
+            {
+                // Cast the chart's diagram to the XYDiagram type, to access its panes. 
+                SwiftPlotDiagram diagram = ((SwiftPlotDiagram)chart.Diagram);
+                
+                // Enable the X-axis zooming at the diagram's level. 
+                diagram.EnableAxisXZooming = true;
+                diagram.EnableAxisYZooming = true;
+
+                // Individually enable zooming for panes. 
+                diagram.DefaultPane.EnableAxisXZooming = DefaultBoolean.True;
+                //diagram.Panes[0].EnableAxisXZooming = DefaultBoolean.False;
+
+                // Specify how zooming is performed. 
+                diagram.ZoomingOptions.UseKeyboard = false;
+                diagram.ZoomingOptions.UseKeyboardWithMouse = true;
+                diagram.ZoomingOptions.UseMouseWheel = true;
+            }
+            catch(Exception ex)
+            {
+                ErrorLog.Error(ex.StackTrace.ToString());
+            }
+
+        }
+        /// <summary>
+        /// 用户状态：“数字”转换为字符串
+        /// </summary>
+        /// <param name="statue"></param>
+        /// <returns></returns>
+        public static string ConvertStringStatueToZNCH(string statue)
+        {
+            switch (statue)
+            {
+                case "0":
+                    return Program.infoResource.GetLocalizedString(language.InfoId.Unused);
+                case "1":
+                    return Program.infoResource.GetLocalizedString(language.InfoId.Used);
+                default:
+                    return "";
+            }
+        }
+        /// <summary>
+        /// 用户权限：“数字”转换为字符串
+        /// </summary>
+        /// <param name="per"></param>
+        /// <returns></returns>
+        public static string ConvertStringPermissionToZNCH(string per)
+        {
+            switch (per)
+            {
+                case "1":
+                    return Program.infoResource.GetLocalizedString(language.InfoId.Manager);
+                case "2":
+                    return Program.infoResource.GetLocalizedString(language.InfoId.Operator);
+                case "3":
+                    return Program.infoResource.GetLocalizedString(language.InfoId.Tourist);
+                default:
+                    return "";
+            }
+        }
+        /// <summary>
+        /// 单位
+        /// </summary>
+        public enum UnitTypes { ugm3, mgm3, ppm, ppb }
+        /// <summary>
+        /// 单位转换
+        /// </summary>
+        /// <param name="value">待转换值</param>
+        /// <param name="socUnit">原始单位</param>
+        /// <param name="desUnit">目标单位</param>
+        /// <param name="moleWeight">分子量</param>
+        /// <returns></returns>
+        public static float UnitConvert(float value, UnitTypes socUnit, string desUnit, int molecularWeight)
+        {
+            try
+            {
+                switch (socUnit)
+                {
+                    case UnitTypes.ugm3:
+                        switch (desUnit.ToLower())
+                        {
+                            case "ppm":
+                                return (value * 22.4f / molecularWeight) / 1000f;
+                            case "ppb":
+                                return value * 22.4f / molecularWeight;
+                            case "ug/m3":
+                                return value;
+                            case "mg/m3":
+                                return value / 1000;
+                        }
+                        break;
+                    case UnitTypes.mgm3:
+                        switch (desUnit.ToLower())
+                        {
+                            case "ppm":
+                                return value * 22.4f / molecularWeight;
+                            case "ppb":
+                                return (value * 22.4f / molecularWeight) * 1000f;
+                            case "ug/m3":
+                                return value * 1000;
+                            case "mg/m3":
+                                return value;
+                        }
+                        break;
+                    case UnitTypes.ppm:
+                        switch (desUnit.ToLower())
+                        {
+                            case "ppm":
+                                return value;
+                            case "ppb":
+                                return value * 1000f;
+                            case "ug/m3":
+                                return (value * molecularWeight / 22.4f) * 1000f;
+                            case "mg/m3":
+                                return value * molecularWeight / 22.4f;
+                        }
+                        break;
+                    case UnitTypes.ppb:
+                        switch (desUnit.ToLower())
+                        {
+                            case "ppm":
+                                return value / 1000f;
+                            case "ppb":
+                                return value;
+                            case "ug/m3":
+                                return (value * molecularWeight / 22.4f);
+                            case "mg/m3":
+                                return (value * molecularWeight / 22.4f) / 1000f;
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Error(ex.Message + "\r\n" + ex.StackTrace.ToString());
+            }
+
+            return value;
+        }
+        /// <summary>
+        /// 过滤无效的浮点数
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static float FiltrateFloat(float value)
+        {
+            if (float.IsInfinity(value) || float.IsNaN(value) || float.IsNegativeInfinity(value) || float.IsPositiveInfinity(value)) return 0f;
+            return value;
+        }
+        /// <summary>
+        /// 以文件流的方式读取图片
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public static Bitmap FileToBitmap(string fileName)
+        {
+            // 打开文件    
+            FileStream fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
+            // 读取文件的 byte[]    
+            byte[] bytes = new byte[fileStream.Length];
+            fileStream.Read(bytes, 0, bytes.Length);
+            fileStream.Close();
+            // 把 byte[] 转换成 Stream    
+            Stream stream = new MemoryStream(bytes);
+            stream.Read(bytes, 0, bytes.Length);
+            // 设置当前流的位置为流的开始    
+            stream.Seek(0, SeekOrigin.Begin);
+            MemoryStream mstream = null;
+            try
+            {
+                mstream = new MemoryStream(bytes);
+                return new Bitmap((Image)new Bitmap(stream));
+            }
+            catch (ArgumentNullException ex)
+            {
+                return null;
+            }
+            catch (ArgumentException ex)
+            {
+                return null;
+            }
+            finally
+            {
+                stream.Close();
+            }
+        }
+        /// <summary>
+        /// 获取车辆分类后的结果
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static int ClassifyVehicleType(int index)
+        {
+            switch (index)
+            {
+                case 0:return 1;
+                case 1:return 2;
+                case 2:return 4;
+                case 3: return 3;
+                case 4:return 6;
+                case 5: return 4;
+                case 6:return 5;
+                case 7: return 5;
+                case 8:return 5;
+                case 9:return 3;
+                case 10:return 2;
+                case 11: return 3;
+                case 12: return 5;
+                case 13: return 3;
+                case 14: return 3;
+                case 15: return 4;
+                case 16: return 4;
+                case 17: return 4;
+                case 18: return 4;
+                case 19: return 7;
+                case 20: return 4;
+                case 21:return 4;
+                case 22: return 4;
+                case 23: return 3;
+                case 24: return 3;
+                case 25: return 3;
+                case 26: return 2;
+                default: return 1;
+            }
+        }
+    }
+}
