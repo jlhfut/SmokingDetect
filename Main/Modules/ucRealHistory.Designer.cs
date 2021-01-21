@@ -189,7 +189,7 @@
             this.simpleButton1.AppearancePressed.Options.UseFont = true;
             this.simpleButton1.AppearancePressed.Options.UseImage = true;
             this.simpleButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("simpleButton1.BackgroundImage")));
-            this.simpleButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.simpleButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton1.Location = new System.Drawing.Point(1324, 9);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -291,7 +291,7 @@
             this.sbQuary.AppearancePressed.Options.UseFont = true;
             this.sbQuary.AppearancePressed.Options.UseImage = true;
             this.sbQuary.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbQuary.BackgroundImage")));
-            this.sbQuary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.sbQuary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbQuary.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.sbQuary.Location = new System.Drawing.Point(1231, 9);
             this.sbQuary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

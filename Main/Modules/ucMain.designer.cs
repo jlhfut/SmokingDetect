@@ -857,7 +857,7 @@
             // 
             this.btnImage2.BackColor = System.Drawing.Color.Transparent;
             this.btnImage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImage2.BackgroundImage")));
-            this.btnImage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnImage2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnImage2.FlatAppearance.BorderSize = 0;
             this.btnImage2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -865,7 +865,7 @@
             this.btnImage2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImage2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnImage2.ForeColor = System.Drawing.Color.White;
-            this.btnImage2.Location = new System.Drawing.Point(494, 4);
+            this.btnImage2.Location = new System.Drawing.Point(576, 4);
             this.btnImage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnImage2.Name = "btnImage2";
             this.btnImage2.Size = new System.Drawing.Size(94, 47);
@@ -878,7 +878,7 @@
             // 
             this.btnImage1.BackColor = System.Drawing.Color.Transparent;
             this.btnImage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImage1.BackgroundImage")));
-            this.btnImage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnImage1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnImage1.FlatAppearance.BorderSize = 0;
             this.btnImage1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -886,7 +886,7 @@
             this.btnImage1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImage1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnImage1.ForeColor = System.Drawing.Color.White;
-            this.btnImage1.Location = new System.Drawing.Point(293, 6);
+            this.btnImage1.Location = new System.Drawing.Point(341, 4);
             this.btnImage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnImage1.Name = "btnImage1";
             this.btnImage1.Size = new System.Drawing.Size(94, 43);
@@ -899,7 +899,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -907,7 +907,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(25, 6);
+            this.button1.Location = new System.Drawing.Point(29, 4);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 43);
@@ -920,7 +920,7 @@
             // 
             this.btnCarHead.BackColor = System.Drawing.Color.Transparent;
             this.btnCarHead.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCarHead.BackgroundImage")));
-            this.btnCarHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCarHead.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCarHead.FlatAppearance.BorderSize = 0;
             this.btnCarHead.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -928,7 +928,7 @@
             this.btnCarHead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarHead.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnCarHead.ForeColor = System.Drawing.Color.White;
-            this.btnCarHead.Location = new System.Drawing.Point(153, 6);
+            this.btnCarHead.Location = new System.Drawing.Point(178, 4);
             this.btnCarHead.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCarHead.Name = "btnCarHead";
             this.btnCarHead.Size = new System.Drawing.Size(97, 43);

@@ -76,7 +76,7 @@
             "操作员",
             "管理员",
             "游客"});
-            this.cbPermi.Size = new System.Drawing.Size(143, 20);
+            this.cbPermi.Size = new System.Drawing.Size(143, 24);
             this.cbPermi.TabIndex = 3;
             // 
             // ceischeck
@@ -93,11 +93,18 @@
             // simpleButton1
             // 
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
+            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(169, 226);
+            this.simpleButton1.Appearance.Options.UseForeColor = true;
+            this.simpleButton1.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.AppearancePressed.Image")));
+            this.simpleButton1.AppearancePressed.Options.UseImage = true;
+            this.simpleButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("simpleButton1.BackgroundImage")));
+            this.simpleButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simpleButton1.Location = new System.Drawing.Point(141, 226);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 28);
+            this.simpleButton1.Size = new System.Drawing.Size(63, 28);
             this.simpleButton1.TabIndex = 5;
             this.simpleButton1.Text = "取消";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -105,11 +112,18 @@
             // sbadd
             // 
             this.sbadd.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F);
+            this.sbadd.Appearance.ForeColor = System.Drawing.Color.White;
             this.sbadd.Appearance.Options.UseFont = true;
-            this.sbadd.Location = new System.Drawing.Point(260, 226);
+            this.sbadd.Appearance.Options.UseForeColor = true;
+            this.sbadd.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbadd.AppearancePressed.Image")));
+            this.sbadd.AppearancePressed.Options.UseImage = true;
+            this.sbadd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbadd.BackgroundImage")));
+            this.sbadd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.sbadd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.sbadd.Location = new System.Drawing.Point(225, 226);
             this.sbadd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sbadd.Name = "sbadd";
-            this.sbadd.Size = new System.Drawing.Size(75, 28);
+            this.sbadd.Size = new System.Drawing.Size(87, 28);
             this.sbadd.TabIndex = 6;
             this.sbadd.Text = "确认";
             this.sbadd.Click += new System.EventHandler(this.sbadd_Click);
@@ -137,7 +151,7 @@
             this.txtuname.Location = new System.Drawing.Point(169, 87);
             this.txtuname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtuname.Name = "txtuname";
-            this.txtuname.Size = new System.Drawing.Size(143, 20);
+            this.txtuname.Size = new System.Drawing.Size(143, 24);
             this.txtuname.TabIndex = 9;
             // 
             // add

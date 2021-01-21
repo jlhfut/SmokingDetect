@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucStationSetting));
             this.sbCancel = new DevExpress.XtraEditors.SimpleButton();
             this.sbSave = new DevExpress.XtraEditors.SimpleButton();
             this.meTips = new DevExpress.XtraEditors.MemoEdit();
@@ -63,11 +64,9 @@
             this.sbCancel.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbCancel.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.sbCancel.Appearance.ForeColor = System.Drawing.Color.White;
-            this.sbCancel.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.取消小按下;
             this.sbCancel.Appearance.Options.UseBackColor = true;
             this.sbCancel.Appearance.Options.UseFont = true;
             this.sbCancel.Appearance.Options.UseForeColor = true;
-            this.sbCancel.Appearance.Options.UseImage = true;
             this.sbCancel.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sbCancel.AppearanceDisabled.Font = new System.Drawing.Font("Tahoma", 10F);
             this.sbCancel.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -84,11 +83,14 @@
             this.sbCancel.AppearancePressed.Options.UseBackColor = true;
             this.sbCancel.AppearancePressed.Options.UseFont = true;
             this.sbCancel.AppearancePressed.Options.UseImage = true;
+            this.sbCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbCancel.BackgroundImage")));
+            this.sbCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.sbCancel.Location = new System.Drawing.Point(548, 484);
+            this.sbCancel.Location = new System.Drawing.Point(554, 701);
+            this.sbCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sbCancel.Name = "sbCancel";
             this.sbCancel.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.sbCancel.Size = new System.Drawing.Size(78, 28);
+            this.sbCancel.Size = new System.Drawing.Size(78, 34);
             this.sbCancel.TabIndex = 87;
             this.sbCancel.Text = "取消";
             // 
@@ -98,11 +100,9 @@
             this.sbSave.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbSave.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.sbSave.Appearance.ForeColor = System.Drawing.Color.White;
-            this.sbSave.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.普通按钮;
             this.sbSave.Appearance.Options.UseBackColor = true;
             this.sbSave.Appearance.Options.UseFont = true;
             this.sbSave.Appearance.Options.UseForeColor = true;
-            this.sbSave.Appearance.Options.UseImage = true;
             this.sbSave.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
             this.sbSave.AppearanceHovered.Options.UseBackColor = true;
             this.sbSave.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
@@ -111,20 +111,22 @@
             this.sbSave.AppearancePressed.Options.UseBackColor = true;
             this.sbSave.AppearancePressed.Options.UseFont = true;
             this.sbSave.AppearancePressed.Options.UseImage = true;
+            this.sbSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbSave.BackgroundImage")));
+            this.sbSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.sbSave.Location = new System.Drawing.Point(725, 484);
-            this.sbSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.sbSave.Location = new System.Drawing.Point(731, 701);
+            this.sbSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.sbSave.Name = "sbSave";
             this.sbSave.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.sbSave.Size = new System.Drawing.Size(78, 28);
+            this.sbSave.Size = new System.Drawing.Size(84, 34);
             this.sbSave.TabIndex = 86;
             this.sbSave.Text = "保存";
             // 
             // meTips
             // 
             this.meTips.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.meTips.Location = new System.Drawing.Point(368, 229);
-            this.meTips.Margin = new System.Windows.Forms.Padding(3, 3, 209, 3);
+            this.meTips.Location = new System.Drawing.Point(374, 391);
+            this.meTips.Margin = new System.Windows.Forms.Padding(3, 4, 209, 4);
             this.meTips.Name = "meTips";
             this.meTips.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.meTips.Properties.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -132,7 +134,7 @@
             this.meTips.Properties.Appearance.Options.UseFont = true;
             this.meTips.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.meTips.Properties.MaxLength = 1000;
-            this.meTips.Size = new System.Drawing.Size(619, 226);
+            this.meTips.Size = new System.Drawing.Size(619, 274);
             this.meTips.TabIndex = 85;
             // 
             // lcTips
@@ -145,9 +147,10 @@
             this.lcTips.Appearance.Options.UseTextOptions = true;
             this.lcTips.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lcTips.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lcTips.Location = new System.Drawing.Point(252, 215);
+            this.lcTips.Location = new System.Drawing.Point(258, 374);
+            this.lcTips.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcTips.Name = "lcTips";
-            this.lcTips.Size = new System.Drawing.Size(107, 23);
+            this.lcTips.Size = new System.Drawing.Size(107, 28);
             this.lcTips.TabIndex = 84;
             this.lcTips.Text = "备注：";
             // 
@@ -161,16 +164,18 @@
             this.lcDetailedAddress.Appearance.Options.UseTextOptions = true;
             this.lcDetailedAddress.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lcDetailedAddress.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lcDetailedAddress.Location = new System.Drawing.Point(219, 186);
+            this.lcDetailedAddress.Location = new System.Drawing.Point(225, 339);
+            this.lcDetailedAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcDetailedAddress.Name = "lcDetailedAddress";
-            this.lcDetailedAddress.Size = new System.Drawing.Size(144, 23);
+            this.lcDetailedAddress.Size = new System.Drawing.Size(144, 28);
             this.lcDetailedAddress.TabIndex = 82;
             this.lcDetailedAddress.Text = "详细地址：";
             // 
             // teDetialedAddress
             // 
             this.teDetialedAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teDetialedAddress.Location = new System.Drawing.Point(368, 183);
+            this.teDetialedAddress.Location = new System.Drawing.Point(374, 335);
+            this.teDetialedAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.teDetialedAddress.Name = "teDetialedAddress";
             this.teDetialedAddress.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teDetialedAddress.Properties.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -178,7 +183,7 @@
             this.teDetialedAddress.Properties.Appearance.Options.UseFont = true;
             this.teDetialedAddress.Properties.AutoHeight = false;
             this.teDetialedAddress.Properties.MaxLength = 100;
-            this.teDetialedAddress.Size = new System.Drawing.Size(619, 28);
+            this.teDetialedAddress.Size = new System.Drawing.Size(619, 34);
             this.teDetialedAddress.TabIndex = 83;
             // 
             // lcSSlope
@@ -191,23 +196,25 @@
             this.lcSSlope.Appearance.Options.UseTextOptions = true;
             this.lcSSlope.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lcSSlope.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lcSSlope.Location = new System.Drawing.Point(630, 80);
+            this.lcSSlope.Location = new System.Drawing.Point(636, 210);
+            this.lcSSlope.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcSSlope.Name = "lcSSlope";
-            this.lcSSlope.Size = new System.Drawing.Size(98, 23);
+            this.lcSSlope.Size = new System.Drawing.Size(98, 28);
             this.lcSSlope.TabIndex = 80;
             this.lcSSlope.Text = "坡度(°):";
             // 
             // teSlope
             // 
             this.teSlope.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teSlope.Location = new System.Drawing.Point(743, 75);
+            this.teSlope.Location = new System.Drawing.Point(749, 204);
+            this.teSlope.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.teSlope.Name = "teSlope";
             this.teSlope.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teSlope.Properties.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.teSlope.Properties.Appearance.Options.UseBackColor = true;
             this.teSlope.Properties.Appearance.Options.UseFont = true;
             this.teSlope.Properties.AutoHeight = false;
-            this.teSlope.Size = new System.Drawing.Size(229, 28);
+            this.teSlope.Size = new System.Drawing.Size(229, 34);
             this.teSlope.TabIndex = 81;
             // 
             // lcLatitude
@@ -220,16 +227,18 @@
             this.lcLatitude.Appearance.Options.UseTextOptions = true;
             this.lcLatitude.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lcLatitude.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lcLatitude.Location = new System.Drawing.Point(273, 83);
+            this.lcLatitude.Location = new System.Drawing.Point(279, 214);
+            this.lcLatitude.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcLatitude.Name = "lcLatitude";
-            this.lcLatitude.Size = new System.Drawing.Size(86, 23);
+            this.lcLatitude.Size = new System.Drawing.Size(86, 28);
             this.lcLatitude.TabIndex = 76;
             this.lcLatitude.Text = "经度(°）:";
             // 
             // teLatitude
             // 
             this.teLatitude.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teLatitude.Location = new System.Drawing.Point(368, 78);
+            this.teLatitude.Location = new System.Drawing.Point(374, 208);
+            this.teLatitude.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.teLatitude.Name = "teLatitude";
             this.teLatitude.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teLatitude.Properties.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -239,7 +248,7 @@
             this.teLatitude.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
             this.teLatitude.Properties.Mask.BeepOnError = true;
             this.teLatitude.Properties.Mask.ShowPlaceHolders = false;
-            this.teLatitude.Size = new System.Drawing.Size(229, 28);
+            this.teLatitude.Size = new System.Drawing.Size(229, 34);
             this.teLatitude.TabIndex = 77;
             // 
             // lcLongitude
@@ -252,16 +261,18 @@
             this.lcLongitude.Appearance.Options.UseTextOptions = true;
             this.lcLongitude.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lcLongitude.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lcLongitude.Location = new System.Drawing.Point(249, 135);
+            this.lcLongitude.Location = new System.Drawing.Point(255, 277);
+            this.lcLongitude.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcLongitude.Name = "lcLongitude";
-            this.lcLongitude.Size = new System.Drawing.Size(110, 23);
+            this.lcLongitude.Size = new System.Drawing.Size(110, 28);
             this.lcLongitude.TabIndex = 74;
             this.lcLongitude.Text = "纬度(°):";
             // 
             // teLangitude
             // 
             this.teLangitude.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teLangitude.Location = new System.Drawing.Point(368, 130);
+            this.teLangitude.Location = new System.Drawing.Point(374, 271);
+            this.teLangitude.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.teLangitude.Name = "teLangitude";
             this.teLangitude.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teLangitude.Properties.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -271,7 +282,7 @@
             this.teLangitude.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
             this.teLangitude.Properties.Mask.BeepOnError = true;
             this.teLangitude.Properties.Mask.ShowPlaceHolders = false;
-            this.teLangitude.Size = new System.Drawing.Size(229, 28);
+            this.teLangitude.Size = new System.Drawing.Size(229, 34);
             this.teLangitude.TabIndex = 75;
             // 
             // lcStationName
@@ -284,16 +295,18 @@
             this.lcStationName.Appearance.Options.UseTextOptions = true;
             this.lcStationName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lcStationName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lcStationName.Location = new System.Drawing.Point(638, 25);
+            this.lcStationName.Location = new System.Drawing.Point(644, 143);
+            this.lcStationName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcStationName.Name = "lcStationName";
-            this.lcStationName.Size = new System.Drawing.Size(90, 23);
+            this.lcStationName.Size = new System.Drawing.Size(90, 28);
             this.lcStationName.TabIndex = 72;
             this.lcStationName.Text = "站点名称:";
             // 
             // teStationName
             // 
             this.teStationName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teStationName.Location = new System.Drawing.Point(743, 18);
+            this.teStationName.Location = new System.Drawing.Point(749, 135);
+            this.teStationName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.teStationName.Name = "teStationName";
             this.teStationName.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teStationName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -302,7 +315,7 @@
             this.teStationName.Properties.AutoHeight = false;
             this.teStationName.Properties.Mask.BeepOnError = true;
             this.teStationName.Properties.Mask.ShowPlaceHolders = false;
-            this.teStationName.Size = new System.Drawing.Size(229, 28);
+            this.teStationName.Size = new System.Drawing.Size(229, 34);
             this.teStationName.TabIndex = 73;
             // 
             // lcID
@@ -315,23 +328,25 @@
             this.lcID.Appearance.Options.UseTextOptions = true;
             this.lcID.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lcID.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lcID.Location = new System.Drawing.Point(231, 23);
+            this.lcID.Location = new System.Drawing.Point(237, 143);
+            this.lcID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcID.Name = "lcID";
-            this.lcID.Size = new System.Drawing.Size(128, 23);
+            this.lcID.Size = new System.Drawing.Size(128, 28);
             this.lcID.TabIndex = 70;
             this.lcID.Text = "编号:";
             // 
             // teID
             // 
             this.teID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teID.Location = new System.Drawing.Point(368, 20);
+            this.teID.Location = new System.Drawing.Point(374, 137);
+            this.teID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.teID.Name = "teID";
             this.teID.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.teID.Properties.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.teID.Properties.Appearance.Options.UseBackColor = true;
             this.teID.Properties.Appearance.Options.UseFont = true;
             this.teID.Properties.AutoHeight = false;
-            this.teID.Size = new System.Drawing.Size(229, 28);
+            this.teID.Size = new System.Drawing.Size(229, 34);
             this.teID.TabIndex = 71;
             // 
             // panelControl1
@@ -355,22 +370,24 @@
             this.panelControl1.Controls.Add(this.teSlope);
             this.panelControl1.Controls.Add(this.lcSSlope);
             this.panelControl1.Controls.Add(this.lcStationName);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(30, 10);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl1.Location = new System.Drawing.Point(30, 15);
             this.panelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1408, 739);
+            this.panelControl1.Size = new System.Drawing.Size(1408, 895);
             this.panelControl1.TabIndex = 88;
             // 
             // ucStationSetting
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
             this.Name = "ucStationSetting";
+            this.Padding = new System.Windows.Forms.Padding(30, 15, 0, 0);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.meTips.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teDetialedAddress.Properties)).EndInit();

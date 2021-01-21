@@ -68,16 +68,18 @@
             this.panelControl1.Controls.Add(this.lcDataBaseBackups);
             this.panelControl1.Controls.Add(this.lcDataBaseRestore);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(35, 12);
+            this.panelControl1.Location = new System.Drawing.Point(35, 15);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1403, 737);
+            this.panelControl1.Size = new System.Drawing.Size(1403, 895);
             this.panelControl1.TabIndex = 37;
             // 
             // rgRunningModel
             // 
             this.rgRunningModel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.rgRunningModel.EditValue = "riFullScreen";
-            this.rgRunningModel.Location = new System.Drawing.Point(516, 366);
+            this.rgRunningModel.Location = new System.Drawing.Point(516, 444);
+            this.rgRunningModel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rgRunningModel.Name = "rgRunningModel";
             this.rgRunningModel.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.rgRunningModel.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,14 +92,15 @@
             this.rgRunningModel.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("riFullScreen", "全屏独占"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("riBackground", "后台模式")});
-            this.rgRunningModel.Size = new System.Drawing.Size(405, 56);
+            this.rgRunningModel.Size = new System.Drawing.Size(405, 68);
             this.rgRunningModel.TabIndex = 43;
             // 
             // ceAddToAutoStart
             // 
             this.ceAddToAutoStart.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ceAddToAutoStart.EditValue = 0;
-            this.ceAddToAutoStart.Location = new System.Drawing.Point(757, 310);
+            this.ceAddToAutoStart.Location = new System.Drawing.Point(757, 376);
+            this.ceAddToAutoStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ceAddToAutoStart.Name = "ceAddToAutoStart";
             this.ceAddToAutoStart.Properties.AllowFocused = false;
             this.ceAddToAutoStart.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -119,11 +122,9 @@
             this.sbConfirmBK.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbConfirmBK.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sbConfirmBK.Appearance.ForeColor = System.Drawing.Color.White;
-            this.sbConfirmBK.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbConfirmBK.Appearance.Image")));
             this.sbConfirmBK.Appearance.Options.UseBackColor = true;
             this.sbConfirmBK.Appearance.Options.UseFont = true;
             this.sbConfirmBK.Appearance.Options.UseForeColor = true;
-            this.sbConfirmBK.Appearance.Options.UseImage = true;
             this.sbConfirmBK.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
             this.sbConfirmBK.AppearanceHovered.Options.UseBackColor = true;
             this.sbConfirmBK.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
@@ -132,12 +133,14 @@
             this.sbConfirmBK.AppearancePressed.Options.UseBackColor = true;
             this.sbConfirmBK.AppearancePressed.Options.UseFont = true;
             this.sbConfirmBK.AppearancePressed.Options.UseImage = true;
+            this.sbConfirmBK.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbConfirmBK.BackgroundImage")));
+            this.sbConfirmBK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbConfirmBK.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.sbConfirmBK.Location = new System.Drawing.Point(723, 225);
-            this.sbConfirmBK.Margin = new System.Windows.Forms.Padding(5);
+            this.sbConfirmBK.Location = new System.Drawing.Point(723, 273);
+            this.sbConfirmBK.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.sbConfirmBK.Name = "sbConfirmBK";
             this.sbConfirmBK.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.sbConfirmBK.Size = new System.Drawing.Size(118, 30);
+            this.sbConfirmBK.Size = new System.Drawing.Size(118, 36);
             this.sbConfirmBK.TabIndex = 41;
             this.sbConfirmBK.Text = "确认";
             // 
@@ -147,11 +150,9 @@
             this.sbConfirmRS.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbConfirmRS.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sbConfirmRS.Appearance.ForeColor = System.Drawing.Color.White;
-            this.sbConfirmRS.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbConfirmRS.Appearance.Image")));
             this.sbConfirmRS.Appearance.Options.UseBackColor = true;
             this.sbConfirmRS.Appearance.Options.UseFont = true;
             this.sbConfirmRS.Appearance.Options.UseForeColor = true;
-            this.sbConfirmRS.Appearance.Options.UseImage = true;
             this.sbConfirmRS.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
             this.sbConfirmRS.AppearanceHovered.Options.UseBackColor = true;
             this.sbConfirmRS.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
@@ -160,12 +161,14 @@
             this.sbConfirmRS.AppearancePressed.Options.UseBackColor = true;
             this.sbConfirmRS.AppearancePressed.Options.UseFont = true;
             this.sbConfirmRS.AppearancePressed.Options.UseImage = true;
+            this.sbConfirmRS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbConfirmRS.BackgroundImage")));
+            this.sbConfirmRS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbConfirmRS.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.sbConfirmRS.Location = new System.Drawing.Point(723, 154);
-            this.sbConfirmRS.Margin = new System.Windows.Forms.Padding(5);
+            this.sbConfirmRS.Location = new System.Drawing.Point(723, 180);
+            this.sbConfirmRS.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.sbConfirmRS.Name = "sbConfirmRS";
             this.sbConfirmRS.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.sbConfirmRS.Size = new System.Drawing.Size(118, 30);
+            this.sbConfirmRS.Size = new System.Drawing.Size(118, 33);
             this.sbConfirmRS.TabIndex = 40;
             this.sbConfirmRS.Text = "确认";
             // 
@@ -181,7 +184,8 @@
             this.lcAddToAutoStart.Appearance.Options.UseImageIndex = true;
             this.lcAddToAutoStart.Appearance.Options.UseImageList = true;
             this.lcAddToAutoStart.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.lcAddToAutoStart.Location = new System.Drawing.Point(510, 303);
+            this.lcAddToAutoStart.Location = new System.Drawing.Point(510, 368);
+            this.lcAddToAutoStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcAddToAutoStart.Name = "lcAddToAutoStart";
             this.lcAddToAutoStart.Size = new System.Drawing.Size(122, 36);
             this.lcAddToAutoStart.TabIndex = 39;
@@ -199,7 +203,8 @@
             this.lcDataBaseBackups.Appearance.Options.UseImageIndex = true;
             this.lcDataBaseBackups.Appearance.Options.UseImageList = true;
             this.lcDataBaseBackups.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.lcDataBaseBackups.Location = new System.Drawing.Point(510, 225);
+            this.lcDataBaseBackups.Location = new System.Drawing.Point(510, 273);
+            this.lcDataBaseBackups.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcDataBaseBackups.Name = "lcDataBaseBackups";
             this.lcDataBaseBackups.Size = new System.Drawing.Size(122, 36);
             this.lcDataBaseBackups.TabIndex = 38;
@@ -217,7 +222,8 @@
             this.lcDataBaseRestore.Appearance.Options.UseImageIndex = true;
             this.lcDataBaseRestore.Appearance.Options.UseImageList = true;
             this.lcDataBaseRestore.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.lcDataBaseRestore.Location = new System.Drawing.Point(510, 148);
+            this.lcDataBaseRestore.Location = new System.Drawing.Point(510, 180);
+            this.lcDataBaseRestore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lcDataBaseRestore.Name = "lcDataBaseRestore";
             this.lcDataBaseRestore.Size = new System.Drawing.Size(122, 36);
             this.lcDataBaseRestore.TabIndex = 37;
@@ -227,11 +233,11 @@
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
             this.Name = "ucAssistManage";
-            this.Padding = new System.Windows.Forms.Padding(35, 12, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(35, 15, 0, 0);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icAssistManage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

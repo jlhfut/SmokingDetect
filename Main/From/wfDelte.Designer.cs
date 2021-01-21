@@ -40,12 +40,10 @@
             // 
             this.sbExit.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbExit.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.sbExit.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.sbExit.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.取消大按下;
+            this.sbExit.Appearance.ForeColor = System.Drawing.Color.White;
             this.sbExit.Appearance.Options.UseBackColor = true;
             this.sbExit.Appearance.Options.UseFont = true;
             this.sbExit.Appearance.Options.UseForeColor = true;
-            this.sbExit.Appearance.Options.UseImage = true;
             this.sbExit.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sbExit.AppearanceDisabled.Font = new System.Drawing.Font("Tahoma", 10F);
             this.sbExit.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -58,10 +56,12 @@
             this.sbExit.AppearanceHovered.Options.UseFont = true;
             this.sbExit.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
             this.sbExit.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.sbExit.AppearancePressed.Image = global::wayeal.os.exhaust.Properties.Resources.取消大;
+            this.sbExit.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbExit.AppearancePressed.Image")));
             this.sbExit.AppearancePressed.Options.UseBackColor = true;
             this.sbExit.AppearancePressed.Options.UseFont = true;
             this.sbExit.AppearancePressed.Options.UseImage = true;
+            this.sbExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbExit.BackgroundImage")));
+            this.sbExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbExit.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.sbExit.Location = new System.Drawing.Point(67, 107);
             this.sbExit.Name = "sbExit";
@@ -76,11 +76,9 @@
             this.sbdelete.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbdelete.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.sbdelete.Appearance.ForeColor = System.Drawing.Color.White;
-            this.sbdelete.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.弹窗上的按钮;
             this.sbdelete.Appearance.Options.UseBackColor = true;
             this.sbdelete.Appearance.Options.UseFont = true;
             this.sbdelete.Appearance.Options.UseForeColor = true;
-            this.sbdelete.Appearance.Options.UseImage = true;
             this.sbdelete.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sbdelete.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.sbdelete.AppearanceDisabled.Options.UseBackColor = true;
@@ -89,10 +87,12 @@
             this.sbdelete.AppearanceHovered.Options.UseBackColor = true;
             this.sbdelete.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
             this.sbdelete.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.sbdelete.AppearancePressed.Image = global::wayeal.os.exhaust.Properties.Resources.弹窗上的按钮按下;
+            this.sbdelete.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbdelete.AppearancePressed.Image")));
             this.sbdelete.AppearancePressed.Options.UseBackColor = true;
             this.sbdelete.AppearancePressed.Options.UseFont = true;
             this.sbdelete.AppearancePressed.Options.UseImage = true;
+            this.sbdelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbdelete.BackgroundImage")));
+            this.sbdelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbdelete.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.sbdelete.Location = new System.Drawing.Point(193, 107);
             this.sbdelete.Name = "sbdelete";

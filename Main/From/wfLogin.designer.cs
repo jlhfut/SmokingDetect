@@ -44,11 +44,9 @@
             this.sbExit.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbExit.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.sbExit.Appearance.ForeColor = System.Drawing.Color.White;
-            this.sbExit.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbExit.Appearance.Image")));
             this.sbExit.Appearance.Options.UseBackColor = true;
             this.sbExit.Appearance.Options.UseFont = true;
             this.sbExit.Appearance.Options.UseForeColor = true;
-            this.sbExit.Appearance.Options.UseImage = true;
             this.sbExit.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sbExit.AppearanceDisabled.Font = new System.Drawing.Font("Tahoma", 10F);
             this.sbExit.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -61,14 +59,14 @@
             this.sbExit.AppearanceHovered.Options.UseFont = true;
             this.sbExit.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
             this.sbExit.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.sbExit.AppearancePressed.Image = global::wayeal.os.exhaust.Properties.Resources.取消大;
+            this.sbExit.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbExit.AppearancePressed.Image")));
             this.sbExit.AppearancePressed.Options.UseBackColor = true;
             this.sbExit.AppearancePressed.Options.UseFont = true;
             this.sbExit.AppearancePressed.Options.UseImage = true;
             this.sbExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbExit.BackgroundImage")));
-            this.sbExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sbExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbExit.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.sbExit.Location = new System.Drawing.Point(135, 171);
+            this.sbExit.Location = new System.Drawing.Point(161, 171);
             this.sbExit.Name = "sbExit";
             this.sbExit.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.sbExit.Size = new System.Drawing.Size(73, 31);
@@ -81,11 +79,9 @@
             this.sbLogin.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.sbLogin.Appearance.ForeColor = System.Drawing.Color.White;
-            this.sbLogin.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("sbLogin.Appearance.Image")));
             this.sbLogin.Appearance.Options.UseBackColor = true;
             this.sbLogin.Appearance.Options.UseFont = true;
             this.sbLogin.Appearance.Options.UseForeColor = true;
-            this.sbLogin.Appearance.Options.UseImage = true;
             this.sbLogin.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sbLogin.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.sbLogin.AppearanceDisabled.Options.UseBackColor = true;
@@ -94,14 +90,14 @@
             this.sbLogin.AppearanceHovered.Options.UseBackColor = true;
             this.sbLogin.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
             this.sbLogin.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.sbLogin.AppearancePressed.Image = global::wayeal.os.exhaust.Properties.Resources.弹窗上的按钮按下;
+            this.sbLogin.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbLogin.AppearancePressed.Image")));
             this.sbLogin.AppearancePressed.Options.UseBackColor = true;
             this.sbLogin.AppearancePressed.Options.UseFont = true;
             this.sbLogin.AppearancePressed.Options.UseImage = true;
             this.sbLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbLogin.BackgroundImage")));
-            this.sbLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.sbLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbLogin.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.sbLogin.Location = new System.Drawing.Point(251, 171);
+            this.sbLogin.Location = new System.Drawing.Point(262, 171);
             this.sbLogin.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.sbLogin.LookAndFeel.UseDefaultLookAndFeel = false;
             this.sbLogin.Name = "sbLogin";
@@ -115,7 +111,7 @@
             // 
             this.tePassword.EditValue = "";
             this.tePassword.EnterMoveNextControl = true;
-            this.tePassword.Location = new System.Drawing.Point(231, 111);
+            this.tePassword.Location = new System.Drawing.Point(196, 111);
             this.tePassword.Name = "tePassword";
             this.tePassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.tePassword.Properties.Appearance.Options.UseFont = true;
@@ -132,7 +128,7 @@
             // 
             this.teName.EditValue = "";
             this.teName.EnterMoveNextControl = true;
-            this.teName.Location = new System.Drawing.Point(231, 73);
+            this.teName.Location = new System.Drawing.Point(196, 73);
             this.teName.Name = "teName";
             this.teName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.teName.Properties.Appearance.Options.UseFont = true;
@@ -153,7 +149,7 @@
             this.lcPassword.Appearance.Options.UseTextOptions = true;
             this.lcPassword.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lcPassword.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lcPassword.Location = new System.Drawing.Point(119, 114);
+            this.lcPassword.Location = new System.Drawing.Point(84, 114);
             this.lcPassword.Name = "lcPassword";
             this.lcPassword.Size = new System.Drawing.Size(106, 16);
             this.lcPassword.TabIndex = 34;
@@ -168,7 +164,7 @@
             this.lcName.Appearance.Options.UseTextOptions = true;
             this.lcName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.lcName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lcName.Location = new System.Drawing.Point(119, 76);
+            this.lcName.Location = new System.Drawing.Point(84, 76);
             this.lcName.Name = "lcName";
             this.lcName.Size = new System.Drawing.Size(106, 16);
             this.lcName.TabIndex = 34;

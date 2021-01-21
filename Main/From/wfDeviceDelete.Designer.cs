@@ -39,7 +39,7 @@
             // btn_cancel
             // 
             this.btn_cancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_cancel.BackgroundImage")));
-            this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_cancel.FlatAppearance.BorderSize = 0;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -55,7 +55,7 @@
             // btn_delete
             // 
             this.btn_delete.BackgroundImage = global::wayeal.os.exhaust.Properties.Resources.状态1__4_;
-            this.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_delete.FlatAppearance.BorderSize = 0;
             this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_delete.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

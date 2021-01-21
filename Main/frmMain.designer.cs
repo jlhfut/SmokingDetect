@@ -448,9 +448,10 @@ namespace wayeal.os.exhaust
             this.menuOperate.Appearance.Options.UseFont = true;
             this.menuOperate.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpHome});
-            this.menuOperate.ImageOptions.Alignment = DevExpress.Utils.HorzAlignment.Center;
+            this.menuOperate.ImageOptions.Alignment = DevExpress.Utils.HorzAlignment.Near;
             this.menuOperate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("menuOperate.ImageOptions.Image")));
             this.menuOperate.Name = "menuOperate";
+            resources.ApplyResources(this.menuOperate, "menuOperate");
             // 
             // rpHome
             // 
@@ -473,9 +474,10 @@ namespace wayeal.os.exhaust
             this.menuSystem.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpSystem,
             this.rpgLog});
-            this.menuSystem.ImageOptions.Alignment = DevExpress.Utils.HorzAlignment.Center;
+            this.menuSystem.ImageOptions.Alignment = DevExpress.Utils.HorzAlignment.Near;
             this.menuSystem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("menuSystem.ImageOptions.Image")));
             this.menuSystem.Name = "menuSystem";
+            resources.ApplyResources(this.menuSystem, "menuSystem");
             this.menuSystem.Visible = false;
             // 
             // rpSystem
@@ -498,9 +500,10 @@ namespace wayeal.os.exhaust
             this.menuStation.Appearance.Options.UseFont = true;
             this.menuStation.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpStation});
-            this.menuStation.ImageOptions.Alignment = DevExpress.Utils.HorzAlignment.Center;
+            this.menuStation.ImageOptions.Alignment = DevExpress.Utils.HorzAlignment.Near;
             this.menuStation.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("menuStation.ImageOptions.Image")));
             this.menuStation.Name = "menuStation";
+            resources.ApplyResources(this.menuStation, "menuStation");
             this.menuStation.Visible = false;
             // 
             // rpStation
@@ -516,9 +519,10 @@ namespace wayeal.os.exhaust
             this.menuHelp.Appearance.Options.UseFont = true;
             this.menuHelp.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpHelp});
-            this.menuHelp.ImageOptions.Alignment = DevExpress.Utils.HorzAlignment.Center;
+            this.menuHelp.ImageOptions.Alignment = DevExpress.Utils.HorzAlignment.Near;
             this.menuHelp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("menuHelp.ImageOptions.Image")));
             this.menuHelp.Name = "menuHelp";
+            resources.ApplyResources(this.menuHelp, "menuHelp");
             this.menuHelp.Visible = false;
             // 
             // rpHelp

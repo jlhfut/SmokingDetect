@@ -72,6 +72,8 @@
             this.lblvcolor = new DevExpress.XtraEditors.LabelControl();
             this.lblvid = new DevExpress.XtraEditors.LabelControl();
             this.lblvstationname = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
@@ -91,6 +93,8 @@
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.panelControl5);
             this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.labelControl2);
+            this.splitContainerControl1.Panel2.Controls.Add(this.labelControl1);
             this.splitContainerControl1.Panel2.Controls.Add(this.button2);
             this.splitContainerControl1.Panel2.Controls.Add(this.button1);
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl2);
@@ -120,7 +124,7 @@
             // 
             this.btnImage1.BackColor = System.Drawing.Color.Transparent;
             this.btnImage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImage1.BackgroundImage")));
-            this.btnImage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnImage1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnImage1.FlatAppearance.BorderSize = 0;
             this.btnImage1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -128,7 +132,7 @@
             this.btnImage1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImage1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.btnImage1.ForeColor = System.Drawing.Color.White;
-            this.btnImage1.Location = new System.Drawing.Point(301, 7);
+            this.btnImage1.Location = new System.Drawing.Point(324, 7);
             this.btnImage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnImage1.Name = "btnImage1";
             this.btnImage1.Size = new System.Drawing.Size(107, 47);
@@ -141,7 +145,7 @@
             // 
             this.btnImage2.BackColor = System.Drawing.Color.Transparent;
             this.btnImage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnImage2.BackgroundImage")));
-            this.btnImage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnImage2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnImage2.FlatAppearance.BorderSize = 0;
             this.btnImage2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -149,7 +153,7 @@
             this.btnImage2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImage2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.btnImage2.ForeColor = System.Drawing.Color.White;
-            this.btnImage2.Location = new System.Drawing.Point(419, 7);
+            this.btnImage2.Location = new System.Drawing.Point(470, 7);
             this.btnImage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnImage2.Name = "btnImage2";
             this.btnImage2.Size = new System.Drawing.Size(107, 47);
@@ -162,7 +166,7 @@
             // 
             this.btnCarHead.BackColor = System.Drawing.Color.Transparent;
             this.btnCarHead.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCarHead.BackgroundImage")));
-            this.btnCarHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCarHead.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnCarHead.FlatAppearance.BorderSize = 0;
             this.btnCarHead.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -170,7 +174,7 @@
             this.btnCarHead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarHead.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.btnCarHead.ForeColor = System.Drawing.Color.White;
-            this.btnCarHead.Location = new System.Drawing.Point(165, 7);
+            this.btnCarHead.Location = new System.Drawing.Point(172, 7);
             this.btnCarHead.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCarHead.Name = "btnCarHead";
             this.btnCarHead.Size = new System.Drawing.Size(111, 47);
@@ -183,7 +187,7 @@
             // 
             this.btncaptureVideo.BackColor = System.Drawing.Color.Transparent;
             this.btncaptureVideo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btncaptureVideo.BackgroundImage")));
-            this.btncaptureVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btncaptureVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btncaptureVideo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btncaptureVideo.FlatAppearance.BorderSize = 0;
             this.btncaptureVideo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -236,7 +240,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(466, 699);
+            this.button1.Location = new System.Drawing.Point(444, 700);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 42);
             this.button1.TabIndex = 2;
@@ -648,6 +652,22 @@
             this.lblvstationname.Size = new System.Drawing.Size(0, 19);
             this.lblvstationname.TabIndex = 11;
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(305, 715);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(36, 17);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "上一条";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(509, 715);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(36, 17);
+            this.labelControl2.TabIndex = 5;
+            this.labelControl2.Text = "下一条";
+            // 
             // wfVehileDetails
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -724,5 +744,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

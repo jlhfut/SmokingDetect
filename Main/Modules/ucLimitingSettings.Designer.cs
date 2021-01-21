@@ -73,9 +73,9 @@
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.btncom_delete = new DevExpress.XtraEditors.SimpleButton();
             this.btncom_save = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbeStationType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teLatitude.Properties)).BeginInit();
@@ -709,22 +709,6 @@
             this.panelControl6.Size = new System.Drawing.Size(1423, 678);
             this.panelControl6.TabIndex = 86;
             // 
-            // panelControl5
-            // 
-            this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl5.Controls.Add(this.lcID);
-            this.panelControl5.Controls.Add(this.cbeStationType);
-            this.panelControl5.Controls.Add(this.panelControl1);
-            this.panelControl5.Controls.Add(this.teLatitude);
-            this.panelControl5.Controls.Add(this.labelControl1);
-            this.panelControl5.Controls.Add(this.lcLatitude);
-            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl5.Location = new System.Drawing.Point(0, 0);
-            this.panelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1423, 211);
-            this.panelControl5.TabIndex = 85;
-            // 
             // btncom_delete
             // 
             this.btncom_delete.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -742,9 +726,9 @@
             this.btncom_delete.AppearancePressed.Options.UseFont = true;
             this.btncom_delete.AppearancePressed.Options.UseImage = true;
             this.btncom_delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btncom_delete.BackgroundImage")));
-            this.btncom_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btncom_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btncom_delete.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btncom_delete.Location = new System.Drawing.Point(609, 385);
+            this.btncom_delete.Location = new System.Drawing.Point(794, 380);
             this.btncom_delete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btncom_delete.Name = "btncom_delete";
             this.btncom_delete.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -769,15 +753,31 @@
             this.btncom_save.AppearancePressed.Options.UseFont = true;
             this.btncom_save.AppearancePressed.Options.UseImage = true;
             this.btncom_save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btncom_save.BackgroundImage")));
-            this.btncom_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btncom_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btncom_save.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btncom_save.Location = new System.Drawing.Point(700, 385);
+            this.btncom_save.Location = new System.Drawing.Point(618, 380);
             this.btncom_save.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btncom_save.Name = "btncom_save";
             this.btncom_save.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btncom_save.Size = new System.Drawing.Size(83, 39);
             this.btncom_save.TabIndex = 84;
             this.btncom_save.Text = "取消";
+            // 
+            // panelControl5
+            // 
+            this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl5.Controls.Add(this.lcID);
+            this.panelControl5.Controls.Add(this.cbeStationType);
+            this.panelControl5.Controls.Add(this.panelControl1);
+            this.panelControl5.Controls.Add(this.teLatitude);
+            this.panelControl5.Controls.Add(this.labelControl1);
+            this.panelControl5.Controls.Add(this.lcLatitude);
+            this.panelControl5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl5.Location = new System.Drawing.Point(0, 0);
+            this.panelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelControl5.Name = "panelControl5";
+            this.panelControl5.Size = new System.Drawing.Size(1423, 211);
+            this.panelControl5.TabIndex = 85;
             // 
             // ucLimitingSettings
             // 

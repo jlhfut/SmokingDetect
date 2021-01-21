@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wfAddCommunication));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wfAddCommunication));
             this.sbCancel = new DevExpress.XtraEditors.SimpleButton();
             this.sbConfirm = new DevExpress.XtraEditors.SimpleButton();
             this.lcPermission = new DevExpress.XtraEditors.LabelControl();
@@ -49,12 +49,10 @@
             this.sbCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sbCancel.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.sbCancel.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.sbCancel.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.取消大按下;
+            this.sbCancel.Appearance.ForeColor = System.Drawing.Color.White;
             this.sbCancel.Appearance.Options.UseBackColor = true;
             this.sbCancel.Appearance.Options.UseFont = true;
             this.sbCancel.Appearance.Options.UseForeColor = true;
-            this.sbCancel.Appearance.Options.UseImage = true;
             this.sbCancel.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sbCancel.AppearanceDisabled.Font = new System.Drawing.Font("Tahoma", 10F);
             this.sbCancel.AppearanceDisabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -67,12 +65,14 @@
             this.sbCancel.AppearanceHovered.Options.UseFont = true;
             this.sbCancel.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
             this.sbCancel.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.sbCancel.AppearancePressed.Image = global::wayeal.os.exhaust.Properties.Resources.取消大;
+            this.sbCancel.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbCancel.AppearancePressed.Image")));
             this.sbCancel.AppearancePressed.Options.UseBackColor = true;
             this.sbCancel.AppearancePressed.Options.UseFont = true;
             this.sbCancel.AppearancePressed.Options.UseImage = true;
+            this.sbCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbCancel.BackgroundImage")));
+            this.sbCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbCancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.sbCancel.Location = new System.Drawing.Point(231, 208);
+            this.sbCancel.Location = new System.Drawing.Point(222, 208);
             this.sbCancel.Name = "sbCancel";
             this.sbCancel.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.sbCancel.Size = new System.Drawing.Size(93, 28);
@@ -86,19 +86,19 @@
             this.sbConfirm.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.sbConfirm.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.sbConfirm.Appearance.ForeColor = System.Drawing.Color.White;
-            this.sbConfirm.Appearance.Image = global::wayeal.os.exhaust.Properties.Resources.弹窗上的按钮;
             this.sbConfirm.Appearance.Options.UseBackColor = true;
             this.sbConfirm.Appearance.Options.UseFont = true;
             this.sbConfirm.Appearance.Options.UseForeColor = true;
-            this.sbConfirm.Appearance.Options.UseImage = true;
             this.sbConfirm.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(121)))), ((int)(((byte)(183)))));
             this.sbConfirm.AppearanceHovered.Options.UseBackColor = true;
             this.sbConfirm.AppearancePressed.BackColor = System.Drawing.Color.Transparent;
             this.sbConfirm.AppearancePressed.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.sbConfirm.AppearancePressed.Image = global::wayeal.os.exhaust.Properties.Resources.弹窗上的按钮按下;
+            this.sbConfirm.AppearancePressed.Image = ((System.Drawing.Image)(resources.GetObject("sbConfirm.AppearancePressed.Image")));
             this.sbConfirm.AppearancePressed.Options.UseBackColor = true;
             this.sbConfirm.AppearancePressed.Options.UseFont = true;
             this.sbConfirm.AppearancePressed.Options.UseImage = true;
+            this.sbConfirm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbConfirm.BackgroundImage")));
+            this.sbConfirm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbConfirm.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.sbConfirm.Location = new System.Drawing.Point(333, 208);
             this.sbConfirm.Margin = new System.Windows.Forms.Padding(6);

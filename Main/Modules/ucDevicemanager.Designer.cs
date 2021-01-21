@@ -47,6 +47,7 @@
             this.ilbcConnectList = new DevExpress.XtraEditors.ImageListBoxControl();
             this.imageCollection2 = new DevExpress.Utils.ImageCollection(this.components);
             this.pTcp = new DevExpress.XtraEditors.PanelControl();
+            this.rgRunningModel = new DevExpress.XtraEditors.RadioGroup();
             this.sbtn_tcpSave = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_tcpDelete = new DevExpress.XtraEditors.SimpleButton();
             this.txtIP = new DevExpress.XtraEditors.TextEdit();
@@ -117,7 +118,6 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.spellChecker1 = new DevExpress.XtraSpellChecker.SpellChecker(this.components);
-            this.rgRunningModel = new DevExpress.XtraEditors.RadioGroup();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtcDevice)).BeginInit();
             this.xtcDevice.SuspendLayout();
@@ -132,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pTcp)).BeginInit();
             this.pTcp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgRunningModel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPort.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxConnectType.Properties)).BeginInit();
@@ -167,7 +168,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rgRunningModel.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtcDevice
@@ -320,6 +320,34 @@
             this.pTcp.Size = new System.Drawing.Size(1218, 333);
             this.pTcp.TabIndex = 46;
             // 
+            // rgRunningModel
+            // 
+            this.rgRunningModel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rgRunningModel.EditValue = "riClient";
+            this.rgRunningModel.Location = new System.Drawing.Point(358, 218);
+            this.rgRunningModel.Name = "rgRunningModel";
+            this.rgRunningModel.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rgRunningModel.Properties.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
+            this.rgRunningModel.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.rgRunningModel.Properties.Appearance.Options.UseBackColor = true;
+            this.rgRunningModel.Properties.Appearance.Options.UseFont = true;
+            this.rgRunningModel.Properties.Appearance.Options.UseForeColor = true;
+            this.rgRunningModel.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rgRunningModel.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.rgRunningModel.Properties.AppearanceDisabled.Options.UseBackColor = true;
+            this.rgRunningModel.Properties.AppearanceDisabled.Options.UseForeColor = true;
+            this.rgRunningModel.Properties.AppearanceFocused.BackColor = System.Drawing.Color.DodgerBlue;
+            this.rgRunningModel.Properties.AppearanceFocused.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
+            this.rgRunningModel.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.rgRunningModel.Properties.AppearanceFocused.Options.UseFont = true;
+            this.rgRunningModel.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rgRunningModel.Properties.Columns = 2;
+            this.rgRunningModel.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("riClient", "客户端"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("riServer", "服务端")});
+            this.rgRunningModel.Size = new System.Drawing.Size(355, 34);
+            this.rgRunningModel.TabIndex = 52;
+            // 
             // sbtn_tcpSave
             // 
             this.sbtn_tcpSave.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -337,7 +365,7 @@
             this.sbtn_tcpSave.AppearancePressed.Options.UseFont = true;
             this.sbtn_tcpSave.AppearancePressed.Options.UseImage = true;
             this.sbtn_tcpSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbtn_tcpSave.BackgroundImage")));
-            this.sbtn_tcpSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.sbtn_tcpSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbtn_tcpSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.sbtn_tcpSave.Location = new System.Drawing.Point(385, 260);
             this.sbtn_tcpSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -365,7 +393,7 @@
             this.sbtn_tcpDelete.AppearancePressed.Options.UseFont = true;
             this.sbtn_tcpDelete.AppearancePressed.Options.UseImage = true;
             this.sbtn_tcpDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sbtn_tcpDelete.BackgroundImage")));
-            this.sbtn_tcpDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.sbtn_tcpDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.sbtn_tcpDelete.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.sbtn_tcpDelete.Location = new System.Drawing.Point(504, 260);
             this.sbtn_tcpDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -510,7 +538,7 @@
             this.btncom_delete.AppearancePressed.Options.UseFont = true;
             this.btncom_delete.AppearancePressed.Options.UseImage = true;
             this.btncom_delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btncom_delete.BackgroundImage")));
-            this.btncom_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btncom_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btncom_delete.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btncom_delete.Location = new System.Drawing.Point(351, 424);
             this.btncom_delete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -538,9 +566,9 @@
             this.btncom_save.AppearancePressed.Options.UseFont = true;
             this.btncom_save.AppearancePressed.Options.UseImage = true;
             this.btncom_save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btncom_save.BackgroundImage")));
-            this.btncom_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btncom_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btncom_save.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btncom_save.Location = new System.Drawing.Point(446, 424);
+            this.btncom_save.Location = new System.Drawing.Point(455, 424);
             this.btncom_save.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btncom_save.Name = "btncom_save";
             this.btncom_save.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -1278,34 +1306,6 @@
             this.spellChecker1.Culture = new System.Globalization.CultureInfo("zh-CN");
             this.spellChecker1.ParentContainer = null;
             // 
-            // rgRunningModel
-            // 
-            this.rgRunningModel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.rgRunningModel.EditValue = "riClient";
-            this.rgRunningModel.Location = new System.Drawing.Point(358, 218);
-            this.rgRunningModel.Name = "rgRunningModel";
-            this.rgRunningModel.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.rgRunningModel.Properties.Appearance.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
-            this.rgRunningModel.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.rgRunningModel.Properties.Appearance.Options.UseBackColor = true;
-            this.rgRunningModel.Properties.Appearance.Options.UseFont = true;
-            this.rgRunningModel.Properties.Appearance.Options.UseForeColor = true;
-            this.rgRunningModel.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.DodgerBlue;
-            this.rgRunningModel.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.rgRunningModel.Properties.AppearanceDisabled.Options.UseBackColor = true;
-            this.rgRunningModel.Properties.AppearanceDisabled.Options.UseForeColor = true;
-            this.rgRunningModel.Properties.AppearanceFocused.BackColor = System.Drawing.Color.DodgerBlue;
-            this.rgRunningModel.Properties.AppearanceFocused.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
-            this.rgRunningModel.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.rgRunningModel.Properties.AppearanceFocused.Options.UseFont = true;
-            this.rgRunningModel.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.rgRunningModel.Properties.Columns = 2;
-            this.rgRunningModel.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("riClient", "客户端"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("riServer", "服务端")});
-            this.rgRunningModel.Size = new System.Drawing.Size(355, 34);
-            this.rgRunningModel.TabIndex = 52;
-            // 
             // ucDevicemanager
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -1331,6 +1331,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pTcp)).EndInit();
             this.pTcp.ResumeLayout(false);
             this.pTcp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgRunningModel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPort.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbxConnectType.Properties)).EndInit();
@@ -1370,7 +1371,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rgRunningModel.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
